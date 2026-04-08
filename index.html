@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategy West Planning | Private Financial Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #111010;
+      --charcoal:   #1a1917;
+      --gold:       #b89b6e;
+      --gold-light: #d4b98a;
+      --cream:      #f5f2ed;
+      --warm-white: #faf8f5;
+      --gray-mid:   #8a8580;
+      --gray-light: #e8e4de;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--black);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(17, 16, 16, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 155, 110, 0.15);
+      padding: 0 48px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      filter: invert(1) brightness(1.8) sepia(0.3) hue-rotate(0deg);
+      opacity: 0.9;
+    }
+
+    .nav-logo-text {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.3;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-center a,
+    .nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.25s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .nav-center a:hover,
+    .nav-dropdown-trigger:hover { color: var(--gold-light); }
+
+    /* Resources dropdown */
+    .nav-item-resources {
+      position: relative;
+    }
+
+    .nav-item-resources:hover .resources-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+    .resources-dropdown {
+      position: absolute;
+      top: calc(100% + 24px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+    }
+
+    .resources-dropdown a {
+      display: block;
+      padding: 14px 20px;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .resources-dropdown a:last-child { border-bottom: none; }
+    .resources-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+
+    /* CTA + consult dropdown */
+    .nav-cta-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 11px 22px;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .nav-cta svg { width: 10px; height: 10px; transition: transform 0.2s; }
+    .nav-cta-wrap.open .nav-cta svg { transform: rotate(180deg); }
+
+    .consult-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 280px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: all 0.22s ease;
+      z-index: 999;
+    }
+
+    .consult-dropdown.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+    .consult-dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .consult-dropdown a:last-child { border-bottom: none; }
+    .consult-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .consult-dropdown a span { font-size: 14px; opacity: 0.4; }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav menu */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(17, 16, 16, 0.98);
+      border-top: 1px solid rgba(184,155,110,0.12);
+      border-bottom: 1px solid rgba(184,155,110,0.12);
+      flex-direction: column;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a,
+    .mobile-nav-resources-trigger {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover,
+    .mobile-nav-resources-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
+
+    .mobile-nav-sub {
+      display: none;
+      flex-direction: column;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .mobile-nav-sub.open { display: flex; }
+
+    .mobile-nav-sub a {
+      padding-left: 40px;
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.42);
+    }
+
+    .mobile-resources-chevron {
+      font-size: 9px;
+      opacity: 0.5;
+      transition: transform 0.2s;
+    }
+
+    .mobile-nav-resources-trigger.open .mobile-resources-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 48px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grain texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* Decorative gold line */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 72px;
+      background: linear-gradient(to bottom, rgba(184,155,110,0.6), transparent);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--cream);
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.9s ease 0.12s both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(245,242,237,0.55);
+      max-width: 520px;
+      margin: 0 auto 52px;
+      animation: fadeUp 0.9s ease 0.22s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease 0.32s both;
+    }
+
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    .btn-ghost {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(245,242,237,0.65);
+      padding: 16px 36px;
+      text-decoration: none;
+      border: 1px solid rgba(245,242,237,0.2);
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    /* ─── INTRO / PHILOSOPHY ────────────────────────────────── */
+    .intro {
+      background: var(--warm-white);
+      padding: 112px 48px;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-line {
+      width: 1px;
+      flex-shrink: 0;
+      height: 120px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .intro-text {
+      max-width: 760px;
+    }
+
+    .intro-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .intro-text h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .intro-text p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #5a5550;
+    }
+
+    /* ─── SERVICES ───────────────────────────────────────────── */
+    .services-section {
+      background: var(--cream);
+      padding: 100px 48px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--warm-white);
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: #fff; }
+    .service-card:hover::after { width: 100%; }
+
+    .service-number {
+      font-family: var(--serif);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #6b6560;
+      flex-grow: 1;
+    }
+
+    .service-link {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .service-link::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .service-card:hover .service-link::after { transform: translateX(4px); }
+
+    /* ─── PILLARS ─────────────────────────────────────────────── */
+    .pillars {
+      background: var(--charcoal);
+      padding: 112px 48px;
+    }
+
+    .pillars-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .pillars .section-label { color: var(--gold); }
+    .pillars .section-title { color: var(--cream); margin-bottom: 72px; }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pillar {
+      padding: 52px 44px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pillar:last-child { border-right: none; }
+
+    .pillar-icon {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .pillar h4 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .pillar p {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: rgba(245,242,237,0.45);
+    }
+
+    /* ─── APPROACH STRIP ─────────────────────────────────────── */
+    .approach {
+      background: var(--warm-white);
+      padding: 112px 48px;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .approach-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.5vw, 46px);
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: 32px;
+    }
+
+    .approach-left h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .approach-left p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: #5a5550;
+      margin-bottom: 20px;
+    }
+
+    .approach-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .approach-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .approach-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .approach-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 40px;
+    }
+
+    .approach-item-text h5 {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .approach-item-text p {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: #7a7570;
+    }
+
+    /* ─── FULL-WIDTH CTA ─────────────────────────────────────── */
+    .cta-section {
+      background: var(--black);
+      padding: 120px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(184,155,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .section-label { color: var(--gold); margin-bottom: 20px; }
+
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.15;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .cta-section p {
+      font-size: 15px;
+      color: rgba(245,242,237,0.45);
+      max-width: 480px;
+      margin: 0 auto 52px;
+      line-height: 1.75;
+    }
+
+    .cta-consult-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-consult-item {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,242,237,0.6);
+      padding: 14px 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+
+    .cta-consult-item:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(184,155,110,0.05);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 48px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand img {
+      height: 38px;
+      filter: invert(1) brightness(1.6) sepia(0.2);
+      opacity: 0.7;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-col h6 {
+      font-family: var(--sans);
+      font-size: 9.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 12px;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      text-decoration: none;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .nav-center { gap: 22px; }
+
+      .intro { gap: 40px; }
+
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .pillar:last-child { border-bottom: none; }
+
+      .approach {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 80px 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+
+      .nav-center { display: none; }
+
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 120px 24px 80px; }
+
+      .intro {
+        flex-direction: column;
+        gap: 32px;
+        padding: 72px 24px;
+      }
+
+      .intro-line {
+        width: 40px;
+        height: 1px;
+      }
+
+      .services-section,
+      .pillars,
+      .cta-section,
+      footer { padding-left: 24px; padding-right: 24px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .service-card { padding: 40px 32px; }
+
+      .approach { padding: 72px 24px; }
+
+      .footer-nav { flex-direction: column; gap: 32px; }
+
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+      <span class="nav-logo-text">Strategy West<br>Planning</span>
+    </a>
+
+    <div class="nav-center">
+      <a href="cash-flow-banking.html">Cash Flow Banking</a>
+      <a href="college-planning.html">College Planning</a>
+      <a href="disability-planning.html">Disability Planning</a>
+      <a href="retirement-estate.html">Retirement &amp; Estate</a>
+      <div class="nav-item-resources">
+        <button class="nav-dropdown-trigger">Resources ▾</button>
+        <div class="resources-dropdown">
+          <a href="blogs.html">Blogs</a>
+          <a href="articles.html">Articles</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-cta-wrap" id="consultWrap">
+      <button class="nav-cta" id="consultBtn">
+        Schedule a Consultation
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="consult-dropdown" id="consultDropdown">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+        <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+      </div>
+    </div>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="cash-flow-banking.html">Cash Flow Banking</a>
+    <a href="college-planning.html">College Planning</a>
+    <a href="disability-planning.html">Disability Planning</a>
+    <a href="retirement-estate.html">Retirement &amp; Estate</a>
+    <button class="mobile-nav-resources-trigger" id="mobileResourcesBtn">
+      Resources <span class="mobile-resources-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileResourcesSub">
+      <a href="blogs.html">Blogs</a>
+      <a href="articles.html">Articles</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <p class="hero-eyebrow">Strategy West Planning</p>
+    <h1 class="hero-title">
+      Precision Strategy<br>for <em>Lasting</em> Financial Clarity
+    </h1>
+    <p class="hero-sub">
+      We work with individuals and families who are serious about building long-term financial structures — not chasing short-term returns.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#approach" class="btn-ghost">How We Work</a>
+    </div>
+  </section>
+
+  <!-- ─── INTRO / PHILOSOPHY ─── -->
+  <section style="background: var(--warm-white); padding: 0 0;">
+    <div class="intro">
+      <div class="intro-line"></div>
+      <div class="intro-text">
+        <p class="intro-label">Our Philosophy</p>
+        <h2>Financial clarity is not a product.<br>It is a practice.</h2>
+        <p>
+          At Strategy West Planning, we believe that sound financial decisions begin with honest conversation and a deep understanding of where you stand. We do not offer generic solutions. We design strategies that align with your goals, your timeline, and your life — and we stand behind them with consistent guidance over time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Four Areas of Strategic Focus</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Cash Flow Banking -->
+      <a href="cash-flow-banking.html" class="service-card">
+        <span class="service-number">01</span>
+        <h3>Cash Flow Banking</h3>
+        <p>
+          A capital strategy built around liquidity, long-term control, and financial independence. Designed for those who want their capital working — not sitting.
+        </p>
+        <span class="service-link">Learn More</span>
+      </a>
+
+      <!-- College Planning -->
+      <a href="college-planning.html" class="service-card">
+        <span class="service-number">02</span>
+        <h3>College Planning</h3>
+        <p>
+          Strategic college funding that protects your family's financial position while navigating tuition, aid eligibility, and institutional structure with confidence.
+        </p>
+        <span class="service-link">Learn More</span>
+      </a>
+
+      <!-- Disability Planning -->
+      <a href="disability-planning.html" class="service-card">
+        <span class="service-number">03</span>
+        <h3>Disability Planning</h3>
+        <p>
+          Specialized planning for families with dependents who require lifelong care. We help structure financial systems that ensure continuity, protection, and long-term support — regardless of what happens to the primary caregiver.
+        </p>
+        <span class="service-link">Learn More</span>
+      </a>
+
+      <!-- Retirement & Estate -->
+      <a href="retirement-estate.html" class="service-card">
+        <span class="service-number">04</span>
+        <h3>Retirement &amp; Estate Planning</h3>
+        <p>
+          Structured income strategies, asset distribution, and legacy preservation — built around the life you've worked to create and the people you care about.
+        </p>
+        <span class="service-link">Learn More</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── PILLARS ─── -->
+  <section class="pillars">
+    <div class="pillars-inner">
+      <div class="section-header" style="text-align: left; margin-bottom: 72px;">
+        <p class="section-label">Why Strategy West</p>
+        <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-icon"></div>
+          <h4>Clarity First</h4>
+          <p>Every recommendation begins with a clear picture of your current position. No assumptions. No shortcuts. We start with truth and build from there.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"></div>
+          <h4>Long-Term Alignment</h4>
+          <p>We design for decades, not quarters. Our strategies are built to grow with you, adapt with you, and remain relevant through every stage of your financial life.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"></div>
+          <h4>Straightforward Guidance</h4>
+          <p>We communicate clearly and plainly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish — at every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── APPROACH ─── -->
+  <section style="background: var(--warm-white);">
+    <div class="approach" id="approach">
+      <div class="approach-left">
+        <h2>Strategy is a process,<br>not a <em>single decision.</em></h2>
+        <p>Our work begins the moment you decide that your financial life deserves more than a standard plan. From the first conversation to ongoing strategy reviews, we are present, deliberate, and consistent.</p>
+        <p>We do not hand you a document and disappear. We build a relationship around your financial future.</p>
+      </div>
+
+      <div class="approach-right">
+        <div class="approach-item">
+          <span class="approach-num">1</span>
+          <div class="approach-item-text">
+            <h5>Discovery Consultation</h5>
+            <p>We begin by listening — understanding your goals, current structure, and what you want your financial life to look like in the long term.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <span class="approach-num">2</span>
+          <div class="approach-item-text">
+            <h5>Strategy Design</h5>
+            <p>We develop a clear, personalized plan — tailored to your specific situation and presented in a way you can fully understand and trust.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <span class="approach-num">3</span>
+          <div class="approach-item-text">
+            <h5>Implementation &amp; Ongoing Review</h5>
+            <p>We put the strategy in motion and remain engaged — adjusting as your life evolves and ensuring your plan continues to serve you well.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta-section">
+    <p class="section-label">Take the First Step</p>
+    <h2>Your Financial Future<br>Deserves <em>Intentional</em> Strategy</h2>
+    <p>Begin with a no-pressure consultation in the area most relevant to your situation.</p>
+
+    <div class="cta-consult-grid">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Cash Flow Banking Consultation</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="cta-consult-item" target="_blank" rel="noopener noreferrer">College Planning Consultation</a>
+      <a href="https://caringtide.com/free-consultation-2/" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Disability Planning Consultation</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning Consultation</a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+        <p>Strategy West Planning</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h6>Services</h6>
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Resources</h6>
+          <a href="blogs.html">Blogs</a>
+          <a href="articles.html">Articles</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Consultations</h6>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+          <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+      <p>Designed for those who plan with purpose.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Consultation dropdown toggle ──────────────────────────
+    const consultBtn  = document.getElementById('consultBtn');
+    const consultWrap = document.getElementById('consultWrap');
+    const consultDD   = document.getElementById('consultDropdown');
+
+    consultBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrap.classList.toggle('open');
+      consultDD.classList.toggle('open', isOpen);
+    });
+
+    document.addEventListener('click', () => {
+      consultWrap.classList.remove('open');
+      consultDD.classList.remove('open');
+    });
+
+    consultDD.addEventListener('click', e => e.stopPropagation());
+
+    // ── Mobile hamburger toggle ───────────────────────────────
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && e.target !== hamburger) {
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    // Close mobile nav when a link inside is clicked
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // ── Mobile Resources sub-menu toggle ─────────────────────
+    const mobileResourcesBtn = document.getElementById('mobileResourcesBtn');
+    const mobileResourcesSub = document.getElementById('mobileResourcesSub');
+
+    mobileResourcesBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileResourcesBtn.classList.toggle('open');
+      mobileResourcesSub.classList.toggle('open');
+    });
+
+    // ── Desktop Resources dropdown: click on mobile/tablet ───
+    const resourcesItem    = document.querySelector('.nav-item-resources');
+    const resourcesTrigger = resourcesItem.querySelector('.nav-dropdown-trigger');
+    const resourcesDD      = resourcesItem.querySelector('.resources-dropdown');
+
+    function isMobile() { return window.innerWidth <= 768; }
+
+    resourcesTrigger.addEventListener('click', (e) => {
+      if (!isMobile()) return; // hover handles it on desktop
+      e.stopPropagation();
+      const isOpen = resourcesDD.style.opacity === '1';
+      resourcesDD.style.opacity      = isOpen ? '0'    : '1';
+      resourcesDD.style.pointerEvents = isOpen ? 'none' : 'all';
+      resourcesDD.style.transform    = isOpen
+        ? 'translateX(-50%) translateY(-6px)'
+        : 'translateX(-50%) translateY(0)';
+    });
+
+    document.addEventListener('click', () => {
+      if (isMobile()) {
+        resourcesDD.style.opacity       = '0';
+        resourcesDD.style.pointerEvents = 'none';
+        resourcesDD.style.transform     = 'translateX(-50%) translateY(-6px)';
+      }
+    });
+
+    // ── Active nav link highlight ─────────────────────────────
+    const navLinks = document.querySelectorAll('.nav-center a');
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.style.color = 'var(--gold-light)';
+      }
+    });
+  </script>
+
+</body>
+</html>
