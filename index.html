@@ -740,9 +740,75 @@
 
     .cta-consult-item:hover {
       border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(184,155,110,0.08);
+      color: var(--gold-light);
+      background: rgba(184,155,110,0.05);
     }
+
+    .cta-section-btn-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cta-section-btn {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 18px 38px;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cta-section-btn:hover { background: var(--gold-light); }
+
+    .cta-section-btn svg { width: 11px; height: 11px; transition: transform 0.2s; }
+    .cta-section-btn-wrap.open .cta-section-btn svg { transform: rotate(180deg); }
+
+    .cta-section-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 320px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+      z-index: 50;
+    }
+
+    .cta-section-dropdown.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .cta-section-dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .cta-section-dropdown a:last-child { border-bottom: none; }
+    .cta-section-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .cta-section-dropdown a span { font-size: 14px; opacity: 0.4; }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -1103,11 +1169,19 @@
     <h2>Your Financial Future<br>Deserves <em>Intentional</em> Strategy</h2>
     <p>Begin with a no-pressure consultation in the area most relevant to your situation.</p>
 
-    <div class="cta-consult-grid">
-      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Cash Flow Banking Consultation</a>
-      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="cta-consult-item" target="_blank" rel="noopener noreferrer">College Planning Consultation</a>
-      <a href="https://caringtide.com/free-consultation-2/" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Disability Planning Consultation</a>
-      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="cta-consult-item" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning Consultation</a>
+    <div class="cta-section-btn-wrap" id="consultWrapSection">
+      <button class="cta-section-btn" id="consultBtnSection">
+        Schedule a Consultation
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="cta-section-dropdown" id="consultDropdownSection">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+        <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+      </div>
     </div>
   </section>
 
@@ -1152,23 +1226,42 @@
   </footer>
 
   <script>
-    // ── Consultation dropdown toggle ──────────────────────────
+    // ── Consultation dropdown toggles (nav + section CTA) ─────
     const consultBtn  = document.getElementById('consultBtn');
     const consultWrap = document.getElementById('consultWrap');
     const consultDD   = document.getElementById('consultDropdown');
+
+    const consultBtnSection  = document.getElementById('consultBtnSection');
+    const consultWrapSection = document.getElementById('consultWrapSection');
+    const consultDDSection   = document.getElementById('consultDropdownSection');
 
     consultBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = consultWrap.classList.toggle('open');
       consultDD.classList.toggle('open', isOpen);
+      // Close section CTA if it's open
+      consultWrapSection.classList.remove('open');
+      consultDDSection.classList.remove('open');
+    });
+
+    consultBtnSection.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrapSection.classList.toggle('open');
+      consultDDSection.classList.toggle('open', isOpen);
+      // Close nav CTA if it's open
+      consultWrap.classList.remove('open');
+      consultDD.classList.remove('open');
     });
 
     document.addEventListener('click', () => {
       consultWrap.classList.remove('open');
       consultDD.classList.remove('open');
+      consultWrapSection.classList.remove('open');
+      consultDDSection.classList.remove('open');
     });
 
     consultDD.addEventListener('click', e => e.stopPropagation());
+    consultDDSection.addEventListener('click', e => e.stopPropagation());
 
     // ── Mobile hamburger toggle ───────────────────────────────
     const hamburger = document.getElementById('navHamburger');
