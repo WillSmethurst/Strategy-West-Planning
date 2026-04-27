@@ -103,13 +103,13 @@
     .nav-dropdown-trigger:hover { color: var(--gold-light); }
 
     /* Resources dropdown */
-    .nav-item-resources {
+    .nav-item-dropdown {
       position: relative;
     }
 
-    .nav-item-resources:hover .resources-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
 
-    .resources-dropdown {
+    .nav-dropdown-menu {
       position: absolute;
       top: calc(100% + 24px);
       left: 50%;
@@ -122,7 +122,7 @@
       transition: all 0.22s ease;
     }
 
-    .resources-dropdown a {
+    .nav-dropdown-menu a {
       display: block;
       padding: 14px 20px;
       font-size: 10.5px;
@@ -133,8 +133,8 @@
       transition: background 0.2s, color 0.2s;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .resources-dropdown a:last-child { border-bottom: none; }
-    .resources-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
 
     /* CTA + consult dropdown */
     .nav-cta-wrap {
@@ -234,7 +234,7 @@
     .mobile-nav.open { display: flex; }
 
     .mobile-nav a,
-    .mobile-nav-resources-trigger {
+    .mobile-nav-dropdown-trigger {
       font-family: var(--sans);
       font-size: 11px;
       font-weight: 400;
@@ -259,7 +259,7 @@
 
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav a:hover,
-    .mobile-nav-resources-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
+    .mobile-nav-dropdown-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
 
     .mobile-nav-sub {
       display: none;
@@ -275,13 +275,13 @@
       color: rgba(255,255,255,0.42);
     }
 
-    .mobile-resources-chevron {
+    .mobile-nav-chevron {
       font-size: 9px;
       opacity: 0.5;
       transition: transform 0.2s;
     }
 
-    .mobile-nav-resources-trigger.open .mobile-resources-chevron {
+    .mobile-nav-dropdown-trigger.open .mobile-nav-chevron {
       transform: rotate(180deg);
     }
 
@@ -903,9 +903,9 @@
       <a href="college-planning.html">College Planning</a>
       <a href="disability-planning.html">Disability Planning</a>
       <a href="retirement-estate.html">Retirement &amp; Estate</a>
-      <div class="nav-item-resources">
+      <div class="nav-item-dropdown">
         <button class="nav-dropdown-trigger">Resources ▾</button>
-        <div class="resources-dropdown">
+        <div class="nav-dropdown-menu">
           <a href="blogs.html">Blogs</a>
           <a href="articles.html">Articles</a>
         </div>
@@ -938,8 +938,8 @@
     <a href="college-planning.html">College Planning</a>
     <a href="disability-planning.html">Disability Planning</a>
     <a href="retirement-estate.html">Retirement &amp; Estate</a>
-    <button class="mobile-nav-resources-trigger" id="mobileResourcesBtn">
-      Resources <span class="mobile-resources-chevron">▾</span>
+    <button class="mobile-nav-dropdown-trigger" id="mobileResourcesBtn">
+      Resources <span class="mobile-nav-chevron">▾</span>
     </button>
     <div class="mobile-nav-sub" id="mobileResourcesSub">
       <a href="blogs.html">Blogs</a>
@@ -1195,9 +1195,9 @@
     });
 
     // ── Desktop Resources dropdown: click on mobile/tablet ───
-    const resourcesItem    = document.querySelector('.nav-item-resources');
+    const resourcesItem    = document.querySelector('.nav-item-dropdown');
     const resourcesTrigger = resourcesItem.querySelector('.nav-dropdown-trigger');
-    const resourcesDD      = resourcesItem.querySelector('.resources-dropdown');
+    const resourcesDD      = resourcesItem.querySelector('.nav-dropdown-menu');
 
     function isMobile() { return window.innerWidth <= 768; }
 
