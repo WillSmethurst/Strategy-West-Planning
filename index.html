@@ -567,18 +567,18 @@
     .pillars .section-title { color: var(--cream); margin-bottom: 72px; }
 
     .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
     }
 
     .pillar {
-      padding: 52px 44px;
-      border-right: 1px solid rgba(255,255,255,0.08);
+      padding: 56px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      max-width: 720px;
     }
 
-    .pillar:last-child { border-right: none; }
+    .pillar:first-child { padding-top: 0; }
+    .pillar:last-child { border-bottom: none; padding-bottom: 0; }
 
     .pillar-icon {
       width: 32px;
@@ -589,16 +589,18 @@
 
     .pillar h4 {
       font-family: var(--serif);
-      font-size: 22px;
+      font-size: 30px;
       font-weight: 400;
       color: var(--cream);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: -0.005em;
     }
 
     .pillar p {
-      font-size: 13.5px;
+      font-size: 16px;
       line-height: 1.85;
-      color: rgba(245,242,237,0.45);
+      color: rgba(245,242,237,0.55);
+      max-width: 640px;
     }
 
     /* ─── APPROACH STRIP ─────────────────────────────────────── */
@@ -841,9 +843,8 @@
 
       .intro { gap: 40px; }
 
-      .pillars-grid { grid-template-columns: 1fr; }
-      .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .pillar:last-child { border-bottom: none; }
+      .pillar { padding: 44px 0; }
+      .pillar h4 { font-size: 26px; }
 
       .approach {
         grid-template-columns: 1fr;
