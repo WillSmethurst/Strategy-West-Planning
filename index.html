@@ -106,7 +106,7 @@
       position: relative;
     }
 
-    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
 
     .nav-dropdown-menu {
       position: absolute;
@@ -119,6 +119,15 @@
       opacity: 0;
       pointer-events: none;
       transition: all 0.22s ease;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 24px;
     }
 
     .nav-dropdown-menu a {
@@ -219,7 +228,7 @@
     .mobile-nav {
       display: none;
       position: fixed;
-      top: 108px;
+      top: 128px;
       left: 0;
       right: 0;
       z-index: 999;
@@ -292,7 +301,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 172px 48px 100px;
+      padding: 192px 48px 100px;
       position: relative;
       overflow: hidden;
     }
@@ -857,7 +866,7 @@
 
       .nav-hamburger { display: flex; }
 
-      .hero { padding: 152px 24px 80px; }
+      .hero { padding: 172px 24px 80px; }
 
       .intro {
         flex-direction: column;
@@ -1198,39 +1207,48 @@
       });
     });
 
-    // ── Mobile Resources sub-menu toggle ─────────────────────
-    const mobileResourcesBtn = document.getElementById('mobileResourcesBtn');
-    const mobileResourcesSub = document.getElementById('mobileResourcesSub');
-
-    mobileResourcesBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileResourcesBtn.classList.toggle('open');
-      mobileResourcesSub.classList.toggle('open');
+    // ── Mobile dropdown sub-menu toggles (works for any number) ─
+    document.querySelectorAll('.mobile-nav-dropdown-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('open');
+      });
     });
 
-    // ── Desktop Resources dropdown: click on mobile/tablet ───
-    const resourcesItem    = document.querySelector('.nav-item-dropdown');
-    const resourcesTrigger = resourcesItem.querySelector('.nav-dropdown-trigger');
-    const resourcesDD      = resourcesItem.querySelector('.nav-dropdown-menu');
-
+    // ── Desktop nav dropdowns: click handler for mobile/tablet ───
     function isMobile() { return window.innerWidth <= 768; }
 
-    resourcesTrigger.addEventListener('click', (e) => {
-      if (!isMobile()) return; // hover handles it on desktop
-      e.stopPropagation();
-      const isOpen = resourcesDD.style.opacity === '1';
-      resourcesDD.style.opacity      = isOpen ? '0'    : '1';
-      resourcesDD.style.pointerEvents = isOpen ? 'none' : 'all';
-      resourcesDD.style.transform    = isOpen
-        ? 'translateX(-50%) translateY(-6px)'
-        : 'translateX(-50%) translateY(0)';
+    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+      const trigger = item.querySelector('.nav-dropdown-trigger');
+      const menu    = item.querySelector('.nav-dropdown-menu');
+
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return; // hover handles it on desktop
+        e.stopPropagation();
+        const isOpen = menu.style.opacity === '1';
+        // Close all open dropdowns first
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
+        // Open this one if it wasn't already
+        if (!isOpen) {
+          menu.style.opacity       = '1';
+          menu.style.pointerEvents = 'all';
+          menu.style.transform     = 'translateX(-50%) translateY(0)';
+        }
+      });
     });
 
     document.addEventListener('click', () => {
       if (isMobile()) {
-        resourcesDD.style.opacity       = '0';
-        resourcesDD.style.pointerEvents = 'none';
-        resourcesDD.style.transform     = 'translateX(-50%) translateY(-6px)';
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
       }
     });
 
