@@ -568,51 +568,112 @@
     .pillars {
       background: var(--charcoal);
       padding: 112px 48px;
+      position: relative;
     }
 
     .pillars-inner {
       max-width: 1160px;
       margin: 0 auto;
+      position: relative;
     }
 
     .pillars .section-label { color: var(--gold); }
     .pillars .section-title { color: var(--cream); margin-bottom: 72px; }
 
     .pillars-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0;
+      row-gap: 28px;
+      position: relative;
+      padding-top: 16px;
+    }
+
+    .pillars-grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: rgba(184,155,110,0.45);
+      transform: translateX(-50%);
     }
 
     .pillar {
-      padding: 56px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      max-width: 720px;
+      position: relative;
+      max-width: 460px;
     }
 
-    .pillar:first-child { padding-top: 0; }
-    .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+    .pillar:nth-child(1),
+    .pillar:nth-child(3) {
+      grid-column: 2;
+      padding: 24px 0 24px 56px;
+      text-align: left;
+      justify-self: start;
+    }
 
-    .pillar-icon {
-      width: 32px;
-      height: 1px;
+    .pillar:nth-child(2) {
+      grid-column: 1;
+      padding: 24px 56px 24px 0;
+      text-align: right;
+      justify-self: end;
+    }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
       background: var(--gold);
-      margin-bottom: 32px;
+      box-shadow: 0 0 0 4px rgba(184,155,110,0.18);
+      z-index: 2;
+    }
+
+    .pillar::after {
+      content: '';
+      position: absolute;
+      top: 43px;
+      height: 1px;
+      background: rgba(184,155,110,0.45);
+      z-index: 1;
+    }
+
+    .pillar:nth-child(1)::before,
+    .pillar:nth-child(3)::before {
+      left: -5.5px;
+    }
+
+    .pillar:nth-child(1)::after,
+    .pillar:nth-child(3)::after {
+      left: 5.5px;
+      width: 44px;
+    }
+
+    .pillar:nth-child(2)::before {
+      right: -5.5px;
+    }
+
+    .pillar:nth-child(2)::after {
+      right: 5.5px;
+      width: 44px;
     }
 
     .pillar h4 {
       font-family: var(--serif);
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 400;
       color: var(--cream);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       letter-spacing: -0.005em;
     }
 
     .pillar p {
-      font-size: 16px;
-      line-height: 1.85;
+      font-size: 14px;
+      line-height: 1.65;
       color: rgba(245,242,237,0.55);
-      max-width: 640px;
     }
 
     /* ─── APPROACH STRIP ─────────────────────────────────────── */
@@ -939,8 +1000,20 @@
 
       .intro { gap: 40px; }
 
-      .pillar { padding: 44px 0; }
+      .pillar { padding: 44px 0; max-width: none; }
       .pillar h4 { font-size: 26px; }
+      .pillars-grid { display: flex; flex-direction: column; row-gap: 0; padding-top: 0; }
+      .pillars-grid::before { display: none; }
+      .pillar:nth-child(1),
+      .pillar:nth-child(2),
+      .pillar:nth-child(3) {
+        grid-column: auto;
+        padding: 44px 0;
+        text-align: left;
+        justify-self: stretch;
+      }
+      .pillar::before, .pillar::after { display: none; }
+      .pillar p { font-size: 16px; line-height: 1.85; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1155,17 +1228,14 @@
 
       <div class="pillars-grid">
         <div class="pillar">
-          <div class="pillar-icon"></div>
           <h4>Clarity First</h4>
           <p>Every recommendation begins with a clear picture of not only where you are today, but also where you envision yourself years down the road. From there, we can build around what matters most to you, instead of you forcing your goals into a strategy that was never designed for them in the first place.</p>
         </div>
         <div class="pillar">
-          <div class="pillar-icon"></div>
           <h4>Long-Term Alignment</h4>
           <p>We design for decades, not quarters. Our strategies are built to grow with you, adapt with you, and remain relevant through every stage of your financial life. The goal is not to build something that only works today, but something that can continue serving you as your life, priorities, and opportunities evolve.</p>
         </div>
         <div class="pillar">
-          <div class="pillar-icon"></div>
           <h4>Straightforward Guidance</h4>
           <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
         </div>
