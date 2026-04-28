@@ -696,7 +696,6 @@
       background: var(--cream);
       padding: 0;
       position: relative;
-      overflow: hidden;
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       min-height: 580px;
@@ -721,6 +720,7 @@
       background-position: center center;
       background-repeat: no-repeat;
       position: relative;
+      overflow: hidden;
     }
 
     .cta-section-photo::before {
@@ -821,7 +821,7 @@
       opacity: 0;
       pointer-events: none;
       transition: all 0.22s ease;
-      z-index: 50;
+      z-index: 100;
     }
 
     .cta-section-dropdown.open {
