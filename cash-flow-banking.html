@@ -276,7 +276,6 @@
       padding: 100px 72px 100px 80px;
       position: relative;
       z-index: 2;
-      border-right: 1px solid rgba(184,155,110,0.12);
     }
 
     .hero-breadcrumb {
@@ -380,53 +379,95 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      background: var(--charcoal-2);
+      background: var(--charcoal);
       overflow: hidden;
     }
 
-    /* Architectural decorative element */
-    .hero-geo {
+    /* Atmospheric radial glow behind the orbital */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(184,155,110,0.08) 0%, rgba(184,155,110,0.03) 30%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Orbital diagram container */
+    .hero-orbital {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 600 / 700;
+    }
+
+    .hero-orbital svg {
       position: absolute;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
 
-    .hero-geo svg {
-      width: 70%;
-      height: 70%;
-      opacity: 0.12;
+    .hero-orbital-ring {
+      fill: none;
+      stroke: rgba(184,155,110,0.55);
+      stroke-width: 1;
     }
 
-    .hero-stat-block {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-      padding: 60px;
+    .hero-orbital-ring-dotted {
+      fill: none;
+      stroke: rgba(184,155,110,0.45);
+      stroke-width: 1;
+      stroke-dasharray: 2 6;
     }
 
-    .hero-stat {
-      border-left: 1px solid rgba(184,155,110,0.3);
-      padding-left: 28px;
+    .hero-orbital-dot {
+      fill: var(--gold);
+      filter: drop-shadow(0 0 6px rgba(212,185,138,0.8));
     }
 
-    .hero-stat-num {
+    .hero-orbital-dot-bright {
+      fill: #f5e8c8;
+      filter: drop-shadow(0 0 14px rgba(245,232,200,0.95)) drop-shadow(0 0 28px rgba(212,185,138,0.6));
+    }
+
+    /* Text overlay positioned within the orbital rings */
+    .hero-orbital-stat {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .hero-orbital-stat-3   { top: 18%; }
+    .hero-orbital-stat-1   { top: 41.5%; }
+    .hero-orbital-stat-inf { top: 80%; }
+
+    .hero-orbital-num {
       font-family: var(--serif);
-      font-size: 52px;
+      font-size: 46px;
       font-weight: 300;
-      color: var(--gold);
+      color: var(--cream);
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
     }
 
-    .hero-stat-label {
+    .hero-orbital-num-inf {
+      font-size: 56px;
+      letter-spacing: 0;
+    }
+
+    .hero-orbital-label {
+      font-family: var(--sans);
       font-size: 10.5px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(245,242,237,0.38);
+      color: rgba(245,242,237,0.55);
       line-height: 1.6;
     }
 
@@ -1233,32 +1274,43 @@
     </div>
 
     <div class="hero-right">
-      <!-- Architectural SVG decoration -->
-      <div class="hero-geo">
-        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="50" y="50" width="300" height="300" stroke="#b89b6e" stroke-width="0.5"/>
-          <rect x="100" y="100" width="200" height="200" stroke="#b89b6e" stroke-width="0.5"/>
-          <rect x="150" y="150" width="100" height="100" stroke="#b89b6e" stroke-width="0.5"/>
-          <line x1="50" y1="50" x2="350" y2="350" stroke="#b89b6e" stroke-width="0.3"/>
-          <line x1="350" y1="50" x2="50" y2="350" stroke="#b89b6e" stroke-width="0.3"/>
-          <circle cx="200" cy="200" r="140" stroke="#b89b6e" stroke-width="0.5"/>
-          <circle cx="200" cy="200" r="90" stroke="#b89b6e" stroke-width="0.3"/>
-          <circle cx="200" cy="200" r="40" stroke="#b89b6e" stroke-width="0.5"/>
-        </svg>
-      </div>
+      <div class="hero-orbital">
+        <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Outer ring -->
+          <circle class="hero-orbital-ring" cx="300" cy="280" r="220"/>
+          <!-- Inner ring -->
+          <circle class="hero-orbital-ring" cx="300" cy="360" r="140"/>
+          <!-- Dotted ellipse at base -->
+          <ellipse class="hero-orbital-ring-dotted" cx="300" cy="540" rx="280" ry="60"/>
 
-      <div class="hero-stat-block">
-        <div class="hero-stat">
-          <div class="hero-stat-num">3</div>
-          <div class="hero-stat-label">Principles of<br>Structured Capital</div>
+          <!-- Bright accent dot at top of outer ring -->
+          <circle class="hero-orbital-dot-bright" cx="300" cy="60" r="3.5"/>
+
+          <!-- Accent dots on outer ring (left and right mid) -->
+          <circle class="hero-orbital-dot" cx="80" cy="280" r="2.5"/>
+          <circle class="hero-orbital-dot" cx="520" cy="280" r="2.5"/>
+
+          <!-- Accent dots on dotted ellipse (lower-left and lower-right) -->
+          <circle class="hero-orbital-dot" cx="60" cy="555" r="2.5"/>
+          <circle class="hero-orbital-dot" cx="540" cy="555" r="2.5"/>
+
+          <!-- Subtle dot at top of inner ring -->
+          <circle class="hero-orbital-dot" cx="300" cy="220" r="2"/>
+        </svg>
+
+        <div class="hero-orbital-stat hero-orbital-stat-3">
+          <div class="hero-orbital-num">3</div>
+          <div class="hero-orbital-label">Principles of<br>Structured Capital</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">1</div>
-          <div class="hero-stat-label">Unified system for<br>access, growth &amp; control</div>
+
+        <div class="hero-orbital-stat hero-orbital-stat-1">
+          <div class="hero-orbital-num">1</div>
+          <div class="hero-orbital-label">Unified System for<br>Access, Growth &amp; Control</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">∞</div>
-          <div class="hero-stat-label">Uninterrupted<br>compounding potential</div>
+
+        <div class="hero-orbital-stat hero-orbital-stat-inf">
+          <div class="hero-orbital-num hero-orbital-num-inf">∞</div>
+          <div class="hero-orbital-label">Uninterrupted<br>Compounding Potential</div>
         </div>
       </div>
     </div>
