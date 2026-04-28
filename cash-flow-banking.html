@@ -375,100 +375,22 @@
     .btn-text-link::before { content: '←'; }
 
     .hero-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
-      background: var(--charcoal);
+      background-image: url("images/cfb-hero-bg-architecture.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--charcoal);
       overflow: hidden;
     }
 
-    /* Atmospheric radial glow behind the orbital */
+    /* Soft gradient overlay for visual continuity with the dark left side */
     .hero-right::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(184,155,110,0.08) 0%, rgba(184,155,110,0.03) 30%, transparent 60%);
-      pointer-events: none;
-    }
-
-    /* Orbital diagram container */
-    .hero-orbital {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      aspect-ratio: 600 / 700;
-    }
-
-    .hero-orbital svg {
-      position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .hero-orbital-ring {
-      fill: none;
-      stroke: rgba(184,155,110,0.55);
-      stroke-width: 1;
-    }
-
-    .hero-orbital-ring-dotted {
-      fill: none;
-      stroke: rgba(184,155,110,0.45);
-      stroke-width: 1;
-      stroke-dasharray: 2 6;
-    }
-
-    .hero-orbital-dot {
-      fill: var(--gold);
-      filter: drop-shadow(0 0 6px rgba(212,185,138,0.8));
-    }
-
-    .hero-orbital-dot-bright {
-      fill: #ffffff;
-      filter: drop-shadow(0 0 8px rgba(255,245,220,1)) drop-shadow(0 0 20px rgba(245,232,200,0.85)) drop-shadow(0 0 40px rgba(212,185,138,0.5));
-    }
-
-    /* Text overlay positioned within the orbital rings */
-    .hero-orbital-stat {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
+      background: linear-gradient(90deg, rgba(20,19,18,0.55) 0%, rgba(20,19,18,0.25) 35%, rgba(20,19,18,0.15) 100%);
       pointer-events: none;
-    }
-
-    .hero-orbital-stat-3   { top: 16%; }
-    .hero-orbital-stat-1   { top: 38%; }
-    .hero-orbital-stat-inf { top: 60%; }
-
-    .hero-orbital-num {
-      font-family: var(--serif);
-      font-size: 46px;
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1;
-      margin-bottom: 14px;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-orbital-num-inf {
-      font-size: 56px;
-      letter-spacing: 0;
-    }
-
-    .hero-orbital-label {
-      font-family: var(--sans);
-      font-size: 10.5px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(245,242,237,0.55);
-      line-height: 1.6;
     }
 
     /* ─── PROBLEM SECTION ────────────────────────── */
@@ -1273,47 +1195,7 @@
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="hero-orbital">
-        <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Outer ring -->
-          <circle class="hero-orbital-ring" cx="300" cy="280" r="220"/>
-          <!-- Inner ring -->
-          <circle class="hero-orbital-ring" cx="300" cy="360" r="140"/>
-          <!-- Dotted ellipse at base -->
-          <ellipse class="hero-orbital-ring-dotted" cx="300" cy="510" rx="280" ry="50"/>
-
-          <!-- Bright accent dot at top of outer ring -->
-          <circle class="hero-orbital-dot-bright" cx="300" cy="60" r="3.5"/>
-
-          <!-- Accent dots on outer ring (left and right mid) -->
-          <circle class="hero-orbital-dot" cx="80" cy="280" r="2.5"/>
-          <circle class="hero-orbital-dot" cx="520" cy="280" r="2.5"/>
-
-          <!-- Accent dots on dotted ellipse (lower-left and lower-right) -->
-          <circle class="hero-orbital-dot" cx="60" cy="525" r="2.5"/>
-          <circle class="hero-orbital-dot" cx="540" cy="525" r="2.5"/>
-
-          <!-- Subtle dot at top of inner ring -->
-          <circle class="hero-orbital-dot" cx="300" cy="220" r="2"/>
-        </svg>
-
-        <div class="hero-orbital-stat hero-orbital-stat-3">
-          <div class="hero-orbital-num">3</div>
-          <div class="hero-orbital-label">Principles of<br>Structured Capital</div>
-        </div>
-
-        <div class="hero-orbital-stat hero-orbital-stat-1">
-          <div class="hero-orbital-num">1</div>
-          <div class="hero-orbital-label">Unified System for<br>Access, Growth &amp; Control</div>
-        </div>
-
-        <div class="hero-orbital-stat hero-orbital-stat-inf">
-          <div class="hero-orbital-num hero-orbital-num-inf">∞</div>
-          <div class="hero-orbital-label">Uninterrupted<br>Compounding Potential</div>
-        </div>
-      </div>
-    </div>
+    <div class="hero-right"></div>
   </section>
 
   <!-- ─── PROBLEM SECTION ─── -->
