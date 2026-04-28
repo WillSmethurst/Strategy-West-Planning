@@ -567,7 +567,7 @@
     /* ─── PILLARS ─────────────────────────────────────────────── */
     .pillars {
       background: var(--charcoal);
-      padding: 112px 48px;
+      padding: 88px 48px;
       position: relative;
     }
 
@@ -578,15 +578,15 @@
     }
 
     .pillars .section-label { color: var(--gold); }
-    .pillars .section-title { color: var(--cream); margin-bottom: 72px; }
+    .pillars .section-title { color: var(--cream); }
 
     .pillars-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 0;
-      row-gap: 28px;
+      row-gap: 20px;
       position: relative;
-      padding-top: 16px;
+      padding-top: 0;
     }
 
     .pillars-grid::before {
@@ -605,10 +605,17 @@
       max-width: 460px;
     }
 
+    .pillars-header {
+      grid-column: 1;
+      grid-row: 1;
+      padding-right: 56px;
+      max-width: 540px;
+    }
+
     .pillar:nth-child(1),
     .pillar:nth-child(3) {
       grid-column: 2;
-      padding: 24px 0 24px 56px;
+      padding: 20px 0 20px 56px;
       text-align: left;
       justify-self: start;
     }
@@ -619,7 +626,7 @@
     .pillar:nth-child(2) {
       grid-column: 1;
       grid-row: 2;
-      padding: 24px 56px 24px 0;
+      padding: 20px 56px 20px 0;
       text-align: right;
       justify-self: end;
     }
@@ -1018,6 +1025,7 @@
       }
       .pillar::before, .pillar::after { display: none; }
       .pillar p { font-size: 16px; line-height: 1.85; }
+      .pillars-header { order: -1; padding-right: 0; max-width: none; margin-bottom: 16px; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1225,11 +1233,6 @@
   <!-- ─── PILLARS ─── -->
   <section class="pillars">
     <div class="pillars-inner">
-      <div class="section-header" style="text-align: left; margin-bottom: 72px;">
-        <p class="section-label">Why Strategy West</p>
-        <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
-      </div>
-
       <div class="pillars-grid">
         <div class="pillar">
           <h4>Clarity First</h4>
@@ -1242,6 +1245,10 @@
         <div class="pillar">
           <h4>Straightforward Guidance</h4>
           <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
+        </div>
+        <div class="pillars-header">
+          <p class="section-label">Why Strategy West</p>
+          <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
         </div>
       </div>
     </div>
