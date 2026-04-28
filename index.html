@@ -567,12 +567,37 @@
     /* ─── PILLARS ─────────────────────────────────────────────── */
     .pillars {
       background: var(--charcoal);
-      padding: 112px 48px;
+      padding: 0;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pillars-content {
+      padding: 112px 80px 112px 96px;
+      max-width: none;
     }
 
     .pillars-inner {
       max-width: 1160px;
       margin: 0 auto;
+    }
+
+    .pillars-photo {
+      background-image: url("images/pillars-bg-mountain-valley.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillars-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--charcoal) 0%, rgba(26,25,24,0.6) 8%, rgba(26,25,24,0) 22%);
+      pointer-events: none;
     }
 
     .pillars .section-label { color: var(--gold); }
@@ -971,8 +996,12 @@
       }
 
       .services-section,
-      .pillars,
       footer { padding-left: 24px; padding-right: 24px; }
+
+      .pillars { grid-template-columns: 1fr; }
+      .pillars-content { padding: 80px 24px; }
+      .pillars-photo { min-height: 320px; order: -1; }
+      .pillars-photo::before { background: linear-gradient(180deg, rgba(26,25,24,0) 60%, var(--charcoal) 100%); }
 
       .cta-section { grid-template-columns: 1fr; min-height: 0; }
       .cta-section-content { padding: 80px 24px; text-align: center; align-items: center; }
@@ -1147,7 +1176,7 @@
 
   <!-- ─── PILLARS ─── -->
   <section class="pillars">
-    <div class="pillars-inner">
+    <div class="pillars-content">
       <div class="section-header" style="text-align: left; margin-bottom: 72px;">
         <p class="section-label">Why Strategy West</p>
         <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
@@ -1171,6 +1200,7 @@
         </div>
       </div>
     </div>
+    <div class="pillars-photo"></div>
   </section>
 
   <!-- ─── APPROACH ─── -->
