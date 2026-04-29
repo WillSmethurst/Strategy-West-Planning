@@ -711,10 +711,10 @@
       content: '';
       position: absolute;
       top: 28px;
-      left: 28px;
-      right: calc(25% - 28px);
+      left: calc(12.5% - 92px);
+      right: calc(12.5% - 68px);
       height: 1px;
-      background: linear-gradient(to right, var(--gold), rgba(184,155,110,0.2));
+      background: linear-gradient(to right, rgba(184,155,110,0) 0%, var(--gold) 80px, var(--gold) calc(100% - 80px), rgba(184,155,110,0) 100%);
     }
 
     .how-step {
@@ -733,7 +733,7 @@
       font-size: 18px;
       font-weight: 300;
       color: var(--gold);
-      margin-bottom: 36px;
+      margin: 0 auto 36px auto;
       background: var(--warm-white);
       position: relative;
       z-index: 1;
