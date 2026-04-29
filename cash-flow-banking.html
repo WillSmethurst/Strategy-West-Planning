@@ -376,7 +376,7 @@
 
     .hero-right {
       position: relative;
-      background-image: url("images/cfb-hero-bg-architecture.jpg");
+      background-image: url("images/cfb-hero-bg-buildings-dusk.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -384,12 +384,12 @@
       overflow: hidden;
     }
 
-    /* Soft gradient overlay for visual continuity with the dark left side */
+    /* Soft fade from dark left side into the photo */
     .hero-right::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(20,19,18,0.55) 0%, rgba(20,19,18,0.25) 35%, rgba(20,19,18,0.15) 100%);
+      background: linear-gradient(90deg, var(--charcoal) 0%, rgba(26,25,23,0.6) 8%, rgba(26,25,23,0) 22%);
       pointer-events: none;
     }
 
