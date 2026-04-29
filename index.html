@@ -580,96 +580,46 @@
     .pillars .section-label { color: var(--gold); }
     .pillars .section-title { color: var(--cream); }
 
+    .pillars-header {
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
     .pillars-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 0;
-      row-gap: 20px;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 56px;
+      row-gap: 0;
       position: relative;
-      padding-top: 0;
     }
 
     .pillars-grid::before {
       content: '';
       position: absolute;
       top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 1px;
+      left: 0;
+      right: 0;
+      height: 1px;
       background: rgba(184,155,110,0.45);
-      transform: translateX(-50%);
     }
 
     .pillar {
       position: relative;
-      max-width: 460px;
-    }
-
-    .pillars-header {
-      grid-column: 1;
-      grid-row: 1;
-      padding-right: 56px;
-      max-width: 540px;
-    }
-
-    .pillar:nth-child(1),
-    .pillar:nth-child(3) {
-      grid-column: 2;
-      padding: 20px 0 20px 56px;
+      padding-top: 32px;
       text-align: left;
-      justify-self: start;
-    }
-
-    .pillar:nth-child(1) { grid-row: 1; }
-    .pillar:nth-child(3) { grid-row: 3; }
-
-    .pillar:nth-child(2) {
-      grid-column: 1;
-      grid-row: 2;
-      padding: 20px 56px 20px 0;
-      text-align: right;
-      justify-self: end;
     }
 
     .pillar::before {
       content: '';
       position: absolute;
-      top: 38px;
+      top: -5.5px;
+      left: 0;
       width: 11px;
       height: 11px;
       border-radius: 50%;
       background: var(--gold);
       box-shadow: 0 0 0 4px rgba(184,155,110,0.18);
       z-index: 2;
-    }
-
-    .pillar::after {
-      content: '';
-      position: absolute;
-      top: 43px;
-      height: 1px;
-      background: rgba(184,155,110,0.45);
-      z-index: 1;
-    }
-
-    .pillar:nth-child(1)::before,
-    .pillar:nth-child(3)::before {
-      left: -5.5px;
-    }
-
-    .pillar:nth-child(1)::after,
-    .pillar:nth-child(3)::after {
-      left: 5.5px;
-      width: 44px;
-    }
-
-    .pillar:nth-child(2)::before {
-      right: -5.5px;
-    }
-
-    .pillar:nth-child(2)::after {
-      right: 5.5px;
-      width: 44px;
     }
 
     .pillar h4 {
@@ -1011,21 +961,12 @@
 
       .intro { gap: 40px; }
 
-      .pillar { padding: 44px 0; max-width: none; }
+      .pillar { max-width: none; padding-top: 0; }
       .pillar h4 { font-size: 26px; }
-      .pillars-grid { display: flex; flex-direction: column; row-gap: 0; padding-top: 0; }
-      .pillars-grid::before { display: none; }
-      .pillar:nth-child(1),
-      .pillar:nth-child(2),
-      .pillar:nth-child(3) {
-        grid-column: auto;
-        padding: 44px 0;
-        text-align: left;
-        justify-self: stretch;
-      }
-      .pillar::before, .pillar::after { display: none; }
+      .pillars-grid { display: flex; flex-direction: column; gap: 44px; padding-top: 32px; }
+      .pillar::before { display: none; }
       .pillar p { font-size: 16px; line-height: 1.85; }
-      .pillars-header { order: -1; padding-right: 0; max-width: none; margin-bottom: 16px; }
+      .pillars-header { max-width: none; margin-bottom: 32px; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1233,6 +1174,10 @@
   <!-- ─── PILLARS ─── -->
   <section class="pillars">
     <div class="pillars-inner">
+      <div class="pillars-header">
+        <p class="section-label">Why Strategy West</p>
+        <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
+      </div>
       <div class="pillars-grid">
         <div class="pillar">
           <h4>Clarity First</h4>
@@ -1245,10 +1190,6 @@
         <div class="pillar">
           <h4>Straightforward Guidance</h4>
           <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
-        </div>
-        <div class="pillars-header">
-          <p class="section-label">Why Strategy West</p>
-          <h2 class="section-title" style="color: var(--cream);">What Separates<br>Thoughtful Planning</h2>
         </div>
       </div>
     </div>
