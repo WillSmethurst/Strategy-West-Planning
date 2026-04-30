@@ -638,6 +638,51 @@
       color: rgba(245,242,237,0.55);
     }
 
+    .pillars-closing {
+      margin-top: 88px;
+      text-align: center;
+    }
+
+    .pillars-divider {
+      width: 80px;
+      height: 1px;
+      background: rgba(184,155,110,0.6);
+      margin: 0 auto 44px auto;
+    }
+
+    .pillars-statement {
+      max-width: 720px;
+      margin: 0 auto 40px auto;
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.9;
+      color: rgba(245,242,237,0.78);
+      font-weight: 300;
+    }
+
+    .pillars-credentials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .pillars-credentials span {
+      white-space: nowrap;
+    }
+
+    .pillars-credentials .pillars-cred-dot {
+      color: rgba(184,155,110,0.45);
+      letter-spacing: 0;
+    }
+
     /* ─── APPROACH STRIP ─────────────────────────────────────── */
     .approach {
       background: var(--warm-white);
@@ -968,6 +1013,10 @@
       .pillar::before { display: none; }
       .pillar p { font-size: 16px; line-height: 1.85; }
       .pillars-header { max-width: none; margin-bottom: 32px; }
+      .pillars-closing { margin-top: 64px; }
+      .pillars-statement { font-size: 15px; line-height: 1.85; margin-bottom: 32px; }
+      .pillars-credentials { gap: 12px; font-size: 10.5px; letter-spacing: 0.16em; }
+      .pillars-divider { margin-bottom: 36px; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1191,6 +1240,23 @@
         <div class="pillar">
           <h4>Straightforward Guidance</h4>
           <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
+        </div>
+      </div>
+      <div class="pillars-closing">
+        <div class="pillars-divider"></div>
+        <p class="pillars-statement">The right strategy starts with the right people. The Strategy West team is made up of credentialed planners guided by a philosophy of clarity, structure, and long-term thinking. We work with individuals, families, and business owners who expect more than a templated plan; people who want a team that understands the details, sees the full picture, and turns important decisions into a coordinated path forward. Across College Planning, Disability Planning, Cash Flow Banking, and Retirement Planning, we bring a quietly disciplined approach to every relationship, helping clients make decisions with confidence and purpose.</p>
+        <div class="pillars-credentials">
+          <span>CFP®</span>
+          <span class="pillars-cred-dot">·</span>
+          <span>ChSNC®</span>
+          <span class="pillars-cred-dot">·</span>
+          <span>RICP®</span>
+          <span class="pillars-cred-dot">·</span>
+          <span>CCA</span>
+          <span class="pillars-cred-dot">·</span>
+          <span>Cash Flow Banking Specialist</span>
+          <span class="pillars-cred-dot">·</span>
+          <span>Life &amp; Health Licensed</span>
         </div>
       </div>
     </div>
