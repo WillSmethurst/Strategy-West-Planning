@@ -385,12 +385,12 @@
       overflow: hidden;
     }
 
-    /* Soft fade from light left side into the photo */
+    /* Fade overlay disabled */
     .hero-right::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, var(--warm-white) 0%, rgba(250,248,245,0.85) 8%, rgba(250,248,245,0.4) 20%, rgba(250,248,245,0) 35%);
+      background: transparent;
       pointer-events: none;
     }
 
