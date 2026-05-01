@@ -840,6 +840,20 @@
       color: rgba(245,242,237,0.42);
     }
 
+    .benefits-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      margin-top: 64px;
+      overflow: hidden;
+    }
+
+    .benefits-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .benefits-right {
       display: flex;
       flex-direction: column;
@@ -1183,6 +1197,8 @@
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
+      .benefits-photo { display: none; }
+
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
       .faq-item-text { font-size: 15px; }
@@ -1442,6 +1458,9 @@
         <span class="section-label">What You Gain</span>
         <h2>Structured outcomes<br>for <em>intentional</em> wealth</h2>
         <p>The benefits of a well-designed capital system extend beyond financial performance. They reshape how you interact with money, turning fragmentation and friction into clarity and control.</p>
+        <div class="benefits-photo">
+          <img src="images/cfb-benefits-couple.jpg" alt="" loading="lazy" />
+        </div>
       </div>
 
       <div class="benefits-right">
