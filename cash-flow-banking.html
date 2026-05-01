@@ -887,70 +887,115 @@
     }
 
     /* ─── WHO THIS IS FOR ────────────────────────── */
-    .who {
-      background: var(--cream);
+    .faq {
+      background: var(--off-white);
       padding: 130px 80px;
       color: var(--black);
     }
 
-    .who-inner {
+    .faq-inner {
       max-width: 1160px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 80px;
+      align-items: stretch;
     }
 
-    .who-header {
-      max-width: 600px;
-      margin-bottom: 72px;
+    .faq-left {
+      display: flex;
+      flex-direction: column;
     }
 
-    .who-header h2 {
+    .faq-left h2 {
       font-family: var(--serif);
-      font-size: clamp(30px, 3.5vw, 46px);
+      font-size: clamp(36px, 4vw, 56px);
       font-weight: 300;
-      line-height: 1.2;
+      line-height: 1.15;
       color: var(--black);
       margin-top: 16px;
+      margin-bottom: 12px;
     }
 
-    .who-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .who-item {
-      background: var(--warm-white);
-      padding: 44px 36px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s, background 0.3s;
-    }
-
-    .who-item:hover {
-      background: #fff;
-      border-bottom-color: var(--gold);
-    }
-
-    .who-item-mark {
-      font-family: var(--serif);
-      font-size: 11px;
-      letter-spacing: 0.22em;
+    .faq-left h2 em {
+      font-style: italic;
       color: var(--gold);
-      margin-bottom: 20px;
-      display: block;
     }
 
-    .who-item h4 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
+    .faq-subtitle {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #6a6460;
+      margin-bottom: 56px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(17,16,16,0.1);
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(17,16,16,0.1);
+      text-decoration: none;
       color: var(--black);
-      margin-bottom: 14px;
+      transition: color 0.25s, padding-left 0.25s;
     }
 
-    .who-item p {
-      font-size: 13.5px;
-      line-height: 1.8;
-      color: #7a7065;
+    .faq-item:hover {
+      color: var(--gold);
+      padding-left: 8px;
+    }
+
+    .faq-item-mark {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1.4;
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+
+    .faq-item:hover .faq-item-mark {
+      transform: rotate(45deg);
+    }
+
+    .faq-item-text {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    .faq-cta-wrap {
+      margin-top: auto;
+    }
+
+    .faq-right {
+      position: relative;
+      background: rgba(17,16,16,0.04);
+      border: 1px dashed rgba(17,16,16,0.18);
+      border-radius: 4px;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .faq-right-placeholder {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(17,16,16,0.35);
     }
 
     /* ─── CLOSING CTA ────────────────────────────── */
@@ -1113,7 +1158,8 @@
 
       .benefits-inner { grid-template-columns: 1fr; gap: 52px; }
 
-      .who-grid { grid-template-columns: 1fr 1fr; }
+      .faq-inner { grid-template-columns: 1fr; gap: 56px; }
+      .faq-right { min-height: 320px; }
     }
 
     @media (max-width: 768px) {
@@ -1128,12 +1174,12 @@
       .why,
       .how,
       .benefits,
-      .who,
+      .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
-      .who-grid { grid-template-columns: 1fr; }
+      .faq-item-text { font-size: 15px; }
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
     }
@@ -1436,45 +1482,36 @@
     </div>
   </section>
 
-  <!-- ─── WHO THIS IS FOR ─── -->
-  <section class="who">
-    <div class="who-inner">
-      <div class="who-header">
-        <span class="section-label">Who This Serves</span>
-        <h2>This strategy is designed for<br>a particular kind of person</h2>
+  <!-- ─── FAQ ─── -->
+  <section class="faq">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <span class="section-label">Frequently Asked</span>
+        <h2>What People <em>Ask</em></h2>
+        <p class="faq-subtitle">Cash Flow Banking</p>
+
+        <div class="faq-list">
+          <a href="faq.html#cfb-question-1" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">Placeholder question one about Cash Flow Banking?</span>
+          </a>
+          <a href="faq.html#cfb-question-2" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">Placeholder question two about Cash Flow Banking?</span>
+          </a>
+          <a href="faq.html#cfb-question-3" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">Placeholder question three about Cash Flow Banking?</span>
+          </a>
+        </div>
+
+        <div class="faq-cta-wrap">
+          <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
+        </div>
       </div>
 
-      <div class="who-grid">
-        <div class="who-item">
-          <span class="who-item-mark">01 –</span>
-          <h4>The Strategic Thinker</h4>
-          <p>You approach financial decisions methodically. You want to understand the structure before you commit to it, and you expect the people you work with to explain it plainly.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-item-mark">02 –</span>
-          <h4>The Long-Term Builder</h4>
-          <p>You are building something over time, not chasing short-term results. You want a foundation that compounds and holds, even as life evolves around it.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-item-mark">03 –</span>
-          <h4>The Disciplined Funder</h4>
-          <p>You are prepared to fund a system with consistency. You understand that intentional structure requires intentional commitment, and you're ready to make it.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-item-mark">04 –</span>
-          <h4>The Control-Oriented Planner</h4>
-          <p>You are uncomfortable leaving capital in places where others control the access, the timing, and the terms. You want to be the decision-maker in your own financial architecture.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-item-mark">05 –</span>
-          <h4>The Opportunity-Ready Individual</h4>
-          <p>You've missed opportunities because your capital wasn't available. You want a reserve that moves when you move, without the friction of conventional structures.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-item-mark">06 –</span>
-          <h4>The Generational Planner</h4>
-          <p>You are thinking beyond your own timeline. You want a structure that creates continuity for the people and purposes that matter most to you long after it is built.</p>
-        </div>
+      <div class="faq-right">
+        <span class="faq-right-placeholder">[ Image To Be Added ]</span>
       </div>
     </div>
   </section>
