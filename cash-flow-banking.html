@@ -454,68 +454,6 @@
       color: #6a6460;
     }
 
-    /* ─── STRATEGY SECTION ───────────────────────── */
-    .strategy {
-      background: var(--charcoal);
-      padding: 130px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Architectural arc + line motif (signature visual language) */
-    .strategy::before {
-      content: '';
-      position: absolute;
-      top: -260px;
-      right: -260px;
-      width: 720px;
-      height: 720px;
-      border: 1px solid rgba(184,155,110,0.18);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .strategy::after {
-      content: '';
-      position: absolute;
-      top: 180px;
-      right: 0;
-      width: 240px;
-      height: 1px;
-      background: linear-gradient(to right, rgba(184,155,110,0) 0%, rgba(184,155,110,0.35) 60%, rgba(184,155,110,0.5) 100%);
-      pointer-events: none;
-    }
-
-    .strategy-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-    }
-
-    .strategy-header {
-      max-width: 700px;
-      margin-bottom: 80px;
-    }
-
-    .strategy-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(34px, 4vw, 54px);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--cream);
-      margin-bottom: 24px;
-    }
-
-    .strategy-header h2 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .strategy-header p {
-      font-size: 15px;
-      line-height: 1.85;
-      color: rgba(245,242,237,0.48);
-    }
-
     /* Pull quote */
     .strategy-quote {
       border-left: 2px solid var(--gold);
@@ -1181,8 +1119,6 @@
       .problem-inner { grid-template-columns: 1fr; gap: 52px; }
       .problem-left { position: static; }
 
-      .strategy-pillars { grid-template-columns: 1fr; }
-
       .why-top { grid-template-columns: 1fr; gap: 36px; }
       .why-traits { grid-template-columns: 1fr 1fr; }
 
@@ -1203,7 +1139,6 @@
       .hero-left { padding: 100px 24px 72px; }
 
       .problem,
-      .strategy,
       .candid,
       .why,
       .how,
@@ -1351,39 +1286,6 @@
             <h4>The System Favors Institutions, Not Individuals</h4>
             <p>Banks use your deposits to generate returns. Markets route your capital through structures you don't control. The conventional financial system was not designed around your flexibility. It was designed around institutional function.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── STRATEGY SECTION ─── -->
-  <section class="strategy">
-    <div class="strategy-inner">
-      <div class="strategy-header">
-        <span class="section-label">The Strategy</span>
-        <h2>A capital system designed<br>for <em>access, continuity,</em><br>and long-term control</h2>
-        <p>Cash Flow Banking is a structured approach to holding and deploying capital, built around a private reserve that grows uninterrupted while remaining accessible on your timeline, not someone else's.</p>
-      </div>
-
-      <div class="strategy-quote">
-        <p>"The goal is not simply to accumulate. It is to build a structure that gives you ongoing control over the capital you've worked to create."</p>
-      </div>
-
-      <div class="strategy-pillars">
-        <div class="strategy-pillar">
-          <div class="strategy-pillar-icon"></div>
-          <h4>Uninterrupted Growth</h4>
-          <p>Capital compounds within the structure even as it is accessed. There is no reset, no pause, and no penalty for using what you've built, because the system is designed for both at once.</p>
-        </div>
-        <div class="strategy-pillar">
-          <div class="strategy-pillar-icon"></div>
-          <h4>Private Liquidity</h4>
-          <p>Access to capital happens on your terms, without credit applications, approval timelines, or institutional gatekeeping. Your reserve is available when opportunity or necessity demands it.</p>
-        </div>
-        <div class="strategy-pillar">
-          <div class="strategy-pillar-icon"></div>
-          <h4>Multi-Generational Design</h4>
-          <p>A well-structured capital system does not simply serve the person who built it. With intentional design, it can extend to the next generation, creating a foundation rather than a single-cycle strategy.</p>
         </div>
       </div>
     </div>
