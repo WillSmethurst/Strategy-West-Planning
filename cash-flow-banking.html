@@ -598,6 +598,88 @@
       color: rgba(245,242,237,0.4);
     }
 
+    /* ─── CUTTING THROUGH THE NOISE ──────────────── */
+    .candid {
+      background: var(--cream);
+      padding: 140px 80px;
+      color: var(--black);
+    }
+
+    .candid-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .candid h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4.2vw, 56px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--black);
+      margin-top: 16px;
+      margin-bottom: 56px;
+    }
+
+    .candid h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .candid-aliases {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      margin-bottom: 72px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(17,16,16,0.1);
+    }
+
+    .candid-aliases span {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(17,16,16,0.55);
+    }
+
+    .candid-aliases-sep {
+      color: rgba(184,155,110,0.6) !important;
+      letter-spacing: 0 !important;
+      font-size: 14px !important;
+    }
+
+    .candid-body {
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.95;
+      color: #4a4540;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .candid-body:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .candid-quote {
+      border-left: 2px solid var(--gold);
+      padding: 4px 0 4px 32px;
+      margin: 56px 0;
+      text-align: left;
+    }
+
+    .candid-quote p {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
     /* ─── WHY SERIOUS PLANNERS SECTION ───────────── */
     .why {
       background: var(--off-white);
@@ -1161,17 +1243,17 @@
 
       .problem,
       .strategy,
+      .candid,
       .why,
       .how,
       .benefits,
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
-      .benefits-photo { display: none; }
-
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
+      .candid-aliases-sep { display: none; }
       .faq-item-text { font-size: 15px; }
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
@@ -1349,6 +1431,36 @@
           <p>A well-structured capital system does not simply serve the person who built it. With intentional design, it can extend to the next generation, creating a foundation rather than a single-cycle strategy.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── CUTTING THROUGH THE NOISE ─── -->
+  <section class="candid">
+    <div class="candid-inner">
+      <span class="section-label">A Candid Perspective</span>
+      <h2>Cutting Through<br>the <em>Noise</em></h2>
+
+      <div class="candid-aliases">
+        <span>Cash Flow Banking</span>
+        <span class="candid-aliases-sep">·</span>
+        <span>The Rockefeller Method</span>
+        <span class="candid-aliases-sep">·</span>
+        <span>Wealth Maximization Account</span>
+        <span class="candid-aliases-sep">·</span>
+        <span>Infinite Banking</span>
+      </div>
+
+      <p class="candid-body">We understand why this strategy can feel confusing. You may have spent hours watching videos, reading books, and hearing this concept described under different names, such as Cash Flow Banking, the Rockefeller Method, a Wealth Maximization Account, or the classic Infinite Banking. While the titles may vary, the underlying concept is largely the same.</p>
+
+      <p class="candid-body">The challenge is that much of the information online is incomplete, oversimplified, or presented by people who are focused more on views, clicks, and subscribers than on actually helping families apply the strategy correctly. And in our experience, that matters. Because when this type of structure is not designed properly from the beginning, it can leave families believing they have a powerful financial tool in place when, in reality, the policy was never built to function the way they expected.</p>
+
+      <blockquote class="candid-quote">
+        <p>We do not teach it from the sidelines.</p>
+      </blockquote>
+
+      <p class="candid-body">At Strategy West, we see this far too often. Families come to us after years of thinking they had a properly designed Cash Flow Banking policy, only to discover that the structure was not aligned with their goals, cash flow, or long-term needs. That is exactly why we take a different approach. We do not believe this is a one-size-fits-all strategy, and we do not teach it from the sidelines. We practice what we preach, use these concepts in our own lives, and work directly with families every day to help them understand how this strategy actually works at a deeper level.</p>
+
+      <p class="candid-body">Our role is to cut through the noise, clarify what is real, and help determine whether this type of structure truly fits your situation. When it does, we help design it with intention, so it supports your life, your family, and your long-term financial direction.</p>
     </div>
   </section>
 
