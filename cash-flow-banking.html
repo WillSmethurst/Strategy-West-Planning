@@ -813,13 +813,15 @@
     .benefits-inner {
       max-width: 1160px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: stretch;
     }
 
-    .benefits-left h2 {
+    .benefits-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 96px;
+    }
+
+    .benefits-header h2 {
       font-family: var(--serif);
       font-size: clamp(32px, 3.5vw, 48px);
       font-weight: 300;
@@ -829,82 +831,49 @@
       margin-bottom: 28px;
     }
 
-    .benefits-left h2 em {
+    .benefits-header h2 em {
       font-style: italic;
       color: var(--gold-light);
     }
 
-    .benefits-left p {
+    .benefits-header p {
       font-size: 14.5px;
       line-height: 1.85;
       color: rgba(245,242,237,0.42);
     }
 
-    .benefits-photo {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      margin-top: 64px;
-      overflow: hidden;
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px 48px;
     }
 
-    .benefits-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .benefits-right {
+    .benefit-card {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      justify-content: flex-end;
     }
 
-    .benefit-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .benefit-item:first-child { padding-top: 0; }
-    .benefit-item:last-child { border-bottom: none; }
-
-    .benefit-check {
-      width: 20px;
-      height: 20px;
-      border: 1px solid rgba(184,155,110,0.4);
-      flex-shrink: 0;
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .benefit-check::after {
-      content: '';
-      width: 7px;
-      height: 7px;
+    .benefit-accent {
+      width: 28px;
+      height: 1px;
       background: var(--gold);
-      opacity: 0.7;
+      opacity: 0.6;
+      margin-bottom: 24px;
     }
 
-    .benefit-item-text h5 {
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 6px;
+    .benefit-card h4 {
+      font-family: var(--serif);
+      font-size: 22px;
       font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.3;
     }
 
-    .benefit-item-text p {
+    .benefit-card p {
       font-size: 13.5px;
-      line-height: 1.75;
-      color: rgba(245,242,237,0.38);
+      line-height: 1.85;
+      color: rgba(245,242,237,0.42);
     }
 
     /* ─── WHO THIS IS FOR ────────────────────────── */
@@ -1177,7 +1146,7 @@
       .how-steps { grid-template-columns: 1fr 1fr; row-gap: 52px; }
       .how-steps::before { display: none; }
 
-      .benefits-inner { grid-template-columns: 1fr; gap: 52px; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
 
       .faq-inner { grid-template-columns: 1fr; gap: 56px; }
       .faq-right { min-height: 320px; }
@@ -1202,6 +1171,7 @@
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .faq-item-text { font-size: 15px; }
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
@@ -1455,57 +1425,47 @@
   <!-- ─── BENEFITS SECTION ─── -->
   <section class="benefits">
     <div class="benefits-inner">
-      <div class="benefits-left">
+      <div class="benefits-header">
         <span class="section-label">What You Gain</span>
         <h2>Structured outcomes<br>for <em>intentional</em> wealth</h2>
         <p>The benefits of a well-designed capital system extend beyond financial performance. They reshape how you interact with money, turning fragmentation and friction into clarity and control.</p>
-        <div class="benefits-photo">
-          <img src="images/cfb-benefits-couple.jpg" alt="" loading="lazy" />
-        </div>
       </div>
 
-      <div class="benefits-right">
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Accessible Capital Reserves</h5>
-            <p>Liquid access to a growing pool of capital, available on your timeline, without institutional barriers.</p>
-          </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Accessible Capital Reserves</h4>
+          <p>Liquid access to a growing pool of capital, available on your timeline, without institutional barriers.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Uninterrupted Compounding</h5>
-            <p>Capital continues to grow even while accessed, removing the traditional tradeoff between liquidity and long-term accumulation.</p>
-          </div>
+
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Uninterrupted Compounding</h4>
+          <p>Capital continues to grow even while accessed, removing the traditional tradeoff between liquidity and long-term accumulation.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Financial Optionality</h5>
-            <p>The ability to act on opportunities (real estate, business, or personal) without liquidating long-term holdings or disrupting your plan.</p>
-          </div>
+
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Financial Optionality</h4>
+          <p>The ability to act on opportunities (real estate, business, or personal) without liquidating long-term holdings or disrupting your plan.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Greater Control</h5>
-            <p>A system you understand and direct, rather than one managed by institutions on their terms and timelines.</p>
-          </div>
+
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Greater Control</h4>
+          <p>A system you understand and direct, rather than one managed by institutions on their terms and timelines.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Continuity &amp; Legacy</h5>
-            <p>A structure designed to serve you across time, and with the right design, to benefit those who come after you.</p>
-          </div>
+
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Continuity &amp; Legacy</h4>
+          <p>A structure designed to serve you across time, and with the right design, to benefit those who come after you.</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-check"></div>
-          <div class="benefit-item-text">
-            <h5>Coherent Financial Architecture</h5>
-            <p>One unified structure with a single purpose, replacing fragmented accounts with a system that has clarity and direction.</p>
-          </div>
+
+        <div class="benefit-card">
+          <div class="benefit-accent"></div>
+          <h4>Coherent Financial Architecture</h4>
+          <p>One unified structure with a single purpose, replacing fragmented accounts with a system that has clarity and direction.</p>
         </div>
       </div>
     </div>
