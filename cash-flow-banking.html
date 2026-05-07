@@ -805,10 +805,22 @@
       margin: 0 auto;
     }
 
-    .benefits-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 96px;
+    .benefits-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 96px;
+    }
+
+    .benefits-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-image: url("images/cfb-benefits-bg-family-walking.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 4px;
     }
 
     .benefits-header h2 {
@@ -1154,6 +1166,7 @@
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
+      .benefits-top { grid-template-columns: 1fr; gap: 48px; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .candid-aliases-sep { display: none; }
       .faq-item-text { font-size: 15px; }
@@ -1300,10 +1313,13 @@
   <!-- ─── BENEFITS SECTION ─── -->
   <section class="benefits">
     <div class="benefits-inner">
-      <div class="benefits-header">
-        <span class="section-label">What Changes</span>
-        <h2>Structured outcomes<br>for <em>intentional</em> wealth</h2>
-        <p>The benefits of a well-designed capital system extend beyond financial performance. They reshape how you interact with money, turning fragmentation and friction into clarity and control.</p>
+      <div class="benefits-top">
+        <div class="benefits-header">
+          <span class="section-label">What Changes</span>
+          <h2>Structured outcomes<br>for <em>intentional</em> wealth</h2>
+          <p>The benefits of a well-designed capital system extend beyond financial performance. They reshape how you interact with money, turning fragmentation and friction into clarity and control.</p>
+        </div>
+        <div class="benefits-image"></div>
       </div>
 
       <div class="benefits-grid">
