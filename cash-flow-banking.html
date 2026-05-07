@@ -815,12 +815,14 @@
 
     .benefits-image {
       width: 100%;
+      max-width: 380px;
       aspect-ratio: 1 / 1;
       background-image: url("images/cfb-benefits-bg-family-walking.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       border-radius: 4px;
+      justify-self: end;
     }
 
     .benefits-header h2 {
@@ -1167,6 +1169,7 @@
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
       .benefits-top { grid-template-columns: 1fr; gap: 48px; }
+      .benefits-image { max-width: 100%; justify-self: stretch; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .candid-aliases-sep { display: none; }
       .faq-item-text { font-size: 15px; }
