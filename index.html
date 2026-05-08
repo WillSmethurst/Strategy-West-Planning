@@ -48,7 +48,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: transform 0.3s ease;
     }
+
+    nav.nav-hidden { transform: translateY(-100%); }
 
     .nav-logo {
       display: flex;
@@ -1030,6 +1033,8 @@
 
       .nav-center { display: none; }
 
+      .nav-cta-wrap { display: none; }
+
       .nav-hamburger { display: flex; }
 
       .hero { padding: 156px 24px 80px; }
@@ -1098,7 +1103,16 @@
         </div>
       </div>
       <a href="about-us.html">About Us</a>
+    <button class="mobile-nav-dropdown-trigger" id="mobileScheduleBtn">
+      Schedule a Consultation <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileScheduleSub">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+      <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning</a>
     </div>
+  </div>
 
     <div class="nav-cta-wrap" id="consultWrap">
       <button class="nav-cta" id="consultBtn">
@@ -1434,6 +1448,45 @@
         btn.nextElementSibling.classList.toggle('open');
       });
     });
+
+    // ── Auto-hide nav on scroll-down (mobile only, under 768px) ──
+    let lastScroll = 0;
+    const SCROLL_THRESHOLD = 5;
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      // Desktop: never hide
+      if (window.innerWidth > 768) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      // Don't hide while mobile menu is open
+      if (mobileNav.classList.contains('open')) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      const currentScroll = window.pageYOffset;
+
+      // Always show at top of page
+      if (currentScroll <= 0) {
+        navEl.classList.remove('nav-hidden');
+        lastScroll = 0;
+        return;
+      }
+
+      // Ignore micro-scrolls
+      if (Math.abs(currentScroll - lastScroll) < SCROLL_THRESHOLD) return;
+
+      if (currentScroll > lastScroll) {
+        navEl.classList.add('nav-hidden');   // scrolling down
+      } else {
+        navEl.classList.remove('nav-hidden'); // scrolling up
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
 
     // ── Desktop nav dropdowns: click handler for mobile/tablet ───
     function isMobile() { return window.innerWidth <= 768; }
