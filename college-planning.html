@@ -482,7 +482,7 @@
     /* ─── THREE DIMENSIONS (staggered) ───────────────────────── */
     .dimensions {
       background: var(--off-white);
-      padding: 140px 80px;
+      padding: 96px 80px 140px;
       position: relative;
     }
 
@@ -665,7 +665,7 @@
     /* ─── YEAR-BY-YEAR JOURNEY ───────────────────────────────── */
     .journey {
       background: var(--warm-white);
-      padding: 140px 80px 160px;
+      padding: 96px 80px 160px;
       position: relative;
     }
 
@@ -674,9 +674,26 @@
       margin: 0 auto;
     }
 
+    .journey-top {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      align-items: center;
+      gap: 64px;
+      margin-bottom: 100px;
+    }
+
+    .journey-image {
+      display: block;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+    }
+
     .journey-header {
       max-width: 720px;
-      margin-bottom: 100px;
     }
 
     .journey-header h2 {
@@ -1115,6 +1132,7 @@
       .myth-cell { border-right: none; padding-bottom: 24px; }
       .reality-cell { padding-top: 24px; border-bottom: 1px solid var(--gold-dim); }
 
+      .journey-top { grid-template-columns: 1fr; }
       .journey-timeline { grid-template-columns: 1fr; gap: 32px; }
       .journey-rail { position: static; }
       .journey-rail-line { display: none; }
@@ -1421,10 +1439,13 @@
   <!-- ─── YEAR-BY-YEAR JOURNEY ─── -->
   <section class="journey">
     <div class="journey-inner">
-      <div class="journey-header">
-        <span class="section-label">The Four-Year Arc</span>
-        <h2>What each year is <em>for.</em></h2>
-        <p>Each year of high school carries a different weight. The work compounds when it is sequenced. It gets expensive when it is rushed.</p>
+      <div class="journey-top">
+        <div class="journey-header">
+          <span class="section-label">The Four-Year Arc</span>
+          <h2>What each year is <em>for.</em></h2>
+          <p>Each year of high school carries a different weight. The work compounds when it is sequenced. It gets expensive when it is rushed.</p>
+        </div>
+        <img class="journey-image" src="images/cp-four-year-arc-clocktower.jpg" alt="Campus clocktower" />
       </div>
 
       <div class="journey-timeline">
