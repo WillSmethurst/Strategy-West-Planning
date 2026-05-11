@@ -303,15 +303,31 @@
     /* ─── HERO ───────────────────────────────────────────────── */
     .hero {
       background: var(--warm-white);
+      background-image: url("images/cp-hero-bg-campus.jpg");
+      background-size: cover;
+      background-position: center center;
       padding: 196px 80px 140px;
       position: relative;
       overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        color-mix(in srgb, var(--warm-white) 85%, transparent) 0%,
+        color-mix(in srgb, var(--warm-white) 55%, transparent) 100%
+      );
+      pointer-events: none;
     }
 
     .hero-inner {
       max-width: 980px;
       margin: 0 auto;
       position: relative;
+      z-index: 1;
     }
 
     .hero-eyebrow {
@@ -319,14 +335,7 @@
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 40px;
-    }
-
-    .hero-rule {
-      width: 56px;
-      height: 1px;
-      background: var(--gold);
-      margin-bottom: 40px;
+      margin-bottom: 80px;
     }
 
     .hero-title {
@@ -339,10 +348,14 @@
       max-width: 880px;
     }
 
+    .hero-title em {
+      color: #8a7a64;
+    }
+
     .hero-sub {
       font-size: 16px;
       line-height: 1.85;
-      color: #5a554f;
+      color: #2c2a26;
       max-width: 580px;
       margin-bottom: 56px;
       font-weight: 300;
@@ -1229,7 +1242,6 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="hero-eyebrow">College Planning</p>
-      <div class="hero-rule"></div>
       <h1 class="hero-title">
         The years before college<br>decide what college <em>costs,</em><br>and what college <em>becomes.</em>
       </h1>
