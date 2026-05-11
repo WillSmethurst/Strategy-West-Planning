@@ -491,9 +491,24 @@
       margin: 0 auto;
     }
 
+    .dimensions-top {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      align-items: center;
+      gap: 64px;
+      margin-bottom: 96px;
+    }
+
+    .dimensions-image {
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      border-radius: 16px;
+    }
+
     .dimensions-header {
       max-width: 760px;
-      margin-bottom: 96px;
     }
 
     .dimensions-header h2 {
@@ -1093,6 +1108,7 @@
       .why-matters-left { position: static; }
 
       .dimensions-inner { padding: 0; }
+      .dimensions-top { grid-template-columns: 1fr; }
       .dimension { grid-template-columns: 72px 1fr; gap: 32px; padding: 44px 0; max-width: none; }
 
       .myths-grid { grid-template-columns: 1fr; }
@@ -1297,12 +1313,14 @@
 
   <!-- ─── THREE DIMENSIONS ─── -->
   <section class="dimensions">
-    <!-- TODO: Add image in the top-right corner of this section once selected. Will is planning to source a specific image. Do not generate or substitute one. -->
     <div class="dimensions-inner">
-      <div class="dimensions-header">
-        <span class="section-label">Three Dimensions</span>
-        <h2>Real college planning sits at the intersection of three things, and most plans only address <em>one.</em></h2>
-        <p>Academic positioning. Financial structure. Family fit. Each shapes the other, and a plan that treats them separately leaves outcomes on the table.</p>
+      <div class="dimensions-top">
+        <div class="dimensions-header">
+          <span class="section-label">Three Dimensions</span>
+          <h2>Real college planning sits at the intersection of three things, and most plans only address <em>one.</em></h2>
+          <p>Academic positioning. Financial structure. Family fit. Each shapes the other, and a plan that treats them separately leaves outcomes on the table.</p>
+        </div>
+        <img class="dimensions-image" src="images/cp-three-dimensions-students.jpg" alt="Students preparing for college" />
       </div>
 
       <div class="dimensions-stack">
