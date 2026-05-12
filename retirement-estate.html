@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement &amp; Estate Planning | Strategy West Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #111010;
+      --charcoal:   #1a1917;
+      --charcoal-2: #141312;
+      --gold:       #b89b6e;
+      --gold-light: #d4b98a;
+      --gold-dim:   rgba(184,155,110,0.18);
+      --cream:      #f5f2ed;
+      --warm-white: #faf8f5;
+      --off-white:  #f2efe8;
+      --gray-mid:   #8a8580;
+      --gray-light: #e8e4de;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--black);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(17, 16, 16, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 155, 110, 0.15);
+      padding: 0 120px;
+      height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    nav.nav-hidden { transform: translateY(-100%); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-left: -42px;
+    }
+
+    .nav-logo img {
+      height: 104px;
+      width: auto;
+      opacity: 1;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-left: auto;
+    }
+
+    .nav-center a,
+    .nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.25s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .nav-center a:hover,
+    .nav-dropdown-trigger:hover { color: var(--gold-light); }
+
+    .nav-center a.active { color: var(--gold-light); }
+
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 24px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 24px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 14px 20px;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .nav-dropdown-menu a.active { color: var(--gold-light); }
+
+    .nav-cta-wrap { position: relative; flex-shrink: 0; margin-left: 40px; }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 11px 22px;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta svg { width: 10px; height: 10px; transition: transform 0.2s; }
+    .nav-cta-wrap.open .nav-cta svg { transform: rotate(180deg); }
+
+    .consult-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 280px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: all 0.22s ease;
+      z-index: 999;
+    }
+    .consult-dropdown.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .consult-dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .consult-dropdown a:last-child { border-bottom: none; }
+    .consult-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .consult-dropdown a span { font-size: 14px; opacity: 0.4; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 112px; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(17,16,16,0.98);
+      border-top: 1px solid rgba(184,155,110,0.12);
+      border-bottom: 1px solid rgba(184,155,110,0.12);
+      flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a,
+    .mobile-nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover,
+    .mobile-nav-dropdown-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
+    .mobile-nav-sub { display: none; flex-direction: column; background: rgba(255,255,255,0.02); }
+    .mobile-nav-sub.open { display: flex; }
+    .mobile-nav-sub a { padding-left: 40px; font-size: 10.5px; color: rgba(255,255,255,0.42); }
+    .mobile-nav-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
+    .mobile-nav-dropdown-trigger.open .mobile-nav-chevron { transform: rotate(180deg); }
+
+    /* ─── SHARED PIECES ─────────────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .btn-gold {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: background 0.25s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    em { font-style: italic; color: var(--gold); }
+
+    /* ─── HERO (dark, full-bleed photographic) ───────────────── */
+    .hero {
+      min-height: 100vh;
+      /* TODO: Add hero background image at images/re-hero-bg.jpg */
+      background-image: url("images/re-hero-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 176px 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,16,16,0.74) 0%, rgba(17,16,16,0.55) 45%, rgba(17,16,16,0.80) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 32px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(46px, 6vw, 78px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--cream);
+      max-width: 920px;
+      margin-bottom: 36px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 15.5px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(245,242,237,0.84);
+      max-width: 600px;
+      margin: 0 auto 52px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.45);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── OPENING FRAMING ──────────────────────────────────── */
+    .opening {
+      background: var(--warm-white);
+      padding: 128px 80px;
+    }
+
+    .opening-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .opening p {
+      font-family: var(--serif);
+      font-size: clamp(20px, 1.9vw, 24px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: #2c2a26;
+    }
+
+    .opening p em { color: var(--gold); font-style: italic; }
+
+    /* ─── CONSIDERATIONS INTRO ─────────────────────────────── */
+    .considerations {
+      background: var(--cream);
+      padding: 96px 80px;
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .considerations-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .considerations-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 2.8vw, 36px);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--black);
+      margin-top: 4px;
+    }
+
+    .considerations-inner p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #5a554f;
+      max-width: 640px;
+      margin: 24px auto 0;
+    }
+
+    .considerations-toc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(17,16,16,0.62);
+      margin-top: 48px;
+    }
+
+    .considerations-toc-sep {
+      color: var(--gold);
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    /* ─── FRAMEWORK SECTIONS (Sections 5, 6, 7) ────────────── */
+    .framework {
+      padding: 128px 80px;
+      position: relative;
+    }
+
+    .framework--alt { background: var(--off-white); }
+    .framework--warm { background: var(--warm-white); }
+
+    .framework-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .framework-chapter {
+      font-family: var(--serif);
+      font-size: clamp(72px, 8vw, 112px);
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.28;
+      line-height: 1;
+      margin-bottom: 36px;
+    }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .framework--reverse .framework-grid {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .framework--reverse .framework-text { order: 2; }
+    .framework--reverse .framework-image-wrap { order: 1; }
+
+    .framework-text h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 3.8vw, 56px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--black);
+      margin-bottom: 36px;
+    }
+
+    .framework-text p {
+      font-size: 15.5px;
+      line-height: 1.9;
+      color: #2c2a26;
+      margin-bottom: 22px;
+      max-width: 620px;
+    }
+
+    .framework-pull {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.45;
+      max-width: 580px;
+      padding: 24px 0 24px 28px;
+      border-left: 1px solid var(--gold);
+      margin: 12px 0 28px;
+    }
+
+    .framework-image-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .framework-image {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 4 / 5;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--gold-dim);
+      border-radius: 16px;
+    }
+
+    /* TODO image placeholders are referenced in HTML; see the per-section TODO comments. */
+    .framework-image--vb {
+      /* TODO: Add image at images/re-volatility-buffer.jpg */
+      background-image: url("images/re-volatility-buffer.jpg");
+    }
+    .framework-image--sfpp {
+      /* TODO: Add image at images/re-self-funded-pension.jpg */
+      background-image: url("images/re-self-funded-pension.jpg");
+    }
+    .framework-image--rm {
+      /* TODO: Add image at images/re-rockefeller-method.jpg */
+      background-image: url("images/re-rockefeller-method.jpg");
+    }
+
+    /* ─── PULL QUOTE SECTION (Section 8) ───────────────────── */
+    .pullquote {
+      background: var(--warm-white);
+      padding: 160px 80px;
+      text-align: center;
+    }
+
+    .pullquote-inner {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .pullquote-mark {
+      font-family: var(--serif);
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 0.5;
+      margin-bottom: 16px;
+      opacity: 0.55;
+    }
+
+    .pullquote q {
+      font-family: var(--serif);
+      font-size: clamp(32px, 3.4vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--black);
+      quotes: none;
+    }
+
+    .pullquote q::before,
+    .pullquote q::after { content: ''; }
+
+    .pullquote q em { color: var(--gold); font-style: italic; }
+
+    /* ─── ENGAGEMENT MODEL (Section 9) ─────────────────────── */
+    .engagement {
+      background: var(--cream);
+      padding: 128px 80px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .engagement-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .engagement-header {
+      max-width: 760px;
+      margin: 0 auto 96px;
+      text-align: center;
+    }
+
+    .engagement-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3vw, 42px);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--black);
+    }
+
+    .engagement-header h2 em { color: var(--gold); font-style: italic; }
+
+    .engagement-phases {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    .engagement-phases::before {
+      content: '';
+      position: absolute;
+      top: 84px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.45;
+      z-index: 0;
+    }
+
+    .engagement-phase {
+      text-align: center;
+      padding: 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .engagement-phase-num {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .engagement-phase-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      border: 4px solid var(--cream);
+      box-sizing: content-box;
+    }
+
+    .engagement-phase h4 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .engagement-phase p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #5a554f;
+    }
+
+    /* ─── FAQ (Section 10) ─────────────────────────────────── */
+    .faq {
+      background: var(--warm-white);
+      padding: 128px 80px;
+    }
+
+    .faq-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .faq-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 3.4vw, 50px);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .faq-left h2 em { color: var(--gold); font-style: italic; }
+
+    .faq-subtitle {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(17,16,16,0.4);
+      margin-bottom: 36px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 36px;
+    }
+
+    .faq-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--gray-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid var(--gray-light); }
+    .faq-item:hover .faq-item-text { color: var(--gold); }
+
+    .faq-item-mark {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--gold);
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .faq-item-text {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.4;
+      transition: color 0.25s;
+    }
+
+    .faq-cta-wrap { margin-top: 8px; }
+
+    .faq-right {
+      position: relative;
+      /* TODO: Add image at images/re-faq.jpg */
+      background-image: url("images/re-faq.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--gold-dim);
+      border-radius: 4px;
+      min-height: 480px;
+      align-self: stretch;
+      overflow: hidden;
+    }
+
+    /* ─── CLOSING CTA (Section 11, full-bleed dark) ────────── */
+    .cta {
+      /* TODO: Add image at images/re-cta-bg.jpg */
+      background-image:
+        linear-gradient(rgba(17,16,16,0.62), rgba(17,16,16,0.62)),
+        url("images/re-cta-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--black);
+      padding: 156px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta .section-label {
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 28px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+
+    .cta h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .cta p {
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: rgba(245,242,237,0.82);
+      max-width: 580px;
+      margin: 0 auto 44px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.45);
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 48px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand img {
+      height: 124px;
+      opacity: 1;
+      margin-bottom: 14px;
+    }
+
+    .footer-nav { display: flex; gap: 64px; }
+
+    .footer-col h6 {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 15px;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero { padding: 156px 48px 48px; }
+
+      .opening { padding: 96px 48px; }
+
+      .considerations { padding: 80px 48px; }
+
+      .framework { padding: 96px 48px; }
+      .framework-grid { grid-template-columns: 1fr; gap: 48px; }
+      .framework--reverse .framework-grid { grid-template-columns: 1fr; }
+      .framework--reverse .framework-text { order: 0; }
+      .framework--reverse .framework-image-wrap { order: 0; }
+      .framework-image { max-width: 100%; aspect-ratio: 3 / 2; }
+
+      .pullquote { padding: 128px 48px; }
+
+      .engagement { padding: 96px 48px; }
+      .engagement-header { margin-bottom: 56px; }
+      .engagement-phases { grid-template-columns: 1fr; gap: 40px; padding-bottom: 0; }
+      .engagement-phases::before { display: none; }
+      .engagement-phase { padding: 0; }
+      .engagement-phase-num { height: auto; margin-bottom: 12px; }
+      .engagement-phase-dot { display: none; }
+
+      .faq { padding: 96px 48px; }
+      .faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .faq-right { min-height: 320px; }
+
+      .cta { padding: 128px 48px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 140px 24px 72px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions a { text-align: center; }
+
+      .opening,
+      .considerations,
+      .framework,
+      .pullquote,
+      .engagement,
+      .faq,
+      .cta { padding-left: 24px; padding-right: 24px; }
+
+      .considerations-toc { gap: 8px; font-size: 10.5px; }
+
+      .framework-chapter { font-size: 64px; }
+
+      .footer-nav { flex-direction: column; gap: 32px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </a>
+
+    <div class="nav-center">
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">What We Do ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html" class="active">Retirement &amp; Estate</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">Resources ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="blogs.html">Blogs</a>
+          <a href="articles.html">Articles</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <a href="about-us.html">About Us</a>
+    </div>
+
+    <div class="nav-cta-wrap" id="consultWrap">
+      <button class="nav-cta" id="consultBtn">
+        Schedule a Consultation
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="consult-dropdown" id="consultDropdown">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+        <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+      </div>
+    </div>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-dropdown-trigger" id="mobileWhatWeDoBtn">
+      What We Do <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileWhatWeDoSub">
+      <a href="cash-flow-banking.html">Cash Flow Banking</a>
+      <a href="college-planning.html">College Planning</a>
+      <a href="disability-planning.html">Disability Planning</a>
+      <a href="retirement-estate.html">Retirement &amp; Estate</a>
+    </div>
+    <button class="mobile-nav-dropdown-trigger" id="mobileResourcesBtn">
+      Resources <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileResourcesSub">
+      <a href="blogs.html">Blogs</a>
+      <a href="articles.html">Articles</a>
+      <a href="calculators.html">Financial Calculators</a>
+      <a href="guides.html">Guides</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="about-us.html">About Us</a>
+    <button class="mobile-nav-dropdown-trigger" id="mobileScheduleBtn">
+      Schedule a Consultation <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileScheduleSub">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+      <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <!-- TODO: Add hero background image at images/re-hero-bg.jpg -->
+  <section class="hero">
+    <p class="hero-eyebrow">Retirement &amp; Estate Planning</p>
+    <h1 class="hero-title">
+      There is a different kind of work for capital you have already <em>built,</em> and a different kind of plan for what it will <em>become.</em>
+    </h1>
+    <p class="hero-sub">
+      For families approaching or already in retirement, the questions shift. Building gives way to drawing income, and planning extends across the generations that will follow. Strategy West helps families navigate that shift with clarity and patience.
+    </p>
+    <div class="hero-actions">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── OPENING FRAMING ─── -->
+  <section class="opening">
+    <div class="opening-inner">
+      <p>
+        There is a quiet transition in a financial life when the work of building gives way to the work of stewarding. The portfolio that was once measured by what it could grow into is now measured by what it can reliably provide, and by what remains for the people who follow. <em>That transition asks for different questions, and different patience.</em> Our work is to help families ask those questions well, and to design plans that hold up across the decades that follow them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── CONSIDERATIONS INTRO ─── -->
+  <section class="considerations">
+    <div class="considerations-inner">
+      <span class="section-label">Three Considerations</span>
+      <h2>Retirement and estate planning at this stage rests on three deliberate considerations.</h2>
+      <p>
+        Each addresses a different question that families approaching or already in this phase tend to ask. Together they form the spine of the work we do.
+      </p>
+      <div class="considerations-toc">
+        <span>The Volatility Buffer</span>
+        <span class="considerations-toc-sep">·</span>
+        <span>The Self-Funded Pension Plan</span>
+        <span class="considerations-toc-sep">·</span>
+        <span>The Rockefeller Method</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5: I. THE VOLATILITY BUFFER ─── -->
+  <!-- TODO: Add image at images/re-volatility-buffer.jpg -->
+  <section class="framework framework--warm">
+    <div class="framework-inner">
+      <div class="framework-chapter">I.</div>
+      <div class="framework-grid">
+        <div class="framework-text">
+          <h2>The Volatility Buffer</h2>
+          <p>Markets fall and rise on their own schedule, never on yours. For a household still building wealth, a market decline is uncomfortable but not catastrophic. For a household drawing income, the same decline can be quietly destructive. Selling assets to fund living expenses during a downturn locks in losses that even a strong recovery cannot fully undo.</p>
+          <p>The Volatility Buffer is our response to that risk. It is a deliberate cash reserve, sized to a family's specific income needs, that funds living expenses through market declines so equity positions never have to be sold under duress. The portfolio gets to ride out the storm rather than fund it.</p>
+          <p class="framework-pull">Capital that gets to stay invested compounds. Capital that has to be sold does not.</p>
+          <p>How the Buffer is sized varies with each household. Income requirements, the length of a comfortable reserve, and the family's overall risk tolerance all shape the structure. The aim is not a generic two-year cash position. The aim is a reserve calibrated to this family's specific cash flow needs and timeline.</p>
+          <p>In practice, the Volatility Buffer changes very little about how a portfolio looks. What it changes is what the family has to do during difficult markets, which is to say very little.</p>
+        </div>
+        <div class="framework-image-wrap">
+          <div class="framework-image framework-image--vb" role="img" aria-label="The Volatility Buffer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 6: II. THE SELF-FUNDED PENSION PLAN ─── -->
+  <!-- TODO: Add image at images/re-self-funded-pension.jpg -->
+  <section class="framework framework--alt framework--reverse">
+    <div class="framework-inner">
+      <div class="framework-chapter">II.</div>
+      <div class="framework-grid">
+        <div class="framework-image-wrap">
+          <div class="framework-image framework-image--sfpp" role="img" aria-label="The Self-Funded Pension Plan"></div>
+        </div>
+        <div class="framework-text">
+          <h2>The Self-Funded Pension Plan</h2>
+          <p>There was a time, within recent memory, when a working life ended with a pension. Parents and grandparents who spent decades at a single employer often retired to a steady monthly check that arrived for the rest of their lives. The pension was not a luxury. It was simply how retirement worked.</p>
+          <p>Today's retirees rarely have that. The accounts they have instead, Traditional IRAs, 401(k)s, 403(b)s, TSPs, and other qualified retirement vehicles, hold the same purpose but ask the retiree to do all of the work of turning a balance into income. The market gives no monthly check.</p>
+          <p class="framework-pull">What previous generations were given, today's families are asked to build for themselves.</p>
+          <p>The Self-Funded Pension Plan is our framing of the work that follows. We help families roll many of those qualified retirement accounts into structures designed to provide guaranteed lifetime income, the closest modern equivalent to the pension a previous generation took for granted.</p>
+          <p>The intent is not to replicate one specific income amount. The intent is to give the family the same quiet that a pension once provided. Predictable income, not dependent on market performance, freeing the rest of the portfolio for the other purposes the family cares about.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 7: III. THE ROCKEFELLER METHOD ─── -->
+  <!-- TODO: Add image at images/re-rockefeller-method.jpg -->
+  <section class="framework framework--warm">
+    <div class="framework-inner">
+      <div class="framework-chapter">III.</div>
+      <div class="framework-grid">
+        <div class="framework-text">
+          <h2>The Rockefeller Method</h2>
+          <p>In the early decades of the last century, the Rockefeller family developed a set of long-term insurance and trust structures designed to pass wealth not only to their children, but to their grandchildren and the generations beyond. The structures were unusual at the time. They have since become foundational to how families with built wealth think about transfer.</p>
+          <p>The structures are still available, still legal, and still effective for families whose horizon is generational rather than personal. They are not appropriate for every situation, but for the families to whom they apply, they offer a degree of intentional transfer that no single will or trust can replicate alone.</p>
+          <p class="framework-pull">What you have built becomes, at this stage, what you leave.</p>
+          <p>Our role in the Rockefeller Method is to coordinate, not to replace. The family's estate attorneys and CPAs remain the right experts for the legal and tax architecture. We work alongside them to make sure the insurance structures, the trust documents, and the family's overall financial picture are coherent and aligned to the same purpose.</p>
+          <p>The Rockefeller Method is one of the structures we help families consider when they want what they leave to last.</p>
+        </div>
+        <div class="framework-image-wrap">
+          <div class="framework-image framework-image--rm" role="img" aria-label="The Rockefeller Method"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 8: PHILOSOPHY PULL QUOTE ─── -->
+  <section class="pullquote">
+    <div class="pullquote-inner">
+      <div class="pullquote-mark">&ldquo;</div>
+      <q>The work of preservation and the work of legacy are not separate questions. They are the <em>same</em> question, asked across a longer horizon.</q>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 9: HOW WE WORK WITH YOU ─── -->
+  <section class="engagement">
+    <div class="engagement-inner">
+      <div class="engagement-header">
+        <span class="section-label">How We Work With You</span>
+        <h2>A relationship, not a transaction, and a collaboration measured in <em>years</em> rather than meetings.</h2>
+      </div>
+      <div class="engagement-phases">
+        <div class="engagement-phase">
+          <div class="engagement-phase-num">01</div>
+          <div class="engagement-phase-dot"></div>
+          <h4>Initial Conversation</h4>
+          <p>We begin by listening. Your goals, your concerns, your timeline, your family. Before any plan is drawn, we need to understand the people it is being drawn for.</p>
+        </div>
+        <div class="engagement-phase">
+          <div class="engagement-phase-num">02</div>
+          <div class="engagement-phase-dot"></div>
+          <h4>Discovery</h4>
+          <p>From there, we assemble the picture. Accounts, assets, beneficiaries, existing trust and estate documents, the working relationships you already have with attorneys and CPAs.</p>
+        </div>
+        <div class="engagement-phase">
+          <div class="engagement-phase-num">03</div>
+          <div class="engagement-phase-dot"></div>
+          <h4>Strategy Design</h4>
+          <p>With the picture clear, we design the plan. The Volatility Buffer, the Self-Funded Pension Plan, and the Rockefeller Method are each considered for their fit. Some apply, some do not. The plan is yours.</p>
+        </div>
+        <div class="engagement-phase">
+          <div class="engagement-phase-num">04</div>
+          <div class="engagement-phase-dot"></div>
+          <h4>Implementation</h4>
+          <p>Once the plan is approved, we coordinate the implementation alongside your existing professionals. The structures are put in place. The accounts are moved or aligned. The plan begins.</p>
+        </div>
+        <div class="engagement-phase">
+          <div class="engagement-phase-num">05</div>
+          <div class="engagement-phase-dot"></div>
+          <h4>Ongoing Review</h4>
+          <p>We meet with you regularly, more often when life changes and less often when it does not. Plans are revised. Beneficiaries are updated. The structure is kept in alignment with the family it serves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 10: FAQ ─── -->
+  <!-- TODO: Add image at images/re-faq.jpg -->
+  <section class="faq">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <span class="section-label">Frequently Asked</span>
+        <h2>What People <em>Ask</em></h2>
+        <p class="faq-subtitle">Retirement &amp; Estate Planning</p>
+
+        <div class="faq-list">
+          <a href="faq.html#re-question-1" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">When is the right time to begin planning the income side of retirement?</span>
+          </a>
+          <a href="faq.html#re-question-2" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">How does the Volatility Buffer relate to traditional bond ladders or annuities?</span>
+          </a>
+          <a href="faq.html#re-question-3" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">What kinds of accounts can be rolled into a Self-Funded Pension Plan?</span>
+          </a>
+          <a href="faq.html#re-question-4" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">Does the Rockefeller Method replace our estate attorney?</span>
+          </a>
+          <a href="faq.html#re-question-5" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">How do you coordinate with our existing CPA and estate counsel?</span>
+          </a>
+          <a href="faq.html#re-question-6" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">What happens to the plan when one spouse passes?</span>
+          </a>
+          <a href="faq.html#re-question-7" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">How often do you revisit the plan once it is in place?</span>
+          </a>
+        </div>
+
+        <div class="faq-cta-wrap">
+          <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
+        </div>
+      </div>
+
+      <div class="faq-right" role="img" aria-label="Retirement and estate planning"></div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 11: CLOSING CTA ─── -->
+  <!-- TODO: Add image at images/re-cta-bg.jpg -->
+  <section class="cta">
+    <div class="cta-inner">
+      <span class="section-label">Begin the Conversation</span>
+      <h2>Ready to plan what your retirement <em>provides,</em> and what your estate <em>leaves.</em></h2>
+      <p>A Retirement and Estate Planning consultation begins with listening. Your situation, your goals, your family, and the people who follow.</p>
+      <div class="cta-actions">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+          Schedule a Retirement &amp; Estate Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h6>Services</h6>
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Resources</h6>
+          <a href="blogs.html">Blogs</a>
+          <a href="articles.html">Articles</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Consultations</h6>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+          <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+      <p>Designed for those who plan with purpose.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Consultation dropdown ─────────────────────────────────
+    const consultBtn  = document.getElementById('consultBtn');
+    const consultWrap = document.getElementById('consultWrap');
+    const consultDD   = document.getElementById('consultDropdown');
+
+    consultBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrap.classList.toggle('open');
+      consultDD.classList.toggle('open', isOpen);
+    });
+
+    document.addEventListener('click', () => {
+      consultWrap.classList.remove('open');
+      consultDD.classList.remove('open');
+    });
+
+    consultDD.addEventListener('click', e => e.stopPropagation());
+
+    // ── Mobile hamburger ──────────────────────────────────────
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && e.target !== hamburger) {
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // ── Mobile dropdown sub-menu toggles (works for any number) ─
+    document.querySelectorAll('.mobile-nav-dropdown-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    // ── Auto-hide nav on scroll-down (mobile only, under 768px) ──
+    let lastScroll = 0;
+    const SCROLL_THRESHOLD = 5;
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 768) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      if (mobileNav.classList.contains('open')) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll <= 0) {
+        navEl.classList.remove('nav-hidden');
+        lastScroll = 0;
+        return;
+      }
+
+      if (Math.abs(currentScroll - lastScroll) < SCROLL_THRESHOLD) return;
+
+      if (currentScroll > lastScroll) {
+        navEl.classList.add('nav-hidden');
+      } else {
+        navEl.classList.remove('nav-hidden');
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ── Desktop nav dropdowns: click handler for mobile/tablet ───
+    function isMobile() { return window.innerWidth <= 768; }
+
+    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+      const trigger = item.querySelector('.nav-dropdown-trigger');
+      const menu    = item.querySelector('.nav-dropdown-menu');
+
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.stopPropagation();
+        const isOpen = menu.style.opacity === '1';
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
+        if (!isOpen) {
+          menu.style.opacity       = '1';
+          menu.style.pointerEvents = 'all';
+          menu.style.transform     = 'translateX(-50%) translateY(0)';
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      if (isMobile()) {
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
