@@ -674,13 +674,14 @@
     .faq-inner {
       max-width: 1160px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
     }
 
-    .faq-left h2 {
+    .faq-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .faq-header h2 {
       font-family: var(--serif);
       font-size: clamp(34px, 3.4vw, 50px);
       font-weight: 300;
@@ -689,7 +690,7 @@
       margin-bottom: 8px;
     }
 
-    .faq-left h2 em { color: var(--gold); font-style: italic; }
+    .faq-header h2 em { color: var(--gold); font-style: italic; }
 
     .faq-subtitle {
       font-family: var(--sans);
@@ -697,13 +698,19 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: rgba(17,16,16,0.4);
-      margin-bottom: 36px;
+      margin-top: 16px;
     }
 
-    .faq-list {
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 80px;
+      margin-bottom: 56px;
+    }
+
+    .faq-column {
       display: flex;
       flex-direction: column;
-      margin-bottom: 36px;
     }
 
     .faq-item {
@@ -736,20 +743,8 @@
       transition: color 0.25s;
     }
 
-    .faq-cta-wrap { margin-top: 8px; }
-
-    .faq-right {
-      position: relative;
-      /* TODO: Add image at images/re-faq.jpg */
-      background-image: url("images/re-faq.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--gold-dim);
-      border-radius: 4px;
-      min-height: 480px;
-      align-self: stretch;
-      overflow: hidden;
+    .faq-cta-wrap {
+      text-align: center;
     }
 
     /* ─── CLOSING CTA (Section 11, full-bleed dark) ────────── */
@@ -897,8 +892,7 @@
       .engagement-phase-dot { display: none; }
 
       .faq { padding: 96px 48px; }
-      .faq-inner { grid-template-columns: 1fr; gap: 48px; }
-      .faq-right { min-height: 320px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 0; }
 
       .cta { padding: 128px 48px; }
     }
@@ -1173,15 +1167,16 @@
   </section>
 
   <!-- ─── SECTION 10: FAQ ─── -->
-  <!-- TODO: Add image at images/re-faq.jpg -->
   <section class="faq">
     <div class="faq-inner">
-      <div class="faq-left">
+      <div class="faq-header">
         <span class="section-label">Frequently Asked</span>
         <h2>What People <em>Ask</em></h2>
         <p class="faq-subtitle">Retirement &amp; Estate Planning</p>
+      </div>
 
-        <div class="faq-list">
+      <div class="faq-grid">
+        <div class="faq-column">
           <a href="faq.html#re-question-1" class="faq-item">
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">When is the right time to begin planning the income side of retirement?</span>
@@ -1198,6 +1193,12 @@
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">Does the Rockefeller Method replace our estate attorney?</span>
           </a>
+        </div>
+        <div class="faq-column">
+          <a href="faq.html#re-question-8" class="faq-item">
+            <span class="faq-item-mark">+</span>
+            <span class="faq-item-text">How do you make sure our retirement income lasts as long as we do?</span>
+          </a>
           <a href="faq.html#re-question-5" class="faq-item">
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">How do you coordinate with our existing CPA and estate counsel?</span>
@@ -1211,13 +1212,11 @@
             <span class="faq-item-text">How often do you revisit the plan once it is in place?</span>
           </a>
         </div>
-
-        <div class="faq-cta-wrap">
-          <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
-        </div>
       </div>
 
-      <div class="faq-right" role="img" aria-label="Retirement and estate planning"></div>
+      <div class="faq-cta-wrap">
+        <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
+      </div>
     </div>
   </section>
 
