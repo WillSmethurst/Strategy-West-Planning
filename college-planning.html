@@ -984,14 +984,28 @@
     /* ─── CLOSING CTA ────────────────────────────────────────── */
     .cta {
       background: var(--cream);
-      padding: 140px 80px;
+      padding: 96px 80px;
       text-align: center;
       border-top: 1px solid var(--gold-dim);
     }
 
     .cta-inner {
-      max-width: 760px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .cta-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
     }
 
     .cta .section-label {
@@ -1116,6 +1130,8 @@
 
       .faq-inner { grid-template-columns: 1fr; gap: 48px; }
       .faq-right { min-height: 320px; }
+
+      .cta-inner { grid-template-columns: 1fr; gap: 56px; }
     }
 
     @media (max-width: 768px) {
@@ -1560,14 +1576,17 @@
   <!-- ─── CLOSING CTA ─── -->
   <section class="cta">
     <div class="cta-inner">
-      <span class="section-label">Begin the Conversation</span>
-      <h2>Ready to plan the years before college with <em>intention?</em></h2>
-      <p>A College Planning consultation begins with listening. Your student, your goals, your financial picture, and where you want to go. No pressure. No pitch.</p>
-      <div class="cta-actions">
-        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a College Planning Consultation
-        </a>
-        <a href="https://swfcollegeplanning.com/" class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">Explore College Planning Further</a>
+      <img class="cta-image" src="images/cp-cta-gate-students.jpg" alt="Students at a campus gate" />
+      <div class="cta-content">
+        <span class="section-label">Begin the Conversation</span>
+        <h2>Ready to plan the years before college with <em>intention?</em></h2>
+        <p>A College Planning consultation begins with listening. Your student, your goals, your financial picture, and where you want to go. No pressure. No pitch.</p>
+        <div class="cta-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a College Planning Consultation
+          </a>
+          <a href="https://swfcollegeplanning.com/" class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">Explore College Planning Further</a>
+        </div>
       </div>
     </div>
   </section>
