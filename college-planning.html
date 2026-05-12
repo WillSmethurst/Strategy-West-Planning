@@ -970,45 +970,16 @@
     .faq-cta-wrap { margin-top: 8px; }
 
     .faq-right {
-      align-self: stretch;
-      min-height: 460px;
-      background: linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%);
-      border: 1px solid var(--gold-dim);
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 64px 48px;
+      background-image: url("images/cp-faq-library.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 4px;
+      min-height: 480px;
+      align-self: stretch;
+      overflow: hidden;
     }
-
-    .faq-right::before,
-    .faq-right::after {
-      content: '';
-      position: absolute;
-      background: var(--gold);
-      opacity: 0.5;
-    }
-    .faq-right::before {
-      top: 28px; left: 28px;
-      width: 36px; height: 1px;
-    }
-    .faq-right::after {
-      bottom: 28px; right: 28px;
-      width: 36px; height: 1px;
-    }
-
-    .faq-right-mark {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--black);
-      line-height: 1.4;
-      text-align: center;
-      max-width: 360px;
-    }
-
-    .faq-right-mark em { color: var(--gold); font-style: italic; }
 
     /* ─── CLOSING CTA ────────────────────────────────────────── */
     .cta {
@@ -1176,8 +1147,6 @@
       .journey-year-num { font-size: 56px; }
       .journey-year-num small { margin-top: 8px; }
 
-      .faq-right { min-height: 240px; padding: 48px 28px; }
-      .faq-right-mark { font-size: 22px; }
 
       .cta-actions { flex-direction: column; align-items: stretch; }
       .cta-actions a { text-align: center; }
@@ -1584,9 +1553,7 @@
         </div>
       </div>
 
-      <div class="faq-right">
-        <p class="faq-right-mark">A plan for the years before college, built around the family it <em>serves.</em></p>
-      </div>
+      <div class="faq-right"></div>
     </div>
   </section>
 
