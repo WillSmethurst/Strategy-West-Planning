@@ -283,6 +283,26 @@
     }
     .btn-gold:hover { background: var(--gold-light); }
 
+    .btn-ghost {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--charcoal);
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+      display: inline-block;
+      border: 1px solid var(--charcoal);
+      cursor: pointer;
+    }
+    .btn-ghost:hover {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
     em { font-style: italic; color: var(--gold); }
 
     /* ─── HERO (dark, full-bleed photographic) ───────────────── */
@@ -384,6 +404,10 @@
     }
 
     .opening p em { color: var(--gold); font-style: italic; }
+
+    .opening-cta-wrap {
+      margin-top: 48px;
+    }
 
     /* ─── CONSIDERATIONS INTRO ─────────────────────────────── */
     .considerations {
@@ -1031,6 +1055,9 @@
       <p>
         There is a quiet transition in a financial life when the work of building gives way to the work of stewarding. The portfolio that was once measured by what it could grow into is now measured by what it can reliably provide, and by what remains for the people who follow. <em>That transition asks for different questions, and different patience.</em> Our work is to help families ask those questions well, and to design plans that hold up across the decades that follow them.
       </p>
+      <div class="opening-cta-wrap">
+        <a href="guides.html" class="btn-ghost">Download The Guide</a>
+      </div>
     </div>
   </section>
 
