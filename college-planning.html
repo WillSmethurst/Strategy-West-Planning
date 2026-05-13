@@ -302,7 +302,7 @@
 
     /* ─── HERO ───────────────────────────────────────────────── */
     .hero {
-      background: var(--warm-white);
+      background-color: var(--warm-white);
       background-image: url("images/cp-hero-bg-campus.jpg");
       background-size: cover;
       background-position: center center;
@@ -315,11 +315,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(
-        ellipse at center,
-        color-mix(in srgb, var(--warm-white) 85%, transparent) 0%,
-        color-mix(in srgb, var(--warm-white) 55%, transparent) 100%
-      );
+      background: linear-gradient(90deg, rgba(250,248,245,0.88) 0%, rgba(250,248,245,0.85) 40%, rgba(250,248,245,0.30) 100%);
       pointer-events: none;
     }
 
@@ -346,19 +342,22 @@
       color: var(--black);
       margin-bottom: 44px;
       max-width: 880px;
+      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
     }
 
     .hero-title em {
       color: #8a7a64;
+      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
     }
 
     .hero-sub {
       font-size: 16px;
       line-height: 1.85;
-      color: #2c2a26;
+      color: var(--black);
       max-width: 580px;
       margin-bottom: 56px;
       font-weight: 300;
+      text-shadow: 0 1px 6px rgba(255, 255, 255, 0.75);
     }
 
     .hero-actions {
