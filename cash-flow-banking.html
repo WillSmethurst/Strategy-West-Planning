@@ -458,6 +458,53 @@
       color: #6a6460;
     }
 
+    /* ─── FINANCIAL ASSESSMENT (centered, on warm-white) ─── */
+    .assessment {
+      background: var(--warm-white);
+      padding: 130px 80px;
+      text-align: center;
+    }
+
+    .assessment-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .assessment h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 3.4vw, 48px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 36px;
+    }
+
+    .assessment h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .assessment p {
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: #6a6460;
+      margin-bottom: 22px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .assessment p:last-of-type {
+      margin-bottom: 44px;
+    }
+
+    .assessment-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
     /* Pull quote */
     .strategy-quote {
       border-left: 2px solid var(--gold);
@@ -1170,6 +1217,7 @@
       .benefits,
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
+      .assessment { padding-left: 24px; padding-right: 24px; }
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
@@ -1323,6 +1371,21 @@
             <p>Banks use your deposits to generate returns. Markets route your capital through structures you don't control. The conventional financial system was not designed around your flexibility. It was designed around institutional function.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINANCIAL ASSESSMENT (centered, calm, on off-white) ─── -->
+  <section class="assessment">
+    <div class="assessment-inner">
+      <span class="section-label">Financial Assessment</span>
+      <h2>An <em>honest review</em> of what you already have, before you decide what comes next.</h2>
+      <p>Many people carry policies they were sold years ago. Whole life, universal life, indexed universal life, variable universal life, annuities. They were told the policies were strong at the time, and most haven't been examined since. The Financial Assessment is a deep, unbiased look at what you currently hold, told the way it actually performs, not the way it was pitched.</p>
+      <p>The work examines how each policy performs over time, how it fits your retirement timeline, and what kind of legacy it produces for the people you leave behind. Some assessments confirm you're already where you should be. Others open conversations about where the structure has drifted from what your family will actually need.</p>
+      <div class="assessment-cta">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-financial-assessment" class="btn-gold" target="_blank" rel="noopener noreferrer">
+          Schedule a Financial Assessment
+        </a>
       </div>
     </div>
   </section>
