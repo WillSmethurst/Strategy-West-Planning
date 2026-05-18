@@ -362,6 +362,22 @@
       border-color: var(--charcoal);
     }
 
+    .filter-pill-numeral {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--gold);
+      margin-right: 9px;
+      letter-spacing: 0;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .filter-pill.active .filter-pill-numeral {
+      color: var(--gold-light);
+    }
+
     /* Blog grid */
     .blog-grid {
       display: grid;
@@ -694,10 +710,10 @@
       <div class="filter-row">
         <span class="filter-label">FILTER:</span>
         <button class="filter-pill active" data-filter="all">All Topics</button>
-        <button class="filter-pill" data-filter="cfb">Cash Flow Banking</button>
-        <button class="filter-pill" data-filter="cp">College Planning</button>
-        <button class="filter-pill" data-filter="dp">Disability Planning</button>
-        <button class="filter-pill" data-filter="re">Retirement &amp; Estate</button>
+        <button class="filter-pill" data-filter="cfb"><span class="filter-pill-numeral">I</span>Cash Flow Banking</button>
+        <button class="filter-pill" data-filter="cp"><span class="filter-pill-numeral">II</span>College Planning</button>
+        <button class="filter-pill" data-filter="dp"><span class="filter-pill-numeral">III</span>Disability Planning</button>
+        <button class="filter-pill" data-filter="re"><span class="filter-pill-numeral">IV</span>Retirement &amp; Estate</button>
       </div>
 
       <div class="blog-grid">
