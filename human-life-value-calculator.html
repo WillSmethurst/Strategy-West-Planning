@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Life Value Calculator – Strategy West Financial</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0e1612;
+    --navy-mid: #161f1a;
+    --navy-light: #1c2820;
+    --gold: #c9a84c;
+    --gold-light: #e0c06b;
+    --gold-pale: #eef2ee;
+    --cream: #eef2ee;
+    --white: #ffffff;
+    --text-dim: #8fa490;
+    --border: #2a3a30;
+    --shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    font-family: 'Jost', sans-serif;
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 90%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .header p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-dim);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Calculator cards */
+  .calculators {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 640px) {
+    .calculators { grid-template-columns: 1fr; }
+  }
+
+  .calc-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .calc-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-2px);
+  }
+
+  .calc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.6;
+  }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  /* Sentence-style input layout */
+  .sentence {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 2.4;
+    margin-bottom: 28px;
+  }
+
+  .inline-field {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    margin: 0 4px;
+  }
+
+  .inline-field label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+    text-align: center;
+  }
+
+  .inline-input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 7px 10px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    -moz-appearance: textfield;
+  }
+
+  .inline-input::-webkit-outer-spin-button,
+  .inline-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  .inline-input:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.08);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+
+  .inline-input::placeholder { color: rgba(255,255,255,0.25); }
+
+  .input-age { width: 64px; }
+  .input-money { width: 130px; }
+
+  /* Calculate button */
+  .btn-calc {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, #a8832e 100%);
+    border: none;
+    border-radius: 8px;
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+  }
+
+  .btn-calc:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+  }
+
+  .btn-calc:active { transform: translateY(0); }
+
+  /* Result panel */
+  .result-panel {
+    margin-top: 24px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.04) 100%);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+    display: none;
+    animation: fadeSlideUp 0.35s ease forwards;
+  }
+
+  .result-panel.visible { display: block; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .result-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .result-sub {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  /* Error */
+  .error-msg {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #e07070;
+    text-align: center;
+    display: none;
+    animation: fadeSlideUp 0.25s ease forwards;
+  }
+
+  .error-msg.visible { display: block; }
+
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 48px 0 32px;
+    position: relative;
+  }
+
+  .divider::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider span {
+    position: relative;
+    background: var(--navy);
+    padding: 0 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Footer note */
+  .footer-note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="eyebrow">Strategy West Planning</div>
+    <h1>Human Life Value<br>Calculator</h1>
+    <p>Determine the maximum life insurance coverage you may qualify for, based on your net worth or your age and income. Your projected Human Life Value is the larger of the two.</p>
+  </header>
+
+  <!-- Two calculators side by side -->
+  <div class="calculators">
+
+    <!-- Calculator 1: Net Worth -->
+    <div class="calc-card" id="card-networth">
+      <div class="card-label">Method One</div>
+      <div class="card-title">Human Life Value<br>Using Net Worth</div>
+
+      <div class="sentence">
+        I am currently
+        <span class="inline-field">
+          <label>Age</label>
+          <input class="inline-input input-age" type="number" id="nw-age" min="18" max="120" placeholder="45">
+        </span>
+        years old and my estimated net worth is
+        <span class="inline-field">
+          <label>Net Worth</label>
+          <input class="inline-input input-money" type="text" id="nw-networth" placeholder="$500,000">
+        </span>
+      </div>
+
+      <button class="btn-calc" onclick="calcNetWorth()">Calculate</button>
+
+      <div class="error-msg" id="nw-error">Please enter a valid age and net worth.</div>
+
+      <div class="result-panel" id="nw-result">
+        <div class="result-label">Your Human Life Value</div>
+        <div class="result-value" id="nw-value">—</div>
+
+      </div>
+    </div>
+
+    <!-- Calculator 2: Age & Income -->
+    <div class="calc-card" id="card-income">
+      <div class="card-label">Method Two</div>
+      <div class="card-title">Human Life Value<br>Age &amp; Income</div>
+
+      <div class="sentence">
+        I am currently
+        <span class="inline-field">
+          <label>Age</label>
+          <input class="inline-input input-age" type="number" id="ai-age" min="18" max="120" placeholder="40">
+        </span>
+        years old and my annual income is
+        <span class="inline-field">
+          <label>Annual Income</label>
+          <input class="inline-input input-money" type="text" id="ai-income" placeholder="$100,000">
+        </span>
+      </div>
+
+      <button class="btn-calc" onclick="calcAgeIncome()">Calculate</button>
+
+      <div class="error-msg" id="ai-error">Please enter a valid age and annual income.</div>
+
+      <div class="result-panel" id="ai-result">
+        <div class="result-label">Your Human Life Value</div>
+        <div class="result-value" id="ai-value">—</div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    Human Life Value calculations are estimates for insurance qualification purposes only.<br>
+    Actual coverage eligibility is subject to underwriting review. Contact a Strategy West advisor for personalized guidance.
+  </div>
+
+</div>
+
+<script>
+  // ─── Utility: parse dollar input ───────────────────────────────────────────
+  function parseMoney(str) {
+    const cleaned = String(str).replace(/[$,\s]/g, '');
+    const num = parseFloat(cleaned);
+    return isNaN(num) ? null : num;
+  }
+
+  function formatCurrency(n) {
+    if (n >= 1_000_000) {
+      const m = n / 1_000_000;
+      return '$' + (m % 1 === 0 ? m.toFixed(0) : m.toFixed(2)) + ' Million';
+    }
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+  }
+
+  // ─── Auto-format money fields ──────────────────────────────────────────────
+  function attachMoneyFormatter(inputId) {
+    const el = document.getElementById(inputId);
+    el.addEventListener('blur', () => {
+      const raw = parseMoney(el.value);
+      if (raw !== null && raw > 0) {
+        el.value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(raw);
+      }
+    });
+    el.addEventListener('focus', () => {
+      const raw = parseMoney(el.value);
+      if (raw !== null) el.value = raw.toString();
+    });
+  }
+
+  attachMoneyFormatter('nw-networth');
+  attachMoneyFormatter('ai-income');
+
+  // ─── Age → Multiplier ──────────────────────────────────────────────────────
+  function getMultiplier(age) {
+    if (age >= 18 && age <= 40) return { mult: 35, label: '35×' };
+    if (age >= 41 && age <= 45) return { mult: 30, label: '30×' };
+    if (age >= 46 && age <= 50) return { mult: 25, label: '25×' };
+    if (age >= 51 && age <= 55) return { mult: 20, label: '20×' };
+    if (age >= 56 && age <= 60) return { mult: 15, label: '15×' };
+    if (age >= 61 && age <= 69) return { mult: 10, label: '10×' };
+    if (age >= 70)              return { mult: 5,  label: '5×' };
+    return null;
+  }
+
+  // ─── Highlight reference strip ────────────────────────────────────────────
+  function highlightRef(age) {
+    document.querySelectorAll('.ref-cell').forEach(cell => {
+      cell.classList.remove('active');
+      const min = parseInt(cell.dataset.min);
+      const max = parseInt(cell.dataset.max);
+      if (age >= min && age <= max) cell.classList.add('active');
+    });
+  }
+
+  // ─── Calculator 1: Net Worth ───────────────────────────────────────────────
+  function calcNetWorth() {
+    const age   = parseInt(document.getElementById('nw-age').value);
+    const nwRaw = parseMoney(document.getElementById('nw-networth').value);
+    const errEl = document.getElementById('nw-error');
+    const resEl = document.getElementById('nw-result');
+
+    errEl.classList.remove('visible');
+    resEl.classList.remove('visible');
+
+    if (!age || age < 18 || !nwRaw || nwRaw <= 0) {
+      errEl.classList.add('visible');
+      return;
+    }
+
+    const hlv = nwRaw * 1; // 1× net worth
+
+    document.getElementById('nw-value').textContent = formatCurrency(hlv);
+
+
+    // Force re-animate
+    resEl.classList.remove('visible');
+    void resEl.offsetWidth;
+    resEl.classList.add('visible');
+  }
+
+  // ─── Calculator 2: Age & Income ───────────────────────────────────────────
+  function calcAgeIncome() {
+    const age       = parseInt(document.getElementById('ai-age').value);
+    const incomeRaw = parseMoney(document.getElementById('ai-income').value);
+    const errEl     = document.getElementById('ai-error');
+    const resEl     = document.getElementById('ai-result');
+
+    errEl.classList.remove('visible');
+    resEl.classList.remove('visible');
+
+    if (!age || age < 18 || !incomeRaw || incomeRaw <= 0) {
+      errEl.classList.add('visible');
+      return;
+    }
+
+    const m = getMultiplier(age);
+    if (!m) {
+      errEl.classList.add('visible');
+      return;
+    }
+
+    const hlv = incomeRaw * m.mult;
+
+    document.getElementById('ai-value').textContent = formatCurrency(hlv);
+
+
+    resEl.classList.remove('visible');
+    void resEl.offsetWidth;
+    resEl.classList.add('visible');
+  }
+
+  // ─── Enter key support ────────────────────────────────────────────────────
+  ['nw-age','nw-networth'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') calcNetWorth(); });
+  });
+  ['ai-age','ai-income'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') calcAgeIncome(); });
+  });
+</script>
+</body>
+</html>
