@@ -285,17 +285,38 @@
 
     em { font-style: italic; color: var(--gold); }
 
-    /* ─── HERO (typography-led, no photographic background) ─── */
+    /* ─── HERO (split layout, image left, text right) ─── */
     .hero {
+      display: grid;
+      grid-template-columns: 47fr 53fr;
+      min-height: 720px;
       background: var(--warm-white);
-      padding: 160px 80px 120px;
-      text-align: center;
       position: relative;
     }
 
-    .hero-inner {
-      max-width: 980px;
-      margin: 0 auto;
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-text {
+      background: var(--warm-white);
+      display: flex;
+      align-items: center;
+      padding: 120px 96px 120px 88px;
+    }
+
+    .hero-text-inner {
+      max-width: 560px;
     }
 
     .hero-eyebrow {
@@ -309,12 +330,11 @@
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(44px, 5.4vw, 76px);
+      font-size: clamp(40px, 3.8vw, 60px);
       font-weight: 300;
-      line-height: 1.12;
+      line-height: 1.14;
       color: var(--black);
-      max-width: 880px;
-      margin: 0 auto 36px;
+      margin: 0 0 32px;
     }
 
     .hero-title em { font-style: italic; color: var(--gold); }
@@ -324,14 +344,13 @@
       font-size: 16px;
       line-height: 1.85;
       color: #2c2a26;
-      max-width: 620px;
-      margin: 0 auto 52px;
+      max-width: 520px;
+      margin: 0 0 48px;
       font-weight: 300;
     }
 
     .hero-actions {
       display: flex;
-      justify-content: center;
     }
 
     /* ─── THE QUESTION (editorial pause, named directly) ───── */
@@ -909,7 +928,8 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero { padding: 140px 48px 96px; }
+      .hero { min-height: 600px; }
+      .hero-text { padding: 96px 56px; }
 
       .question { padding: 80px 48px 96px; }
 
@@ -942,7 +962,6 @@
       .nav-cta-wrap { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero,
       .question,
       .stakes,
       .reframe,
@@ -951,6 +970,10 @@
       .engagement,
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
+
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; }
+      .hero-text { padding: 56px 24px 72px; }
 
       .engagement-phase { grid-template-columns: 1fr; gap: 8px; }
       .engagement-phase-num { padding-top: 0; }
@@ -1043,20 +1066,25 @@
     </div>
   </div>
 
-  <!-- ─── HERO (typography-led, no photographic background) ─── -->
+  <!-- ─── HERO (split layout, image left, text right) ─── -->
   <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Disability Planning</p>
-      <h1 class="hero-title">
-        Building a financial structure that <em>outlasts you</em>, for the child whose care does not end when you do.
-      </h1>
-      <p class="hero-sub">
-        We work with families who want a deliberate plan for a child with a disability. The work begins with asset design, continues through the legal vehicle that protects how those assets flow, and extends across the decades the family wants the plan to hold.
-      </p>
-      <div class="hero-actions">
-        <a href="https://caringtide.com/free-consultation-2/" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Consultation
-        </a>
+    <div class="hero-photo">
+      <img src="images/dp-hero-bg-mother-daughter.jpg" alt="A young girl laughing on a couch with her mother gently holding her, warmly lit by afternoon window light" />
+    </div>
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <p class="hero-eyebrow">Disability Planning</p>
+        <h1 class="hero-title">
+          Building a financial structure that <em>outlasts you</em>, for the child whose care does not end when you do.
+        </h1>
+        <p class="hero-sub">
+          We work with families who want a deliberate plan for a child with a disability. The work begins with asset design, continues through the legal vehicle that protects how those assets flow, and extends across the decades the family wants the plan to hold.
+        </p>
+        <div class="hero-actions">
+          <a href="https://caringtide.com/free-consultation-2/" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Consultation
+          </a>
+        </div>
       </div>
     </div>
   </section>
