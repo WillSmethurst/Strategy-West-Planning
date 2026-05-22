@@ -803,20 +803,21 @@
     }
 
     .cta-section-photo {
-      background-image: url("images/cta-bg-coastal-cliffs.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
 
-    .cta-section-photo::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--cream) 0%, rgba(245,242,237,0.6) 8%, rgba(245,242,237,0) 22%);
-      pointer-events: none;
+    .cta-section-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
     }
 
     .cta-section .section-label { color: var(--gold); margin-bottom: 20px; }
@@ -1075,8 +1076,8 @@
       .cta-section { grid-template-columns: 1fr; min-height: 0; }
       .cta-section-content { padding: 80px 24px; text-align: center; align-items: center; }
       .cta-section h2, .cta-section p { margin-left: auto; margin-right: auto; }
-      .cta-section-photo { min-height: 320px; order: -1; }
-      .cta-section-photo::before { background: linear-gradient(180deg, rgba(245,242,237,0) 60%, var(--cream) 100%); }
+      .cta-section-photo { height: 40vh; min-height: 280px; max-height: 420px; order: -1; }
+      .cta-section-photo img { height: 100%; object-fit: cover; border-radius: 0; }
 
       .services-grid { grid-template-columns: 1fr; }
 
@@ -1365,7 +1366,9 @@
         </div>
       </div>
     </div>
-    <div class="cta-section-photo"></div>
+    <div class="cta-section-photo">
+      <img src="images/cta-bg-family-orchard.jpg" alt="A family walking together across generations" />
+    </div>
   </section>
 
   <!-- ─── FOOTER ─── -->
