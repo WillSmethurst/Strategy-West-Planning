@@ -568,17 +568,34 @@
 
     .service-card:hover .service-link::after { transform: translateX(4px); }
 
-    /* ─── PILLARS ─────────────────────────────────────────────── */
+    /* ─── PILLARS (full-bleed photographic, dark overlay, cream edge fade) ─── */
     .pillars {
+      background-image: url("images/pillars-bg-valley-dawn.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
       background-color: var(--charcoal);
       padding: 88px 48px;
       position: relative;
+      overflow: hidden;
+    }
+
+    .pillars::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, var(--cream) 0%, rgba(245,242,237,0.55) 6%, rgba(245,242,237,0) 20%, rgba(245,242,237,0) 80%, rgba(245,242,237,0.55) 94%, var(--cream) 100%),
+        linear-gradient(180deg, rgba(17,16,16,0.72) 0%, rgba(17,16,16,0.55) 45%, rgba(17,16,16,0.78) 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .pillars-inner {
       max-width: 1160px;
       margin: 0 auto;
       position: relative;
+      z-index: 2;
     }
 
     .pillars .section-label { color: var(--gold); }
