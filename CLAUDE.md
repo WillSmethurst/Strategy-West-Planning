@@ -75,7 +75,7 @@ Both classes only set `background-image`, `background-size: cover`, `background-
 
 **Current scope**: the two CSS classes are defined only inside `index.html`'s `<style>` block. To apply the pattern to a section on another page (e.g. a service page), copy the two class declarations into that page's `<style>` block, then add the class to the target section. The SVG asset paths are page-agnostic — `images/contour-bg-cream.svg` and `images/contour-bg-charcoal.svg` resolve correctly from any page at the repo root. When/if the style system is eventually extracted to a shared CSS file, these utility classes are good candidates to live there.
 
-**First application**: the charcoal variant is applied to `<section class="pillars">` ("Why Strategy West") on `index.html`.
+**Current applications**: the cream variant is applied to two sections on `index.html` — `<section class="services-section">` ("What We Do") and the warm-white section containing the "Strategy is a process, not a single decision" headline. No section currently uses the charcoal variant; its asset and class remain defined for future use.
 
 ## Brand & working preferences
 
