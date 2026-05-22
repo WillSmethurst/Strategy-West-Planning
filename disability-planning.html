@@ -544,12 +544,10 @@
     }
 
     .centerpiece-image--funded {
-      /* TODO: Add image at images/dp-permanent-funding.jpg */
       background-image: url("images/dp-permanent-funding.jpg");
     }
 
     .centerpiece-image--snt {
-      /* TODO: Add image at images/dp-snt.jpg */
       background-image: url("images/dp-snt.jpg");
     }
 
@@ -783,20 +781,38 @@
       text-align: center;
     }
 
-    /* ─── CLOSING CTA (centered on cream, no outbound) ────── */
+    /* ─── CLOSING CTA (full-bleed image with dark overlay + edge fade) ─── */
     .cta {
-      background: var(--cream);
+      background-image: url("images/dp-cta-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--black);
       padding: 140px 80px;
       text-align: center;
-      border-top: 1px solid var(--gold-dim);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, var(--cream) 0%, rgba(245,242,237,0.55) 6%, rgba(245,242,237,0) 20%, rgba(245,242,237,0) 80%, rgba(245,242,237,0.55) 94%, var(--cream) 100%),
+        linear-gradient(rgba(17,16,16,0.58), rgba(17,16,16,0.58));
+      pointer-events: none;
     }
 
     .cta-inner {
       max-width: 760px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .cta .section-label {
+      color: var(--gold-light);
       margin-bottom: 16px;
     }
 
@@ -805,22 +821,24 @@
       font-size: clamp(36px, 3.8vw, 56px);
       font-weight: 300;
       line-height: 1.15;
-      color: var(--black);
+      color: var(--cream);
       margin-bottom: 28px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
 
     .cta h2 em {
       font-style: italic;
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .cta p {
       font-family: var(--sans);
       font-size: 15.5px;
       line-height: 1.85;
-      color: #2c2a26;
+      color: var(--cream);
       max-width: 580px;
       margin: 0 auto 44px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.55);
     }
 
     .cta-actions {
@@ -1094,7 +1112,6 @@
   </section>
 
   <!-- ─── SECTION 6: PERMANENT FUNDING VEHICLES (PRIMARY) ─── -->
-  <!-- TODO: Add image at images/dp-permanent-funding.jpg -->
   <section class="centerpiece centerpiece--warm">
     <div class="centerpiece-inner">
       <div class="centerpiece-grid">
@@ -1123,7 +1140,6 @@
   </section>
 
   <!-- ─── SECTION 7: THE SPECIAL NEEDS TRUST (SECONDARY) ─── -->
-  <!-- TODO: Add image at images/dp-snt.jpg -->
   <section class="centerpiece centerpiece--alt centerpiece--reverse">
     <div class="centerpiece-inner">
       <div class="centerpiece-grid">
