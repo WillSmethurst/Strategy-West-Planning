@@ -298,6 +298,7 @@
       position: relative;
       overflow: hidden;
       background: var(--charcoal);
+      border-radius: 0 12px 12px 0;
     }
 
     .hero-photo img {
@@ -311,8 +312,8 @@
     .hero-text {
       background: var(--warm-white);
       display: flex;
-      align-items: center;
-      padding: 120px 96px 120px 88px;
+      align-items: flex-start;
+      padding: 160px 96px 120px 88px;
     }
 
     .hero-text-inner {
@@ -929,7 +930,7 @@
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .hero { min-height: 600px; }
-      .hero-text { padding: 96px 56px; }
+      .hero-text { padding: 160px 56px 96px 56px; }
 
       .question { padding: 80px 48px 96px; }
 
@@ -972,7 +973,7 @@
       .cta { padding-left: 24px; padding-right: 24px; }
 
       .hero { grid-template-columns: 1fr; min-height: 0; }
-      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; }
+      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; }
       .hero-text { padding: 56px 24px 72px; }
 
       .engagement-phase { grid-template-columns: 1fr; gap: 8px; }
