@@ -53,6 +53,30 @@ The script block at the bottom of each page wires up: the consultation dropdown(
 
 `index.html` has an additional second consultation dropdown inside an in-page CTA section (`consultBtnSection` / `consultDropdownSection`); its script is slightly longer than the service-page version because it manages both dropdowns.
 
+## Topographic Contour Background Pattern
+
+A reusable low-opacity gold-line contour pattern overlay, intended to add quiet visual texture to section backgrounds without competing with content.
+
+**Assets** (two variants):
+- `images/contour-bg-cream.svg` — opacity tuned for cream / warm-white sections (heavier paths at 0.22, lighter intermediate paths at 0.14).
+- `images/contour-bg-charcoal.svg` — same geometry, opacity bumped (0.32 / 0.20) so the gold lines stay visible against the darker background.
+
+Both files share `viewBox="0 0 1200 600"` and `preserveAspectRatio="xMidYMid slice"`, so they crop-to-fill at any aspect ratio. Stroke color is `#b89b6e` (gold) in both.
+
+**CSS classes**:
+- `.bg-contour-cream` — applies the cream-variant SVG via `background-image` with `background-size: cover`.
+- `.bg-contour-charcoal` — same, with the charcoal-variant SVG.
+
+Both classes only set `background-image`, `background-size: cover`, `background-position: center center`, and `background-repeat: no-repeat`. They deliberately do **not** set `background-color`, so the underlying section's own color shows through underneath the pattern.
+
+**How to apply**: add the appropriate class alongside the target section's existing class — e.g. `<section class="pillars bg-contour-charcoal">`. The pattern overlays on top of the section's existing background color.
+
+**Important compatibility constraint**: if the target section's CSS rule uses the `background:` shorthand (e.g. `background: var(--cream);`), it must be changed to the longhand `background-color:` (e.g. `background-color: var(--cream);`). The shorthand resets `background-image` to `none`, which silently clobbers the pattern overlay. The longhand sets only the color and leaves `background-image` available for the utility class to populate. This change preserves the existing visual color while making the pattern overlay possible. (`.pillars` on `index.html` was migrated from `background:` to `background-color:` during the first application.)
+
+**Current scope**: the two CSS classes are defined only inside `index.html`'s `<style>` block. To apply the pattern to a section on another page (e.g. a service page), copy the two class declarations into that page's `<style>` block, then add the class to the target section. The SVG asset paths are page-agnostic — `images/contour-bg-cream.svg` and `images/contour-bg-charcoal.svg` resolve correctly from any page at the repo root. When/if the style system is eventually extracted to a shared CSS file, these utility classes are good candidates to live there.
+
+**First application**: the charcoal variant is applied to `<section class="pillars">` ("Why Strategy West") on `index.html`.
+
 ## Brand & working preferences
 
 ## Brand

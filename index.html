@@ -570,7 +570,7 @@
 
     /* ─── PILLARS ─────────────────────────────────────────────── */
     .pillars {
-      background: var(--charcoal);
+      background-color: var(--charcoal);
       padding: 88px 48px;
       position: relative;
     }
@@ -1073,6 +1073,21 @@
 
       .footer-top { flex-direction: column; }
     }
+
+    /* ─── REUSABLE: TOPOGRAPHIC CONTOUR BACKGROUND OVERLAY ─── */
+    .bg-contour-cream {
+      background-image: url('images/contour-bg-cream.svg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-contour-charcoal {
+      background-image: url('images/contour-bg-charcoal.svg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
   </style>
 </head>
 
@@ -1238,7 +1253,7 @@
   </section>
 
   <!-- ─── PILLARS ─── -->
-  <section class="pillars">
+  <section class="pillars bg-contour-charcoal">
     <div class="pillars-inner">
       <div class="pillars-header">
         <p class="section-label">Why Strategy West</p>
