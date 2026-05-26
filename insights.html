@@ -272,12 +272,44 @@
 
     /* ─── HERO (typography-led, centered) ─── */
     .hero {
-      background: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+      background-image: url("images/insights-hero-bg-golden-bay.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--charcoal);
       padding: 160px 80px 120px;
       text-align: center;
     }
 
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,16,16,0.72) 0%, rgba(17,16,16,0.55) 45%, rgba(17,16,16,0.78) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { display: none; }
+    }
+
     .hero-inner {
+      position: relative;
+      z-index: 2;
       max-width: 980px;
       margin: 0 auto;
     }
@@ -296,9 +328,10 @@
       font-size: clamp(44px, 5.4vw, 76px);
       font-weight: 300;
       line-height: 1.12;
-      color: var(--black);
+      color: var(--warm-white);
       max-width: 880px;
       margin: 0 auto 36px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 16px rgba(0,0,0,0.45);
     }
 
     .hero-title em { font-style: italic; color: var(--gold); }
@@ -307,10 +340,11 @@
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.85;
-      color: var(--charcoal);
+      color: rgba(245,242,237,0.95);
       max-width: 640px;
       margin: 0 auto;
-      font-weight: 300;
+      font-weight: 400;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 16px rgba(0,0,0,0.45);
     }
 
     /* ─── BLOGS GRID SECTION ─── */
@@ -690,6 +724,9 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/insights-hero-bg-golden-bay.jpg">
+      <source src="videos/insights-hero-bg-golden-bay.mp4" type="video/mp4">
+    </video>
     <div class="hero-inner">
       <p class="hero-eyebrow">From the firm</p>
       <h1 class="hero-title">
