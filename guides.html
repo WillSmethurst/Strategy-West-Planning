@@ -525,6 +525,14 @@
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
     }
+
+    /* ─── REUSABLE: TOPOGRAPHIC CONTOUR BACKGROUND OVERLAY ─── */
+    .bg-contour-cream {
+      background-image: url('images/contour-bg-cream.svg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
   </style>
 </head>
 
@@ -611,7 +619,7 @@
   </div>
 
   <!-- ─── HERO ─── -->
-  <section class="hero">
+  <section class="hero bg-contour-cream">
     <div class="hero-inner">
       <p class="hero-eyebrow">The library</p>
       <h1 class="hero-title">
