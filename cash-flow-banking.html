@@ -851,6 +851,22 @@
     .benefits {
       background: var(--charcoal-2);
       padding: 130px 80px;
+      position: relative;
+    }
+
+    .benefits-arc {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      display: block;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .benefits-arc path {
+      fill: var(--warm-white);
     }
 
     .benefits-inner {
@@ -874,8 +890,11 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      border-radius: 16px;
+      border-radius: 24px;
       justify-self: end;
+      margin-top: -80px;
+      position: relative;
+      z-index: 2;
     }
 
     .benefits-header h2 {
@@ -1225,6 +1244,8 @@
       .how-steps { grid-template-columns: 1fr; }
       .benefits-top { grid-template-columns: 1fr; gap: 48px; }
       .benefits-image { max-width: 100%; justify-self: stretch; }
+      .benefits-arc { display: none; }
+      .benefits-image { margin-top: 0; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .candid-aliases-sep { display: none; }
       .candid-inner { padding: 56px 24px; }
@@ -1401,6 +1422,9 @@
 
   <!-- ─── BENEFITS SECTION ─── -->
   <section class="benefits">
+    <svg class="benefits-arc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 55" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 0 0 L 1440 0 Q 720 110 0 0 Z"/>
+    </svg>
     <div class="benefits-inner">
       <div class="benefits-top">
         <div class="benefits-header">
