@@ -308,8 +308,7 @@
     /* ─── HERO (dark, full-bleed photographic) ───────────────── */
     .hero {
       min-height: 100vh;
-      /* TODO: Add hero background image at images/re-hero-bg.jpg */
-      background-image: url("images/re-hero-bg.jpg");
+      background-image: url("images/hero-bg-golden-bay.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -333,7 +332,22 @@
       z-index: 1;
     }
 
-    .hero > * {
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { display: none; }
+    }
+
+    .hero > *:not(.hero-video) {
       position: relative;
       z-index: 2;
     }
@@ -1031,8 +1045,10 @@
   </div>
 
   <!-- ─── HERO ─── -->
-  <!-- TODO: Add hero background image at images/re-hero-bg.jpg -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-bg-golden-bay.jpg">
+      <source src="videos/hero-bg-golden-bay.mp4" type="video/mp4">
+    </video>
     <p class="hero-eyebrow">Retirement &amp; Estate Planning</p>
     <h1 class="hero-title">
       There is a different kind of work for capital you have already <em>built,</em> and a different kind of plan for what it will <em>become.</em>
