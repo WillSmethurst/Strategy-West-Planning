@@ -311,6 +311,7 @@
 
     .hero-photo {
       grid-column: 2;
+      grid-row: 1;
       position: relative;
       overflow: hidden;
       background: var(--warm-white);
@@ -333,6 +334,7 @@
 
     .hero-text {
       grid-column: 1;
+      grid-row: 1;
       background: var(--warm-white);
       display: flex;
       align-items: flex-start;
@@ -1150,9 +1152,9 @@
       .nav-hamburger { display: flex; }
 
       .hero { grid-template-columns: 1fr; min-height: 0; }
-      .hero-photo { grid-column: 1; height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
+      .hero-photo { grid-column: 1; grid-row: auto; height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
       .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
-      .hero-text { grid-column: 1; padding: 56px 24px 72px; }
+      .hero-text { grid-column: 1; grid-row: auto; padding: 56px 24px 72px; }
 
       .who,
       .why-matters,
