@@ -305,96 +305,83 @@
 
     em { font-style: italic; color: var(--gold); }
 
-    /* ─── HERO (dark, full-bleed photographic) ───────────────── */
+    /* ─── HERO ─── */
     .hero {
-      min-height: 100vh;
-      background-image: url("images/hero-bg-golden-bay.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--charcoal);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 176px 80px 48px;
+      display: grid;
+      grid-template-columns: 53fr 47fr;
+      min-height: 720px;
+      background: var(--warm-white);
+      position: relative;
+    }
+
+    .hero-photo {
+      grid-column: 2;
+      grid-row: 1;
       position: relative;
       overflow: hidden;
+      background: var(--warm-white);
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      display: flex;
+      align-items: center;
+      padding-top: 112px;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(17,16,16,0.74) 0%, rgba(17,16,16,0.55) 45%, rgba(17,16,16,0.80) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
+    .hero-photo img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       object-position: center center;
-      z-index: 0;
-      pointer-events: none;
+      display: block;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hero-video { display: none; }
+    .hero-text {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--warm-white);
+      display: flex;
+      align-items: flex-start;
+      padding: 160px 88px 120px 96px;
     }
 
-    .hero > *:not(.hero-video) {
-      position: relative;
-      z-index: 2;
+    .hero-text-inner {
+      max-width: 560px;
     }
 
     .hero-eyebrow {
       font-family: var(--sans);
       font-size: 10px;
-      font-weight: 400;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 32px;
-      text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+      color: var(--gold);
+      margin-bottom: 36px;
     }
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(46px, 6vw, 78px);
+      font-size: clamp(40px, 3.8vw, 60px);
       font-weight: 300;
-      line-height: 1.12;
-      color: var(--cream);
-      max-width: 920px;
-      margin-bottom: 36px;
+      line-height: 1.14;
+      color: var(--black);
+      margin: 0 0 32px;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold-light);
-      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
-    }
+    .hero-title em { font-style: italic; color: var(--gold); }
 
     .hero-sub {
       font-family: var(--sans);
-      font-size: 15.5px;
+      font-size: 16px;
+      line-height: 1.85;
+      color: #2c2a26;
+      max-width: 520px;
+      margin: 0 0 48px;
       font-weight: 300;
-      line-height: 1.8;
-      color: rgba(245,242,237,0.84);
-      max-width: 600px;
-      margin: 0 auto 52px;
-      text-shadow: 0 1px 12px rgba(0,0,0,0.45);
     }
 
     .hero-actions {
       display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
     /* ─── OPENING FRAMING ──────────────────────────────────── */
@@ -905,8 +892,6 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero { padding: 156px 48px 48px; }
-
       .opening { padding: 96px 48px; }
 
       .considerations { padding: 80px 48px; }
@@ -940,9 +925,10 @@
       .nav-cta-wrap { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { padding: 140px 24px 72px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions a { text-align: center; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-photo { grid-column: 1; grid-row: auto; height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
+      .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
+      .hero-text { grid-column: 1; grid-row: auto; padding: 56px 24px 72px; }
 
       .opening,
       .considerations,
@@ -1046,20 +1032,24 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-bg-golden-bay.jpg">
-      <source src="videos/hero-bg-golden-bay.mp4" type="video/mp4">
-    </video>
-    <p class="hero-eyebrow">Retirement &amp; Estate Planning</p>
-    <h1 class="hero-title">
-      There is a different kind of work for capital you have already <em>built,</em> and a different kind of plan for what it will <em>become.</em>
-    </h1>
-    <p class="hero-sub">
-      For families approaching or already in retirement, the questions shift. Building gives way to drawing income, and planning extends across the generations that will follow. Strategy West helps families navigate that shift with clarity and patience.
-    </p>
-    <div class="hero-actions">
-      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
-        Schedule a Consultation
-      </a>
+    <div class="hero-photo">
+      <img src="images/re-hero-bg.jpg" alt="A family of four walking together along a wooden pier at sunset, silhouetted against a soft pink and gold sky with the ocean stretching to the horizon." />
+    </div>
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <p class="hero-eyebrow">Retirement &amp; Estate Planning</p>
+        <h1 class="hero-title">
+          There is a different kind of work for capital you have already <em>built,</em> and a different kind of plan for what it will <em>become.</em>
+        </h1>
+        <p class="hero-sub">
+          For families approaching or already in retirement, the questions shift. Building gives way to drawing income, and planning extends across the generations that will follow. Strategy West helps families navigate that shift with clarity and patience.
+        </p>
+        <div class="hero-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Consultation
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
