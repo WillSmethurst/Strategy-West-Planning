@@ -384,6 +384,42 @@
       display: flex;
     }
 
+    /* ─── HERO ARCHITECTURAL FRAME (universal across service pages) ─── */
+    .hero-architectural-frame {
+      position: absolute;
+      inset: 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-architectural-frame .frame-line,
+    .hero-architectural-frame .frame-tick {
+      position: absolute;
+      background-color: rgba(184, 155, 110, 0.22);
+      display: block;
+    }
+
+    .frame-line--top    { top: 0;    left: 0; right: 0; height: 1px; }
+    .frame-line--bottom { bottom: 0; left: 0; right: 0; height: 1px; }
+    .frame-line--left   { top: 0; bottom: 0; left: 0;  width: 1px; }
+    .frame-line--right  { top: 0; bottom: 0; right: 0; width: 1px; }
+
+    .frame-tick--top-a    { top: 0;    left: 18%; width: 1px; height: 16px; }
+    .frame-tick--top-b    { top: 0;    left: 64%; width: 1px; height: 16px; }
+    .frame-tick--bottom-a { bottom: 0; left: 32%; width: 1px; height: 16px; }
+    .frame-tick--bottom-b { bottom: 0; left: 78%; width: 1px; height: 16px; }
+    .frame-tick--left-a   { left: 0; top: 22%; height: 1px; width: 16px; }
+    .frame-tick--left-b   { left: 0; top: 55%; height: 1px; width: 16px; }
+    .frame-tick--left-c   { left: 0; top: 82%; height: 1px; width: 16px; }
+    .frame-tick--right-a  { right: 0; top: 30%; height: 1px; width: 16px; }
+    .frame-tick--right-b  { right: 0; top: 68%; height: 1px; width: 16px; }
+
+    .hero > .hero-photo,
+    .hero > .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ─── OPENING FRAMING ──────────────────────────────────── */
     .opening {
       background: var(--cream);
@@ -929,6 +965,11 @@
       .hero-photo { grid-column: 1; grid-row: auto; height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
       .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
       .hero-text { grid-column: 1; grid-row: auto; padding: 56px 24px 72px; }
+      .hero-architectural-frame { inset: 12px; }
+      .frame-tick--top-b,
+      .frame-tick--bottom-b,
+      .frame-tick--left-b,
+      .frame-tick--right-b { display: none; }
 
       .opening,
       .considerations,
@@ -1032,6 +1073,21 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
+    <div class="hero-architectural-frame" aria-hidden="true">
+      <span class="frame-line frame-line--top"></span>
+      <span class="frame-line frame-line--bottom"></span>
+      <span class="frame-line frame-line--left"></span>
+      <span class="frame-line frame-line--right"></span>
+      <span class="frame-tick frame-tick--top-a"></span>
+      <span class="frame-tick frame-tick--top-b"></span>
+      <span class="frame-tick frame-tick--bottom-a"></span>
+      <span class="frame-tick frame-tick--bottom-b"></span>
+      <span class="frame-tick frame-tick--left-a"></span>
+      <span class="frame-tick frame-tick--left-b"></span>
+      <span class="frame-tick frame-tick--left-c"></span>
+      <span class="frame-tick frame-tick--right-a"></span>
+      <span class="frame-tick frame-tick--right-b"></span>
+    </div>
     <div class="hero-photo">
       <img src="images/re-hero-bg.jpg" alt="A father guides a young child by both hands as they walk together along a beach shoreline, soft warm light catching gentle waves rolling onto the sand." />
     </div>
