@@ -266,39 +266,60 @@
 
     /* ─── HERO ─────────────────────────────────────── */
     .hero {
-      min-height: auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 112px;
+      grid-template-columns: 47fr 53fr;
+      min-height: 720px;
+      background: var(--warm-white);
+      position: relative;
+    }
+
+    .hero-photo {
       position: relative;
       overflow: hidden;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 48px 72px 48px 80px;
-      position: relative;
-      z-index: 2;
       background: var(--warm-white);
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+      display: flex;
+      align-items: center;
     }
 
-    .hero-label {
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+
+    .hero-text {
+      background: var(--warm-white);
+      display: flex;
+      align-items: flex-start;
+      padding: 160px 96px 120px 88px;
+    }
+
+    .hero-text-inner {
+      max-width: 560px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
       font-size: 10px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(44px, 5.5vw, 76px);
+      font-size: clamp(40px, 3.8vw, 60px);
       font-weight: 300;
-      line-height: 1.06;
+      line-height: 1.14;
       color: var(--black);
-      margin-bottom: 36px;
+      margin: 0 0 32px;
     }
 
     .hero-title em {
@@ -307,18 +328,17 @@
     }
 
     .hero-sub {
-      font-size: 14.5px;
+      font-family: var(--sans);
+      font-size: 16px;
       line-height: 1.85;
-      color: #6a6460;
-      max-width: 440px;
-      margin-bottom: 56px;
+      color: #2c2a26;
+      max-width: 520px;
+      margin: 0 0 48px;
+      font-weight: 300;
     }
 
     .hero-actions {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
     }
 
     .btn-gold {
@@ -350,25 +370,6 @@
     }
     .btn-text-link:hover { color: var(--gold); }
     .btn-text-link::before { content: '←'; }
-
-    .hero-right {
-      position: relative;
-      background-image: url("images/cfb-hero-bg-lake-rowboat.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--charcoal);
-      overflow: hidden;
-    }
-
-    /* Cream fade — blends left edge of image into hero-left text panel */
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--warm-white) 0%, rgba(250,248,245,0.65) 10%, rgba(250,248,245,0) 30%);
-      pointer-events: none;
-    }
 
     /* ─── PROBLEM SECTION ────────────────────────── */
     .problem {
@@ -1204,10 +1205,6 @@
 
     /* ─── RESPONSIVE ──────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 100px 48px; border-right: none; }
-
       .problem-inner { grid-template-columns: 1fr; gap: 52px; }
       .problem-left { position: static; }
 
@@ -1229,7 +1226,10 @@
       .nav-cta-wrap { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero-left { padding: 100px 24px 72px; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; }
+      .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
+      .hero-text { padding: 56px 24px 72px; }
 
       .problem,
       .candid,
@@ -1348,25 +1348,25 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <div class="hero-left">
-      <p class="hero-label">Capital Strategy</p>
-
-      <h1 class="hero-title">
-        Capital That Works<br>With You,<br><em>Not Against You</em>
-      </h1>
-
-      <p class="hero-sub">
-        Most capital sits in structures that create friction, inaccessible when needed, interrupted when deployed, and fragmented by design. There is a more intentional way to build and hold wealth.
-      </p>
-
-      <div class="hero-actions">
-        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Consultation
-        </a>
+    <div class="hero-photo">
+      <img src="images/cfb-hero-bg-lake-rowboat.jpg" alt="Two figures rowing a small wooden boat across a still mountain lake at golden hour, with forested hills and distant peaks rising behind them." />
+    </div>
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <p class="hero-eyebrow">Capital Strategy</p>
+        <h1 class="hero-title">
+          Capital That Works<br>With You,<br><em>Not Against You</em>
+        </h1>
+        <p class="hero-sub">
+          Most capital sits in structures that create friction, inaccessible when needed, interrupted when deployed, and fragmented by design. There is a more intentional way to build and hold wealth.
+        </p>
+        <div class="hero-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Consultation
+          </a>
+        </div>
       </div>
     </div>
-
-    <div class="hero-right"></div>
   </section>
 
   <!-- ─── PROBLEM SECTION ─── -->
