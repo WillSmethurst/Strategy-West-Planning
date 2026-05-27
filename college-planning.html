@@ -302,67 +302,79 @@
 
     /* ─── HERO ───────────────────────────────────────────────── */
     .hero {
-      background-color: var(--warm-white);
-      background-image: url("images/cp-hero-bg-campus.jpg");
-      background-size: cover;
-      background-position: center center;
-      padding: 160px 80px 96px;
+      display: grid;
+      grid-template-columns: 53fr 47fr;
+      min-height: 720px;
+      background: var(--warm-white);
+      position: relative;
+    }
+
+    .hero-photo {
+      grid-column: 2;
       position: relative;
       overflow: hidden;
+      background: var(--warm-white);
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      display: flex;
+      align-items: center;
+      padding-top: 112px;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(250,248,245,0.88) 0%, rgba(250,248,245,0.85) 40%, rgba(250,248,245,0.30) 100%);
-      pointer-events: none;
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
     }
 
-    .hero-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    .hero-text {
+      grid-column: 1;
+      background: var(--warm-white);
+      display: flex;
+      align-items: flex-start;
+      padding: 160px 88px 120px 96px;
+    }
+
+    .hero-text-inner {
+      max-width: 560px;
     }
 
     .hero-eyebrow {
+      font-family: var(--sans);
       font-size: 10px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 44px;
+      margin-bottom: 36px;
     }
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(46px, 5.6vw, 84px);
+      font-size: clamp(40px, 3.8vw, 60px);
       font-weight: 300;
-      line-height: 1.05;
+      line-height: 1.14;
       color: var(--black);
-      margin-bottom: 44px;
-      max-width: 880px;
-      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
+      margin: 0 0 32px;
     }
 
-    .hero-title em {
-      color: #8a7a64;
-      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
-    }
+    .hero-title em { font-style: italic; color: var(--gold); }
 
     .hero-sub {
+      font-family: var(--sans);
       font-size: 16px;
       line-height: 1.85;
-      color: var(--black);
-      max-width: 580px;
-      margin-bottom: 56px;
+      color: #2c2a26;
+      max-width: 520px;
+      margin: 0 0 48px;
       font-weight: 300;
-      text-shadow: 0 1px 6px rgba(255, 255, 255, 0.75);
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
     }
 
     /* ─── WHO THIS IS FOR ────────────────────────────────────── */
@@ -1100,8 +1112,6 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero { padding: 212px 48px 68px; }
-
       .who-inner { grid-template-columns: 1fr; gap: 36px; }
       .who-list { grid-template-columns: 1fr 1fr; }
 
@@ -1139,8 +1149,10 @@
       .nav-cta-wrap { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { padding: 212px 24px 56px; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-photo { grid-column: 1; height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
+      .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
+      .hero-text { grid-column: 1; padding: 56px 24px 72px; }
 
       .who,
       .why-matters,
@@ -1256,18 +1268,23 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">College Planning</p>
-      <h1 class="hero-title">
-        The years before college<br>decide what college <em>costs,</em><br>and what college <em>becomes.</em>
-      </h1>
-      <p class="hero-sub">
-        We work with families who want a deliberate plan for high school. Academic positioning, financial structure, and the conversations that shape where your child applies and how it gets paid for.
-      </p>
-      <div class="hero-actions">
-        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Consultation
-        </a>
+    <div class="hero-photo">
+      <img src="images/cp-hero-bg-campus.jpg" alt="A tree-lined walking path on a university campus in soft afternoon light, with academic buildings visible through the surrounding trees." />
+    </div>
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <p class="hero-eyebrow">College Planning</p>
+        <h1 class="hero-title">
+          The years before college<br>decide what college <em>costs,</em><br>and what college <em>becomes.</em>
+        </h1>
+        <p class="hero-sub">
+          We work with families who want a deliberate plan for high school. Academic positioning, financial structure, and the conversations that shape where your child applies and how it gets paid for.
+        </p>
+        <div class="hero-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Consultation
+          </a>
+        </div>
       </div>
     </div>
   </section>
