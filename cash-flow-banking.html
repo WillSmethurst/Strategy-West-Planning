@@ -343,32 +343,43 @@
     /* ─── HERO ARCHITECTURAL FRAME (universal across service pages) ─── */
     .hero-architectural-frame {
       position: absolute;
-      inset: 24px;
+      inset: 40px;
       pointer-events: none;
       z-index: 0;
     }
 
     .hero-architectural-frame .frame-line,
-    .hero-architectural-frame .frame-tick {
+    .hero-architectural-frame .frame-rung {
       position: absolute;
-      background-color: rgba(184, 155, 110, 0.22);
+      background-color: rgba(184, 155, 110, 0.32);
       display: block;
     }
 
-    .frame-line--top    { top: 0;    left: 0; right: 0; height: 1px; }
-    .frame-line--bottom { bottom: 0; left: 0; right: 0; height: 1px; }
-    .frame-line--left   { top: 0; bottom: 0; left: 0;  width: 1px; }
-    .frame-line--right  { top: 0; bottom: 0; right: 0; width: 1px; }
+    /* Outer continuous lines (at the inset frame edges) */
+    .frame-outer--top    { top: 0;    left: 0; right: 0; height: 1px; }
+    .frame-outer--bottom { bottom: 0; left: 0; right: 0; height: 1px; }
+    .frame-outer--left   { top: 0; bottom: 0; left: 0;  width: 1px; }
+    .frame-outer--right  { top: 0; bottom: 0; right: 0; width: 1px; }
 
-    .frame-tick--top-a    { top: 0;    left: 18%; width: 1px; height: 16px; }
-    .frame-tick--top-b    { top: 0;    left: 64%; width: 1px; height: 16px; }
-    .frame-tick--bottom-a { bottom: 0; left: 32%; width: 1px; height: 16px; }
-    .frame-tick--bottom-b { bottom: 0; left: 78%; width: 1px; height: 16px; }
-    .frame-tick--left-a   { left: 0; top: 22%; height: 1px; width: 16px; }
-    .frame-tick--left-b   { left: 0; top: 55%; height: 1px; width: 16px; }
-    .frame-tick--left-c   { left: 0; top: 82%; height: 1px; width: 16px; }
-    .frame-tick--right-a  { right: 0; top: 30%; height: 1px; width: 16px; }
-    .frame-tick--right-b  { right: 0; top: 68%; height: 1px; width: 16px; }
+    /* Inner continuous lines (parallel, offset 16px inward from outer) */
+    .frame-inner--top    { top: 16px;    left: 16px; right: 16px; height: 1px; }
+    .frame-inner--bottom { bottom: 16px; left: 16px; right: 16px; height: 1px; }
+    .frame-inner--left   { top: 16px; bottom: 16px; left: 16px;  width: 1px; }
+    .frame-inner--right  { top: 16px; bottom: 16px; right: 16px; width: 1px; }
+
+    /* Rungs (16px segments connecting outer rule to inner rule) */
+    .frame-rung--top-a    { top: 0;    left: 14%; width: 1px; height: 16px; }
+    .frame-rung--top-b    { top: 0;    left: 42%; width: 1px; height: 16px; }
+    .frame-rung--top-c    { top: 0;    left: 76%; width: 1px; height: 16px; }
+    .frame-rung--bottom-a { bottom: 0; left: 22%; width: 1px; height: 16px; }
+    .frame-rung--bottom-b { bottom: 0; left: 58%; width: 1px; height: 16px; }
+    .frame-rung--bottom-c { bottom: 0; left: 84%; width: 1px; height: 16px; }
+    .frame-rung--left-a   { left: 0;  top: 18%; height: 1px; width: 16px; }
+    .frame-rung--left-b   { left: 0;  top: 47%; height: 1px; width: 16px; }
+    .frame-rung--left-c   { left: 0;  top: 75%; height: 1px; width: 16px; }
+    .frame-rung--right-a  { right: 0; top: 24%; height: 1px; width: 16px; }
+    .frame-rung--right-b  { right: 0; top: 52%; height: 1px; width: 16px; }
+    .frame-rung--right-c  { right: 0; top: 80%; height: 1px; width: 16px; }
 
     .hero > .hero-photo,
     .hero > .hero-text {
@@ -1265,11 +1276,23 @@
       .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding-top: 0; }
       .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
       .hero-text { padding: 56px 24px 72px; }
-      .hero-architectural-frame { inset: 12px; }
-      .frame-tick--top-b,
-      .frame-tick--bottom-b,
-      .frame-tick--left-b,
-      .frame-tick--right-b { display: none; }
+      .hero-architectural-frame { inset: 24px; }
+      .frame-inner--top    { top: 12px; left: 12px; right: 12px; }
+      .frame-inner--bottom { bottom: 12px; left: 12px; right: 12px; }
+      .frame-inner--left   { top: 12px; bottom: 12px; left: 12px; }
+      .frame-inner--right  { top: 12px; bottom: 12px; right: 12px; }
+      .frame-rung--top-b,
+      .frame-rung--bottom-b,
+      .frame-rung--left-b,
+      .frame-rung--right-b { display: none; }
+      .frame-rung--top-a,
+      .frame-rung--top-c,
+      .frame-rung--bottom-a,
+      .frame-rung--bottom-c { height: 12px; }
+      .frame-rung--left-a,
+      .frame-rung--left-c,
+      .frame-rung--right-a,
+      .frame-rung--right-c { width: 12px; }
 
       .problem,
       .candid,
@@ -1389,19 +1412,26 @@
   <!-- ─── HERO ─── -->
   <section class="hero">
     <div class="hero-architectural-frame" aria-hidden="true">
-      <span class="frame-line frame-line--top"></span>
-      <span class="frame-line frame-line--bottom"></span>
-      <span class="frame-line frame-line--left"></span>
-      <span class="frame-line frame-line--right"></span>
-      <span class="frame-tick frame-tick--top-a"></span>
-      <span class="frame-tick frame-tick--top-b"></span>
-      <span class="frame-tick frame-tick--bottom-a"></span>
-      <span class="frame-tick frame-tick--bottom-b"></span>
-      <span class="frame-tick frame-tick--left-a"></span>
-      <span class="frame-tick frame-tick--left-b"></span>
-      <span class="frame-tick frame-tick--left-c"></span>
-      <span class="frame-tick frame-tick--right-a"></span>
-      <span class="frame-tick frame-tick--right-b"></span>
+      <span class="frame-line frame-outer--top"></span>
+      <span class="frame-line frame-outer--bottom"></span>
+      <span class="frame-line frame-outer--left"></span>
+      <span class="frame-line frame-outer--right"></span>
+      <span class="frame-line frame-inner--top"></span>
+      <span class="frame-line frame-inner--bottom"></span>
+      <span class="frame-line frame-inner--left"></span>
+      <span class="frame-line frame-inner--right"></span>
+      <span class="frame-rung frame-rung--top-a"></span>
+      <span class="frame-rung frame-rung--top-b"></span>
+      <span class="frame-rung frame-rung--top-c"></span>
+      <span class="frame-rung frame-rung--bottom-a"></span>
+      <span class="frame-rung frame-rung--bottom-b"></span>
+      <span class="frame-rung frame-rung--bottom-c"></span>
+      <span class="frame-rung frame-rung--left-a"></span>
+      <span class="frame-rung frame-rung--left-b"></span>
+      <span class="frame-rung frame-rung--left-c"></span>
+      <span class="frame-rung frame-rung--right-a"></span>
+      <span class="frame-rung frame-rung--right-b"></span>
+      <span class="frame-rung frame-rung--right-c"></span>
     </div>
     <div class="hero-photo">
       <img src="images/cfb-hero-bg-lake-rowboat.jpg" alt="Two figures rowing a small wooden boat across a still mountain lake at golden hour, with forested hills and distant peaks rising behind them." />
