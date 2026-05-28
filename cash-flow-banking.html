@@ -797,17 +797,34 @@
 
     /* Divider between top intro and traits grid */
     .why-divider {
+      position: relative;
       display: flex;
       justify-content: center;
+      align-items: center;
       margin: 0 auto 72px;
+      height: 14px;
+    }
+
+    .why-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(184,155,110,0.28);
+      transform: translateY(-50%);
     }
 
     .why-divider-diamond {
-      width: 7px;
-      height: 7px;
+      position: relative;
+      width: 8px;
+      height: 8px;
       background: var(--gold);
       transform: rotate(45deg);
       display: block;
+      z-index: 1;
+      box-shadow: 0 0 0 6px var(--off-white);
     }
 
     /* Four-column traits grid */
