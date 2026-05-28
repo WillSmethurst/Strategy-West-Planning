@@ -585,11 +585,7 @@
 
     /* ─── PILLARS (full-bleed photographic, dark overlay, cream edge fade) ─── */
     .pillars {
-      background-image: url("images/pillars-bg-valley-dawn.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--charcoal);
+      background-color: var(--charcoal-2);
       padding: 88px 48px;
       position: relative;
       overflow: hidden;
@@ -599,7 +595,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(17,16,16,0.72) 0%, rgba(17,16,16,0.55) 45%, rgba(17,16,16,0.78) 100%);
+      background: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(184,155,110,0.07) 0%, rgba(184,155,110,0) 60%);
       pointer-events: none;
       z-index: 1;
     }
@@ -616,46 +612,45 @@
 
     .pillars-header {
       max-width: 540px;
-      margin: 0 auto 56px;
+      margin: 0 auto 72px;
       text-align: center;
     }
 
     .pillars-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      column-gap: 56px;
+      column-gap: 24px;
       row-gap: 0;
-      position: relative;
-    }
-
-    .pillars-grid::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, rgba(184,155,110,0) 0%, rgba(184,155,110,0.45) 16.67%, rgba(184,155,110,0.45) 83.33%, rgba(184,155,110,0) 100%);
     }
 
     .pillar {
       position: relative;
-      padding-top: 32px;
       text-align: center;
+      background: rgba(255,255,255,0.018);
+      border: 1px solid rgba(184,155,110,0.22);
+      border-radius: 14px;
+      padding: 56px 30px 42px;
     }
 
-    .pillar::before {
-      content: '';
+    .pillar-icon {
       position: absolute;
-      top: -5.5px;
+      top: 0;
       left: 50%;
-      transform: translateX(-50%);
-      width: 11px;
-      height: 11px;
+      transform: translate(-50%, -50%);
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 4px rgba(184,155,110,0.18);
-      z-index: 2;
+      border: 1px solid rgba(184,155,110,0.55);
+      background: var(--charcoal-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .pillar-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .pillar h4 {
@@ -667,6 +662,14 @@
       letter-spacing: -0.005em;
     }
 
+    .pillar-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      margin: 0 auto 22px;
+    }
+
     .pillar p {
       font-size: 14px;
       line-height: 1.65;
@@ -674,20 +677,45 @@
     }
 
     .pillars-closing {
-      margin-top: 56px;
-      text-align: center;
+      margin-top: 64px;
     }
 
-    .pillars-divider {
-      width: 80px;
-      height: 1px;
-      background: rgba(184,155,110,0.6);
-      margin: 0 auto 44px auto;
+    .pillars-closing-diamond {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      margin: 0 auto 56px;
+    }
+
+    .pillars-lower {
+      display: grid;
+      grid-template-columns: 4fr 5fr;
+      gap: 56px;
+      align-items: stretch;
+    }
+
+    .pillars-image {
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .pillars-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pillars-lower-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .pillars-statement {
-      max-width: 720px;
-      margin: 0 auto 40px auto;
+      margin: 0 0 28px;
       font-family: var(--sans);
       font-size: 15.5px;
       line-height: 1.9;
@@ -697,10 +725,12 @@
 
     .pillars-credentials {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(184,155,110,0.25);
       font-family: var(--sans);
       font-size: 11px;
       letter-spacing: 0.2em;
@@ -1043,16 +1073,17 @@
 
       .intro { gap: 40px; }
 
-      .pillar { max-width: none; padding-top: 0; }
-      .pillar h4 { font-size: 26px; }
-      .pillars-grid { display: flex; flex-direction: column; gap: 44px; padding-top: 32px; }
-      .pillar::before { display: none; }
-      .pillar p { font-size: 16px; line-height: 1.85; }
-      .pillars-header { max-width: none; margin-bottom: 32px; }
-      .pillars-closing { margin-top: 32px; }
-      .pillars-statement { font-size: 15px; line-height: 1.85; margin-bottom: 32px; }
+      .pillar { padding: 52px 26px 36px; }
+      .pillar h4 { font-size: 24px; }
+      .pillars-grid { display: flex; flex-direction: column; gap: 52px; }
+      .pillar p { font-size: 15px; line-height: 1.8; }
+      .pillars-header { max-width: none; margin-bottom: 48px; }
+      .pillars-closing { margin-top: 48px; }
+      .pillars-lower { grid-template-columns: 1fr; gap: 32px; }
+      .pillars-image { min-height: 240px; }
+      .pillars-statement { font-size: 15px; line-height: 1.85; margin-bottom: 24px; }
       .pillars-credentials { gap: 12px; font-size: 10.5px; letter-spacing: 0.16em; }
-      .pillars-divider { margin-bottom: 36px; }
+      .pillars-closing-diamond { margin-bottom: 40px; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1295,33 +1326,52 @@
       </div>
       <div class="pillars-grid">
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l1.9 8.6 8.6 1.9-8.6 1.9L12 22.5l-1.9-8.6L1.5 12l8.6-1.9z"/></svg>
+          </div>
           <h4>Clarity First</h4>
+          <div class="pillar-diamond"></div>
           <p>Every recommendation begins with a clear picture of not only where you are today, but also where you envision yourself years down the road. From there, we can build around what matters most to you, instead of you forcing your goals into a strategy that was never designed for them in the first place.</p>
         </div>
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.5 20l6.5-12 4 7.2 2.8-4.6L21.5 20z"/></svg>
+          </div>
           <h4>Long-Term Alignment</h4>
+          <div class="pillar-diamond"></div>
           <p>We design for decades, not quarters. Our strategies are built to grow with you, adapt with you, and remain relevant through every stage of your financial life. The goal is not to build something that only works today, but something that can continue serving you as your life, priorities, and opportunities evolve.</p>
         </div>
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M6.5 15a5.5 5.5 0 0 1 11 0" fill="currentColor" stroke="none"/><line x1="3" y1="18.5" x2="21" y2="18.5"/><line x1="12" y1="3" x2="12" y2="5.5"/><line x1="5" y1="6" x2="6.6" y2="7.6"/><line x1="19" y1="6" x2="17.4" y2="7.6"/></svg>
+          </div>
           <h4>Straightforward Guidance</h4>
+          <div class="pillar-diamond"></div>
           <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
         </div>
       </div>
       <div class="pillars-closing">
-        <div class="pillars-divider"></div>
-        <p class="pillars-statement">The right strategy starts with the right people. The Strategy West team is made up of credentialed planners guided by a philosophy of clarity, structure, and long-term thinking. We work with individuals, families, and business owners who expect more than a templated plan; people who want a team that understands the details, sees the full picture, and turns important decisions into a coordinated path forward. Across College Planning, Disability Planning, Cash Flow Banking, and Retirement Planning, we bring a quietly disciplined approach to every relationship, helping clients make decisions with confidence and purpose.</p>
-        <div class="pillars-credentials">
-          <span>CFP®</span>
-          <span class="pillars-cred-dot">·</span>
-          <span>ChSNC®</span>
-          <span class="pillars-cred-dot">·</span>
-          <span>RICP®</span>
-          <span class="pillars-cred-dot">·</span>
-          <span>CCA</span>
-          <span class="pillars-cred-dot">·</span>
-          <span>Cash Flow Banking Specialist</span>
-          <span class="pillars-cred-dot">·</span>
-          <span>Life &amp; Health Licensed</span>
+        <div class="pillars-closing-diamond"></div>
+        <div class="pillars-lower">
+          <div class="pillars-image">
+            <img src="images/pillars-bg-valley-dawn.jpg" alt="Sunrise breaking over layered mountain ridges with mist settling in the valley below." />
+          </div>
+          <div class="pillars-lower-text">
+            <p class="pillars-statement">The right strategy starts with the right people. The Strategy West team is made up of credentialed planners guided by a philosophy of clarity, structure, and long-term thinking. We work with individuals, families, and business owners who expect more than a templated plan; people who want a team that understands the details, sees the full picture, and turns important decisions into a coordinated path forward. Across College Planning, Disability Planning, Cash Flow Banking, and Retirement Planning, we bring a quietly disciplined approach to every relationship, helping clients make decisions with confidence and purpose.</p>
+            <div class="pillars-credentials">
+              <span>CFP®</span>
+              <span class="pillars-cred-dot">·</span>
+              <span>ChSNC®</span>
+              <span class="pillars-cred-dot">·</span>
+              <span>RICP®</span>
+              <span class="pillars-cred-dot">·</span>
+              <span>CCA</span>
+              <span class="pillars-cred-dot">·</span>
+              <span>Cash Flow Banking Specialist</span>
+              <span class="pillars-cred-dot">·</span>
+              <span>Life &amp; Health Licensed</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
