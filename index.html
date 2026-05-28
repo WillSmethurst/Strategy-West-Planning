@@ -680,12 +680,31 @@
       margin-top: 64px;
     }
 
-    .pillars-closing-diamond {
+    .pillars-closing-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      max-width: 340px;
+      margin: 0 auto 56px;
+    }
+
+    .pillars-divider-rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(184,155,110,0) 0%, rgba(184,155,110,0.8) 100%);
+    }
+
+    .pillars-divider-rule:last-child {
+      background: linear-gradient(to right, rgba(184,155,110,0.8) 0%, rgba(184,155,110,0) 100%);
+    }
+
+    .pillars-divider-diamond {
+      flex-shrink: 0;
       width: 7px;
       height: 7px;
       background: var(--gold);
       transform: rotate(45deg);
-      margin: 0 auto 56px;
     }
 
     .pillars-lower {
@@ -1083,7 +1102,7 @@
       .pillars-image { min-height: 240px; }
       .pillars-statement { font-size: 15px; line-height: 1.85; margin-bottom: 24px; }
       .pillars-credentials { gap: 12px; font-size: 10.5px; letter-spacing: 0.16em; }
-      .pillars-closing-diamond { margin-bottom: 40px; }
+      .pillars-closing-divider { margin-bottom: 40px; }
 
       .approach {
         grid-template-columns: 1fr;
@@ -1351,7 +1370,11 @@
         </div>
       </div>
       <div class="pillars-closing">
-        <div class="pillars-closing-diamond"></div>
+        <div class="pillars-closing-divider">
+          <span class="pillars-divider-rule"></span>
+          <span class="pillars-divider-diamond"></span>
+          <span class="pillars-divider-rule"></span>
+        </div>
         <div class="pillars-lower">
           <div class="pillars-image">
             <img src="images/pillars-bg-valley-dawn.jpg" alt="Sunrise breaking over layered mountain ridges with mist settling in the valley below." />
