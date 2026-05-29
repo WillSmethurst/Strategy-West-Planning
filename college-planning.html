@@ -890,12 +890,12 @@
     /* ─── HOW WE WORK WITH YOU (ascending step timeline) ─────── */
     .engagement {
       background: var(--off-white);
-      padding: 88px 80px 92px;
+      padding: 88px 3% 92px 10%;
     }
 
     .engagement-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: none;
+      margin: 0;
     }
 
     .engagement-header {
@@ -933,7 +933,7 @@
     .engagement-steps {
       --step-rise: 48px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 27fr 28fr 32fr;
       align-items: start;
       margin-top: 28px;
     }
@@ -946,7 +946,7 @@
     .engagement-step-rail {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 0;
       margin-bottom: 20px;
     }
 
@@ -957,6 +957,15 @@
       color: var(--gold);
       line-height: 1;
       flex-shrink: 0;
+      margin-right: 24px;
+    }
+
+    .engagement-step-lead {
+      width: 40px;
+      height: 1px;
+      background: rgba(184, 155, 110, 0.5);
+      flex-shrink: 0;
+      transform: translateY(11px);
     }
 
     .engagement-step-line {
@@ -1006,6 +1015,13 @@
       color: #6a6460;
       max-width: 320px;
       padding-right: 24px;
+    }
+
+    .engagement-step--2 .engagement-step-title,
+    .engagement-step--3 .engagement-step-title,
+    .engagement-step--2 .engagement-step-body,
+    .engagement-step--3 .engagement-step-body {
+      margin-left: 40px;
     }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
@@ -1235,6 +1251,11 @@
       .journey-year-num { font-size: 64px; }
 
       .engagement-steps { grid-template-columns: 1fr; --step-rise: 0px; row-gap: 52px; margin-top: 48px; }
+      .engagement-step-lead { display: none; }
+      .engagement-step--2 .engagement-step-title,
+      .engagement-step--3 .engagement-step-title,
+      .engagement-step--2 .engagement-step-body,
+      .engagement-step--3 .engagement-step-body { margin-left: 0; }
       .engagement-step-body { max-width: 520px; padding-right: 0; }
 
       .faq-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -1696,6 +1717,7 @@
 
         <div class="engagement-step engagement-step--2">
           <div class="engagement-step-rail">
+            <span class="engagement-step-lead"></span>
             <span class="engagement-step-num">02</span>
             <span class="engagement-step-line"></span>
           </div>
@@ -1705,6 +1727,7 @@
 
         <div class="engagement-step engagement-step--3">
           <div class="engagement-step-rail">
+            <span class="engagement-step-lead"></span>
             <span class="engagement-step-num">03</span>
             <span class="engagement-step-line"></span>
           </div>
