@@ -537,10 +537,10 @@
       border-top: 1px solid var(--gray-light);
     }
 
-    /* ─── THREE DIMENSIONS (staggered) ───────────────────────── */
+    /* ─── THREE DIMENSIONS (centered header + cards) ─── */
     .dimensions {
       background: var(--off-white);
-      padding: 96px 80px 140px;
+      padding: 96px 80px 120px;
       position: relative;
     }
 
@@ -549,24 +549,14 @@
       margin: 0 auto;
     }
 
-    .dimensions-top {
-      display: grid;
-      grid-template-columns: 1fr 440px;
-      align-items: center;
-      gap: 64px;
-      margin-bottom: 96px;
-    }
-
-    .dimensions-image {
-      display: block;
-      width: 100%;
-      max-width: 440px;
-      height: auto;
-      border-radius: 16px;
-    }
-
     .dimensions-header {
-      max-width: 760px;
+      max-width: 880px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+
+    .dimensions-header .section-label {
+      margin-bottom: 0;
     }
 
     .dimensions-header h2 {
@@ -575,7 +565,7 @@
       font-weight: 300;
       line-height: 1.15;
       color: var(--black);
-      margin-bottom: 28px;
+      margin: 0;
     }
 
     .dimensions-header h2 em { color: var(--gold); font-style: italic; }
@@ -585,69 +575,106 @@
       line-height: 1.85;
       color: #5a554f;
       max-width: 620px;
+      margin: 0 auto;
     }
 
-    .dimensions-stack {
+    .dim-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dimensions-header .dim-divider { margin: 22px auto; }
+
+    .dim-divider::before,
+    .dim-divider::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 1px;
+      background: rgba(184, 155, 110, 0.5);
+    }
+
+    .dim-divider span {
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      margin: 0 12px;
+    }
+
+    .dimensions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .dim-card {
+      border: 1px solid rgba(184, 155, 110, 0.28);
+      border-radius: 10px;
+      padding: 20px 24px 32px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 40px;
     }
 
-    .dimension {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 48px;
-      padding: 56px 56px 56px 0;
-      border-top: 1px solid var(--gray-light);
-      max-width: 920px;
+    .dim-card-img {
+      display: block;
       width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 30px;
     }
 
-    .dimension-num {
+    .dim-card-num {
       font-family: var(--serif);
-      font-size: 56px;
+      font-size: 34px;
       font-weight: 300;
       color: var(--gold);
-      opacity: 0.3;
-      line-height: 0.85;
+      line-height: 1;
     }
 
-    .dimension-body h3 {
+    .dim-card .dim-divider { margin: 14px auto 18px; }
+    .dim-card .dim-divider::before,
+    .dim-card .dim-divider::after { width: 26px; }
+    .dim-card .dim-divider span { width: 5px; height: 5px; margin: 0 9px; }
+
+    .dim-card-title {
       font-family: var(--serif);
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 400;
       color: var(--black);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.2;
     }
 
-    .dimension-body p {
-      font-size: 15px;
-      line-height: 1.85;
+    .dim-card-body {
+      font-size: 14px;
+      line-height: 1.8;
       color: #5a554f;
-      margin-bottom: 22px;
-      max-width: 580px;
+      margin-bottom: 28px;
     }
 
-    .dimension-tags {
+    .dim-card-tags {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
+      flex-direction: column;
+      margin-top: auto;
+    }
+
+    .dim-card-tags span {
       font-family: var(--sans);
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gold);
+      padding: 13px 0;
+      border-top: 1px solid rgba(184, 155, 110, 0.2);
     }
 
-    .dimension-tags span { position: relative; }
-    .dimension-tags span:not(:last-child)::after {
-      content: '·';
-      position: absolute;
-      right: -12px;
-      color: rgba(184,155,110,0.5);
+    .dim-card-tags span:last-child {
+      border-bottom: 1px solid rgba(184, 155, 110, 0.2);
     }
 
     /* ─── MISCONCEPTIONS / REALITY ───────────────────────────── */
@@ -1241,9 +1268,7 @@
       .why-matters-inner { grid-template-columns: 1fr; gap: 48px; }
       .why-matters-left { position: static; }
 
-      .dimensions-inner { padding: 0; }
-      .dimensions-top { grid-template-columns: 1fr; }
-      .dimension { grid-template-columns: 72px 1fr; gap: 32px; padding: 44px 0; max-width: none; }
+      .dimensions-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 28px; }
 
       .myths-grid { grid-template-columns: 1fr; }
       .myth-cell { border-right: none; padding-bottom: 24px; }
@@ -1311,8 +1336,7 @@
 
       .who-list { grid-template-columns: 1fr; }
 
-      .dimension { grid-template-columns: 1fr; gap: 12px; }
-      .dimension-num { font-size: 44px; }
+      .dim-card { padding: 18px 18px 28px; }
 
       .myth-cell, .reality-cell { padding: 28px 24px; }
 
@@ -1509,56 +1533,55 @@
   <!-- ─── THREE DIMENSIONS ─── -->
   <section class="dimensions">
     <div class="dimensions-inner">
-      <div class="dimensions-top">
-        <div class="dimensions-header">
-          <span class="section-label">Three Dimensions</span>
-          <h2>Real college planning sits at the intersection of three things, and most plans only address <em>one.</em></h2>
-          <p>Academic positioning. Financial structure. Family fit. Each shapes the other, and a plan that treats them separately leaves outcomes on the table.</p>
-        </div>
-        <img class="dimensions-image" src="images/cp-three-dimensions-students.jpg" alt="Students preparing for college" />
+      <div class="dimensions-header">
+        <span class="section-label">Three Dimensions</span>
+        <div class="dim-divider"><span></span></div>
+        <h2>Real college planning sits at the intersection of three things, and most plans only address <em>one.</em></h2>
+        <div class="dim-divider"><span></span></div>
+        <p>Academic positioning. Financial structure. Family fit. Each shapes the other, and a plan that treats them separately leaves outcomes on the table.</p>
       </div>
 
-      <div class="dimensions-stack">
-        <div class="dimension">
-          <div class="dimension-num">01</div>
-          <div class="dimension-body">
-            <h3>Academic Positioning</h3>
-            <p>Course selection, GPA management, standardized testing strategy, extracurricular focus, and the decisions that determine which schools become realistic by senior year.</p>
-            <div class="dimension-tags">
-              <span>Course planning</span>
-              <span>Testing strategy</span>
-              <span>Extracurricular focus</span>
-              <span>Recommendation strategy</span>
-            </div>
+      <div class="dimensions-grid">
+        <div class="dim-card">
+          <img class="dim-card-img" src="images/academic-positioning.jpg" alt="Studying with books and a laptop" />
+          <div class="dim-card-num">01</div>
+          <div class="dim-divider"><span></span></div>
+          <h3 class="dim-card-title">Academic Positioning</h3>
+          <p class="dim-card-body">Course selection, GPA management, standardized testing strategy, extracurricular focus, and the decisions that determine which schools become realistic by senior year.</p>
+          <div class="dim-card-tags">
+            <span>Course planning</span>
+            <span>Testing strategy</span>
+            <span>Extracurricular focus</span>
+            <span>Recommendation strategy</span>
           </div>
         </div>
 
-        <div class="dimension">
-          <div class="dimension-num">02</div>
-          <div class="dimension-body">
-            <h3>Financial Structure</h3>
-            <p>How your family's assets are positioned before applications, how aid is filed and appealed, and how college is paid for without disrupting the rest of your financial life.</p>
-            <div class="dimension-tags">
-              <span>FAFSA</span>
-              <span>CSS Profile</span>
-              <span>Asset positioning</span>
-              <span>Aid appeals</span>
-              <span>529 strategy</span>
-            </div>
+        <div class="dim-card">
+          <img class="dim-card-img" src="images/financial-structure.jpg" alt="A financial plan document with charts" />
+          <div class="dim-card-num">02</div>
+          <div class="dim-divider"><span></span></div>
+          <h3 class="dim-card-title">Financial Structure</h3>
+          <p class="dim-card-body">How your family's assets are positioned before applications, how aid is filed and appealed, and how college is paid for without disrupting the rest of your financial life.</p>
+          <div class="dim-card-tags">
+            <span>FAFSA</span>
+            <span>CSS Profile</span>
+            <span>Asset positioning</span>
+            <span>Aid appeals</span>
+            <span>529 strategy</span>
           </div>
         </div>
 
-        <div class="dimension">
-          <div class="dimension-num">03</div>
-          <div class="dimension-body">
-            <h3>Family Fit</h3>
-            <p>The conversations that align where your student applies, what they study, and how the family is going to pay for it. Each of these is a financial decision and a personal one.</p>
-            <div class="dimension-tags">
-              <span>Goals alignment</span>
-              <span>School-list strategy</span>
-              <span>Major and career direction</span>
-              <span>Payment structure</span>
-            </div>
+        <div class="dim-card">
+          <img class="dim-card-img" src="images/cp-three-dimensions-students.jpg" alt="Students preparing for college" />
+          <div class="dim-card-num">03</div>
+          <div class="dim-divider"><span></span></div>
+          <h3 class="dim-card-title">Family Fit</h3>
+          <p class="dim-card-body">The conversations that align where your student applies, what they study, and how the family is going to pay for it. Each of these is a financial decision and a personal one.</p>
+          <div class="dim-card-tags">
+            <span>Goals alignment</span>
+            <span>School-list strategy</span>
+            <span>Major and career direction</span>
+            <span>Payment structure</span>
           </div>
         </div>
       </div>
