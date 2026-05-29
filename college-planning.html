@@ -887,72 +887,124 @@
       color: rgba(184,155,110,0.5);
     }
 
-    /* ─── ENGAGEMENT (lower intensity) ───────────────────────── */
+    /* ─── HOW WE WORK WITH YOU (ascending step timeline) ─────── */
     .engagement {
       background: var(--off-white);
-      padding: 96px 80px 104px;
+      padding: 112px 80px 140px;
     }
 
     .engagement-inner {
-      max-width: 1080px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .engagement-header {
-      text-align: center;
-      margin-bottom: 64px;
+      text-align: left;
+      max-width: 680px;
+      margin-bottom: 0;
     }
 
     .engagement-header .section-label {
-      margin-bottom: 14px;
+      position: relative;
+      margin-bottom: 30px;
+      padding-bottom: 16px;
+    }
+
+    .engagement-header .section-label::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
     }
 
     .engagement-header h3 {
       font-family: var(--serif);
-      font-size: clamp(24px, 2.4vw, 32px);
-      font-weight: 400;
-      line-height: 1.3;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.12;
       color: var(--black);
-      max-width: 620px;
-      margin: 0 auto;
+      max-width: 640px;
+      margin: 0;
     }
 
-    .engagement-blocks {
+    .engagement-steps {
+      --step-rise: 96px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+      align-items: start;
+      margin-top: 64px;
     }
 
-    .engagement-block {
-      padding: 0 32px;
-      text-align: center;
-      position: relative;
+    .engagement-step { position: relative; }
+    .engagement-step--1 { margin-top: calc(var(--step-rise) * 2); }
+    .engagement-step--2 { margin-top: var(--step-rise); }
+    .engagement-step--3 { margin-top: 0; }
+
+    .engagement-step-rail {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 30px;
     }
 
-    .engagement-block + .engagement-block {
-      border-left: 1px solid var(--gray-light);
-    }
-
-    .engagement-block-mark {
-      width: 18px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto 18px;
-      opacity: 0.6;
-    }
-
-    .engagement-block h5 {
+    .engagement-step-num {
       font-family: var(--serif);
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--black);
-      margin-bottom: 12px;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
     }
 
-    .engagement-block p {
-      font-size: 13.5px;
-      line-height: 1.75;
+    .engagement-step-line {
+      position: relative;
+      flex: 1;
+      height: 1px;
+      background: rgba(184, 155, 110, 0.5);
+    }
+
+    .engagement-step--1 .engagement-step-line::after,
+    .engagement-step--2 .engagement-step-line::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      height: var(--step-rise);
+      background: rgba(184, 155, 110, 0.5);
+    }
+
+    .engagement-step--3 .engagement-step-line::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .engagement-step-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      padding-right: 36px;
+    }
+
+    .engagement-step-body {
+      font-size: 14.5px;
+      line-height: 1.8;
       color: #6a6460;
+      max-width: 320px;
+      padding-right: 24px;
     }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
@@ -1181,9 +1233,8 @@
       .journey-year { grid-template-columns: 140px 1fr; gap: 28px; }
       .journey-year-num { font-size: 64px; }
 
-      .engagement-blocks { grid-template-columns: 1fr; gap: 40px; }
-      .engagement-block { padding: 0; }
-      .engagement-block + .engagement-block { border-left: none; border-top: 1px solid var(--gray-light); padding-top: 40px; }
+      .engagement-steps { grid-template-columns: 1fr; --step-rise: 0px; row-gap: 52px; margin-top: 48px; }
+      .engagement-step-body { max-width: 520px; padding-right: 0; }
 
       .faq-inner { grid-template-columns: 1fr; gap: 48px; }
       .faq-right { min-height: 320px; }
@@ -1238,6 +1289,8 @@
       .journey-year { grid-template-columns: 1fr; gap: 12px; }
       .journey-year-num { font-size: 56px; }
       .journey-year-num small { margin-top: 8px; }
+      .engagement-step-num { font-size: 56px; }
+      .engagement-step-rail { gap: 20px; }
 
 
       .cta-actions { flex-direction: column; align-items: stretch; }
@@ -1627,24 +1680,35 @@
     <div class="engagement-inner">
       <div class="engagement-header">
         <span class="section-label">How We Work With You</span>
-        <h3>A multi-year relationship, not a one-time meeting.</h3>
+        <h3>A multi-year relationship,<br>not a one-time meeting.</h3>
       </div>
 
-      <div class="engagement-blocks">
-        <div class="engagement-block">
-          <div class="engagement-block-mark"></div>
-          <h5>An Initial Conversation</h5>
-          <p>We begin by understanding your family. Your student, your goals for them, your financial picture, and what success looks like for everyone involved.</p>
+      <div class="engagement-steps">
+        <div class="engagement-step engagement-step--1">
+          <div class="engagement-step-rail">
+            <span class="engagement-step-num">01</span>
+            <span class="engagement-step-line"></span>
+          </div>
+          <h5 class="engagement-step-title">An Initial Conversation</h5>
+          <p class="engagement-step-body">We begin by understanding your family. Your student, your goals for them, your financial picture, and what success looks like for everyone involved.</p>
         </div>
-        <div class="engagement-block">
-          <div class="engagement-block-mark"></div>
-          <h5>A Structured Plan</h5>
-          <p>From there, we build a plan that addresses each of the three dimensions and the year-by-year arc. The plan is specific to your family, not a template.</p>
+
+        <div class="engagement-step engagement-step--2">
+          <div class="engagement-step-rail">
+            <span class="engagement-step-num">02</span>
+            <span class="engagement-step-line"></span>
+          </div>
+          <h5 class="engagement-step-title">A Structured Plan</h5>
+          <p class="engagement-step-body">From there, we build a plan that addresses each of the three dimensions and the year-by-year arc. The plan is specific to your family, not a template.</p>
         </div>
-        <div class="engagement-block">
-          <div class="engagement-block-mark"></div>
-          <h5>Ongoing Support</h5>
-          <p>We stay involved across high school. Plans get revised, students change direction, and circumstances shift. Our role is to keep the structure aligned with the family it serves.</p>
+
+        <div class="engagement-step engagement-step--3">
+          <div class="engagement-step-rail">
+            <span class="engagement-step-num">03</span>
+            <span class="engagement-step-line"></span>
+          </div>
+          <h5 class="engagement-step-title">Ongoing Support</h5>
+          <p class="engagement-step-body">We stay involved across high school. Plans get revised, students change direction, and circumstances shift. Our role is to keep the structure aligned with the family it serves.</p>
         </div>
       </div>
     </div>
