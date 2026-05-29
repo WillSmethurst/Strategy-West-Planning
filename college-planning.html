@@ -890,7 +890,7 @@
     /* ─── HOW WE WORK WITH YOU (ascending step timeline) ─────── */
     .engagement {
       background: var(--off-white);
-      padding: 88px 3% 92px 10%;
+      padding: 88px 10% 92px 10%;
     }
 
     .engagement-inner {
@@ -933,7 +933,7 @@
     .engagement-steps {
       --step-rise: 48px;
       display: grid;
-      grid-template-columns: 27fr 28fr 32fr;
+      grid-template-columns: 27fr 28fr 25fr;
       align-items: start;
       margin-top: 28px;
     }
@@ -1017,11 +1017,17 @@
       padding-right: 24px;
     }
 
+    .engagement-step--2 .engagement-step-num,
+    .engagement-step--3 .engagement-step-num {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+
     .engagement-step--2 .engagement-step-title,
     .engagement-step--3 .engagement-step-title,
     .engagement-step--2 .engagement-step-body,
     .engagement-step--3 .engagement-step-body {
-      margin-left: 40px;
+      margin-left: 52px;
     }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
@@ -1252,6 +1258,8 @@
 
       .engagement-steps { grid-template-columns: 1fr; --step-rise: 0px; row-gap: 52px; margin-top: 48px; }
       .engagement-step-lead { display: none; }
+      .engagement-step--2 .engagement-step-num,
+      .engagement-step--3 .engagement-step-num { margin-left: 0; margin-right: 24px; }
       .engagement-step--2 .engagement-step-title,
       .engagement-step--3 .engagement-step-title,
       .engagement-step--2 .engagement-step-body,
