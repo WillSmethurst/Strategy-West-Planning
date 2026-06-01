@@ -250,6 +250,8 @@
 
 <script>
 
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzV1khWCJPquZ8641u4hdAgX3j-DMiLwNQ_BPYvsbQ3ch23X_ORJAv3saz3_jzrKuU0/exec";
+
   // Star rating
   const stars=[...document.querySelectorAll('.star')];
   const ratingInput=document.getElementById('rating');
@@ -306,13 +308,11 @@
 
     const done=()=>{document.getElementById('success').classList.add('show');window.scrollTo(0,0);};
 
-    // When served by Apps Script, save straight to the Sheet (no URL or CORS to manage).
-    if(window.google && google.script && google.script.run){
-      google.script.run.withSuccessHandler(done).withFailureHandler(done).submitTestimonial(payload);
-    } else {
-      // Opened as a plain file for previewing — just show the client experience.
-      setTimeout(done,500);
-    }
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(payload)
+    }).then(done).catch(done);
   });
 </script>
 </body>
