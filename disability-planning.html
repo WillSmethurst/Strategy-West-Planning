@@ -313,6 +313,10 @@
       border-bottom-right-radius: 24px;
     }
 
+    .hero-mobile-photo {
+      display: none;
+    }
+
     .hero-text {
       display: flex;
       align-items: flex-start;
@@ -1023,10 +1027,24 @@
       .cta { padding-left: 24px; padding-right: 24px; }
 
       .hero { grid-template-columns: 1fr; min-height: 0; }
-      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; }
-      .hero-photo img { height: 100%; object-fit: cover; border-radius: 0; }
+      .hero-photo { display: none; }
       .hero-text { padding: 56px 24px 72px; }
-      .hero-architectural-frame { inset: 24px; }
+      .hero-architectural-frame { display: none; }
+      .hero-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 28px 0 12px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .hero-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
       .frame-inner--top    { top: 12px; left: 12px; right: 12px; }
       .frame-inner--bottom { bottom: 12px; left: 12px; right: 12px; }
       .frame-inner--left   { top: 12px; bottom: 12px; left: 12px; }
@@ -1168,6 +1186,9 @@
         <h1 class="hero-title">
           Building a financial structure that <em>outlasts you</em>, for the child whose care does not end when you do.
         </h1>
+        <div class="hero-mobile-photo">
+          <img src="images/dp-hero-bg-mother-daughter.jpg" alt="A young girl laughing on a couch with her mother gently holding her, warmly lit by afternoon window light" />
+        </div>
         <p class="hero-sub">
           We work with families who want a deliberate plan for a child with a disability. The work begins with asset design, continues through the legal vehicle that protects how those assets flow, and extends across the decades the family wants the plan to hold.
         </p>
