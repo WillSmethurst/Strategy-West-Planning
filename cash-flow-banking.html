@@ -1205,6 +1205,10 @@
       overflow: hidden;
     }
 
+    .faq-mobile-photo {
+      display: none;
+    }
+
     /* ─── CLOSING CTA ────────────────────────────── */
     .cta {
       background-image:
@@ -1453,6 +1457,22 @@
       .candid { padding-top: 80px; padding-bottom: 88px; }
       .candid-inner { padding: 0 24px; }
       .faq-item-text { font-size: 15px; }
+      .faq-right { display: none; }
+      .faq-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 28px 0 28px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .faq-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
     }
@@ -1854,6 +1874,9 @@
         <span class="section-label">Frequently Asked</span>
         <h2>What People <em>Ask</em></h2>
         <p class="faq-subtitle">Cash Flow Banking</p>
+        <div class="faq-mobile-photo">
+          <img src="images/cfb-faq-bg-boardroom.jpg" alt="A long wooden boardroom table with leather chairs in a modern office." />
+        </div>
 
         <div class="faq-list">
           <a href="faq.html#cfb-question-2" class="faq-item">
