@@ -211,6 +211,79 @@
     .consult-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
     .consult-dropdown a span { font-size: 14px; opacity: 0.4; }
 
+    /* Mid-page CTA */
+    .midcta {
+      background-color: var(--charcoal);
+      padding: 96px 48px;
+    }
+    .midcta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .midcta-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.2;
+      color: var(--cream);
+      text-align: center;
+      margin: 0 0 56px;
+    }
+    .midcta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .midcta-photo {
+      aspect-ratio: 4 / 3;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,155,110,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .midcta-photo-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,242,237,0.35);
+    }
+    .midcta-text {
+      text-align: center;
+    }
+    .midcta-body {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(245,242,237,0.75);
+      max-width: 440px;
+      margin: 0 auto 34px;
+    }
+    .midcta-actions .nav-cta-wrap {
+      margin-left: 0;
+      display: inline-block;
+    }
+    .midcta-actions .consult-dropdown {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+    }
+    .midcta-actions .consult-dropdown.open {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .midcta { padding: 64px 24px; }
+      .midcta-title { font-size: clamp(26px, 7vw, 34px); margin: 0 0 32px; }
+      .midcta-grid { grid-template-columns: 1fr; gap: 28px; }
+      .midcta-body { font-size: 15px; margin: 0 auto 28px; }
+    }
+
     /* Mobile hamburger */
     .nav-hamburger {
       display: none;
@@ -1337,6 +1410,37 @@
     </div>
   </section>
 
+  <!-- MID-PAGE CTA -->
+  <section class="midcta">
+    <div class="midcta-inner">
+      <h2 class="midcta-title">Clarity Starts With a Single Conversation</h2>
+      <div class="midcta-grid">
+        <div class="midcta-photo">
+          <span class="midcta-photo-label">Image</span>
+        </div>
+        <div class="midcta-text">
+          <p class="midcta-body">Every situation is different, and the right starting point depends on where you are and what you are working toward. A brief, no-pressure conversation is the simplest way to see which approach fits your circumstances and how a deliberate plan would take shape.</p>
+          <div class="midcta-actions">
+            <div class="nav-cta-wrap" id="consultWrapMid">
+              <button class="nav-cta" id="consultBtnMid">
+                Talk To An Expert
+                <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M1 1l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="consult-dropdown" id="consultDropdownMid">
+                <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+                <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+                <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+                <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PILLARS ─── -->
   <section class="pillars">
     <div class="pillars-inner">
@@ -1513,33 +1617,48 @@
     const consultWrapSection = document.getElementById('consultWrapSection');
     const consultDDSection   = document.getElementById('consultDropdownSection');
 
-    consultBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = consultWrap.classList.toggle('open');
-      consultDD.classList.toggle('open', isOpen);
-      // Close section CTA if it's open
+    const consultBtnMid  = document.getElementById('consultBtnMid');
+    const consultWrapMid = document.getElementById('consultWrapMid');
+    const consultDDMid   = document.getElementById('consultDropdownMid');
+
+    function closeAllConsult() {
+      consultWrap.classList.remove('open');
+      consultDD.classList.remove('open');
       consultWrapSection.classList.remove('open');
       consultDDSection.classList.remove('open');
+      consultWrapMid.classList.remove('open');
+      consultDDMid.classList.remove('open');
+    }
+
+    consultBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrap.classList.contains('open');
+      closeAllConsult();
+      consultWrap.classList.toggle('open', !isOpen);
+      consultDD.classList.toggle('open', !isOpen);
     });
 
     consultBtnSection.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = consultWrapSection.classList.toggle('open');
-      consultDDSection.classList.toggle('open', isOpen);
-      // Close nav CTA if it's open
-      consultWrap.classList.remove('open');
-      consultDD.classList.remove('open');
+      const isOpen = consultWrapSection.classList.contains('open');
+      closeAllConsult();
+      consultWrapSection.classList.toggle('open', !isOpen);
+      consultDDSection.classList.toggle('open', !isOpen);
     });
 
-    document.addEventListener('click', () => {
-      consultWrap.classList.remove('open');
-      consultDD.classList.remove('open');
-      consultWrapSection.classList.remove('open');
-      consultDDSection.classList.remove('open');
+    consultBtnMid.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrapMid.classList.contains('open');
+      closeAllConsult();
+      consultWrapMid.classList.toggle('open', !isOpen);
+      consultDDMid.classList.toggle('open', !isOpen);
     });
+
+    document.addEventListener('click', closeAllConsult);
 
     consultDD.addEventListener('click', e => e.stopPropagation());
     consultDDSection.addEventListener('click', e => e.stopPropagation());
+    consultDDMid.addEventListener('click', e => e.stopPropagation());
 
     // ── Mobile hamburger toggle ───────────────────────────────
     const hamburger = document.getElementById('navHamburger');
