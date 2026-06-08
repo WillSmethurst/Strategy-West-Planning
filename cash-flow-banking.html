@@ -561,6 +561,10 @@
       margin-right: auto;
     }
 
+    .assessment-mobile-photo {
+      display: none;
+    }
+
     .assessment p:last-of-type {
       margin-bottom: 44px;
     }
@@ -1420,6 +1424,21 @@
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
       .assessment { padding-left: 24px; padding-right: 24px; }
+      .assessment-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 28px 0 28px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .assessment-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
       .cta { background-position: left center; }
 
       .why-traits { grid-template-columns: 1fr; }
@@ -1621,6 +1640,9 @@
     <div class="assessment-inner">
       <span class="section-label">Financial Assessment</span>
       <h2>An <em>honest review</em> of what you already have, before you decide what comes next.</h2>
+      <div class="assessment-mobile-photo">
+        <img src="images/cfb-financial-assessment.jpg" alt="Three professionals discussing documents around a table in a bright modern office." />
+      </div>
       <p>Many people carry policies they were sold years ago. Whole life, universal life, indexed universal life, variable universal life, annuities. They were told the policies were strong at the time, and most haven't been examined since. The Financial Assessment is a deep, unbiased look at what you currently hold, told the way it actually performs, not the way it was pitched.</p>
       <p>The work examines how each policy performs over time, how it fits your retirement timeline, and what kind of legacy it produces for the people you leave behind. Some assessments confirm you're already where you should be. Others open conversations about where the structure has drifted from what your family will actually need.</p>
       <div class="assessment-cta">
