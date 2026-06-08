@@ -293,6 +293,10 @@
       border-bottom-right-radius: 24px;
     }
 
+    .hero-mobile-photo {
+      display: none;
+    }
+
     .hero-text {
       display: flex;
       align-items: flex-start;
@@ -1371,10 +1375,26 @@
       .nav-hamburger { display: flex; }
 
       .hero { grid-template-columns: 1fr; min-height: 0; }
-      .hero-photo { height: 40vh; min-height: 280px; max-height: 420px; border-radius: 0; padding: 0 16px 0; }
-      .hero-photo img { height: 100%; object-fit: cover; border-radius: 14px; }
-      .hero-text { padding: 48px 48px 72px; }
-      .hero-architectural-frame { inset: 24px; }
+      .hero-photo { display: none; }
+      .hero-text { padding: 144px 24px 72px; }
+      .hero-architectural-frame { display: none; }
+      .hero-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 28px 0 28px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .hero-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
+      .hero-eyebrow { text-align: center; }
+      .hero-title { text-align: center; }
       .frame-inner--top    { top: 12px; left: 12px; right: 12px; }
       .frame-inner--bottom { bottom: 12px; left: 12px; right: 12px; }
       .frame-inner--left   { top: 12px; bottom: 12px; left: 12px; }
@@ -1542,6 +1562,9 @@
         <h1 class="hero-title">
           Capital That Works<br>With You,<br><em>Not Against You</em>
         </h1>
+        <div class="hero-mobile-photo">
+          <img src="images/hero-bg-sailboats.jpg" alt="Sailboats on calm open water with a hazy mountain range visible on the distant horizon." />
+        </div>
         <p class="hero-sub">
           Most capital sits in structures that create friction, inaccessible when needed, interrupted when deployed, and fragmented by design. There is a more intentional way to build and hold wealth.
         </p>
