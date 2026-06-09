@@ -460,6 +460,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 48px;
     }
+    .who-mobile-photo {
+      display: none;
+    }
 
     .who-item {
       position: relative;
@@ -1360,6 +1363,21 @@
       .faq { padding-top: 80px; padding-bottom: 88px; }
 
       .who-list { grid-template-columns: 1fr; }
+      .who-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 36px 0 0;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .who-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
 
       .dim-card { padding: 18px 18px 28px; }
 
@@ -1539,6 +1557,9 @@
           <h5>Families starting late</h5>
           <p>Where a focused plan in the final year or two still meaningfully changes outcomes and offers.</p>
         </div>
+      </div>
+      <div class="who-mobile-photo">
+        <img src="images/cp-who-graduation.jpg" alt="A father embracing his son who is wearing a graduation cap and gown, outdoors at a school stadium." />
       </div>
     </div>
   </section>
