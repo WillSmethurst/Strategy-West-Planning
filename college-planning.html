@@ -1138,6 +1138,8 @@
 
     .faq-cta-wrap { margin-top: 8px; }
 
+    .faq-mobile-photo { display: none; }
+
     .faq-right {
       position: relative;
       background-image: url("images/cp-faq-graduates.jpg");
@@ -1300,7 +1302,22 @@
       .engagement-step-body { max-width: 520px; padding-right: 0; }
 
       .faq-inner { grid-template-columns: 1fr; gap: 48px; }
-      .faq-right { min-height: 320px; }
+      .faq-right { display: none; }
+      .faq-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 0 0 36px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .faq-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
 
       .cta-inner { grid-template-columns: 1fr; gap: 56px; }
     }
@@ -1828,6 +1845,10 @@
         <span class="section-label">Frequently Asked</span>
         <h2>What People <em>Ask</em></h2>
         <p class="faq-subtitle">College Planning</p>
+
+        <div class="faq-mobile-photo">
+          <img src="images/cp-faq-graduates.jpg" alt="Graduates in gowns celebrating together outdoors, holding their diplomas." />
+        </div>
 
         <div class="faq-list">
           <a href="faq.html#cp-question-1" class="faq-item">
