@@ -980,10 +980,26 @@
     }
 
     .cta-inner {
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
       position: relative;
       z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: stretch;
+    }
+
+    .cta-media {
+      background: var(--gold-dim);
+      border-radius: 4px;
+      min-height: 460px;
+    }
+
+    .cta-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .cta .section-label {
@@ -1124,6 +1140,9 @@
       .engagement,
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
+
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta-media { order: 2; min-height: 280px; }
 
       .rest-block,
       .rest-block:nth-child(even) { flex-direction: column; gap: 36px; }
@@ -1590,13 +1609,16 @@
   <!-- ─── SECTION 11: CLOSING CTA (centered, calm, on-cream) ─── -->
   <section class="cta">
     <div class="cta-inner">
-      <span class="section-label">Begin the Conversation</span>
-      <h2>Let's plan the structure that <em>continues</em>, for the rest of your child's life.</h2>
-      <p>A Disability Planning consultation begins with listening. Your family, your situation, your child, and the structure you want to build for them.</p>
-      <div class="cta-actions">
-        <a href="https://caringtide.com/free-consultation-2/" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Consultation
-        </a>
+      <div class="cta-media"></div>
+      <div class="cta-text">
+        <span class="section-label">Begin the Conversation</span>
+        <h2>Let's plan the structure that <em>continues</em>, for the rest of your child's life.</h2>
+        <p>A Disability Planning consultation begins with listening. Your family, your situation, your child, and the structure you want to build for them.</p>
+        <div class="cta-actions">
+          <a href="https://caringtide.com/free-consultation-2/" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Consultation
+          </a>
+        </div>
       </div>
     </div>
   </section>
