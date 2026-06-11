@@ -893,14 +893,13 @@
     .faq-inner {
       max-width: 1160px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
 
-    .faq-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .faq-header h2 {
+    .faq-left h2 {
       font-family: var(--serif);
       font-size: clamp(34px, 3.4vw, 50px);
       font-weight: 300;
@@ -909,7 +908,7 @@
       margin-bottom: 8px;
     }
 
-    .faq-header h2 em { color: var(--gold); font-style: italic; }
+    .faq-left h2 em { color: var(--gold); font-style: italic; }
 
     .faq-subtitle {
       font-family: var(--sans);
@@ -917,19 +916,20 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: rgba(17,16,16,0.4);
-      margin-top: 16px;
+      margin-bottom: 36px;
     }
 
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 80px;
-      margin-bottom: 56px;
-    }
-
-    .faq-column {
+    .faq-list {
       display: flex;
       flex-direction: column;
+      margin-bottom: 36px;
+    }
+
+    .faq-right {
+      background: var(--gold-dim);
+      border-radius: 4px;
+      min-height: 480px;
+      align-self: stretch;
     }
 
     .faq-item {
@@ -963,7 +963,7 @@
     }
 
     .faq-cta-wrap {
-      text-align: center;
+      margin-top: 8px;
     }
 
     /* ─── CLOSING CTA (full-bleed image with dark overlay + edge fade) ─── */
@@ -1117,7 +1117,7 @@
       .engagement-phase { grid-template-columns: 80px 1fr; gap: 24px; }
 
       .faq { padding: 96px 48px; }
-      .faq-grid { grid-template-columns: 1fr; gap: 0; }
+      .faq-inner { grid-template-columns: 1fr; gap: 48px; }
 
       .cta { padding: 112px 48px; }
     }
@@ -1570,14 +1570,12 @@
   <!-- ─── SECTION 10: FAQ ─── -->
   <section class="faq">
     <div class="faq-inner">
-      <div class="faq-header">
+      <div class="faq-left">
         <span class="section-label">Frequently Asked</span>
         <h2>What People <em>Ask</em></h2>
         <p class="faq-subtitle">Disability Planning</p>
-      </div>
 
-      <div class="faq-grid">
-        <div class="faq-column">
+        <div class="faq-list">
           <a href="faq.html#dp-question-1" class="faq-item">
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">When is the right time to begin building this plan?</span>
@@ -1590,34 +1588,14 @@
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">Do we need an attorney to draft the Special Needs Trust, or do you handle that?</span>
           </a>
-          <a href="faq.html#dp-question-4" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">How does the plan protect our child's SSI and Medicaid eligibility?</span>
-          </a>
         </div>
-        <div class="faq-column">
-          <a href="faq.html#dp-question-5" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">What happens to the structure if our financial situation changes?</span>
-          </a>
-          <a href="faq.html#dp-question-6" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">How do you coordinate with our existing estate attorney and CPA?</span>
-          </a>
-          <a href="faq.html#dp-question-7" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">Who administers the structure after we are gone, and how do you help us choose?</span>
-          </a>
-          <a href="faq.html#dp-question-8" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">What certifications should we look for to ensure we’re working with the right Disability Planning advisor?</span>
-          </a>
+
+        <div class="faq-cta-wrap">
+          <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
         </div>
       </div>
 
-      <div class="faq-cta-wrap">
-        <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
-      </div>
+      <div class="faq-right"></div>
     </div>
   </section>
 
