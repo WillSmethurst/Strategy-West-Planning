@@ -412,6 +412,7 @@
     .question {
       background: var(--warm-white);
       padding: 96px 80px 128px;
+      position: relative;
       text-align: center;
       border-top: 1px solid var(--gold-dim);
     }
@@ -514,6 +515,37 @@
       background: var(--warm-white);
       padding: 64px 80px 0;
       text-align: center;
+      position: relative;
+    }
+
+    .stakes-arc-top {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      display: block;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .stakes-arc-top path {
+      fill: var(--cream);
+    }
+
+    .stakes-arc-bottom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      display: block;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .stakes-arc-bottom path {
+      fill: var(--cream);
     }
 
     .reframe-inner {
@@ -1030,6 +1062,9 @@
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
+      .stakes-arc-top,
+      .stakes-arc-bottom { display: none; }
+
       .centerpiece--warm .centerpiece-image-wrap,
       .centerpiece--alt .centerpiece-image-wrap { display: none; }
       .centerpiece-mobile-photo {
@@ -1236,6 +1271,9 @@
         Every parent of a child with a disability carries that question. The page that follows is the answer in its working form, the actual financial structure that addresses it. It begins with the fears that sit behind the question, and moves through the substance of what we help families build.
       </p>
     </div>
+    <svg class="stakes-arc-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 55" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 0 55 L 1440 55 Q 720 -55 0 55 Z"/>
+    </svg>
   </section>
 
   <!-- ─── WHAT'S AT STAKE (two fears, parallel grid) ─── -->
@@ -1268,6 +1306,9 @@
 
   <!-- ─── THE REFRAME (single centered paragraph) ─── -->
   <section class="reframe">
+    <svg class="stakes-arc-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 55" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 0 0 L 1440 0 Q 720 110 0 0 Z"/>
+    </svg>
     <div class="reframe-inner">
       <p>
         With the financial structure built deliberately, neither outcome is left to chance. The plan provides the care across the child's lifetime, and it does so without becoming someone else's burden along the way. <em>That is the work,</em> and the sections that follow describe how it is done.
