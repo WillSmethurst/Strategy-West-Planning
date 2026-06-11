@@ -440,9 +440,33 @@
     }
 
     .opening-inner {
-      max-width: 760px;
+      max-width: 1080px;
       margin: 0 auto;
       text-align: center;
+      display: grid;
+      grid-template-columns: minmax(0, 360px) 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .opening-guide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .opening-guide-cover {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .opening-guide-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
     }
 
     .opening p {
@@ -456,7 +480,7 @@
     .opening p em { color: var(--gold); font-style: italic; }
 
     .opening-cta-wrap {
-      margin-top: 48px;
+      margin-top: 28px;
     }
 
     /* ─── CONSIDERATIONS INTRO ─────────────────────────────── */
@@ -943,6 +967,11 @@
     @media (max-width: 1100px) {
       .opening { padding: 96px 48px; }
 
+      .opening-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
       .considerations { padding: 80px 48px; }
 
       .framework { padding: 96px 48px; }
@@ -1163,11 +1192,18 @@
   <!-- ─── OPENING FRAMING ─── -->
   <section class="opening">
     <div class="opening-inner">
-      <p>
-        There is a quiet transition in a financial life when the work of building gives way to the work of stewarding. The portfolio that was once measured by what it could grow into is now measured by what it can reliably provide, and by what remains for the people who follow. <em>That transition asks for different questions, and different patience.</em> Our work is to help families ask those questions well, and to design plans that hold up across the decades that follow them.
-      </p>
-      <div class="opening-cta-wrap">
-        <a href="guides.html" class="btn-ghost">Download The Guide</a>
+      <div class="opening-guide">
+        <a href="guides.html" class="opening-guide-cover" aria-label="View the Self-Funded Pension Plan guide">
+          <img src="images/guide-cover-retirement-planning.png" alt="Cover of the Self-Funded Pension Plan guide." />
+        </a>
+        <div class="opening-cta-wrap">
+          <a href="guides.html" class="btn-ghost">Download The Guide</a>
+        </div>
+      </div>
+      <div class="opening-copy">
+        <p>
+          There is a quiet transition in a financial life when the work of building gives way to the work of stewarding. The portfolio that was once measured by what it could grow into is now measured by what it can reliably provide, and by what remains for the people who follow. <em>That transition asks for different questions, and different patience.</em> Our work is to help families ask those questions well, and to design plans that hold up across the decades that follow them.
+        </p>
       </div>
     </div>
   </section>
