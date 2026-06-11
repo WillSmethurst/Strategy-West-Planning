@@ -625,6 +625,10 @@
       background-image: url("images/dp-snt.jpg");
     }
 
+    .centerpiece-mobile-photo {
+      display: none;
+    }
+
     /* ─── THE REST OF THE STRUCTURE (3 stacked sub-blocks) ── */
     .rest {
       background: var(--cream);
@@ -1026,6 +1030,23 @@
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
+      .centerpiece--warm .centerpiece-image-wrap { display: none; }
+      .centerpiece-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        margin: 0 0 32px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .centerpiece-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+      }
+
       .hero { grid-template-columns: 1fr; min-height: 0; }
       .hero-photo { display: none; }
       .hero-text { padding: 144px 24px 72px; }
@@ -1260,6 +1281,9 @@
         <div class="centerpiece-text">
           <span class="centerpiece-eyebrow">The Funded Structure</span>
           <h2>The asset is the centerpiece. Everything else is built around how it <em>flows.</em></h2>
+          <div class="centerpiece-mobile-photo">
+            <img src="images/dp-permanent-funding.jpg" alt="A young woman wearing an apron standing at the counter of a grocery store." />
+          </div>
           <p>
             Long-term funding for a child with a disability is a structural problem, not a documentation problem. The question is not which forms to sign, but what asset will be there in year forty, when the parents are no longer there to manage it. We build the answer to that question first.
           </p>
