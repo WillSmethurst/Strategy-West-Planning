@@ -704,8 +704,75 @@
     }
 
     .rest-block {
+      display: flex;
+      align-items: center;
+      gap: 64px;
       padding: 56px 0;
       border-top: 1px solid var(--gold-dim);
+    }
+
+    .rest-block:first-child {
+      border-top: none;
+      padding-top: 48px;
+    }
+
+    .rest-block:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .rest-text {
+      flex: 1;
+    }
+
+    .rest-block h3::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-top: 18px;
+    }
+
+    .rest-block-media {
+      flex: 1;
+    }
+
+    .rest-block-media-fill {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--gold-dim);
+      border-radius: 16px;
+    }
+
+    .rest-block-media--arch .rest-block-media-fill {
+      border-radius: 50% 50% 16px 16px / 34% 34% 16px 16px;
+    }
+
+    .rest-block-media--framed {
+      padding: 14px;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+    }
+
+    .rest-block-media--framed .rest-block-media-fill {
+      border-radius: 2px;
+    }
+
+    .rest-divider {
+      position: relative;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .rest-diamond {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
 
     .rest-block:last-child {
@@ -1062,6 +1129,9 @@
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
 
+      .rest-block,
+      .rest-block:nth-child(even) { flex-direction: column; gap: 36px; }
+
       .stakes-arc-top,
       .stakes-arc-bottom { display: none; }
 
@@ -1386,29 +1456,46 @@
         </p>
       </div>
 
+      <div class="rest-divider" aria-hidden="true"><span class="rest-diamond"></span></div>
+
       <div class="rest-blocks">
         <div class="rest-block">
-          <span class="rest-block-eyebrow">Estate coordination, written for a disabled beneficiary</span>
-          <h3>Standard estate documents presume a beneficiary who can receive assets directly.</h3>
-          <p>
-            For a child whose benefits eligibility depends on remaining below specific asset thresholds, every will, beneficiary designation, and account titling needs to be re-examined. This is not a generic estate review. It is a coordinated rewrite of how the family's assets are positioned at the moment they transfer.
-          </p>
+          <div class="rest-text">
+            <span class="rest-block-eyebrow">Estate coordination, written for a disabled beneficiary</span>
+            <h3>Standard estate documents presume a beneficiary who can receive assets directly.</h3>
+            <p>
+              For a child whose benefits eligibility depends on remaining below specific asset thresholds, every will, beneficiary designation, and account titling needs to be re-examined. This is not a generic estate review. It is a coordinated rewrite of how the family's assets are positioned at the moment they transfer.
+            </p>
+          </div>
+          <div class="rest-block-media rest-block-media--arch">
+            <div class="rest-block-media-fill"></div>
+          </div>
         </div>
 
         <div class="rest-block">
-          <span class="rest-block-eyebrow">Long-term care structure for the adult child</span>
-          <h3>The child's care does not pause when the parents are gone.</h3>
-          <p>
-            The plan has to address how the day to day will be managed, what facility or in-home structure is funded for, and how the standard of care is maintained across the decades that follow. These are not assumptions to inherit. They are decisions to design.
-          </p>
+          <div class="rest-text">
+            <span class="rest-block-eyebrow">Long-term care structure for the adult child</span>
+            <h3>The child's care does not pause when the parents are gone.</h3>
+            <p>
+              The plan has to address how the day to day will be managed, what facility or in-home structure is funded for, and how the standard of care is maintained across the decades that follow. These are not assumptions to inherit. They are decisions to design.
+            </p>
+          </div>
+          <div class="rest-block-media">
+            <div class="rest-block-media-fill"></div>
+          </div>
         </div>
 
         <div class="rest-block">
-          <span class="rest-block-eyebrow">The successor trustee question</span>
-          <h3>Someone has to administer the trust after the parents are gone.</h3>
-          <p>
-            That role carries financial decision-making, advocacy, and judgment, usually for the rest of the child's life. Choosing the successor trustee, and equipping them with the institutional support to do the work well, is its own piece of the plan.
-          </p>
+          <div class="rest-text">
+            <span class="rest-block-eyebrow">The successor trustee question</span>
+            <h3>Someone has to administer the trust after the parents are gone.</h3>
+            <p>
+              That role carries financial decision-making, advocacy, and judgment, usually for the rest of the child's life. Choosing the successor trustee, and equipping them with the institutional support to do the work well, is its own piece of the plan.
+            </p>
+          </div>
+          <div class="rest-block-media rest-block-media--framed">
+            <div class="rest-block-media-fill"></div>
+          </div>
         </div>
       </div>
     </div>
