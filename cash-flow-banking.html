@@ -1045,14 +1045,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: stretch;
       margin-bottom: 96px;
     }
 
     .benefits-image {
       width: 100%;
-      aspect-ratio: 7 / 6;
-      background-image: url("images/cfb-benefits-bg-family-walking.jpg");
+      background-image: url("images/cfb-why-session.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -1080,6 +1079,10 @@
       color: rgba(245,242,237,0.42);
     }
 
+    .benefits-cta {
+      margin-top: 36px;
+    }
+
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1091,12 +1094,25 @@
       flex-direction: column;
     }
 
-    .benefit-accent {
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
-      margin-bottom: 24px;
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .benefit-icon svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .benefit-card h4 {
@@ -1467,6 +1483,7 @@
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
       .benefits-top { grid-template-columns: 1fr; gap: 48px; }
+      .benefits-header { order: -1; }
       .benefits-image { max-width: 100%; justify-self: stretch; }
       .benefits-arc { display: none; }
       .problem-arc { display: none; }
@@ -1701,47 +1718,52 @@
   <section class="benefits">
     <div class="benefits-inner">
       <div class="benefits-top">
+        <div class="benefits-image"></div>
         <div class="benefits-header">
           <span class="section-label">What Changes</span>
           <h2>Structured outcomes<br>for <em>intentional</em> wealth</h2>
           <p>The benefits of a well-designed capital system extend beyond financial performance. They reshape how you interact with money, turning fragmentation and friction into clarity and control.</p>
+          <div class="benefits-cta">
+            <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="btn-gold" target="_blank" rel="noopener noreferrer">
+              Schedule a Cash Flow Banking Consultation
+            </a>
+          </div>
         </div>
-        <div class="benefits-image"></div>
       </div>
 
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M3 21l18 0"/><path d="M3 10l18 0"/><path d="M5 6l7 -3l7 3"/><path d="M4 10l0 11"/><path d="M20 10l0 11"/><path d="M8 14l0 3"/><path d="M12 14l0 3"/><path d="M16 14l0 3"/></svg></div>
           <h4>Accessible Capital Reserves</h4>
           <p>Liquid access to a growing pool of capital, available on your timeline, without institutional barriers.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6 -6l4 4l8 -8"/><path d="M14 7l7 0l0 7"/></svg></div>
           <h4>Uninterrupted Compounding</h4>
           <p>Capital continues to grow even while accessed, removing the traditional tradeoff between liquidity and long-term accumulation.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 4l0 16"/><path d="M8.5 7.5l3.5 -3.5l3.5 3.5"/><path d="M4 13l16 0"/><path d="M7.5 9.5l-3.5 3.5l3.5 3.5"/><path d="M16.5 9.5l3.5 3.5l-3.5 3.5"/></svg></div>
           <h4>Financial Optionality</h4>
           <p>The ability to act on opportunities (real estate, business, or personal) without liquidating long-term holdings or disrupting your plan.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 6l8 0"/><path d="M16 6l4 0"/><path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 12l2 0"/><path d="M10 12l10 0"/><path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 18l11 0"/><path d="M19 18l1 0"/></svg></div>
           <h4>Greater Control</h4>
           <p>A system you understand and direct, rather than one managed by institutions on their terms and timelines.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/></svg></div>
           <h4>Continuity &amp; Legacy</h4>
           <p>A structure designed to serve you across time, and with the right design, to benefit those who come after you.</p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-accent"></div>
+          <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"/><path d="M12 12l8 -4.5"/><path d="M12 12l0 9"/><path d="M12 12l-8 -4.5"/></svg></div>
           <h4>Coherent Financial Architecture</h4>
           <p>One unified structure with a single purpose, replacing fragmented accounts with a system that has clarity and direction.</p>
         </div>
@@ -1793,7 +1815,7 @@
           </div>
         </div>
         <div class="why-top-image">
-          <img src="images/cfb-why-session.jpg" alt="A group of professionals working together around a conference table in a softly-lit office." />
+          <img src="images/cfb-why-family-horse.jpg" alt="A mother and two children greeting a horse outside a stable." />
         </div>
       </div>
 
