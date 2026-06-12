@@ -632,6 +632,8 @@
       background-position: 70% center;
     }
 
+    .framework-mobile-image { display: none; }
+
     /* ─── PULL QUOTE SECTION (Section 8) ───────────────────── */
     .pullquote {
       background: var(--off-white);
@@ -987,6 +989,19 @@
       .framework--reverse .framework-text { order: 0; }
       .framework--reverse .framework-image-wrap { order: 0; }
       .framework-image { max-width: 100%; aspect-ratio: 3 / 2; }
+      .framework-image-wrap { display: none; }
+      .framework-mobile-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--gold-dim);
+        border-radius: 16px;
+        margin: 0 0 32px;
+      }
+      .framework-mobile-image.framework-image--rm { background-position: 70% center; }
 
       .pullquote { padding: 24px 48px 96px; }
 
@@ -1260,6 +1275,7 @@
       <div class="framework-grid">
         <div class="framework-text">
           <h2>The Volatility Buffer</h2>
+          <div class="framework-mobile-image framework-image--vb" role="img" aria-label="The Volatility Buffer"></div>
           <p>Markets fall and rise on their own schedule, never on yours. For a household still building wealth, a market decline is uncomfortable but not catastrophic. For a household drawing income, the same decline can be quietly destructive. Selling assets to fund living expenses during a downturn locks in losses that even a strong recovery cannot fully undo.</p>
           <p>The Volatility Buffer is our response to that risk. It is a deliberate cash reserve, sized to a family's specific income needs, that funds living expenses through market declines so equity positions never have to be sold under duress. The portfolio gets to ride out the storm rather than fund it.</p>
           <p class="framework-pull">Capital that gets to stay invested compounds. Capital that has to be sold does not.</p>
@@ -1284,6 +1300,7 @@
         </div>
         <div class="framework-text">
           <h2>The Self-Funded Pension Plan</h2>
+          <div class="framework-mobile-image framework-image--sfpp" role="img" aria-label="The Self-Funded Pension Plan"></div>
           <p>There was a time, within recent memory, when a working life ended with a pension. Parents and grandparents who spent decades at a single employer often retired to a steady monthly check that arrived for the rest of their lives. The pension was not a luxury. It was simply how retirement worked.</p>
           <p>Today's retirees rarely have that. The accounts they have instead, Traditional IRAs, 401(k)s, 403(b)s, TSPs, and other qualified retirement vehicles, hold the same purpose but ask the retiree to do all of the work of turning a balance into income. The market gives no monthly check.</p>
           <p class="framework-pull">What previous generations were given, today's families are asked to build for themselves.</p>
@@ -1302,6 +1319,7 @@
       <div class="framework-grid">
         <div class="framework-text">
           <h2>The Rockefeller Method</h2>
+          <div class="framework-mobile-image framework-image--rm" role="img" aria-label="The Rockefeller Method"></div>
           <p>In the early decades of the last century, the Rockefeller family developed a set of long-term insurance and trust structures designed to pass wealth not only to their children, but to their grandchildren and the generations beyond. The structures were unusual at the time. They have since become foundational to how families with built wealth think about transfer.</p>
           <p>The structures are still available, still legal, and still effective for families whose horizon is generational rather than personal. They are not appropriate for every situation, but for the families to whom they apply, they offer a degree of intentional transfer that no single will or trust can replicate alone.</p>
           <p class="framework-pull">What you have built becomes, at this stage, what you leave.</p>
