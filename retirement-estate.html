@@ -772,14 +772,13 @@
     .faq-inner {
       max-width: 1160px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
 
-    .faq-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .faq-header h2 {
+    .faq-left h2 {
       font-family: var(--serif);
       font-size: clamp(34px, 3.4vw, 50px);
       font-weight: 300;
@@ -788,7 +787,7 @@
       margin-bottom: 8px;
     }
 
-    .faq-header h2 em { color: var(--gold); font-style: italic; }
+    .faq-left h2 em { color: var(--gold); font-style: italic; }
 
     .faq-subtitle {
       font-family: var(--sans);
@@ -796,19 +795,26 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: rgba(17,16,16,0.4);
-      margin-top: 16px;
+      margin-bottom: 36px;
     }
 
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 80px;
-      margin-bottom: 56px;
-    }
-
-    .faq-column {
+    .faq-list {
       display: flex;
       flex-direction: column;
+      margin-bottom: 36px;
+    }
+
+    .faq-mobile-photo { display: none; }
+
+    .faq-right {
+      background-image: url("images/re-faq-advisory-review.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 0 90px 0 90px;
+      min-height: 480px;
+      align-self: stretch;
+      overflow: hidden;
     }
 
     .faq-item {
@@ -842,64 +848,65 @@
     }
 
     .faq-cta-wrap {
-      text-align: center;
+      margin-top: 8px;
     }
 
-    /* ─── CLOSING CTA (Section 11, full-bleed dark) ────────── */
+    /* ─── CLOSING CTA (Section 11, split: image left, text right) ─── */
     .cta {
-      background-image:
-        linear-gradient(rgba(17,16,16,0.62), rgba(17,16,16,0.62)),
-        url("images/re-cta-bg.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--black);
-      padding: 156px 80px;
+      background: var(--cream);
+      padding: 96px 80px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      border-top: 1px solid var(--gold-dim);
     }
 
     .cta-inner {
-      max-width: 780px;
+      max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .cta-image {
+      display: block;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      margin: 0 auto;
     }
 
     .cta .section-label {
-      color: var(--gold-light);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .cta h2 {
       font-family: var(--serif);
-      font-size: clamp(36px, 4vw, 60px);
+      font-size: clamp(36px, 3.8vw, 56px);
       font-weight: 300;
       line-height: 1.15;
-      color: var(--cream);
+      color: var(--black);
       margin-bottom: 28px;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
 
-    .cta h2 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
+    .cta h2 em { color: var(--gold); font-style: italic; }
 
     .cta p {
-      font-family: var(--sans);
       font-size: 15.5px;
       line-height: 1.85;
-      color: var(--cream);
+      color: #5a554f;
       max-width: 580px;
       margin: 0 auto 44px;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.55);
     }
 
     .cta-actions {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 14px;
     }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
@@ -992,9 +999,10 @@
       .engagement-phase-dot { display: none; }
 
       .faq { padding: 96px 48px; }
-      .faq-grid { grid-template-columns: 1fr; gap: 0; }
+      .faq-inner { grid-template-columns: 1fr; gap: 48px; }
 
-      .cta { padding: 128px 48px; }
+      .cta { padding: 96px 48px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 56px; }
     }
 
     @media (max-width: 768px) {
@@ -1048,6 +1056,24 @@
       .engagement,
       .faq,
       .cta { padding-left: 24px; padding-right: 24px; }
+
+      .cta-image { order: 2; max-width: 100%; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions a { text-align: center; }
+
+      .faq-right { display: none; }
+      .faq-mobile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        margin: 0 0 36px;
+        border-radius: 0 45px 0 45px;
+        overflow: hidden;
+        background-image: url("images/re-faq-advisory-review.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
 
       .considerations-toc { gap: 8px; font-size: 10.5px; }
 
@@ -1334,18 +1360,14 @@
   <!-- ─── SECTION 10: FAQ ─── -->
   <section class="faq">
     <div class="faq-inner">
-      <div class="faq-header">
+      <div class="faq-left">
         <span class="section-label">Frequently Asked</span>
         <h2>What People <em>Ask</em></h2>
         <p class="faq-subtitle">Retirement &amp; Estate Planning</p>
-      </div>
 
-      <div class="faq-grid">
-        <div class="faq-column">
-          <a href="faq.html#re-question-1" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">When is the right time to begin planning the income side of retirement?</span>
-          </a>
+        <div class="faq-mobile-photo"></div>
+
+        <div class="faq-list">
           <a href="faq.html#re-question-2" class="faq-item">
             <span class="faq-item-mark">+</span>
             <span class="faq-item-text">How does the Volatility Buffer relate to traditional bond ladders or annuities?</span>
@@ -1359,42 +1381,29 @@
             <span class="faq-item-text">Does the Rockefeller Method replace our estate attorney?</span>
           </a>
         </div>
-        <div class="faq-column">
-          <a href="faq.html#re-question-8" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">How do you make sure our retirement income lasts as long as we do?</span>
-          </a>
-          <a href="faq.html#re-question-5" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">How do you coordinate with our existing CPA and estate counsel?</span>
-          </a>
-          <a href="faq.html#re-question-6" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">What happens to the plan when one spouse passes?</span>
-          </a>
-          <a href="faq.html#re-question-7" class="faq-item">
-            <span class="faq-item-mark">+</span>
-            <span class="faq-item-text">Can a Self-Funded Pension Plan be funded over time, or only with one lump sum?</span>
-          </a>
+
+        <div class="faq-cta-wrap">
+          <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
         </div>
       </div>
 
-      <div class="faq-cta-wrap">
-        <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
-      </div>
+      <div class="faq-right"></div>
     </div>
   </section>
 
-  <!-- ─── SECTION 11: CLOSING CTA ─── -->
+  <!-- ─── SECTION 11: CLOSING CTA (split: image left, text right) ─── -->
   <section class="cta">
     <div class="cta-inner">
-      <span class="section-label">Begin the Conversation</span>
-      <h2>Ready to plan what your retirement <em>provides,</em> and what your estate <em>leaves.</em></h2>
-      <p>A Retirement and Estate Planning consultation begins with listening. Your situation, your goals, your family, and the people who follow.</p>
-      <div class="cta-actions">
-        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Retirement &amp; Estate Consultation
-        </a>
+      <img class="cta-image" src="images/re-cta-bg.jpg" alt="A family seated together on a mountain ridge, looking out over a wide valley." />
+      <div class="cta-content">
+        <span class="section-label">Begin the Conversation</span>
+        <h2>Ready to plan what your retirement <em>provides,</em> and what your estate <em>leaves.</em></h2>
+        <p>A Retirement and Estate Planning consultation begins with listening. Your situation, your goals, your family, and the people who follow.</p>
+        <div class="cta-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Retirement &amp; Estate Consultation
+          </a>
+        </div>
       </div>
     </div>
   </section>
