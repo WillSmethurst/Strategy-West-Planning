@@ -1200,7 +1200,7 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      border-radius: 18px;
+      border-radius: 0 90px 0 90px;
       min-height: 480px;
       overflow: hidden;
     }
@@ -1211,86 +1211,77 @@
 
     /* ─── CLOSING CTA ────────────────────────────── */
     .cta {
-      background-image:
-        linear-gradient(rgba(17,16,16,0.55), rgba(17,16,16,0.55)),
-        url("images/cfb-cta-bg-conversation.png");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: var(--black);
-      padding: 140px 80px;
+      background: var(--cream);
+      padding: 96px 80px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(184,155,110,0.05) 0%, transparent 70%);
-      pointer-events: none;
+      border-top: 1px solid var(--gold-dim);
     }
 
     .cta-inner {
-      position: relative;
-      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .cta-image {
+      display: block;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      margin: 0 auto;
     }
 
     .cta h2 {
       font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(36px, 3.8vw, 56px);
       font-weight: 300;
-      color: var(--cream);
-      line-height: 1.12;
-      max-width: 680px;
-      margin: 20px auto 24px;
+      color: var(--black);
+      line-height: 1.15;
+      max-width: 580px;
+      margin: 0 auto 28px;
     }
 
     .cta h2 em {
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--gold);
     }
 
     .cta p {
-      font-size: 14.5px;
-      color: rgba(245,242,237,0.92);
-      max-width: 480px;
-      margin: 0 auto 52px;
-      line-height: 1.8;
+      font-size: 15.5px;
+      color: #5a554f;
+      max-width: 580px;
+      margin: 0 auto 44px;
+      line-height: 1.85;
     }
 
     .cta-actions {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .cta-mobile-photo {
-      display: none;
-    }
-
-    .btn-ghost-light {
+    .btn-ghost-dark {
       font-family: var(--sans);
       font-size: 10.5px;
       font-weight: 400;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       background: transparent;
-      color: rgba(245,242,237,0.85);
+      color: var(--black);
       padding: 16px 32px;
       text-decoration: none;
-      border: 1px solid rgba(245,242,237,0.45);
+      border: 1px solid rgba(17,16,16,0.35);
       transition: border-color 0.25s, color 0.25s;
       display: inline-block;
     }
-    .btn-ghost-light:hover { border-color: var(--gold); color: var(--gold-light); }
+    .btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ─── FOOTER ─────────────────────────────────── */
     footer {
@@ -1378,6 +1369,7 @@
 
       .faq-inner { grid-template-columns: 1fr; gap: 56px; }
       .faq-right { min-height: 320px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 56px; }
     }
 
     @media (max-width: 768px) {
@@ -1452,22 +1444,9 @@
         display: block;
         border-radius: 16px;
       }
-      .cta { background-image: none; }
-      .cta-mobile-photo {
-        display: block;
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        margin: 40px 0 0;
-        border-radius: 16px;
-        overflow: hidden;
-      }
-      .cta-mobile-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        border-radius: 16px;
-      }
+      .cta-image { order: 2; max-width: 100%; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions a { text-align: center; }
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
@@ -1489,7 +1468,7 @@
         width: 100%;
         aspect-ratio: 4 / 3;
         margin: 28px 0 28px;
-        border-radius: 16px;
+        border-radius: 0 45px 0 45px;
         overflow: hidden;
       }
       .faq-mobile-photo img {
@@ -1497,7 +1476,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        border-radius: 16px;
+        border-radius: 0 45px 0 45px;
       }
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
@@ -1928,20 +1907,20 @@
     </div>
   </section>
 
-  <!-- ─── CLOSING CTA ─── -->
+  <!-- ─── CLOSING CTA (split: image left, text right) ─── -->
   <section class="cta">
     <div class="cta-inner">
-      <span class="section-label" style="display: block; margin-bottom: 16px; color: var(--gold-light);">Begin the Conversation</span>
-      <h2>Ready to design a capital<br>system built around <em>you?</em></h2>
-      <p>A Cash Flow Banking consultation begins with listening, understanding your goals, your current structure, and where you want to be. No pressure. No pitch.</p>
-      <div class="cta-actions">
-        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="btn-gold" target="_blank" rel="noopener noreferrer">
-          Schedule a Cash Flow Banking Consultation
-        </a>
-        <a href="https://cashflowbanking.com/" class="btn-ghost-light" target="_blank" rel="noopener noreferrer">Explore Cash Flow Banking Further</a>
-      </div>
-      <div class="cta-mobile-photo">
-        <img src="images/cfb-cta-mobile.jpg" alt="Three people examining products together on shelves in a small business storeroom." />
+      <img class="cta-image" src="images/cfb-cta-mobile.jpg" alt="Three people examining products together on shelves in a small business storeroom." />
+      <div class="cta-content">
+        <span class="section-label" style="display: block; margin-bottom: 16px; color: var(--gold);">Begin the Conversation</span>
+        <h2>Ready to design a capital<br>system built around <em>you?</em></h2>
+        <p>A Cash Flow Banking consultation begins with listening, understanding your goals, your current structure, and where you want to be. No pressure. No pitch.</p>
+        <div class="cta-actions">
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" class="btn-gold" target="_blank" rel="noopener noreferrer">
+            Schedule a Cash Flow Banking Consultation
+          </a>
+          <a href="https://cashflowbanking.com/" class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">Explore Cash Flow Banking Further</a>
+        </div>
       </div>
     </div>
   </section>
