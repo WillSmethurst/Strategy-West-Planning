@@ -1385,8 +1385,11 @@
       .assessment-inner { grid-template-columns: 1fr; gap: 56px; }
       .problem-left { position: static; }
 
-      .why-top { grid-template-columns: 1fr; gap: 40px; margin-bottom: 64px; align-items: stretch; }
-      .why-top-image { min-height: 280px; }
+      .why-top { display: flex; flex-direction: column; gap: 0; margin-bottom: 64px; }
+      .why-top-left { display: contents; }
+      .why-top-image { min-height: 280px; order: 1; margin-bottom: 38px; }
+      .why-top-left p { order: 2; }
+      .why-top-ctas { order: 3; }
       .why-divider { margin-bottom: 56px; }
       .why-traits { grid-template-columns: 1fr 1fr; row-gap: 48px; }
       .why-trait + .why-trait::before { display: none; }
@@ -1482,12 +1485,13 @@
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
-      .benefits-top { grid-template-columns: 1fr; gap: 48px; }
-      .benefits-header { order: -1; }
+      .benefits-top { display: flex; flex-direction: column; gap: 0; }
+      .benefits-header { display: contents; }
+      .benefits-cta { order: 2; }
       .benefits-image { max-width: 100%; justify-self: stretch; }
       .benefits-arc { display: none; }
       .problem-arc { display: none; }
-      .benefits-image { position: static; top: auto; right: auto; width: 100%; height: auto; aspect-ratio: 23 / 14; }
+      .benefits-image { position: static; top: auto; right: auto; width: 100%; height: auto; aspect-ratio: 23 / 14; order: 1; margin-top: 44px; }
       .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
       .candid-aliases-sep { display: none; }
       .candid { padding-top: 80px; padding-bottom: 88px; }
