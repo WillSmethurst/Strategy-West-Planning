@@ -925,18 +925,18 @@
     /* ─── HOW WE WORK WITH YOU (ascending step timeline) ─────── */
     .engagement {
       background: var(--off-white);
-      padding: 88px 10% 92px 10%;
+      padding: 96px 10% 100px 10%;
     }
 
     .engagement-inner {
-      max-width: none;
-      margin: 0;
+      max-width: 1080px;
+      margin: 0 auto;
     }
 
     .engagement-header {
-      text-align: left;
-      max-width: 680px;
-      margin-bottom: 0;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
     }
 
     .engagement-header .section-label {
@@ -948,7 +948,8 @@
     .engagement-header .section-label::after {
       content: '';
       position: absolute;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 0;
       width: 40px;
       height: 1px;
@@ -962,107 +963,71 @@
       line-height: 1.12;
       color: var(--black);
       max-width: 640px;
-      margin: 0;
+      margin: 0 auto;
     }
 
-    .engagement-steps {
-      --step-rise: 48px;
+    .engagement-phases {
       display: grid;
-      grid-template-columns: 27fr 28fr 25fr;
-      align-items: start;
-      margin-top: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px;
+      margin-top: 76px;
     }
 
-    .engagement-step { position: relative; }
-    .engagement-step--1 { margin-top: calc(var(--step-rise) * 2); }
-    .engagement-step--2 { margin-top: var(--step-rise); }
-    .engagement-step--3 { margin-top: 0; }
+    .engagement-phase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-    .engagement-step-rail {
+    .engagement-phase-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: rgba(184, 155, 110, 0.08);
+      border: 1px solid rgba(184, 155, 110, 0.35);
       display: flex;
       align-items: center;
-      gap: 0;
-      margin-bottom: 20px;
-    }
-
-    .engagement-step-num {
-      font-family: var(--serif);
-      font-size: 56px;
-      font-weight: 300;
-      color: var(--gold);
-      line-height: 1;
+      justify-content: center;
+      margin-bottom: 30px;
       flex-shrink: 0;
-      margin-right: 24px;
     }
 
-    .engagement-step-lead {
-      width: 40px;
-      height: 1px;
-      background: rgba(184, 155, 110, 0.5);
-      flex-shrink: 0;
-      transform: translateY(11px);
-    }
-
-    .engagement-step-line {
-      position: relative;
-      flex: 1;
-      height: 1px;
-      background: rgba(184, 155, 110, 0.5);
-      transform: translateY(11px);
-    }
-
-    .engagement-step--1 .engagement-step-line::after,
-    .engagement-step--2 .engagement-step-line::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 1px;
-      height: var(--step-rise);
-      background: rgba(184, 155, 110, 0.5);
-    }
-
-    .engagement-step--3 .engagement-step-line::after {
-      content: '';
-      position: absolute;
-      right: -3px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .engagement-step-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 500;
+    .engagement-phase-icon svg {
+      width: 34px;
+      height: 34px;
       color: var(--black);
-      line-height: 1.3;
-      margin-bottom: 14px;
-      padding-right: 36px;
     }
 
-    .engagement-step-body {
+    .engagement-phase-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .engagement-phase-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .engagement-phase-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .engagement-phase-body {
       font-size: 14.5px;
       line-height: 1.8;
       color: #6a6460;
       max-width: 320px;
-      padding-right: 24px;
-    }
-
-    .engagement-step--2 .engagement-step-num,
-    .engagement-step--3 .engagement-step-num {
-      margin-left: 12px;
-      margin-right: 12px;
-    }
-
-    .engagement-step--2 .engagement-step-title,
-    .engagement-step--3 .engagement-step-title,
-    .engagement-step--2 .engagement-step-body,
-    .engagement-step--3 .engagement-step-body {
-      margin-left: 52px;
     }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
@@ -1146,7 +1111,7 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      border-radius: 4px;
+      border-radius: 0 90px 0 90px;
       min-height: 480px;
       align-self: stretch;
       overflow: hidden;
@@ -1291,15 +1256,17 @@
       .journey-year { grid-template-columns: 140px 1fr; gap: 28px; }
       .journey-year-num { font-size: 64px; }
 
-      .engagement-steps { grid-template-columns: 1fr; --step-rise: 0px; row-gap: 52px; margin-top: 48px; }
-      .engagement-step-lead { display: none; }
-      .engagement-step--2 .engagement-step-num,
-      .engagement-step--3 .engagement-step-num { margin-left: 0; margin-right: 24px; }
-      .engagement-step--2 .engagement-step-title,
-      .engagement-step--3 .engagement-step-title,
-      .engagement-step--2 .engagement-step-body,
-      .engagement-step--3 .engagement-step-body { margin-left: 0; }
-      .engagement-step-body { max-width: 520px; padding-right: 0; }
+      .engagement { padding-top: 64px; padding-bottom: 72px; }
+      .engagement-header { text-align: left; max-width: 100%; margin: 0; }
+      .engagement-header .section-label::after { left: 0; transform: none; }
+      .engagement-header h3 { margin: 0; max-width: 100%; }
+      .engagement-phases { grid-template-columns: 1fr; gap: 0; margin-top: 44px; }
+      .engagement-phase { flex-direction: row; align-items: flex-start; text-align: left; gap: 22px; }
+      .engagement-phase + .engagement-phase { border-top: 1px solid rgba(26, 25, 23, 0.10); padding-top: 36px; margin-top: 36px; }
+      .engagement-phase-icon { width: 72px; height: 72px; margin-bottom: 0; }
+      .engagement-phase-icon svg { width: 28px; height: 28px; }
+      .engagement-phase-text { flex: 1; }
+      .engagement-phase-body { max-width: 100%; }
 
       .faq-inner { grid-template-columns: 1fr; gap: 48px; }
       .faq-right { display: none; }
@@ -1308,7 +1275,7 @@
         width: 100%;
         aspect-ratio: 4 / 3;
         margin: 0 0 36px;
-        border-radius: 16px;
+        border-radius: 0 45px 0 45px;
         overflow: hidden;
       }
       .faq-mobile-photo img {
@@ -1316,7 +1283,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        border-radius: 16px;
+        border-radius: 0;
       }
 
       .cta-inner { grid-template-columns: 1fr; gap: 56px; }
@@ -1408,8 +1375,6 @@
       .journey-year { grid-template-columns: 1fr; gap: 12px; }
       .journey-year-num { font-size: 56px; }
       .journey-year-num small { margin-top: 8px; }
-      .engagement-step-num { font-size: 56px; }
-      .engagement-step-rail { gap: 20px; }
 
 
       .cta-actions { flex-direction: column; align-items: stretch; }
@@ -1807,34 +1772,38 @@
         <h3>A multi-year relationship,<br>not a one-time meeting.</h3>
       </div>
 
-      <div class="engagement-steps">
-        <div class="engagement-step engagement-step--1">
-          <div class="engagement-step-rail">
-            <span class="engagement-step-num">01</span>
-            <span class="engagement-step-line"></span>
+      <div class="engagement-phases">
+        <div class="engagement-phase">
+          <div class="engagement-phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
           </div>
-          <h5 class="engagement-step-title">An Initial Conversation</h5>
-          <p class="engagement-step-body">We begin by understanding your family. Your student, your goals for them, your financial picture, and what success looks like for everyone involved.</p>
+          <div class="engagement-phase-text">
+            <span class="engagement-phase-label">Phase 1: Discover</span>
+            <h5 class="engagement-phase-title">An Initial Conversation</h5>
+            <p class="engagement-phase-body">We begin by understanding your family. Your student, your goals for them, your financial picture, and what success looks like for everyone involved.</p>
+          </div>
         </div>
 
-        <div class="engagement-step engagement-step--2">
-          <div class="engagement-step-rail">
-            <span class="engagement-step-lead"></span>
-            <span class="engagement-step-num">02</span>
-            <span class="engagement-step-line"></span>
+        <div class="engagement-phase">
+          <div class="engagement-phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m8.5 12 1.3 1.3 2.7-2.7"/><path d="m8.5 17 1.3 1.3 2.7-2.7"/></svg>
           </div>
-          <h5 class="engagement-step-title">A Structured Plan</h5>
-          <p class="engagement-step-body">From there, we build a plan that addresses each of the three dimensions and the year-by-year arc. The plan is specific to your family, not a template.</p>
+          <div class="engagement-phase-text">
+            <span class="engagement-phase-label">Phase 2: Design</span>
+            <h5 class="engagement-phase-title">A Structured Plan</h5>
+            <p class="engagement-phase-body">From there, we build a plan that addresses each of the three dimensions and the year-by-year arc. The plan is specific to your family, not a template.</p>
+          </div>
         </div>
 
-        <div class="engagement-step engagement-step--3">
-          <div class="engagement-step-rail">
-            <span class="engagement-step-lead"></span>
-            <span class="engagement-step-num">03</span>
-            <span class="engagement-step-line"></span>
+        <div class="engagement-phase">
+          <div class="engagement-phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14"/><path d="m7 18 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 13 6 6"/></svg>
           </div>
-          <h5 class="engagement-step-title">Ongoing Support</h5>
-          <p class="engagement-step-body">We stay involved across high school. Plans get revised, students change direction, and circumstances shift. Our role is to keep the structure aligned with the family it serves.</p>
+          <div class="engagement-phase-text">
+            <span class="engagement-phase-label">Phase 3: Support</span>
+            <h5 class="engagement-phase-title">Ongoing Support</h5>
+            <p class="engagement-phase-body">We stay involved across high school. Plans get revised, students change direction, and circumstances shift. Our role is to keep the structure aligned with the family it serves.</p>
+          </div>
         </div>
       </div>
     </div>
