@@ -1486,14 +1486,15 @@
 
       .why-traits { grid-template-columns: 1fr; }
       .how-steps { grid-template-columns: 1fr; }
-      .benefits-top { display: flex; flex-direction: column; gap: 0; }
+      .benefits-inner { display: flex; flex-direction: column; gap: 0; }
+      .benefits-top { display: contents; }
       .benefits-header { display: contents; }
-      .benefits-cta { order: 2; }
+      .benefits-cta { order: 3; margin-top: 56px; }
       .benefits-image { max-width: 100%; justify-self: stretch; }
       .benefits-arc { display: none; }
       .problem-arc { display: none; }
       .benefits-image { position: static; top: auto; right: auto; width: 100%; height: auto; aspect-ratio: 23 / 14; order: 1; margin-top: 44px; }
-      .benefits-grid { grid-template-columns: 1fr; gap: 48px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 48px; order: 2; margin-top: 64px; }
       .candid-aliases-sep { display: none; }
       .candid { padding-top: 80px; padding-bottom: 88px; }
       .candid-inner { padding: 0 24px; }
