@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Insights | Strategy West Planning</title>
+  <title>Insight | Strategy West Planning</title>
+
+  <!-- Dynamic SEO meta (populated by JS once the article loads) -->
+  <meta name="description" content="" id="metaDescription" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Strategy West Planning" />
+  <meta property="og:title" content="" id="ogTitle" />
+  <meta property="og:description" content="" id="ogDescription" />
+  <meta property="og:image" content="" id="ogImage" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -62,21 +72,12 @@
       gap: 12px;
       text-decoration: none;
       flex-shrink: 0;
-      margin-left: -10px;
+      margin-left: -42px;
     }
 
-    .nav-logo img {
-      height: 62px;
-      width: auto;
-      opacity: 1;
-    }
+    .nav-logo img { height: 104px; width: auto; opacity: 1; }
 
-    .nav-center {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      margin-left: auto;
-    }
+    .nav-center { display: flex; align-items: center; gap: 36px; margin-left: auto; }
 
     .nav-center a,
     .nav-dropdown-trigger {
@@ -97,7 +98,6 @@
 
     .nav-center a:hover,
     .nav-dropdown-trigger:hover { color: var(--gold-light); }
-
     .nav-center a.active { color: var(--gold-light); }
 
     .nav-item-dropdown { position: relative; }
@@ -257,252 +257,217 @@
     .mobile-nav-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
     .mobile-nav-dropdown-trigger.open .mobile-nav-chevron { transform: rotate(180deg); }
 
-    /* ─── SHARED PIECES ─────────────────────────────── */
-    .section-label {
-      font-family: var(--sans);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: block;
-    }
-
     em { font-style: italic; color: var(--gold); }
 
-    /* ─── HERO (typography-led, centered) ─── */
-    .hero {
+    /* ─── ARTICLE ────────────────────────────────────────────── */
+    .article {
       background: var(--warm-white);
-      padding: 160px 80px 120px;
-      text-align: center;
+      padding: 150px 80px 40px;
     }
+    .article-inner { max-width: 880px; margin: 0 auto; }
 
-    .hero-inner {
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--sans);
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 36px;
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(44px, 5.4vw, 76px);
-      font-weight: 300;
-      line-height: 1.12;
-      color: var(--black);
-      max-width: 880px;
-      margin: 0 auto 36px;
-    }
-
-    .hero-title em { font-style: italic; color: var(--gold); }
-
-    .hero-sub {
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--charcoal);
-      max-width: 640px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-
-    /* ─── BLOGS GRID SECTION ─── */
-    .blogs {
-      background: var(--cream);
-      padding: 96px 80px 128px;
-    }
-
-    .blogs-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    /* Filter pills */
-    .filter-row {
-      display: flex;
+    .back-link {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-    .filter-label {
+      gap: 8px;
       font-family: var(--sans);
       font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gray-mid);
-      margin-right: 8px;
-    }
-    .filter-pill {
-      font-family: var(--sans);
-      font-size: 11.5px;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--charcoal);
-      background: var(--warm-white);
-      border: 1px solid rgba(26,25,23,0.18);
-      padding: 10px 20px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .filter-pill:hover { border-color: var(--gold); color: var(--charcoal); }
-    .filter-pill.active {
-      background: var(--charcoal);
-      color: var(--gold-light);
-      border-color: var(--charcoal);
-    }
-
-    .filter-pill-numeral {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: 14px;
-      color: var(--gold);
-      margin-right: 9px;
-      letter-spacing: 0;
-      display: inline-block;
-      line-height: 1;
-    }
-
-    .filter-pill.active .filter-pill-numeral {
-      color: var(--gold-light);
-    }
-
-    /* Blog grid */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .blog-card {
-      background: var(--warm-white);
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card:hover {
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      transform: translateY(-2px);
-    }
-    .blog-card.hidden { display: none; }
-
-    .blog-card-mark {
-      height: 200px;
-      background: var(--off-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .numeral {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 64px;
-      font-weight: 300;
-      color: var(--gold);
-      line-height: 1;
-      letter-spacing: 0.02em;
-    }
-
-    .blog-card-body {
-      padding: 32px 28px 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .blog-card-eyebrow {
-      font-family: var(--sans);
-      font-size: 10.5px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .blog-card-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 1.28;
-      color: var(--black);
-      margin-bottom: 16px;
-    }
-    .blog-card-desc {
-      font-family: var(--sans);
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--charcoal);
-      margin-bottom: 24px;
-      flex: 1;
-    }
-    .blog-card-divider {
-      height: 1px;
-      background: rgba(184,155,110,0.2);
-      margin-bottom: 18px;
-    }
-    .blog-card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .blog-card-date {
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: rgba(0,0,0,0.42);
-    }
-    .blog-card-link {
-      font-family: var(--sans);
-      font-size: 10.5px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
       text-decoration: none;
-      transition: color 0.2s;
+      margin-bottom: 56px;
+      transition: color 0.2s, gap 0.2s;
     }
-    .blog-card-link:hover { color: var(--gold-light); }
-    .blog-card-link span { margin-left: 4px; transition: margin-left 0.2s; }
-    .blog-card-link:hover span { margin-left: 8px; }
+    .back-link:hover { color: var(--gold-light); gap: 12px; }
+    .back-link svg { width: 12px; height: 12px; }
 
-    /* Pagination arrows */
-    .pager-controls { display: contents; }
+    .article-header { text-align: center; max-width: 760px; margin: 0 auto; }
 
-    .pager-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--warm-white);
-      border: 1px solid rgba(26,25,23,0.12);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    .article-eyebrow {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 26px;
+      display: block;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.4vw, 58px);
+      font-weight: 300;
+      line-height: 1.16;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      color: var(--charcoal);
-      transition: all 0.2s ease;
-      z-index: 5;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      color: var(--gray-mid);
     }
-    .pager-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .pager-btn.hidden { display: none; }
-    .pager-left { left: -72px; }
-    .pager-right { right: -72px; }
-    .pager-btn svg { width: 14px; height: 14px; }
-    .pager-left svg { transform: rotate(180deg); }
+    .article-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: 0.7; }
+
+    .article-lead {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(19px, 2.2vw, 23px);
+      line-height: 1.6;
+      color: var(--charcoal);
+      max-width: 680px;
+      margin: 36px auto 0;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .article-figure-main { margin: 64px auto 0; max-width: 880px; }
+    .article-figure-main img { width: 100%; height: auto; display: block; border-radius: 4px; }
+
+    /* Body prose (rendered from Portable Text) */
+    .article-body {
+      max-width: 720px;
+      margin: 64px auto 0;
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #2a2825;
+    }
+    .article-body p { margin-bottom: 26px; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body em { color: inherit; font-style: italic; }
+    .article-body strong { font-weight: 500; color: var(--black); }
+    .article-body code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.88em;
+      background: var(--off-white);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .article-body a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,155,110,0.4);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .article-body a:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+    .article-h2 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--black);
+      margin: 52px 0 18px;
+    }
+    .article-h3 {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.4vw, 27px);
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--black);
+      margin: 40px 0 14px;
+    }
+    .article-h4 {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+
+    .article-body ul,
+    .article-body ol { margin: 0 0 26px; padding-left: 26px; }
+    .article-body li { margin-bottom: 10px; padding-left: 6px; }
+    .article-body ul li::marker { color: var(--gold); }
+    .article-body ol li::marker { color: var(--gold); font-family: var(--serif); font-style: italic; }
+
+    .article-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(21px, 2.4vw, 26px);
+      line-height: 1.5;
+      color: var(--charcoal);
+      border-left: 2px solid var(--gold);
+      padding: 4px 0 4px 28px;
+      margin: 40px 0;
+    }
+
+    .article-figure { margin: 40px 0; }
+    .article-figure img { width: 100%; height: auto; display: block; border-radius: 4px; }
+    .article-figure figcaption {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--gray-mid);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .article-close {
+      max-width: 720px;
+      margin: 72px auto 0;
+      padding-top: 40px;
+      border-top: 1px solid rgba(184,155,110,0.25);
+      text-align: center;
+    }
+    .article-close .back-link { margin-bottom: 0; }
+
+    /* ─── STATES (loading / not found) ───────────────────────── */
+    .state-wrap {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 180px 24px 120px;
+    }
+
+    .loading-text {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+    .notfound-eyebrow {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .notfound-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+    .notfound-text {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      max-width: 460px;
+      margin-bottom: 40px;
+    }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -520,11 +485,7 @@
       flex-wrap: wrap;
     }
 
-    .footer-brand img {
-      height: 64px;
-      opacity: 1;
-      margin-bottom: 14px;
-    }
+    .footer-brand img { height: 124px; opacity: 1; margin-bottom: 14px; }
 
     .footer-nav { display: flex; gap: 64px; }
 
@@ -558,20 +519,11 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-
-    .footer-bottom p {
-      font-size: 11px;
-      color: rgba(255,255,255,0.22);
-      letter-spacing: 0.05em;
-    }
+    .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero { padding: 140px 48px 96px; }
-      .blogs { padding: 80px 48px 96px; }
-      .blog-grid { grid-template-columns: repeat(2, 1fr); }
-      .pager-left { left: -54px; }
-      .pager-right { right: -54px; }
+      .article { padding: 132px 48px 40px; }
     }
 
     @media (max-width: 768px) {
@@ -580,36 +532,13 @@
       .nav-cta-wrap { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { padding-left: 24px; padding-right: 24px; }
-      .blogs { padding: 64px 24px 80px; }
-
-      .blog-grid { grid-template-columns: 1fr; gap: 20px; }
-      .filter-row { gap: 8px; }
-      .filter-pill { padding: 9px 16px; font-size: 11px; }
-
-      .pager-controls {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 40px;
-      }
-      .pager-btn {
-        position: static;
-        transform: none;
-        display: inline-flex;
-      }
-      .pager-left, .pager-right { left: auto; right: auto; }
+      .article { padding: 138px 24px 32px; }
+      .back-link { margin-bottom: 40px; }
+      .article-figure-main { margin-top: 44px; }
+      .article-body { margin-top: 48px; font-size: 16px; line-height: 1.85; }
 
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
-    }
-
-    /* ─── REUSABLE: TOPOGRAPHIC CONTOUR BACKGROUND OVERLAY ─── */
-    .bg-contour-cream {
-      background-image: url('images/contour-bg-cream.svg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
     }
   </style>
 </head>
@@ -696,51 +625,64 @@
     </div>
   </div>
 
-  <!-- ─── HERO ─── -->
-  <section class="hero bg-contour-cream">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">From the firm</p>
-      <h1 class="hero-title">
-        Writing on the <em>long view</em>.
-      </h1>
-      <p class="hero-sub">
-        Essays and notes from Strategy West Planning, written for families and business owners building wealth across decades rather than quarters.
-      </p>
+  <!-- ─── MAIN ─── -->
+  <main>
+
+    <!-- Loading state -->
+    <div class="state-wrap" id="loadingState">
+      <span class="loading-text">Loading insight</span>
     </div>
-  </section>
 
-  <!-- ─── BLOGS GRID ─── -->
-  <section class="blogs">
-    <div class="blogs-inner">
+    <!-- Article (hidden until populated) -->
+    <article class="article" id="articleState" style="display:none;">
+      <div class="article-inner">
 
-      <div class="filter-row">
-        <span class="filter-label">FILTER:</span>
-        <button class="filter-pill active" data-filter="all">All Topics</button>
-        <button class="filter-pill" data-filter="cfb"><span class="filter-pill-numeral">I</span>Cash Flow Banking</button>
-        <button class="filter-pill" data-filter="cp"><span class="filter-pill-numeral">II</span>College Planning</button>
-        <button class="filter-pill" data-filter="dp"><span class="filter-pill-numeral">III</span>Disability Planning</button>
-        <button class="filter-pill" data-filter="re"><span class="filter-pill-numeral">IV</span>Retirement &amp; Estate</button>
-      </div>
-
-<div class="blog-grid" id="blogGrid">
-  <p>Loading insights...</p>
-</div>
-
-      <div class="pager-controls">
-        <button class="pager-btn pager-left" aria-label="Previous page">
+        <a href="insights.html" class="back-link">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 2 L8 6 L4 10" />
+            <path d="M8 2 L4 6 L8 10" />
           </svg>
-        </button>
-        <button class="pager-btn pager-right" aria-label="Next page">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 2 L8 6 L4 10" />
-          </svg>
-        </button>
-      </div>
+          Back to Insights
+        </a>
 
+        <header class="article-header">
+          <span class="article-eyebrow" id="artCategory" style="display:none;"></span>
+          <h1 class="article-title" id="artTitle"></h1>
+          <div class="article-meta" id="artMeta"></div>
+          <p class="article-lead" id="artLead" style="display:none;"></p>
+        </header>
+
+        <figure class="article-figure-main" id="artImageWrap" style="display:none;">
+          <img id="artImage" src="" alt="" />
+        </figure>
+
+        <div class="article-body" id="artBody"></div>
+
+        <div class="article-close">
+          <a href="insights.html" class="back-link">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2 L4 6 L8 10" />
+            </svg>
+            Return to Insights
+          </a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Not found state -->
+    <div class="state-wrap" id="notFoundState" style="display:none;">
+      <span class="notfound-eyebrow">Strategy West Planning</span>
+      <h1 class="notfound-title" id="notFoundTitle">Article not found</h1>
+      <p class="notfound-text" id="notFoundText">The insight you are looking for could not be located.</p>
+      <a href="insights.html" class="back-link">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2 L4 6 L8 10" />
+        </svg>
+        Back to Insights
+      </a>
     </div>
-  </section>
+
+  </main>
 
   <!-- ─── FOOTER ─── -->
   <footer>
@@ -782,8 +724,8 @@
     </div>
   </footer>
 
+  <!-- ─── NAV SCRIPT (identical behavior to the rest of the site) ─── -->
   <script>
-    // ── Consultation dropdown ─────────────────────────────────
     const consultBtn  = document.getElementById('consultBtn');
     const consultWrap = document.getElementById('consultWrap');
     const consultDD   = document.getElementById('consultDropdown');
@@ -801,7 +743,6 @@
 
     consultDD.addEventListener('click', e => e.stopPropagation());
 
-    // ── Mobile hamburger ──────────────────────────────────────
     const hamburger = document.getElementById('navHamburger');
     const mobileNav = document.getElementById('mobileNav');
 
@@ -820,7 +761,6 @@
       link.addEventListener('click', () => mobileNav.classList.remove('open'));
     });
 
-    // ── Mobile dropdown sub-menu toggles (works for any number) ─
     document.querySelectorAll('.mobile-nav-dropdown-trigger').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -829,42 +769,23 @@
       });
     });
 
-    // ── Auto-hide nav on scroll-down (mobile only, under 768px) ──
     let lastScroll = 0;
     const SCROLL_THRESHOLD = 5;
     const navEl = document.querySelector('nav');
 
     window.addEventListener('scroll', () => {
-      if (window.innerWidth > 768) {
-        navEl.classList.remove('nav-hidden');
-        return;
-      }
-
-      if (mobileNav.classList.contains('open')) {
-        navEl.classList.remove('nav-hidden');
-        return;
-      }
+      if (window.innerWidth > 768) { navEl.classList.remove('nav-hidden'); return; }
+      if (mobileNav.classList.contains('open')) { navEl.classList.remove('nav-hidden'); return; }
 
       const currentScroll = window.pageYOffset;
-
-      if (currentScroll <= 0) {
-        navEl.classList.remove('nav-hidden');
-        lastScroll = 0;
-        return;
-      }
-
+      if (currentScroll <= 0) { navEl.classList.remove('nav-hidden'); lastScroll = 0; return; }
       if (Math.abs(currentScroll - lastScroll) < SCROLL_THRESHOLD) return;
 
-      if (currentScroll > lastScroll) {
-        navEl.classList.add('nav-hidden');
-      } else {
-        navEl.classList.remove('nav-hidden');
-      }
-
+      if (currentScroll > lastScroll) { navEl.classList.add('nav-hidden'); }
+      else { navEl.classList.remove('nav-hidden'); }
       lastScroll = currentScroll;
     }, { passive: true });
 
-    // ── Desktop nav dropdowns: click handler for mobile/tablet ───
     function isMobile() { return window.innerWidth <= 768; }
 
     document.querySelectorAll('.nav-item-dropdown').forEach(item => {
@@ -876,14 +797,10 @@
         e.stopPropagation();
         const isOpen = menu.style.opacity === '1';
         document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
-          m.style.opacity       = '0';
-          m.style.pointerEvents = 'none';
-          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+          m.style.opacity = '0'; m.style.pointerEvents = 'none'; m.style.transform = 'translateX(-50%) translateY(-6px)';
         });
         if (!isOpen) {
-          menu.style.opacity       = '1';
-          menu.style.pointerEvents = 'all';
-          menu.style.transform     = 'translateX(-50%) translateY(0)';
+          menu.style.opacity = '1'; menu.style.pointerEvents = 'all'; menu.style.transform = 'translateX(-50%) translateY(0)';
         }
       });
     });
@@ -891,158 +808,268 @@
     document.addEventListener('click', () => {
       if (isMobile()) {
         document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
-          m.style.opacity       = '0';
-          m.style.pointerEvents = 'none';
-          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+          m.style.opacity = '0'; m.style.pointerEvents = 'none'; m.style.transform = 'translateX(-50%) translateY(-6px)';
         });
       }
     });
   </script>
 
+  <!-- ─── ARTICLE LOADER (Sanity fetch + Portable Text rendering) ─── -->
   <script>
-  (async function() {
-    const POSTS_PER_PAGE = 6;
-    const projectId = '0ziwk9hm';
-    const dataset = 'production';
+    (function () {
+      /* ----- Sanity config ----- */
+      const PROJECT_ID  = '0ziwk9hm';
+      const DATASET     = 'production';
+      const API_VERSION = 'v2024-01-01';
 
-    let currentPage = 1;
-    let currentFilter = 'all';
-    let allCards = [];
-
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const pagerLeft = document.querySelector('.pager-left');
-    const pagerRight = document.querySelector('.pager-right');
-    const blogsSection = document.querySelector('.blogs');
-    const blogGrid = document.getElementById('blogGrid');
-
-    const numeralMap = {
-      cfb: 'I',
-      cp: 'II',
-      dp: 'III',
-      re: 'IV'
-    };
-
-    const query = encodeURIComponent(`
-      *[_type == "blogPost" && defined(slug.current)] | order(publishedAt desc) {
+      const QUERY = `*[_type == "blogPost" && slug.current == $slug][0]{
         title,
-        "slug": slug.current,
-        excerpt,
         publishedAt,
-        "category": category->title,
-        "filterCode": category->filterCode,
-        "imageUrl": mainImage.asset->url
+        excerpt,
+        body,
+        mainImage,
+        "imageUrl": mainImage.asset->url,
+        author->{ name },
+        "category": coalesce(
+  	category->{ title, filterCode },
+  	categories[0]->{ title, filterCode }
+	)
+      }`;
+
+      /* ----- Element refs ----- */
+      const loadingState = document.getElementById('loadingState');
+      const articleState = document.getElementById('articleState');
+      const notFoundState = document.getElementById('notFoundState');
+
+      /* ----- Helpers ----- */
+      function escapeHtml(str) {
+        return String(str == null ? '' : str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
       }
-    `);
 
-    const url = `https://${projectId}.api.sanity.io/v2023-08-01/data/query/${dataset}?query=${query}`;
+      function formatDate(iso) {
+        if (!iso) return '';
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
 
-    function getFilteredCards() {
-      if (currentFilter === 'all') return allCards;
-      return allCards.filter(c => c.dataset.category === currentFilter);
-    }
+      // Add Sanity image-pipeline params for an optimized, right-sized delivery.
+      function imgParams(url, width) {
+        if (!url) return '';
+        const sep = url.indexOf('?') === -1 ? '?' : '&';
+        return url + sep + 'w=' + width + '&auto=format&fit=max&q=80';
+      }
 
-    function render() {
-      const filtered = getFilteredCards();
-      const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
+      // Build a CDN URL from a raw asset _ref (used for images embedded in the body,
+      // whose URLs are not resolved by the GROQ query).
+      function refToUrl(ref) {
+        if (!ref || typeof ref !== 'string') return '';
+        const cleaned = ref.replace(/^image-/, '');
+        const parts = cleaned.split('-');
+        if (parts.length < 3) return '';
+        const format = parts.pop();
+        const dimensions = parts.pop();
+        const id = parts.join('-');
+        return 'https://cdn.sanity.io/images/' + PROJECT_ID + '/' + DATASET + '/' + id + '-' + dimensions + '.' + format;
+      }
 
-      if (currentPage > totalPages) currentPage = totalPages;
+      function showOnly(el) {
+        loadingState.style.display = 'none';
+        articleState.style.display = 'none';
+        notFoundState.style.display = 'none';
+        if (el) el.style.display = el === articleState ? 'block' : 'flex';
+      }
 
-      const startIdx = (currentPage - 1) * POSTS_PER_PAGE;
-      const endIdx = startIdx + POSTS_PER_PAGE;
+      function showNotFound(title, text) {
+        if (title) document.getElementById('notFoundTitle').textContent = title;
+        if (text)  document.getElementById('notFoundText').textContent = text;
+        document.title = 'Article not found | Strategy West Planning';
+        showOnly(notFoundState);
+      }
 
-      allCards.forEach(c => c.classList.add('hidden'));
-      filtered.slice(startIdx, endIdx).forEach(c => c.classList.remove('hidden'));
+      /* ----- Portable Text rendering ----- */
+      function renderSpans(children, markDefs) {
+        if (!Array.isArray(children)) return '';
+        markDefs = markDefs || [];
+        return children.map(function (child) {
+          if (!child || child._type !== 'span') return '';
+          let text = escapeHtml(child.text || '');
+          const marks = child.marks || [];
+          marks.forEach(function (mark) {
+            const def = markDefs.find(function (d) { return d._key === mark; });
+            if (def && def._type === 'link') {
+              const href = def.href || '#';
+              const external = /^https?:\/\//i.test(href);
+              text = '<a href="' + escapeHtml(href) + '"' +
+                     (external ? ' target="_blank" rel="noopener noreferrer"' : '') +
+                     '>' + text + '</a>';
+            } else if (mark === 'strong') {
+              text = '<strong>' + text + '</strong>';
+            } else if (mark === 'em') {
+              text = '<em>' + text + '</em>';
+            } else if (mark === 'underline') {
+              text = '<span style="text-decoration:underline">' + text + '</span>';
+            } else if (mark === 'code') {
+              text = '<code>' + text + '</code>';
+            }
+          });
+          return text;
+        }).join('');
+      }
 
-      pagerLeft.classList.toggle('hidden', currentPage <= 1);
-      pagerRight.classList.toggle('hidden', currentPage >= totalPages);
-    }
+      function renderPortableText(blocks) {
+        if (!Array.isArray(blocks)) return '';
+        let html = '';
+        let listBuffer = [];
+        let listType = null;
 
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const posts = data.result || [];
+        function flushList() {
+          if (listBuffer.length) {
+            const tag = listType === 'number' ? 'ol' : 'ul';
+            html += '<' + tag + '>' + listBuffer.join('') + '</' + tag + '>';
+            listBuffer = [];
+            listType = null;
+          }
+        }
 
-      if (!posts.length) {
-        blogGrid.innerHTML = '<p>No insights published yet.</p>';
-        pagerLeft.classList.add('hidden');
-        pagerRight.classList.add('hidden');
+        blocks.forEach(function (block) {
+          if (!block) return;
+
+          // Image embedded in the body
+          if (block._type === 'image') {
+            flushList();
+            const ref = block.asset && block.asset._ref;
+            const src = refToUrl(ref);
+            if (src) {
+              const alt = escapeHtml(block.alt || '');
+              const cap = block.caption ? '<figcaption>' + escapeHtml(block.caption) + '</figcaption>' : '';
+              html += '<figure class="article-figure"><img src="' + imgParams(src, 1200) + '" alt="' + alt + '" loading="lazy" />' + cap + '</figure>';
+            }
+            return;
+          }
+
+          // Standard text block
+          if (block._type !== 'block') return;
+
+          const inner = renderSpans(block.children, block.markDefs);
+
+          if (block.listItem) {
+            const thisType = block.listItem === 'number' ? 'number' : 'bullet';
+            if (listType && listType !== thisType) flushList();
+            listType = thisType;
+            listBuffer.push('<li>' + inner + '</li>');
+            return;
+          }
+
+          flushList();
+
+          switch (block.style) {
+            case 'h1':
+            case 'h2': html += '<h2 class="article-h2">' + inner + '</h2>'; break;
+            case 'h3': html += '<h3 class="article-h3">' + inner + '</h3>'; break;
+            case 'h4':
+            case 'h5':
+            case 'h6': html += '<h4 class="article-h4">' + inner + '</h4>'; break;
+            case 'blockquote': html += '<blockquote class="article-quote">' + inner + '</blockquote>'; break;
+            default: if (inner.trim()) html += '<p>' + inner + '</p>';
+          }
+        });
+
+        flushList();
+        return html;
+      }
+
+      /* ----- SEO meta ----- */
+      function setMeta(post) {
+        const desc = post.excerpt || '';
+        document.title = (post.title || 'Insight') + ' | Strategy West Planning';
+        document.getElementById('metaDescription').setAttribute('content', desc);
+        document.getElementById('ogTitle').setAttribute('content', post.title || '');
+        document.getElementById('ogDescription').setAttribute('content', desc);
+        if (post.imageUrl) document.getElementById('ogImage').setAttribute('content', imgParams(post.imageUrl, 1200));
+      }
+
+      /* ----- Populate the article ----- */
+      function populate(post) {
+        setMeta(post);
+
+        // Category eyebrow
+        if (post.category && post.category.title) {
+          const cat = document.getElementById('artCategory');
+          cat.textContent = post.category.title;
+          cat.style.display = 'block';
+        }
+
+        // Title
+        document.getElementById('artTitle').textContent = post.title || '';
+
+        // Meta row: date then author
+        const metaEl = document.getElementById('artMeta');
+        const pieces = [];
+        const dateStr = formatDate(post.publishedAt);
+        if (dateStr) pieces.push('<span>' + escapeHtml(dateStr) + '</span>');
+        if (post.author && post.author.name) pieces.push('<span>By ' + escapeHtml(post.author.name) + '</span>');
+        metaEl.innerHTML = pieces.join('<span class="dot"></span>');
+
+        // Lead / standfirst (from excerpt)
+        if (post.excerpt) {
+          const lead = document.getElementById('artLead');
+          lead.textContent = post.excerpt;
+          lead.style.display = 'block';
+        }
+
+        // Main image
+        const imageUrl = post.imageUrl || (post.mainImage && post.mainImage.asset && refToUrl(post.mainImage.asset._ref));
+        if (imageUrl) {
+          const wrap = document.getElementById('artImageWrap');
+          const img = document.getElementById('artImage');
+          img.src = imgParams(imageUrl, 1600);
+          img.alt = (post.mainImage && post.mainImage.alt) ? post.mainImage.alt : (post.title || '');
+          wrap.style.display = 'block';
+        }
+
+        // Body
+        document.getElementById('artBody').innerHTML = renderPortableText(post.body);
+
+        showOnly(articleState);
+      }
+
+      /* ----- Fetch ----- */
+      const slug = new URLSearchParams(window.location.search).get('slug');
+
+      if (!slug) {
+        showNotFound();
         return;
       }
 
-      blogGrid.innerHTML = posts.map((post, index) => {
-        const filterCode = post.filterCode || 'all';
-        const numeral = numeralMap[filterCode] || index + 1;
+      const url = 'https://' + PROJECT_ID + '.apicdn.sanity.io/' + API_VERSION +
+                  '/data/query/' + DATASET +
+                  '?query=' + encodeURIComponent(QUERY) +
+                  '&$slug=' + encodeURIComponent(JSON.stringify(slug));
 
-        const date = post.publishedAt
-          ? new Date(post.publishedAt).toLocaleDateString('en-US', {
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric'
-            })
-          : '';
-
-        return `
-          <article class="blog-card" data-category="${filterCode}">
-            <div class="blog-card-mark">
-              ${
-                post.imageUrl
-                  ? `<img src="${post.imageUrl}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;">`
-                  : `<span class="numeral">${numeral}</span>`
-              }
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-eyebrow">${post.category || 'Insights'}</span>
-              <h3 class="blog-card-title">${post.title}</h3>
-              <p class="blog-card-desc">${post.excerpt || ''}</p>
-              <div class="blog-card-divider"></div>
-              <div class="blog-card-meta">
-                <span class="blog-card-date">${date}</span>
-                <a href="blog-post.html?slug=${post.slug}" class="blog-card-link">Read More <span>→</span></a>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
-
-      allCards = Array.from(document.querySelectorAll('.blog-card'));
-
-      filterPills.forEach(pill => {
-        pill.addEventListener('click', () => {
-          filterPills.forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          currentFilter = pill.dataset.filter;
-          currentPage = 1;
-          render();
+      fetch(url)
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed: ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (data && data.result) {
+            populate(data.result);
+          } else {
+            showNotFound();
+          }
+        })
+        .catch(function () {
+          showNotFound('Unable to load article', 'Something went wrong while loading this insight. Please refresh the page or try again shortly.');
         });
-      });
-
-      pagerLeft.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          render();
-          blogsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-
-      pagerRight.addEventListener('click', () => {
-        const totalPages = Math.ceil(getFilteredCards().length / POSTS_PER_PAGE);
-        if (currentPage < totalPages) {
-          currentPage++;
-          render();
-          blogsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-
-      render();
-
-    } catch (error) {
-      console.error(error);
-      blogGrid.innerHTML = '<p>Unable to load insights right now.</p>';
-      pagerLeft.classList.add('hidden');
-      pagerRight.classList.add('hidden');
-    }
-  })();
-</script>
+    })();
+  </script>
 
 </body>
 </html>
+
