@@ -507,6 +507,14 @@
       .cta { padding: 112px 48px; }
     }
 
+    /* ── Tablet / iPad: collapse nav to hamburger (matches mobile) ── */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .nav-center { display: none; }
@@ -780,7 +788,7 @@
     const navEl = document.querySelector('nav');
 
     window.addEventListener('scroll', () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 1024) {
         navEl.classList.remove('nav-hidden');
         return;
       }
