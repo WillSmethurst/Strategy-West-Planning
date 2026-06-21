@@ -1,1 +1,2 @@
 /testimonials  /testimonials.html  200
+/insights/*    /blog-post.html?slug=:splat    200
