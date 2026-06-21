@@ -1040,7 +1040,15 @@
       }
 
       /* ----- Fetch ----- */
-      const slug = new URLSearchParams(window.location.search).get('slug');
+      const params = new URLSearchParams(window.location.search);
+let slug = params.get('slug');
+
+if (!slug) {
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  if (pathParts[0] === 'insights' && pathParts[1]) {
+    slug = pathParts[1];
+  }
+}
 
       if (!slug) {
         showNotFound();
