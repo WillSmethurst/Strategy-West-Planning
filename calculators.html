@@ -527,6 +527,30 @@
       letter-spacing: 0.05em;
     }
 
+    .footer-bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: var(--gold-light);
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .hero { padding: 140px 48px 96px; }
@@ -764,7 +788,12 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+      </div>
       <p>Designed for those who plan with purpose.</p>
     </div>
   </footer>
