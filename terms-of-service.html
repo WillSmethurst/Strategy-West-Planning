@@ -654,6 +654,15 @@
     .legal-block p:last-child {
       margin-bottom: 0;
     }
+    .legal-block a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,155,110,0.4);
+      transition: border-color 0.2s ease;
+    }
+    .legal-block a:hover {
+      border-bottom-color: var(--gold);
+    }
     @media (max-width: 1100px) {
       .legal { padding: 80px 48px 96px; }
     }
@@ -831,7 +840,7 @@
 
       <div class="legal-block">
         <h2>15. Privacy</h2>
-        <p>Your use of the Site is also governed by our Privacy Policy, which describes how we handle information collected through the Site.</p>
+        <p>Your use of the Site is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which describes how we handle information collected through the Site.</p>
       </div>
 
       <div class="legal-block">
@@ -851,7 +860,7 @@
 
       <div class="legal-block">
         <h2>19. Severability and Entire Agreement</h2>
-        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full effect. These Terms, together with our Privacy Policy, constitute the entire agreement between you and the Company regarding your use of the Site.</p>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full effect. These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a>, constitute the entire agreement between you and the Company regarding your use of the Site.</p>
       </div>
 
       <div class="legal-block">
@@ -901,6 +910,7 @@
         <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
         <div class="footer-legal">
           <a href="terms-of-service.html">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
         </div>
       </div>
       <p>Designed for those who plan with purpose.</p>
