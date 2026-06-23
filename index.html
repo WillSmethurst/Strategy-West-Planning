@@ -913,7 +913,7 @@
 
     /* ─── FULL-WIDTH CTA ─────────────────────────────────────── */
     .cta-section {
-      background: var(--warm-white);
+      background: var(--cream);
       padding: 0;
       position: relative;
       display: grid;
@@ -1269,6 +1269,60 @@
       background-position: center center;
       background-repeat: no-repeat;
     }
+
+    /* ─── KNOWLEDGE LIBRARY ─── */
+    .library {
+      background-color: var(--cream);
+      padding: 120px 80px;
+    }
+    .library-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .library-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+    .library-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .library-card-media {
+      display: block;
+      width: 100%;
+    }
+    .library-card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .library-btn {
+      margin-top: 28px;
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    .library-btn:hover {
+      background-color: var(--gold);
+      color: var(--charcoal);
+    }
+    @media (max-width: 1024px) {
+      .library { padding: 96px 48px; }
+    }
+    @media (max-width: 768px) {
+      .library { padding: 72px 24px; }
+      .library-grid { grid-template-columns: 1fr; gap: 56px; }
+    }
   </style>
 </head>
 
@@ -1368,7 +1422,7 @@
     </p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">Explore Our Services</a>
-      <a href="#approach" class="btn-ghost">How We Work</a>
+      <a href="#resources" class="btn-ghost">Explore Resources</a>
     </div>
   </section>
 
@@ -1441,7 +1495,7 @@
           <img src="images/pillars-advisory-session.jpg" alt="Two professionals reviewing a financial plan together at a laptop in a sunlit office." />
         </div>
         <div class="midcta-text">
-          <p class="midcta-body">Every situation is different, and the right starting point depends on where you are and what you are working toward. A brief, no-pressure conversation is the simplest way to see which approach fits your circumstances and how a deliberate plan would take shape.</p>
+          <p class="midcta-body">The most effective planning starts with choosing the right path, not forcing every situation into the same solution. A focused consultation is the simplest way to clarify where you are, what you are trying to accomplish, and how the right planning strategy would begin to take shape.</p>
           <div class="midcta-actions">
             <div class="nav-cta-wrap" id="consultWrapMid">
               <button class="nav-cta" id="consultBtnMid">
@@ -1459,6 +1513,41 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KNOWLEDGE LIBRARY ─── -->
+  <section class="library" id="resources">
+    <div class="library-inner">
+      <div class="section-header">
+        <p class="section-label">Resources</p>
+        <h2 class="section-title">Knowledge Library</h2>
+      </div>
+
+      <div class="library-grid">
+
+        <div class="library-card">
+          <a href="guides.html" class="library-card-media">
+            <img class="library-card-img" src="images/library-guides.jpg" alt="Covers of the Strategy West Planning Cash Flow Banking Guide and Self-Funded Pension Plan Guide." />
+          </a>
+          <a href="guides.html" class="library-btn">Explore Our Guides</a>
+        </div>
+
+        <div class="library-card">
+          <a href="insights.html" class="library-card-media">
+            <img class="library-card-img" src="images/library-insights.jpg" alt="Featured article from Strategy West Planning on building a more flexible financial foundation." />
+          </a>
+          <a href="insights.html" class="library-btn">See More Insights</a>
+        </div>
+
+        <div class="library-card">
+          <a href="calculators.html" class="library-card-media">
+            <img class="library-card-img" src="images/library-calculators.jpg" alt="Preview of the Strategy West Planning Retirement Savings Calculator." />
+          </a>
+          <a href="calculators.html" class="library-btn">Run the Numbers</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1493,7 +1582,7 @@
           </div>
           <h4>Straightforward Guidance</h4>
           <div class="pillar-diamond"></div>
-          <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. And if there is ever a time when we cannot put you in the best position possible, we’ll shoot you straight, because we’re not in the business of wasting your time, let alone your money.</p>
+          <p>We communicate openly and honestly. Our clients understand exactly what they hold, why they hold it, and what it is designed to accomplish at every step. If a strategy is not the right fit, we will say so clearly and help you understand why.</p>
         </div>
       </div>
       <div class="pillars-closing">
@@ -1527,47 +1616,12 @@
     </div>
   </section>
 
-  <!-- ─── APPROACH ─── -->
-  <section style="background-color: var(--cream);">
-    <div class="approach" id="approach">
-      <div class="approach-left">
-        <h2>Strategy is a process,<br>not a <em>single decision.</em></h2>
-        <p>Our work begins the moment you decide that your financial life deserves more than a standard plan. From the first conversation to ongoing strategy reviews, we are present, deliberate, and consistent.</p>
-        <p>We do not hand you a document and disappear. We build a relationship around your financial future.</p>
-      </div>
-
-      <div class="approach-right">
-        <div class="approach-item">
-          <span class="approach-num">1</span>
-          <div class="approach-item-text">
-            <h5>Discovery Consultation</h5>
-            <p>We begin by listening, understanding your goals, current structure, and what you want your financial life to look like in the long term.</p>
-          </div>
-        </div>
-        <div class="approach-item">
-          <span class="approach-num">2</span>
-          <div class="approach-item-text">
-            <h5>Strategy Design</h5>
-            <p>We develop a clear, personalized plan, tailored to your specific situation and presented in a way you can fully understand and trust.</p>
-          </div>
-        </div>
-        <div class="approach-item">
-          <span class="approach-num">3</span>
-          <div class="approach-item-text">
-            <h5>Implementation &amp; Ongoing Review</h5>
-            <p>We put the strategy in motion and remain engaged, adjusting as your life evolves and ensuring your plan continues to serve you well.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── CTA ─── -->
   <section class="cta-section">
     <div class="cta-section-content">
       <p class="section-label">Take the First Step</p>
       <h2>Your Financial Future<br>Deserves <em>Intentional</em> Strategy</h2>
-      <p>Begin with a no-pressure consultation in the area most relevant to your situation.</p>
+      <p>Start with a complimentary consultation focused on the planning area that matters most to you.</p>
 
       <div class="cta-section-btn-wrap" id="consultWrapSection">
         <button class="cta-section-btn" id="consultBtnSection">
