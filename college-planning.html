@@ -1432,6 +1432,18 @@
     @media (max-width: 768px) {
       .faq-cta-wrap { flex-direction: column; align-items: flex-start; }
     }
+    /* Desktop only: stack the Who We Work With heading above the cards, centered */
+    @media (min-width: 1101px) {
+      .who-inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+      .who-inner > div:first-child {
+        max-width: 780px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 
@@ -1554,7 +1566,7 @@
           <img src="images/cp-hero-bg-students-walking.jpg" alt="A group of students walking together along a tree-lined campus path toward a brick academic building in warm afternoon light, seen from behind." />
         </div>
         <p class="hero-sub">
-          We work with families who want a deliberate plan for high school. Academic positioning, financial structure, and the conversations that shape where your child applies and how it gets paid for.
+          Every family enters the college planning process at a different stage, and timing can shape the options available. Our role is to help you make informed decisions, protect your financial picture, and turn college from a source of stress into a milestone your family can enjoy with confidence.
         </p>
         <div class="hero-actions">
           <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" class="btn-gold" target="_blank" rel="noopener noreferrer">
@@ -1570,20 +1582,20 @@
     <div class="who-inner">
       <div>
         <span class="section-label">Who We Work With</span>
-        <p class="who-heading">Built for families who plan <em>deliberately.</em></p>
+        <p class="who-heading">From Early Planning to Final Decisions, the <em>Right Strategy</em> Still Matters.</p>
       </div>
       <div class="who-list">
         <div class="who-item">
-          <h5>Parents of high school students</h5>
-          <p>Families with students from 9th through 12th grade. Public, private, charter, or homeschool.</p>
+          <h5>Families in the early stages</h5>
+          <p>College may still feel far away, but the funding decisions made early can create meaningful flexibility later. This stage is for families with children from newborn through 8th grade who want to build the financial foundation before the academic and admissions pieces become more immediate.</p>
         </div>
         <div class="who-item">
-          <h5>Families starting early</h5>
-          <p>When academic, financial, and personal decisions still have room to compound across all four years.</p>
+          <h5>Families in the heart of it</h5>
+          <p>Grades 9 through 11 are where college planning becomes more than just saving money. This is the time to align the financial, academic, and social pieces so your child can pursue their dream school all while knowing that your family does not have the financial headache.</p>
         </div>
         <div class="who-item">
-          <h5>Families starting late</h5>
-          <p>Where a focused plan in the final year or two still meaningfully changes outcomes and offers.</p>
+          <h5>Families in the final stretch</h5>
+          <p>When senior year has arrived, or college is already underway, the focus shifts to accuracy, timing, and reducing unnecessary financial strain. Families in this stage may need help reviewing their current plan, preparing FAFSA or CSS Profile filings, and managing the remaining years ahead.</p>
         </div>
       </div>
       <div class="who-mobile-photo">
