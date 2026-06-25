@@ -972,6 +972,10 @@
 
     .faq-cta-wrap {
       margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
     }
 
     /* ─── CLOSING CTA (full-bleed image with dark overlay + edge fade) ─── */
@@ -1268,6 +1272,24 @@
 
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
+    }
+    .btn-ghost-dark {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--black);
+      padding: 16px 32px;
+      text-decoration: none;
+      border: 1px solid rgba(17,16,16,0.35);
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold); }
+    @media (max-width: 768px) {
+      .faq-cta-wrap { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -1660,6 +1682,7 @@
 
         <div class="faq-cta-wrap">
           <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
+          <a href="newsletter.html" class="btn-ghost-dark">Join the Newsletter</a>
         </div>
       </div>
 
