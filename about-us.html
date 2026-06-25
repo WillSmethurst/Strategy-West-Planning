@@ -364,6 +364,8 @@
     .hero-actions {
       display: flex;
       justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     /* ─── WHY WE BUILT THIS FIRM (centered, on cream) ─── */
@@ -623,6 +625,21 @@
       .footer-nav { flex-direction: column; gap: 32px; }
       .footer-top { flex-direction: column; }
     }
+    .btn-ghost {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(245,242,237,0.92);
+      padding: 16px 36px;
+      text-decoration: none;
+      border: 1px solid rgba(245,242,237,0.45);
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
   </style>
 </head>
 
@@ -722,6 +739,7 @@
         <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-initial-consultation" class="btn-gold" target="_blank" rel="noopener noreferrer">
           Schedule a Consultation
         </a>
+        <a href="newsletter.html" class="btn-ghost">Join the Newsletter</a>
       </div>
     </div>
   </section>
