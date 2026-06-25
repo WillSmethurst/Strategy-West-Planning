@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Thank You | Strategy West Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #111010;
+      --charcoal:   #1a1917;
+      --gold:       #b89b6e;
+      --gold-light: #d4b98a;
+      --cream:      #f5f2ed;
+      --warm-white: #faf8f5;
+      --gray-mid:   #8a8580;
+      --gray-light: #e8e4de;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--black);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    /* HEADER */
+    .ty-header {
+      background: var(--charcoal);
+      border-bottom: 1px solid rgba(184, 155, 110, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 24px;
+    }
+    .ty-header img { height: 64px; width: auto; display: block; }
+
+    /* MAIN (centered, single column) */
+    .ty-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 110px 48px;
+    }
+    .ty-hero-inner { max-width: 680px; }
+    .eyebrow {
+      display: block;
+      font-family: var(--sans);
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .ty-hero-inner h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      line-height: 1.08;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .ty-hero-inner p {
+      font-size: 1.06rem;
+      color: var(--charcoal);
+      max-width: 600px;
+      margin: 0 auto 44px;
+    }
+    .ty-hero-inner p a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 155, 110, 0.45);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .ty-hero-inner p a:hover { color: var(--black); border-color: var(--gold); }
+
+    .btn-ghost {
+      display: inline-block;
+      font-family: var(--sans);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 16px 38px;
+      transition: background 0.3s, color 0.3s, letter-spacing 0.3s;
+    }
+    .btn-ghost:hover { background: var(--gold); color: var(--warm-white); letter-spacing: 0.22em; }
+
+    .ty-return { margin-top: 48px; }
+    .ty-return a {
+      color: var(--gray-mid);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .ty-return a:hover { color: var(--gold); border-color: rgba(184, 155, 110, 0.5); }
+
+    /* FOOTER */
+    .ty-footer {
+      background: var(--charcoal);
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .ty-footer img { height: 52px; width: auto; display: block; margin: 0 auto 14px; }
+    .ty-footer p { color: var(--gray-mid); font-size: 0.78rem; letter-spacing: 0.04em; }
+
+    /* ENTRANCE */
+    @media (prefers-reduced-motion: no-preference) {
+      .ty-hero-inner { opacity: 0; transform: translateY(16px); animation: riseIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+      @keyframes riseIn { to { opacity: 1; transform: none; } }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      .ty-main { padding: 80px 22px; }
+      .ty-return { margin-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="ty-header">
+    <a href="index.html" aria-label="Strategy West Planning home">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </a>
+  </header>
+
+  <!-- MAIN -->
+  <main class="ty-main">
+    <div class="ty-hero-inner">
+      <span class="eyebrow">Welcome</span>
+      <h1>You're On the List</h1>
+      <p>You're in, and we are glad to have you. Each week we will send one clear, useful note straight to your inbox from info@strategywestplanning.com, written to help you see the financial world with more confidence and clarity. Keep an eye out for your first one in the next few minutes, and if it has not landed shortly, please check your spam or promotions folder. Still nothing? <a href="mailto:info@strategywestplanning.com">Reach out to our team</a> and we will make sure you are set to receive every issue.</p>
+      <a class="btn-ghost" href="insights.html">Visit the Insights Library</a>
+    </div>
+    <p class="ty-return"><a href="index.html">Or return to the Strategy West Planning homepage</a></p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="ty-footer">
+    <a href="index.html" aria-label="Strategy West Planning home">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </a>
+    <p>&copy; 2026 Strategy West Planning</p>
+  </footer>
+
+</body>
+</html>
