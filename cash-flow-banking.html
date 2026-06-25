@@ -1220,6 +1220,10 @@
 
     .faq-cta-wrap {
       margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
     }
 
     .faq-right {
@@ -1559,6 +1563,9 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+    }
+    @media (max-width: 768px) {
+      .faq-cta-wrap { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -1975,6 +1982,7 @@
 
         <div class="faq-cta-wrap">
           <a href="faq.html" class="btn-gold">See All Questions <span style="margin-left: 8px;">→</span></a>
+          <a href="newsletter.html" class="btn-ghost-dark">Join the Newsletter</a>
         </div>
       </div>
 
