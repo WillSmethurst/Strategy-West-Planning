@@ -730,7 +730,7 @@
             <li>Tax-advantaged growth that holds steady through market swings</li>
             <li>Who the strategy is built for, and how to know if it fits your plan</li>
           </ul>
-          <a class="btn-gold" href="guides/cash-flow-banking-guide.pdf" download="cash-flow-banking-guide.pdf" target="_blank" rel="noopener noreferrer">Download the Guide</a>
+          <a class="btn-gold js-cfb-guide-trigger" href="https://api.leadconnectorhq.com/widget/form/H53cl599IUnOnMX4n8DQ">Download the Guide</a>
         </div>
       </div>
     </div>
@@ -931,6 +931,35 @@
         });
       }
     });
+  </script>
+
+  <!-- ─── GUIDE FORM MODAL: Cash Flow Banking ─── -->
+  <div class="guide-modal" id="cashFlowGuideModal" role="dialog" aria-modal="true" aria-label="Cash Flow Banking Guide signup">
+    <div class="guide-modal-overlay" data-guide-close></div>
+    <div class="guide-modal-panel">
+      <button class="guide-modal-close" type="button" aria-label="Close" data-guide-close>&times;</button>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/H53cl599IUnOnMX4n8DQ"
+        id="inline-H53cl599IUnOnMX4n8DQ"
+        data-layout="{'id':'INLINE'}"
+        data-form-id="H53cl599IUnOnMX4n8DQ"
+        data-form-name="Cash Flow Banking Guide Download"
+        title="Cash Flow Banking Guide Download"
+        class="guide-modal-iframe">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('cashFlowGuideModal');
+      if (!modal) return;
+      function openModal(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('.js-cfb-guide-trigger').forEach(function (t) { t.addEventListener('click', openModal); });
+      modal.querySelectorAll('[data-guide-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+    })();
   </script>
 
   <!-- ─── GUIDE FORM MODAL: Self-Funded Pension Plan ─── -->
