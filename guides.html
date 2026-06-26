@@ -3,6 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Consent Mode defaults: load before GTM so tracking starts muted -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved === 'granted') {
+        gtag('consent', 'default', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      } else {
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'wait_for_update': 500
+        });
+      }
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TZ47MJ4T');</script>
+  <!-- End Google Tag Manager -->
   <title>Guides | Strategy West Planning</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -620,6 +648,9 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZ47MJ4T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ─── NAVIGATION ─── -->
   <nav>
@@ -992,5 +1023,83 @@
   </script>
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
+  <!-- COOKIE CONSENT BANNER -->
+  <div class="swp-consent" id="swpConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p class="swp-consent-text">
+      We use cookies to understand how visitors use our site and to improve your experience.
+      You can accept analytics and marketing cookies, or continue with only the essentials.
+      Read our <a href="privacy-policy.html">Privacy Policy</a> for details.
+    </p>
+    <div class="swp-consent-actions">
+      <button type="button" class="swp-consent-btn swp-consent-decline" id="swpConsentDecline">Decline</button>
+      <button type="button" class="swp-consent-btn swp-consent-accept" id="swpConsentAccept">Accept</button>
+    </div>
+  </div>
+  <style>
+    .swp-consent{
+      position:fixed; left:0; right:0; bottom:0; z-index:2000;
+      display:none; align-items:center; justify-content:space-between; gap:28px;
+      padding:20px 32px;
+      background:#1a1917; color:#f5f2ed;
+      border-top:1px solid rgba(184,155,110,0.45);
+      box-shadow:0 -10px 40px rgba(0,0,0,0.25);
+      font-family:'Jost',sans-serif; font-weight:300;
+      transform:translateY(100%); transition:transform .4s ease;
+    }
+    .swp-consent.is-visible{ display:flex; transform:translateY(0); }
+    .swp-consent-text{
+      margin:0; max-width:760px; font-size:.92rem; line-height:1.6;
+      letter-spacing:.01em; color:#e8e4de;
+    }
+    .swp-consent-text a{ color:#d4b98a; text-decoration:underline; text-underline-offset:2px; }
+    .swp-consent-text a:hover{ color:#f5f2ed; }
+    .swp-consent-actions{ display:flex; gap:12px; flex:0 0 auto; }
+    .swp-consent-btn{
+      font-family:'Jost',sans-serif; font-size:.78rem; font-weight:400;
+      letter-spacing:.14em; text-transform:uppercase;
+      padding:13px 26px; border-radius:2px; cursor:pointer;
+      transition:all .25s ease;
+    }
+    .swp-consent-accept{ background:#b89b6e; color:#111010; border:1px solid #b89b6e; }
+    .swp-consent-accept:hover{ background:#d4b98a; border-color:#d4b98a; }
+    .swp-consent-decline{ background:transparent; color:#e8e4de; border:1px solid rgba(232,228,222,0.4); }
+    .swp-consent-decline:hover{ border-color:#e8e4de; color:#fff; }
+    @media (max-width:768px){
+      .swp-consent{ flex-direction:column; align-items:flex-start; gap:16px; padding:20px 22px; }
+      .swp-consent-actions{ width:100%; }
+      .swp-consent-btn{ flex:1 1 auto; text-align:center; }
+    }
+  </style>
+  <script>
+    (function () {
+      var banner = document.getElementById('swpConsent');
+      if (!banner) return;
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved !== 'granted' && saved !== 'denied') {
+        setTimeout(function(){ banner.classList.add('is-visible'); }, 600);
+      }
+      function hide(){ banner.classList.remove('is-visible'); }
+      var acceptBtn = document.getElementById('swpConsentAccept');
+      var declineBtn = document.getElementById('swpConsentDecline');
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        try { localStorage.setItem('swp_consent', 'granted'); } catch (e) {}
+        hide();
+      });
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        try { localStorage.setItem('swp_consent', 'denied'); } catch (e) {}
+        hide();
+      });
+    })();
+  </script>
+  <!-- END COOKIE CONSENT BANNER -->
 </body>
 </html>
