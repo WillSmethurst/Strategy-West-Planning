@@ -1,2 +1,3 @@
 /testimonials  /testimonials.html  200
 /insights/*    /blog-post.html?slug=:splat    200
+/sitemap.xml    /.netlify/functions/sitemap    200
