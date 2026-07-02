@@ -404,6 +404,15 @@
       color: var(--black);
       margin-bottom: 24px;
     }
+    .guide-kicker {
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.7vw, 24px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--gold);
+      margin: -8px 0 26px;
+    }
     .guide-desc {
       font-family: var(--sans);
       font-size: 15.5px;
@@ -767,6 +776,24 @@
     </div>
   </section>
 
+  <!-- ─── GUIDE: BEYOND THE POLICY (Cash Flow Banking deep dive) ─── -->
+  <section class="guide-section is-cream" id="beyond-the-policy-guide">
+    <div class="guide-inner">
+      <div class="guide-grid">
+        <div class="guide-cover-wrap">
+          <img class="guide-cover-img" src="images/guide-cover-beyond-the-policy.png" alt="Beyond the Policy guide cover">
+        </div>
+        <div class="guide-text">
+          <span class="guide-eyebrow">Cash Flow Banking</span>
+          <h2 class="guide-title">Beyond the Policy</h2>
+          <p class="guide-kicker">The Complete Guide to a Cash Flow Banking Strategy That Works for Generations</p>
+          <p class="guide-desc">A 60-plus page deep dive for readers who already understand the fundamentals and want to see how the full strategy holds together across a lifetime and across generations.</p>
+          <a class="btn-gold js-btp-guide-trigger" href="https://api.leadconnectorhq.com/widget/form/pCXFHWMgHulB2vTBJMGq">Download the Guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── GUIDE 2: RETIREMENT PLANNING ─── -->
   <section class="guide-section" id="retirement-planning-guide">
     <div class="guide-inner">
@@ -988,6 +1015,35 @@
       function openModal(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
       function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
       document.querySelectorAll('.js-cfb-guide-trigger').forEach(function (t) { t.addEventListener('click', openModal); });
+      modal.querySelectorAll('[data-guide-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+    })();
+  </script>
+
+  <!-- ─── GUIDE FORM MODAL: Beyond the Policy ─── -->
+  <div class="guide-modal" id="beyondPolicyGuideModal" role="dialog" aria-modal="true" aria-label="Beyond the Policy Guide signup">
+    <div class="guide-modal-overlay" data-guide-close></div>
+    <div class="guide-modal-panel">
+      <button class="guide-modal-close" type="button" aria-label="Close" data-guide-close>&times;</button>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/pCXFHWMgHulB2vTBJMGq"
+        id="inline-pCXFHWMgHulB2vTBJMGq"
+        data-layout="{'id':'INLINE'}"
+        data-form-id="pCXFHWMgHulB2vTBJMGq"
+        data-form-name="Beyond the Policy Guide Download"
+        title="Beyond the Policy Guide Download"
+        class="guide-modal-iframe">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('beyondPolicyGuideModal');
+      if (!modal) return;
+      function openModal(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('.js-btp-guide-trigger').forEach(function (t) { t.addEventListener('click', openModal); });
       modal.querySelectorAll('[data-guide-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
     })();
