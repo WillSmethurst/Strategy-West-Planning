@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Consent Mode defaults: load before GTM so tracking starts muted -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved === 'granted') {
+        gtag('consent', 'default', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      } else {
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'wait_for_update': 500
+        });
+      }
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TZ47MJ4T');</script>
+  <!-- End Google Tag Manager -->
+  <title>Get the Guides | Strategy West Planning</title>
+  <meta name="description" content="Three free guides on cash flow banking, self-funded pension income, and coordinated family wealth strategy. No cost, no obligation, sent to your inbox instantly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #111010;
+      --charcoal:   #1a1917;
+      --gold:       #b89b6e;
+      --gold-light: #d4b98a;
+      --gold-dim:   rgba(184,155,110,0.18);
+      --cream:      #f5f2ed;
+      --warm-white: #faf8f5;
+      --off-white:  #f2efe8;
+      --hero-right-cream: #F3EDE1;
+      --gray-mid:   #8a8580;
+      --gray-light: #e8e4de;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--black);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(17, 16, 16, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 155, 110, 0.15);
+      padding: 0 120px;
+      height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    nav.nav-hidden { transform: translateY(-100%); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-left: -10px;
+    }
+
+    .nav-logo img {
+      height: 62px;
+      width: auto;
+      opacity: 1;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-left: auto;
+    }
+
+    .nav-center a,
+    .nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.25s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .nav-center a:hover,
+    .nav-dropdown-trigger:hover { color: var(--gold-light); }
+
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 24px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 24px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 14px 20px;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+
+    .nav-cta-wrap { position: relative; flex-shrink: 0; margin-left: 40px; }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 11px 22px;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta svg { width: 10px; height: 10px; transition: transform 0.2s; }
+    .nav-cta-wrap.open .nav-cta svg { transform: rotate(180deg); }
+
+    .consult-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 280px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: all 0.22s ease;
+      z-index: 999;
+    }
+    .consult-dropdown.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .consult-dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .consult-dropdown a:last-child { border-bottom: none; }
+    .consult-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .consult-dropdown a span { font-size: 14px; opacity: 0.4; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 112px; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(17,16,16,0.98);
+      border-top: 1px solid rgba(184,155,110,0.12);
+      border-bottom: 1px solid rgba(184,155,110,0.12);
+      flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a,
+    .mobile-nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover,
+    .mobile-nav-dropdown-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
+    .mobile-nav-sub { display: none; flex-direction: column; background: rgba(255,255,255,0.02); }
+    .mobile-nav-sub.open { display: flex; }
+    .mobile-nav-sub a { padding-left: 40px; font-size: 10.5px; color: rgba(255,255,255,0.42); }
+    .mobile-nav-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
+    .mobile-nav-dropdown-trigger.open .mobile-nav-chevron { transform: rotate(180deg); }
+
+    /* ─── SHARED SECTION PIECES ──────────────────────────────── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-intro {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.85;
+      color: #5a5550;
+      max-width: 620px;
+      margin: 22px auto 0;
+    }
+
+    /* ─── BUTTON SYSTEM ──────────────────────────────────────── */
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--black);
+      padding: 16px 34px;
+      text-decoration: none;
+      border: 1px solid rgba(17,16,16,0.35);
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── GHL FORM CARD / PANEL ──────────────────────────────── */
+    .form-card {
+      background: var(--warm-white);
+      border: 1px solid rgba(184,155,110,0.35);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 24px 60px rgba(17,16,16,0.10);
+    }
+    .form-card-label {
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .form-card-sub {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--gray-mid);
+      margin-bottom: 22px;
+    }
+    .form-embed-slot {
+      min-height: 600px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+    .form-embed-slot p {
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      color: var(--gray-mid);
+      max-width: 320px;
+    }
+    .form-trust {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--gray-mid);
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* ─── HERO (two-column: content left, framed image right; two-tone bg + left accent) ─── */
+    .ltp-hero {
+      position: relative;
+      overflow: hidden;
+      /* Two-tone background: cream on the left half, a warmer tan (mixed from the brand gold) on the right half */
+      background-color: var(--cream);
+      background-image: linear-gradient(to right,
+        var(--cream) 0 64%,
+        var(--hero-right-cream) 64% 100%);
+      padding: 180px 0 84px;
+    }
+    /* Thin gold accent line down the far left, with the SW mark centered on it */
+    .ltp-hero-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 62px;
+      width: 1px;
+      background: var(--gold);
+      opacity: 0.65;
+      z-index: 1;
+    }
+    .ltp-hero-mark {
+      position: absolute;
+      left: 62px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: var(--cream);
+      padding: 14px 6px;
+      line-height: 0;
+    }
+    .ltp-hero-mark img { display: block; width: 72px; height: auto; }
+    .ltp-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      column-gap: 64px;
+      align-items: center;
+    }
+    .ltp-hero-head {
+      max-width: 460px;
+      /* Center the column between the viewport-anchored accent line and the framed image.
+         translateX shifts without changing the column width; clamp keeps it safe at both extremes. */
+      transform: translateX(clamp(-40px, calc(26px - (100vw - 1240px) / 4), 16px));
+    }
+    /* Two short gold dividers bookend the eyebrow + headline block */
+    .ltp-hero-divider {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 0 24px;
+    }
+    .ltp-hero h1 + .ltp-hero-divider { margin: 28px 0 24px; }
+    .ltp-hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 24px;
+    }
+    .ltp-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.4vw, 56px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--black);
+      margin: 0;
+    }
+    .ltp-hero h1 em { font-style: italic; color: var(--gold); }
+    .ltp-hero-sub {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.9;
+      color: #4a4540;
+      margin: 0;
+    }
+    /* Right column: framed image with a heavy bottom-right corner sweep + subtle warm mat */
+    .ltp-hero-frame {
+      position: relative;
+      justify-self: start;
+      /* Left edge stays at the column start; frame right edge sits 64px from the viewport edge */
+      width: calc(100% + max(16px, (100vw - 1240px) / 2 + 16px));
+      height: 500px;
+      border: 1px solid var(--gold);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 240px;
+      overflow: hidden;
+      box-shadow: 16px 16px 0 var(--gold-dim);
+    }
+    .ltp-hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    /* ─── GET YOUR GUIDES (form card + ornate benefit panel) ─── */
+    .ltp-getguides {
+      /* Warm tan band (same tone as the hero's right half) so this section reads as its own block */
+      background: color-mix(in srgb, var(--cream) 85%, var(--gold) 15%);
+      padding: 96px 80px 104px;
+    }
+    .ltp-getguides-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 72px;
+      align-items: center;
+    }
+    /* Ornate framed panel */
+    .ltp-panel {
+      position: relative;
+      background: var(--warm-white);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: 56px 56px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 60px;
+    }
+    /* Inner L-bracket corner ornaments */
+    .ltp-panel-corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 0 solid var(--gold);
+    }
+    .ltp-panel-corner.is-tl { top: 18px; left: 18px; border-top-width: 1px; border-left-width: 1px; }
+    .ltp-panel-corner.is-tr { top: 18px; right: 18px; border-top-width: 1px; border-right-width: 1px; }
+    .ltp-panel-corner.is-bl { bottom: 18px; left: 18px; border-bottom-width: 1px; border-left-width: 1px; }
+    .ltp-panel-corner.is-br { bottom: 18px; right: 18px; border-bottom-width: 1px; border-right-width: 1px; }
+    /* Bottom-center flourish */
+    .ltp-panel-flourish {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: auto;
+      color: var(--gold);
+    }
+    /* Benefit rows: ring medallion | vertical rule | text block */
+    .ltp-benefit {
+      display: flex;
+      align-items: stretch;
+    }
+    .ltp-benefit-ring {
+      flex-shrink: 0;
+      align-self: center;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ltp-benefit-ring svg { width: 34px; height: 34px; color: var(--gold); }
+    .ltp-benefit-rule {
+      flex-shrink: 0;
+      width: 1px;
+      background: var(--gold);
+      margin: 0 28px;
+    }
+    .ltp-benefit-text { align-self: center; }
+    .ltp-benefit-label {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--black);
+      margin: 0 0 12px;
+    }
+    .ltp-benefit-accent {
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 0 14px -24px;
+    }
+    .ltp-benefit-desc {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.75;
+      color: #5a5550;
+      max-width: 300px;
+      margin: 0;
+    }
+
+    /* ─── WHAT YOU'LL GET ────────────────────────────────────── */
+    .ltp-guides {
+      background: var(--cream);
+      padding: 108px 80px;
+    }
+    .ltp-guides-visual {
+      display: block;
+      width: 65%;
+      max-width: 760px;
+      height: auto;
+      margin: 8px auto 64px;
+    }
+    .ltp-guides-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .guide-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .guide-item::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 22px;
+    }
+    .guide-item-kicker {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .guide-item h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .guide-item p {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #5a5550;
+    }
+
+    /* ─── WHY THIS MATTERS (dark charcoal + topographic contour overlay) ─── */
+    .ltp-why {
+      position: relative;
+      z-index: 1;
+      background-color: var(--charcoal);
+      padding: 128px 80px;
+    }
+    /* Topographic contour overlay (verbatim from cash-flow-banking.html); gold lines show subtly on the dark base */
+    .bg-contour-cream {
+      background-image: url('images/contour-bg-cream.svg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .ltp-why-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      /* Solid charcoal mask: hides the contour lines behind the text; the pattern continues around it */
+      background-color: var(--charcoal);
+      position: relative;
+      z-index: 2;
+      padding: 56px 64px;
+      border-radius: 4px;
+    }
+    .ltp-why .section-label { color: var(--gold); }
+    .ltp-why h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 34px;
+    }
+    .ltp-why h2 em { font-style: italic; color: var(--gold-light); }
+    .ltp-why p {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.95;
+      color: rgba(245,242,237,0.78);
+      font-weight: 300;
+    }
+
+    /* ─── HOW IT WORKS ───────────────────────────────────────── */
+    .ltp-steps {
+      background: var(--warm-white);
+      padding: 108px 80px;
+    }
+    .ltp-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .ltp-step {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ltp-step-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: rgba(184,155,110,0.08);
+      border: 1px solid rgba(184,155,110,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .ltp-step-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--gold);
+    }
+    .ltp-step-num {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .ltp-step h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .ltp-step p {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #5a5550;
+      max-width: 280px;
+    }
+
+    /* ─── WHO THESE ARE FOR ──────────────────────────────────── */
+    .ltp-who {
+      background: var(--cream);
+      padding: 108px 80px;
+    }
+    .ltp-who-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .ltp-who p {
+      font-family: var(--sans);
+      font-size: 16.5px;
+      line-height: 1.95;
+      color: #4a4540;
+      margin-top: 26px;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────── */
+    .ltp-test {
+      background: var(--warm-white);
+      padding: 108px 80px;
+    }
+    .ltp-test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .tcard {
+      background: var(--cream);
+      border: 1px solid var(--gray-light);
+      border-radius: 10px;
+      padding: 40px 34px;
+      display: flex;
+      flex-direction: column;
+    }
+    .tcard-mark {
+      font-family: var(--serif);
+      font-size: 54px;
+      line-height: 0.7;
+      color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+    .tcard-quote {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--black);
+      margin-bottom: 26px;
+      flex: 1;
+    }
+    .tcard-cite {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ─── SECONDARY FORM SECTION ─────────────────────────────── */
+    .ltp-form2 {
+      background: var(--cream);
+      padding: 108px 80px;
+    }
+    .ltp-form2-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .ltp-form2 .form-card { text-align: left; margin-top: 40px; }
+    .ltp-form2-note {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.85;
+      color: #5a5550;
+      margin-top: 20px;
+    }
+    .ltp-form2-book {
+      margin-top: 34px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 48px 40px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-brand img { height: 64px; opacity: 1; margin-bottom: 14px; }
+    .footer-nav { display: flex; gap: 64px; }
+    .footer-col h6 {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 15px;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.7); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
+    .footer-bottom-left { display: flex; flex-direction: column; gap: 8px; }
+    .footer-legal { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-legal a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-legal a:hover { color: var(--gold-light); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 1024px) {
+      .ltp-hero { padding: 132px 48px 64px; background-image: none; background-color: var(--cream); }
+      .ltp-hero-line, .ltp-hero-mark { display: none; }
+      .ltp-hero-inner { display: flex; flex-direction: column; padding: 0; }
+      .ltp-hero-head { max-width: none; transform: none; }
+      .ltp-hero-frame { justify-self: auto; width: 100%; max-width: 560px; height: auto; aspect-ratio: 5 / 4; margin: 40px auto 0; box-shadow: 12px 12px 0 var(--gold-dim); }
+      .ltp-getguides { padding: 64px 48px 80px; }
+      .ltp-getguides-inner { display: flex; flex-direction: column; gap: 44px; align-items: stretch; }
+      .ltp-panel { padding: 48px 44px 64px; }
+      .ltp-guides-visual { width: 78%; margin-bottom: 48px; }
+      .ltp-guides-grid { grid-template-columns: 1fr; max-width: 460px; gap: 40px; }
+      .ltp-steps-grid { grid-template-columns: 1fr; gap: 48px; max-width: 420px; }
+      .ltp-test-grid { grid-template-columns: 1fr; max-width: 560px; gap: 24px; }
+      .ltp-guides, .ltp-why, .ltp-steps, .ltp-who, .ltp-test, .ltp-form2 { padding-left: 48px; padding-right: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .ltp-hero { padding: 128px 24px 48px; }
+      .ltp-getguides { padding: 56px 24px 72px; }
+      .ltp-panel { padding: 40px 26px 56px; }
+      .form-embed-slot { min-height: 600px; }
+      .ltp-guides-visual { width: 100%; margin-bottom: 40px; }
+
+      .ltp-guides, .ltp-why, .ltp-steps, .ltp-who, .ltp-test, .ltp-form2 { padding-left: 24px; padding-right: 24px; }
+      .ltp-guides, .ltp-steps, .ltp-who, .ltp-test, .ltp-form2 { padding-top: 76px; padding-bottom: 76px; }
+      .ltp-why { padding-top: 88px; padding-bottom: 88px; }
+      .ltp-why-inner { padding: 32px 24px; }
+
+      footer { padding-left: 24px; padding-right: 24px; }
+      .footer-nav { flex-direction: column; gap: 32px; }
+      .footer-top { flex-direction: column; }
+    }
+
+    /* Ornate panel: hide the corner brackets and flourish on smaller screens */
+    @media (max-width: 900px) {
+      .ltp-panel-corner, .ltp-panel-flourish { display: none; }
+    }
+
+    /* Very narrow: stack each benefit row (icon above text), drop the vertical divider */
+    @media (max-width: 600px) {
+      .ltp-benefit { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .ltp-benefit-rule { display: none; }
+      .ltp-benefit-accent { margin-left: 0; }
+    }
+
+    /* ─── NEWSLETTER / COOKIE CONSENT BANNER (site standard) ─── */
+    .swp-consent{
+      position:fixed; left:0; right:0; bottom:0; z-index:2000;
+      display:none; align-items:center; justify-content:space-between; gap:28px;
+      padding:20px 32px;
+      background:#1a1917; color:#f5f2ed;
+      border-top:1px solid rgba(184,155,110,0.45);
+      box-shadow:0 -10px 40px rgba(0,0,0,0.25);
+      font-family:'Jost',sans-serif; font-weight:300;
+      transform:translateY(100%); transition:transform .4s ease;
+    }
+    .swp-consent.is-visible{ display:flex; transform:translateY(0); }
+    .swp-consent-text{
+      margin:0; max-width:760px; font-size:.92rem; line-height:1.6;
+      letter-spacing:.01em; color:#e8e4de;
+    }
+    .swp-consent-text a{ color:#d4b98a; text-decoration:underline; text-underline-offset:2px; }
+    .swp-consent-text a:hover{ color:#f5f2ed; }
+    .swp-consent-actions{ display:flex; gap:12px; flex:0 0 auto; }
+    .swp-consent-btn{
+      font-family:'Jost',sans-serif; font-size:.78rem; font-weight:400;
+      letter-spacing:.14em; text-transform:uppercase;
+      padding:13px 26px; border-radius:2px; cursor:pointer;
+      transition:all .25s ease;
+    }
+    .swp-consent-accept{ background:#b89b6e; color:#111010; border:1px solid #b89b6e; }
+    .swp-consent-accept:hover{ background:#d4b98a; border-color:#d4b98a; }
+    .swp-consent-decline{ background:transparent; color:#e8e4de; border:1px solid rgba(232,228,222,0.4); }
+    .swp-consent-decline:hover{ border-color:#e8e4de; color:#fff; }
+    @media (max-width:768px){
+      .swp-consent{ flex-direction:column; align-items:flex-start; gap:16px; padding:20px 22px; }
+      .swp-consent-actions{ width:100%; }
+      .swp-consent-btn{ flex:1 1 auto; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZ47MJ4T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </a>
+
+    <div class="nav-center">
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">What We Do ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">Resources ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="insights.html">Insights</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <a href="about-us.html">About Us</a>
+    </div>
+
+    <div class="nav-cta-wrap" id="consultWrap">
+      <button class="nav-cta" id="consultBtn">
+        Schedule a Consultation
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="consult-dropdown" id="consultDropdown">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+        <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+      </div>
+    </div>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-dropdown-trigger" id="mobileWhatWeDoBtn">
+      What We Do <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileWhatWeDoSub">
+      <a href="cash-flow-banking.html">Cash Flow Banking</a>
+      <a href="college-planning.html">College Planning</a>
+      <a href="disability-planning.html">Disability Planning</a>
+      <a href="retirement-estate.html">Retirement &amp; Estate</a>
+    </div>
+    <button class="mobile-nav-dropdown-trigger" id="mobileResourcesBtn">
+      Resources <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileResourcesSub">
+      <a href="insights.html">Insights</a>
+      <a href="calculators.html">Financial Calculators</a>
+      <a href="guides.html">Guides</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="about-us.html">About Us</a>
+    <button class="mobile-nav-dropdown-trigger" id="mobileScheduleBtn">
+      Schedule a Consultation <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileScheduleSub">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+      <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO (two-column: content left, framed image right) ─── -->
+  <section class="ltp-hero">
+    <!-- Left vertical gold accent line + SW mark centered on it -->
+    <span class="ltp-hero-line" aria-hidden="true"></span>
+    <!-- SW mark: dedicated square logomark -->
+    <span class="ltp-hero-mark" aria-hidden="true">
+      <img src="images/SWlogo.png" alt="Strategy West Planning" />
+    </span>
+
+    <div class="ltp-hero-inner">
+      <!-- Left column: gold divider, eyebrow, headline, gold divider, subhead -->
+      <div class="ltp-hero-head">
+        <span class="ltp-hero-divider"></span>
+        <p class="ltp-hero-eyebrow">Three Free Guides</p>
+        <h1>The Wealth Strategy Most Advisors <em>Won't Show You.</em></h1>
+        <span class="ltp-hero-divider"></span>
+        <p class="ltp-hero-sub">
+          These three guides walk you through a coordinated approach to building capital, protecting your income, and creating wealth your family can keep for generations.
+        </p>
+      </div>
+
+      <!-- Right column: framed family image with SW watermark -->
+      <div class="ltp-hero-frame">
+        <img src="images/hero-family-beach.jpg" alt="A family walking together on the beach at sunset" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GET YOUR GUIDES (form card + benefit points) ─── -->
+  <section class="ltp-getguides">
+    <div class="ltp-getguides-inner">
+      <!-- Left: GHL form card -->
+      <div class="ltp-getguides-form">
+        <div class="form-card">
+          <p class="form-card-label">Get all three guides. Free.</p>
+          <p class="form-card-sub">Sent to your inbox in moments.</p>
+          <!-- GHL FORM EMBED - HERO -->
+          <div class="form-embed-slot">
+            <iframe
+                src="https://api.leadconnectorhq.com/widget/form/Sg7S2sfAJGKNm4nwHHZW"
+                style="width:100%;height:100%;border:none;border-radius:8px"
+                id="inline-Sg7S2sfAJGKNm4nwHHZW"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="All Guides Download Form"
+                data-height="582"
+                data-layout-iframe-id="inline-Sg7S2sfAJGKNm4nwHHZW"
+                data-form-id="Sg7S2sfAJGKNm4nwHHZW"
+                title="All Guides Download Form">
+            </iframe>
+          </div>
+          <p class="form-trust">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <!-- Right: ornate framed benefit panel -->
+      <div class="ltp-panel">
+        <span class="ltp-panel-corner is-tl" aria-hidden="true"></span>
+        <span class="ltp-panel-corner is-tr" aria-hidden="true"></span>
+        <span class="ltp-panel-corner is-bl" aria-hidden="true"></span>
+        <span class="ltp-panel-corner is-br" aria-hidden="true"></span>
+
+        <div class="ltp-benefit">
+          <span class="ltp-benefit-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+          </span>
+          <span class="ltp-benefit-rule" aria-hidden="true"></span>
+          <div class="ltp-benefit-text">
+            <p class="ltp-benefit-label">Build Capital</p>
+            <span class="ltp-benefit-accent" aria-hidden="true"></span>
+            <p class="ltp-benefit-desc">Use your money more efficiently and keep more of what you earn.</p>
+          </div>
+        </div>
+
+        <div class="ltp-benefit">
+          <span class="ltp-benefit-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="10" r="2"/><path d="M8.5 16a3.5 3.5 0 0 1 7 0"/></svg>
+          </span>
+          <span class="ltp-benefit-rule" aria-hidden="true"></span>
+          <div class="ltp-benefit-text">
+            <p class="ltp-benefit-label">Protect Your Income</p>
+            <span class="ltp-benefit-accent" aria-hidden="true"></span>
+            <p class="ltp-benefit-desc">Shield what matters most from life's unexpected turns.</p>
+          </div>
+        </div>
+
+        <div class="ltp-benefit">
+          <span class="ltp-benefit-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16"/><path d="M6 7h12"/><path d="M8 7v10"/><path d="M12 7v10"/><path d="M16 7v10"/><path d="M6 17h12"/><path d="M4 20h16"/></svg>
+          </span>
+          <span class="ltp-benefit-rule" aria-hidden="true"></span>
+          <div class="ltp-benefit-text">
+            <p class="ltp-benefit-label">Create Lasting Wealth</p>
+            <span class="ltp-benefit-accent" aria-hidden="true"></span>
+            <p class="ltp-benefit-desc">Create a legacy that can impact generations.</p>
+          </div>
+        </div>
+
+        <!-- Bottom-center ornamental flourish -->
+        <svg class="ltp-panel-flourish" viewBox="0 0 56 16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 8 C 13 8, 19 4, 25 8"/>
+          <path d="M53 8 C 43 8, 37 4, 31 8"/>
+          <circle cx="28" cy="8" r="1.8" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT YOU'LL GET ─── -->
+  <section class="ltp-guides">
+    <div class="section-header">
+      <p class="section-label">What You Will Get</p>
+      <h2 class="section-title">Three Guides. One Coordinated <em>Strategy.</em></h2>
+      <p class="section-intro">Each guide covers a different pillar of the Strategy West approach. On their own they are useful. Together they form a complete foundation for how your money is structured, protected, and put to work.</p>
+    </div>
+
+    <!-- Shared visual: all three guides together (same image as index.html Resources card) -->
+    <img class="ltp-guides-visual" src="images/library-guides.png" alt="The three Strategy West Planning guides" />
+
+    <div class="ltp-guides-grid">
+      <div class="guide-item">
+        <p class="guide-item-kicker">Guide One</p>
+        <h3>Beyond The Guide</h3>
+        <p>An executive overview of the Strategy West philosophy. You will see how coordinated planning across cash flow, education, protection, and retirement compounds into lasting family wealth.</p>
+      </div>
+
+      <div class="guide-item">
+        <p class="guide-item-kicker">Guide Two</p>
+        <h3>Your Cash Flow Banking Guide</h3>
+        <p>How to build a private capital system that creates liquidity and keeps interest working inside your own strategy. You will learn how that structure gives you long-term control over how your money moves.</p>
+      </div>
+
+      <div class="guide-item">
+        <p class="guide-item-kicker">Guide Three</p>
+        <h3>Your Self-Funded Pension Plan Guide</h3>
+        <p>How to structure predictable, tax-advantaged retirement income that you control. You will see how to build it without depending on the market or a corporate plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY THIS MATTERS ─── -->
+  <section class="ltp-why bg-contour-cream">
+    <div class="ltp-why-inner">
+      <p class="section-label">Why This Matters</p>
+      <h2>A Different Kind of <em>Financial Planning.</em></h2>
+      <p>
+        Most financial advice is built around a single product or a single account. We take a different view. Strategy West planning is coordinated across every part of your financial picture, so cash flow, protection, education funding, and retirement all work from the same plan rather than pulling in separate directions. We build for the long horizon, where small structural decisions compound into meaningful advantages over decades. Our focus is control and liquidity rather than speculation, capital you can reach and direct when opportunity or need arrives. Every dollar is given a role, a reason for where it sits and what it is meant to do. The result is a financial life that feels intentional, structured, and quietly resilient.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="ltp-steps">
+    <div class="section-header">
+      <p class="section-label">The Process</p>
+      <h2 class="section-title">How to Get <em>Started.</em></h2>
+    </div>
+
+    <div class="ltp-steps-grid">
+      <div class="ltp-step">
+        <div class="ltp-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <p class="ltp-step-num">Step One</p>
+        <h3>Request the Guides</h3>
+        <p>Submit the form and we send all three guides straight to your inbox.</p>
+      </div>
+
+      <div class="ltp-step">
+        <div class="ltp-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <p class="ltp-step-num">Step Two</p>
+        <h3>Read at Your Own Pace</h3>
+        <p>Review the material privately, with no calls and no pressure.</p>
+      </div>
+
+      <div class="ltp-step">
+        <div class="ltp-step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+        </div>
+        <p class="ltp-step-num">Step Three</p>
+        <h3>Book a Strategy Session</h3>
+        <p>When you are ready, meet with our team to map your own plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO THESE GUIDES ARE FOR ─── -->
+  <section class="ltp-who">
+    <div class="ltp-who-inner">
+      <p class="section-label">Who These Are For</p>
+      <h2 class="section-title">Written For Families and Professionals Who Want More <em>Control.</em></h2>
+      <p>
+        These guides are written for business owners, high-earning professionals, and families who are planning generationally. They are for people who would rather their long-term wealth be structured, protected, and coordinated than scattered across accounts they do not fully understand. If you have built real income and want a clearer framework for what to do with it, one that favors control and durability over noise and speculation, you will find the thinking here familiar and the structure worth your time.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="ltp-test">
+    <div class="section-header">
+      <p class="section-label">Client Experiences</p>
+      <h2 class="section-title">Real Results From Real <em>Clients.</em></h2>
+    </div>
+
+    <div class="ltp-test-grid">
+      <div class="tcard">
+        <div class="tcard-mark">&ldquo;</div>
+        <p class="tcard-quote">It gives me some financial peace of mind in such a crazy economy. I love that I can borrow money from the account and still have all my cash value earning an interest rate.</p>
+        <cite class="tcard-cite">Whitney S.</cite>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-mark">&ldquo;</div>
+        <p class="tcard-quote">I refinanced my house and will be saving over $100k in interest and will now pay off my house six years earlier than planned. I was only able to close the deal because of the cash savings I had built up in my policy.</p>
+        <cite class="tcard-cite">Ryan</cite>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-mark">&ldquo;</div>
+        <p class="tcard-quote">I wish I would have known about this years ago. I have begun to help my children with it and I tell everyone about it. I will utilize this for all my long-term savings, business, and retirement plan.</p>
+        <cite class="tcard-cite">Brian C.</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECONDARY FORM SECTION ─── -->
+  <section class="ltp-form2">
+    <div class="ltp-form2-inner">
+      <p class="section-label">Ready When You Are</p>
+      <h2 class="section-title">Get All Three Guides <em>Now.</em></h2>
+      <p class="ltp-form2-note">Enter your details below and all three guides will be on their way to your inbox in moments.</p>
+
+      <div class="form-card">
+        <p class="form-card-label">Get all three guides. Free.</p>
+        <p class="form-card-sub">No spam. Unsubscribe anytime.</p>
+        <!-- GHL FORM EMBED - FOOTER -->
+        <div class="form-embed-slot">
+          <iframe
+              src="https://api.leadconnectorhq.com/widget/form/Sg7S2sfAJGKNm4nwHHZW"
+              style="width:100%;height:100%;border:none;border-radius:8px"
+              id="inline-Sg7S2sfAJGKNm4nwHHZW-footer"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="All Guides Download Form"
+              data-height="582"
+              data-layout-iframe-id="inline-Sg7S2sfAJGKNm4nwHHZW-footer"
+              data-form-id="Sg7S2sfAJGKNm4nwHHZW"
+              title="All Guides Download Form">
+          </iframe>
+        </div>
+        <p class="form-trust">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <div class="ltp-form2-book">
+        <a class="btn-outline" href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-your-guides" target="_blank" rel="noopener noreferrer">Prefer to talk first? Book a strategy session.</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h6>Services</h6>
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Resources</h6>
+          <a href="insights.html">Insights</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Consultations</h6>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+          <a href="https://caringtide.com/free-consultation-2/" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <p>Designed for those who plan with purpose.</p>
+    </div>
+  </footer>
+
+  <!-- ─── COOKIE CONSENT BANNER ─── -->
+  <div class="swp-consent" id="swpConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p class="swp-consent-text">
+      We use cookies to understand how visitors use our site and to improve your experience.
+      You can accept analytics and marketing cookies, or continue with only the essentials.
+      Read our <a href="privacy-policy.html">Privacy Policy</a> for details.
+    </p>
+    <div class="swp-consent-actions">
+      <button type="button" class="swp-consent-btn swp-consent-decline" id="swpConsentDecline">Decline</button>
+      <button type="button" class="swp-consent-btn swp-consent-accept" id="swpConsentAccept">Accept</button>
+    </div>
+  </div>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script>
+    // ── Consultation dropdown (nav) ───────────────────────────
+    const consultBtn  = document.getElementById('consultBtn');
+    const consultWrap = document.getElementById('consultWrap');
+    const consultDD   = document.getElementById('consultDropdown');
+
+    if (consultBtn) {
+      consultBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = consultWrap.classList.contains('open');
+        consultWrap.classList.toggle('open', !isOpen);
+        consultDD.classList.toggle('open', !isOpen);
+      });
+      consultDD.addEventListener('click', (e) => e.stopPropagation());
+      document.addEventListener('click', () => {
+        consultWrap.classList.remove('open');
+        consultDD.classList.remove('open');
+      });
+    }
+
+    // ── Mobile hamburger toggle ───────────────────────────────
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && e.target !== hamburger) {
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // ── Mobile sub-menu accordions ────────────────────────────
+    document.querySelectorAll('.mobile-nav-dropdown-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    // ── Auto-hide nav on scroll-down (mobile and tablet) ──────
+    let lastScroll = 0;
+    const SCROLL_THRESHOLD = 5;
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 1024) { navEl.classList.remove('nav-hidden'); return; }
+      if (mobileNav.classList.contains('open')) { navEl.classList.remove('nav-hidden'); return; }
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) { navEl.classList.remove('nav-hidden'); lastScroll = 0; return; }
+      if (Math.abs(currentScroll - lastScroll) < SCROLL_THRESHOLD) return;
+      if (currentScroll > lastScroll) { navEl.classList.add('nav-hidden'); }
+      else { navEl.classList.remove('nav-hidden'); }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ── Touch dropdowns for nav on mobile ─────────────────────
+    function isMobile() { return window.innerWidth <= 768; }
+
+    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+      const trigger = item.querySelector('.nav-dropdown-trigger');
+      const menu    = item.querySelector('.nav-dropdown-menu');
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.stopPropagation();
+        const isOpen = menu.style.opacity === '1';
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity = '0'; m.style.pointerEvents = 'none'; m.style.transform = 'translateX(-50%) translateY(-6px)';
+        });
+        if (!isOpen) {
+          menu.style.opacity = '1'; menu.style.pointerEvents = 'all'; menu.style.transform = 'translateX(-50%) translateY(0)';
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      if (isMobile()) {
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity = '0'; m.style.pointerEvents = 'none'; m.style.transform = 'translateX(-50%) translateY(-6px)';
+        });
+      }
+    });
+
+    // ── Cookie consent banner ─────────────────────────────────
+    (function () {
+      var banner = document.getElementById('swpConsent');
+      if (!banner) return;
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved !== 'granted' && saved !== 'denied') {
+        setTimeout(function(){ banner.classList.add('is-visible'); }, 600);
+      }
+      function hide(){ banner.classList.remove('is-visible'); }
+      var acceptBtn = document.getElementById('swpConsentAccept');
+      var declineBtn = document.getElementById('swpConsentDecline');
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        try { localStorage.setItem('swp_consent', 'granted'); } catch (e) {}
+        hide();
+      });
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        try { localStorage.setItem('swp_consent', 'denied'); } catch (e) {}
+        hide();
+      });
+    })();
+  </script>
+  <!-- GoHighLevel form embed loader (enables the pasted form iframes above) -->
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+</body>
+</html>
