@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Consent Mode defaults: load before GTM so tracking starts muted -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved === 'granted') {
+        gtag('consent', 'default', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      } else {
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'wait_for_update': 500
+        });
+      }
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TZ47MJ4T');</script>
+  <!-- End Google Tag Manager -->
+  <title>The Planning Process | Strategy West Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #111010;
+      --charcoal:   #1a1917;
+      --charcoal-2: #141312;
+      --gold:       #b89b6e;
+      --gold-light: #d4b98a;
+      --gold-dim:   rgba(184,155,110,0.18);
+      --cream:      #f5f2ed;
+      --warm-white: #faf8f5;
+      --off-white:  #f2efe8;
+      --gray-mid:   #8a8580;
+      --gray-light: #e8e4de;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--black);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(17, 16, 16, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 155, 110, 0.15);
+      padding: 0 120px;
+      height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    nav.nav-hidden { transform: translateY(-100%); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-left: -10px;
+    }
+
+    .nav-logo img {
+      height: 62px;
+      width: auto;
+      opacity: 1;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-left: auto;
+    }
+
+    .nav-center a,
+    .nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.25s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .nav-center a:hover,
+    .nav-dropdown-trigger:hover { color: var(--gold-light); }
+
+    .nav-center a.active { color: var(--gold-light); }
+
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 24px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 24px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 14px 20px;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .nav-dropdown-menu a.active { color: var(--gold-light); }
+
+    .nav-cta-wrap { position: relative; flex-shrink: 0; margin-left: 40px; }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 11px 22px;
+      cursor: pointer;
+      transition: background 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta svg { width: 10px; height: 10px; transition: transform 0.2s; }
+    .nav-cta-wrap.open .nav-cta svg { transform: rotate(180deg); }
+
+    .consult-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--charcoal);
+      border: 1px solid rgba(184,155,110,0.2);
+      min-width: 280px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: all 0.22s ease;
+      z-index: 999;
+    }
+    .consult-dropdown.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .consult-dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .consult-dropdown a:last-child { border-bottom: none; }
+    .consult-dropdown a:hover { background: rgba(184,155,110,0.08); color: var(--gold-light); }
+    .consult-dropdown a span { font-size: 14px; opacity: 0.4; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 112px; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(17,16,16,0.98);
+      border-top: 1px solid rgba(184,155,110,0.12);
+      border-bottom: 1px solid rgba(184,155,110,0.12);
+      flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a,
+    .mobile-nav-dropdown-trigger {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover,
+    .mobile-nav-dropdown-trigger:hover { color: var(--gold-light); background: rgba(184,155,110,0.04); }
+    .mobile-nav-sub { display: none; flex-direction: column; background: rgba(255,255,255,0.02); }
+    .mobile-nav-sub.open { display: flex; }
+    .mobile-nav-sub a { padding-left: 40px; font-size: 10.5px; color: rgba(255,255,255,0.42); }
+    .mobile-nav-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
+    .mobile-nav-dropdown-trigger.open .mobile-nav-chevron { transform: rotate(180deg); }
+
+    /* ─── SHARED PIECES ─────────────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .btn-gold {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: background 0.25s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    em { font-style: italic; color: var(--gold); }
+
+    /* ─── HERO (photographic background, centered, dark overlay) ─── */
+    .hero {
+      background-image: url("images/about-hero.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--charcoal);
+      padding: 160px 80px 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for text legibility */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 19, 18, 0.55) 0%,
+        rgba(20, 19, 18, 0.70) 30%,
+        rgba(20, 19, 18, 0.70) 70%,
+        rgba(20, 19, 18, 0.55) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(44px, 5.4vw, 76px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--warm-white);
+      max-width: 880px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(250,248,245,0.85);
+      max-width: 640px;
+      margin: 0 auto 52px;
+      font-weight: 300;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── WHY WE BUILT THIS FIRM (centered, on cream) ─── */
+    .firm {
+      background: var(--cream);
+      padding: 128px 80px;
+      text-align: center;
+    }
+
+    .firm-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .firm h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3vw, 44px);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--black);
+      margin-bottom: 44px;
+    }
+
+    .firm h2 em { font-style: italic; color: var(--gold); }
+
+    .firm p {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--charcoal);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .firm p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ─── HOW WE APPROACH THE WORK (centered, on warm-white) ─── */
+    .approach {
+      background: var(--warm-white);
+      padding: 128px 80px;
+      text-align: center;
+    }
+
+    .approach-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .approach h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3vw, 44px);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--black);
+      margin-bottom: 44px;
+    }
+
+    .approach h2 em { font-style: italic; color: var(--gold); }
+
+    .approach p {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--charcoal);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .approach p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ─── CLOSING CTA (centered, on cream) ─── */
+    .cta {
+      background: var(--cream);
+      padding: 140px 80px;
+      border-top: 1px solid var(--gold-dim);
+    }
+
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .cta .section-label {
+      margin-bottom: 16px;
+    }
+
+    .cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 3.8vw, 56px);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .cta h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta p {
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--charcoal);
+      margin: 0 0 44px;
+    }
+
+    .cta p em { font-style: italic; color: var(--gold); }
+
+    .cta-actions {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .cta-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background-image: url('images/about-cta-aspens.jpg');
+      background-size: cover;
+      background-position: center center;
+      border-radius: 16px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 48px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand img {
+      height: 64px;
+      opacity: 1;
+      margin-bottom: 14px;
+    }
+
+    .footer-nav { display: flex; gap: 64px; }
+
+    .footer-col h6 {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 15px;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.22);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: var(--gold-light);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero { padding: 140px 48px 96px; }
+      .firm { padding: 96px 48px; }
+      .approach { padding: 96px 48px; }
+      .cta { padding: 112px 48px; }
+      .cta-inner { gap: 56px; }
+    }
+
+    /* ── Tablet / iPad: collapse nav to hamburger (matches mobile) ── */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero,
+      .firm,
+      .approach,
+      .cta { padding-left: 24px; padding-right: 24px; }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .cta-image {
+        aspect-ratio: 3 / 2;
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .footer-nav { flex-direction: column; gap: 32px; }
+      .footer-top { flex-direction: column; }
+    }
+    .btn-ghost {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(245,242,237,0.92);
+      padding: 16px 36px;
+      text-decoration: none;
+      border: 1px solid rgba(245,242,237,0.45);
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+    /* ─── THE PLANNING PROCESS (page-specific) ─── */
+    .process { background: var(--warm-white); padding: 128px 80px; }
+    .process-inner { max-width: 860px; margin: 0 auto; }
+    .process-head { text-align: center; margin-bottom: 80px; }
+    .process-head h2 { font-family: var(--serif); font-size: clamp(30px, 3vw, 44px); font-weight: 300; line-height: 1.25; color: var(--black); }
+    .process-head h2 em { font-style: italic; color: var(--gold); }
+    .process-steps { display: flex; flex-direction: column; }
+    .process-step { display: grid; grid-template-columns: 120px 1fr; gap: 40px; align-items: start; padding: 48px 0; border-bottom: 1px solid var(--gold-dim); }
+    .process-step:first-child { padding-top: 0; }
+    .process-step:last-child { padding-bottom: 0; border-bottom: none; }
+    .process-num { font-family: var(--serif); font-size: clamp(44px, 5vw, 64px); font-weight: 300; line-height: 1; color: var(--gold); }
+    .process-body h3 { font-family: var(--serif); font-size: clamp(24px, 2.4vw, 32px); font-weight: 400; line-height: 1.2; color: var(--black); margin-bottom: 16px; }
+    .process-body p { font-family: var(--sans); font-size: 16px; line-height: 1.9; color: var(--charcoal); font-weight: 300; }
+    .close-line { background: var(--warm-white); padding: 120px 80px; text-align: center; border-top: 1px solid var(--gold-dim); }
+    .close-line p { font-family: var(--serif); font-size: clamp(24px, 2.8vw, 38px); font-weight: 300; font-style: italic; line-height: 1.3; color: var(--gold); max-width: 760px; margin: 0 auto; }
+    @media (max-width: 1100px) { .process { padding: 96px 48px; } .close-line { padding: 96px 48px; } }
+    @media (max-width: 768px) { .process { padding: 96px 24px; } .process-head { margin-bottom: 56px; } .process-step { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; } .close-line { padding: 96px 24px; } }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZ47MJ4T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </a>
+
+    <div class="nav-center">
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">What We Do ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <button class="nav-dropdown-trigger">Resources ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="insights.html">Insights</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <a href="about-us.html">About Us</a>
+    </div>
+
+    <div class="nav-cta-wrap" id="consultWrap">
+      <button class="nav-cta" id="consultBtn">
+        Schedule a Consultation
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="consult-dropdown" id="consultDropdown">
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/disability-planning" target="_blank" rel="noopener noreferrer">Disability Planning <span>→</span></a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning <span>→</span></a>
+      </div>
+    </div>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-dropdown-trigger" id="mobileWhatWeDoBtn">
+      What We Do <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileWhatWeDoSub">
+      <a href="cash-flow-banking.html">Cash Flow Banking</a>
+      <a href="college-planning.html">College Planning</a>
+      <a href="disability-planning.html">Disability Planning</a>
+      <a href="retirement-estate.html">Retirement &amp; Estate</a>
+    </div>
+    <button class="mobile-nav-dropdown-trigger" id="mobileResourcesBtn">
+      Resources <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileResourcesSub">
+      <a href="insights.html">Insights</a>
+      <a href="calculators.html">Financial Calculators</a>
+      <a href="guides.html">Guides</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="about-us.html">About Us</a>
+    <button class="mobile-nav-dropdown-trigger" id="mobileScheduleBtn">
+      Schedule a Consultation <span class="mobile-nav-chevron">▾</span>
+    </button>
+    <div class="mobile-nav-sub" id="mobileScheduleSub">
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/disability-planning" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+      <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate Planning</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">The Planning Process</p>
+      <h1 class="hero-title">
+        Every sound plan begins with a <em>deliberate process</em>.
+      </h1>
+      <p class="hero-sub">
+        How we move from a first conversation to a structure built around your family, your goals, and the life you are working toward.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── ORIENTATION ─── -->
+  <section class="firm">
+    <div class="firm-inner">
+      <span class="section-label">How we think about it</span>
+      <h2>We do not start with products. We start with <em>understanding</em>.</h2>
+      <p>Most families arrive with a question that sounds simple and turns out to be layered. How do we build something that lasts. How do we keep control of our capital while it keeps working for us. How do we prepare for what we cannot predict. The answer is rarely a single move. It is a structure, built in the right order, for reasons that hold up over time.</p>
+      <p>So we do not rush it. We take time to understand where you are, what you are trying to build, and what long-term control looks like for you. Only then do we design around it.</p>
+    </div>
+  </section>
+
+  <!-- ─── THE PROCESS ─── -->
+  <section class="process">
+    <div class="process-inner">
+      <div class="process-head">
+        <span class="section-label">The Process</span>
+        <h2>Four phases. <em>One purpose</em>.</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-body">
+            <h3>Discovery</h3>
+            <p>We learn the whole picture. The first conversations are about you, not us. Your family, your ambitions, your business if you have one, and the goals that sit underneath the numbers. This is where the plan takes its shape.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-body">
+            <h3>Strategy</h3>
+            <p>We design around your goals. With a clear picture in hand, we build a strategy tailored to your life. Built for your circumstances, not lifted from a standard playbook. A structure meant to give you liquidity when you need it and long-term control of your capital.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-body">
+            <h3>Structure</h3>
+            <p>We put the plan in place. Strategy becomes structure. We handle the details, coordinate the moving parts, and make sure each piece is set up to do exactly what it was designed to do.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-body">
+            <h3>Stewardship</h3>
+            <p>We stay with it over time. A plan is not finished the day it is built. Life changes, and the structure should hold when it does. We review, adjust, and keep the plan aligned with where you are actually headed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT TO EXPECT ─── -->
+  <section class="firm">
+    <div class="firm-inner">
+      <span class="section-label">What to expect</span>
+      <h2>Honest counsel, in <em>every phase</em>.</h2>
+      <p>We would rather tell you the truth than tell you what is easy. If what you need sits outside what we do, we will point you toward it honestly. If a move does not serve you, we will not recommend it. The families who stay with us do so because the counsel has always been straight.</p>
+      <p>The result is structured wealth you understand and control, built through a process you were part of from the first conversation.</p>
+    </div>
+  </section>
+
+  <!-- ─── CLOSING LINE ─── -->
+  <section class="close-line">
+    <p>The right structure is worth the deliberate path to it.</p>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h6>Services</h6>
+          <a href="cash-flow-banking.html">Cash Flow Banking</a>
+          <a href="college-planning.html">College Planning</a>
+          <a href="disability-planning.html">Disability Planning</a>
+          <a href="retirement-estate.html">Retirement &amp; Estate</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Resources</h6>
+          <a href="insights.html">Insights</a>
+          <a href="calculators.html">Financial Calculators</a>
+          <a href="guides.html">Guides</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Consultations</h6>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/disability-planning" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <p>Designed for those who plan with purpose.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Consultation dropdown ─────────────────────────────────
+    const consultBtn  = document.getElementById('consultBtn');
+    const consultWrap = document.getElementById('consultWrap');
+    const consultDD   = document.getElementById('consultDropdown');
+
+    consultBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = consultWrap.classList.toggle('open');
+      consultDD.classList.toggle('open', isOpen);
+    });
+
+    document.addEventListener('click', () => {
+      consultWrap.classList.remove('open');
+      consultDD.classList.remove('open');
+    });
+
+    consultDD.addEventListener('click', e => e.stopPropagation());
+
+    // ── Mobile hamburger ──────────────────────────────────────
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && e.target !== hamburger) {
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // ── Mobile dropdown sub-menu toggles (works for any number) ─
+    document.querySelectorAll('.mobile-nav-dropdown-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    // ── Auto-hide nav on scroll-down (mobile only, under 768px) ──
+    let lastScroll = 0;
+    const SCROLL_THRESHOLD = 5;
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 1024) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      if (mobileNav.classList.contains('open')) {
+        navEl.classList.remove('nav-hidden');
+        return;
+      }
+
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll <= 0) {
+        navEl.classList.remove('nav-hidden');
+        lastScroll = 0;
+        return;
+      }
+
+      if (Math.abs(currentScroll - lastScroll) < SCROLL_THRESHOLD) return;
+
+      if (currentScroll > lastScroll) {
+        navEl.classList.add('nav-hidden');
+      } else {
+        navEl.classList.remove('nav-hidden');
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ── Desktop nav dropdowns: click handler for mobile/tablet ───
+    function isMobile() { return window.innerWidth <= 768; }
+
+    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+      const trigger = item.querySelector('.nav-dropdown-trigger');
+      const menu    = item.querySelector('.nav-dropdown-menu');
+
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.stopPropagation();
+        const isOpen = menu.style.opacity === '1';
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
+        if (!isOpen) {
+          menu.style.opacity       = '1';
+          menu.style.pointerEvents = 'all';
+          menu.style.transform     = 'translateX(-50%) translateY(0)';
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      if (isMobile()) {
+        document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+          m.style.opacity       = '0';
+          m.style.pointerEvents = 'none';
+          m.style.transform     = 'translateX(-50%) translateY(-6px)';
+        });
+      }
+    });
+  </script>
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a554502d166a8719f0daa50" data-source="WEB_USER"></script>
+  <!-- COOKIE CONSENT BANNER -->
+  <div class="swp-consent" id="swpConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p class="swp-consent-text">
+      We use cookies to understand how visitors use our site and to improve your experience.
+      You can accept analytics and marketing cookies, or continue with only the essentials.
+      Read our <a href="privacy-policy.html">Privacy Policy</a> for details.
+    </p>
+    <div class="swp-consent-actions">
+      <button type="button" class="swp-consent-btn swp-consent-decline" id="swpConsentDecline">Decline</button>
+      <button type="button" class="swp-consent-btn swp-consent-accept" id="swpConsentAccept">Accept</button>
+    </div>
+  </div>
+  <style>
+    .swp-consent{
+      position:fixed; left:0; right:0; bottom:0; z-index:2000;
+      display:none; align-items:center; justify-content:space-between; gap:28px;
+      padding:20px 32px;
+      background:#1a1917; color:#f5f2ed;
+      border-top:1px solid rgba(184,155,110,0.45);
+      box-shadow:0 -10px 40px rgba(0,0,0,0.25);
+      font-family:'Jost',sans-serif; font-weight:300;
+      transform:translateY(100%); transition:transform .4s ease;
+    }
+    .swp-consent.is-visible{ display:flex; transform:translateY(0); }
+    .swp-consent-text{
+      margin:0; max-width:760px; font-size:.92rem; line-height:1.6;
+      letter-spacing:.01em; color:#e8e4de;
+    }
+    .swp-consent-text a{ color:#d4b98a; text-decoration:underline; text-underline-offset:2px; }
+    .swp-consent-text a:hover{ color:#f5f2ed; }
+    .swp-consent-actions{ display:flex; gap:12px; flex:0 0 auto; }
+    .swp-consent-btn{
+      font-family:'Jost',sans-serif; font-size:.78rem; font-weight:400;
+      letter-spacing:.14em; text-transform:uppercase;
+      padding:13px 26px; border-radius:2px; cursor:pointer;
+      transition:all .25s ease;
+    }
+    .swp-consent-accept{ background:#b89b6e; color:#111010; border:1px solid #b89b6e; }
+    .swp-consent-accept:hover{ background:#d4b98a; border-color:#d4b98a; }
+    .swp-consent-decline{ background:transparent; color:#e8e4de; border:1px solid rgba(232,228,222,0.4); }
+    .swp-consent-decline:hover{ border-color:#e8e4de; color:#fff; }
+    @media (max-width:768px){
+      .swp-consent{ flex-direction:column; align-items:flex-start; gap:16px; padding:20px 22px; }
+      .swp-consent-actions{ width:100%; }
+      .swp-consent-btn{ flex:1 1 auto; text-align:center; }
+    }
+  </style>
+  <script>
+    (function () {
+      var banner = document.getElementById('swpConsent');
+      if (!banner) return;
+      var saved = null;
+      try { saved = localStorage.getItem('swp_consent'); } catch (e) {}
+      if (saved !== 'granted' && saved !== 'denied') {
+        setTimeout(function(){ banner.classList.add('is-visible'); }, 600);
+      }
+      function hide(){ banner.classList.remove('is-visible'); }
+      var acceptBtn = document.getElementById('swpConsentAccept');
+      var declineBtn = document.getElementById('swpConsentDecline');
+      if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        try { localStorage.setItem('swp_consent', 'granted'); } catch (e) {}
+        hide();
+      });
+      if (declineBtn) declineBtn.addEventListener('click', function () {
+        try { localStorage.setItem('swp_consent', 'denied'); } catch (e) {}
+        hide();
+      });
+    })();
+  </script>
+  <!-- END COOKIE CONSENT BANNER -->
+</body>
+</html>
