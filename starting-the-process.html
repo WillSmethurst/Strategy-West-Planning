@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Starting the Process | Strategy West Planning</title>
+<meta name="description" content="Pre-application form and client resources for Strategy West Planning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:      #111010;
+    --charcoal:   #1a1917;
+    --gold:       #b89b6e;
+    --gold-light: #d4b98a;
+    --gold-dim:   rgba(184,155,110,0.18);
+    --cream:      #f5f2ed;
+    --warm-white: #faf8f5;
+    --off-white:  #f2efe8;
+    --gray-mid:   #8a8580;
+    --gray-light: #e8e4de;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --sans:       'Jost', sans-serif;
+
+    --rule:       rgba(26,25,23,.14);
+    --rule-soft:  rgba(26,25,23,.07);
+    --danger:     #9b3232;
+    --shell:      1080px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  }
+  body{
+    background:var(--cream);
+    color:var(--black);
+    font-family:var(--sans);
+    font-size:16px;
+    font-weight:300;
+    line-height:1.6;
+    letter-spacing:0.01em;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+
+  /* ── progress rail ─────────────────────────── */
+  #rail{
+    position:fixed;top:0;left:0;right:0;height:2px;
+    background:transparent;z-index:60;pointer-events:none;
+  }
+  #rail-fill{
+    height:100%;width:0;
+    background:linear-gradient(90deg,var(--gold),var(--gold-light));
+    transition:width .15s linear;
+  }
+
+  /* ── hero ──────────────────────────────────── */
+  .hero{
+    background:
+      radial-gradient(1100px 520px at 50% -10%,#26231f 0%,transparent 62%),
+      var(--black);
+    color:#fff;
+    padding:104px 0 88px;
+    position:relative;
+    border-bottom:1px solid rgba(184,155,110,.28);
+  }
+  .hero .shell{max-width:760px;text-align:center}
+  .hero .eyebrow{color:var(--gold);margin-bottom:26px}
+  .hero .diamond{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .hero .diamond span{width:52px;height:1px;background:rgba(184,155,110,.5)}
+  .hero .diamond i{
+    width:7px;height:7px;border:1px solid var(--gold);
+    transform:rotate(45deg);display:block;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(40px,6.2vw,66px);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-light)}
+  .hero p{
+    color:rgba(255,255,255,.74);
+    font-size:17px;
+    line-height:1.72;
+    max-width:600px;
+    margin:0 auto 18px;
+  }
+  .hero .legacy{
+    margin-top:44px;
+    color:rgba(184,155,110,.72);
+    font-size:10px;
+    letter-spacing:.3em;
+  }
+
+  /* ── how it works ──────────────────────────── */
+  .how{background:var(--warm-white);padding:64px 0;border-bottom:1px solid var(--rule-soft)}
+  .how .eyebrow{color:var(--gray-mid);text-align:center;margin-bottom:38px}
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    counter-reset:s;
+  }
+  .step{padding:0 26px;border-left:1px solid var(--rule-soft);counter-increment:s}
+  .step:first-child{border-left:0;padding-left:0}
+  .step:last-child{padding-right:0}
+  .step::before{
+    content:counter(s,decimal-leading-zero);
+    font-family:var(--serif);
+    font-size:26px;
+    color:var(--gold);
+    display:block;
+    margin-bottom:10px;
+  }
+  .step h3{font-family:var(--sans);font-size:14px;font-weight:500;margin-bottom:6px;color:var(--black)}
+  .step p{font-size:13.5px;color:var(--gray-mid);line-height:1.6}
+  @media(max-width:820px){
+    .steps{grid-template-columns:1fr 1fr;gap:32px 0}
+    .step{padding:0 20px}
+    .step:nth-child(odd){border-left:0;padding-left:0}
+  }
+  @media(max-width:520px){
+    .steps{grid-template-columns:1fr;gap:26px}
+    .step{border-left:0;padding:0}
+  }
+
+  /* ── form ──────────────────────────────────── */
+  .formwrap{padding:76px 0 90px}
+  .formwrap .shell{max-width:780px}
+
+  .sec{margin-bottom:62px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:16px;
+    padding-bottom:14px;margin-bottom:32px;
+    border-bottom:1px solid var(--rule);
+  }
+  .sec-num{
+    font-family:var(--serif);
+    font-size:30px;
+    color:var(--gold);
+    line-height:1;
+    flex:none;
+  }
+  .sec-title{
+    font-family:var(--serif);
+    font-size:29px;
+    font-weight:400;
+    color:var(--black);
+    line-height:1.2;
+  }
+  .sec-note{
+    margin-left:auto;font-size:12px;color:var(--gray-mid);
+    letter-spacing:.04em;flex:none;
+  }
+  @media(max-width:600px){.sec-note{display:none}}
+
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px 20px}
+  .f{grid-column:span 12;display:flex;flex-direction:column}
+  .c2{grid-column:span 6}
+  .c3{grid-column:span 4}
+  .c4{grid-column:span 3}
+  .c8{grid-column:span 8}
+  .c9{grid-column:span 9}
+  @media(max-width:640px){
+    .c2,.c3,.c4,.c8,.c9{grid-column:span 12}
+  }
+
+  label{
+    font-size:13px;
+    font-weight:500;
+    color:var(--black);
+    margin-bottom:7px;
+    letter-spacing:.02em;
+  }
+  .req{color:var(--gold);margin-left:2px;font-weight:500}
+  .hint{font-size:12px;color:var(--gray-mid);margin-top:6px;line-height:1.5}
+
+  input[type=text],input[type=email],input[type=tel],input[type=date],select{
+    font-family:var(--sans);
+    font-size:15px;
+    font-weight:400;
+    color:var(--black);
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    padding:12px 13px;
+    width:100%;
+    letter-spacing:0.01em;
+    transition:border-color .15s,box-shadow .15s;
+    appearance:none;
+  }
+  input:hover,select:hover{border-color:rgba(26,25,23,.28)}
+  input:focus,select:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(184,155,110,.18);
+  }
+  input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{
+    outline:2px solid var(--gold);outline-offset:2px;
+  }
+  select{
+    background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8580' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 13px center;
+    padding-right:34px;
+    cursor:pointer;
+  }
+  input[aria-invalid="true"],select[aria-invalid="true"]{
+    border-color:var(--danger);
+    box-shadow:0 0 0 3px rgba(155,50,50,.1);
+  }
+  .err{
+    font-size:12px;color:var(--danger);margin-top:6px;display:none;
+  }
+  .err.on{display:block}
+
+  /* conditional blocks */
+  .cond{display:none;grid-column:span 12}
+  .cond.on{display:block;animation:drop .28s ease}
+  @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .cond-inner{
+    border-left:2px solid var(--gold);
+    padding:22px 0 4px 22px;
+    margin-top:2px;
+  }
+  @media(max-width:640px){.cond-inner{padding-left:16px}}
+
+  /* policy repeater */
+  .policy{
+    padding-bottom:20px;margin-bottom:20px;
+    border-bottom:1px solid var(--rule-soft);
+    position:relative;
+  }
+  .policy:last-of-type{border-bottom:0;margin-bottom:8px}
+  .policy-head{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .policy-lab{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gray-mid);font-weight:500;
+  }
+  .drop{
+    background:none;border:0;cursor:pointer;
+    font-family:var(--sans);font-size:12px;color:var(--gray-mid);
+    text-decoration:underline;text-underline-offset:3px;padding:2px 4px;
+  }
+  .drop:hover{color:var(--danger)}
+  #addPolicy{
+    background:none;border:0;cursor:pointer;
+    font-family:var(--sans);font-size:13.5px;font-weight:500;
+    color:var(--black);padding:0;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  #addPolicy .plus{
+    width:16px;height:16px;border:1px solid var(--gold);
+    display:grid;place-items:center;color:var(--gold);
+    font-size:13px;line-height:1;border-radius:1px;
+  }
+  #addPolicy u{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:1px}
+  #addPolicy:hover u{border-color:var(--black)}
+  #addPolicy[hidden]{display:none}
+  #capMsg{font-size:12px;color:var(--gray-mid);display:none}
+  #capMsg.on{display:block}
+
+  /* submit */
+  .submitbar{
+    border-top:1px solid var(--rule);
+    padding-top:34px;margin-top:8px;
+  }
+  .btn{
+    font-family:var(--sans);
+    font-size:13px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;
+    background:var(--charcoal);color:#fff;
+    border:1px solid var(--charcoal);
+    border-radius:2px;
+    padding:16px 40px;
+    cursor:pointer;
+    transition:background .18s,color .18s,border-color .18s;
+  }
+  .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+  .btn:disabled{opacity:.5;cursor:progress}
+  .privacy{font-size:12.5px;color:var(--gray-mid);margin-top:16px;line-height:1.6;max-width:520px}
+  .formerr{
+    display:none;margin-top:18px;padding:14px 16px;
+    border-left:2px solid var(--danger);background:rgba(155,50,50,.05);
+    font-size:13.5px;color:var(--danger);
+  }
+  .formerr.on{display:block}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+  /* success */
+  .done{display:none;padding:80px 0;text-align:center}
+  .done.on{display:block}
+  .done .mark{
+    width:46px;height:46px;margin:0 auto 26px;
+    border:1px solid var(--gold);transform:rotate(45deg);
+    display:grid;place-items:center;
+  }
+  .done .mark::after{
+    content:"";width:12px;height:6px;
+    border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);
+    transform:rotate(-90deg) translate(1px,1px);
+  }
+  .done h2{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--black);margin-bottom:16px}
+  .done p{color:var(--gray-mid);max-width:460px;margin:0 auto;font-size:16px}
+
+  /* ── resources ─────────────────────────────── */
+  .res{
+    background:
+      radial-gradient(900px 420px at 50% 0%,#26231f 0%,transparent 60%),
+      var(--black);
+    color:#fff;padding:88px 0 96px;
+  }
+  .res-head{text-align:center;margin-bottom:52px}
+  .res-head .eyebrow{color:var(--gold);margin-bottom:20px}
+  .res-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.4vw,46px);line-height:1.14;margin-bottom:16px}
+  .res-head h2 em{font-style:italic;color:var(--gold-light)}
+  .res-head p{color:rgba(255,255,255,.66);max-width:520px;margin:0 auto;font-size:16px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,155,110,.24)}
+  @media(max-width:860px){.cards{grid-template-columns:1fr}}
+  .card{
+    background:var(--black);
+    padding:34px 28px 30px;
+    display:flex;flex-direction:column;
+    transition:background .2s;
+  }
+  .card:hover{background:var(--charcoal)}
+  .card .kind{
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:16px;font-weight:400;
+  }
+  .card h3{
+    font-family:var(--serif);font-weight:400;
+    font-size:27px;line-height:1.22;color:#fff;margin-bottom:14px;
+  }
+  .card h3 em{font-style:italic;color:var(--gold-light)}
+  .card p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.68;margin-bottom:26px;flex:1}
+  .card a{
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+    color:var(--gold);text-decoration:none;
+    display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+    border-bottom:1px solid rgba(184,155,110,.35);padding-bottom:5px;
+    transition:border-color .2s,color .2s;
+  }
+  .card a:hover{color:var(--gold-light);border-color:var(--gold-light)}
+  .card a svg{flex:none}
+
+  .res-foot{
+    text-align:center;margin-top:64px;padding-top:40px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  .res-foot p{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:8px}
+  .res-foot a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,155,110,.4)}
+  .res-foot a:hover{color:var(--gold-light)}
+  .res-foot .legacy{margin-top:34px;color:rgba(184,155,110,.6);font-size:10px;letter-spacing:.3em}
+
+  /* ── footer ────────────────────────────────── */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 64px 48px 40px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 56px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .footer-brand img { height: 64px; opacity: 1; margin-bottom: 14px; }
+  .footer-nav { display: flex; gap: 64px; }
+  .footer-col h6 {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 15px;
+    color: rgba(255,255,255,0.38);
+    text-decoration: none;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: rgba(255,255,255,0.7); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
+  .footer-bottom-left { display: flex; flex-direction: column; gap: 8px; }
+  .footer-legal { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-legal a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-legal a:hover { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    footer { padding-left: 24px; padding-right: 24px; }
+    .footer-nav { flex-direction: column; gap: 32px; }
+    .footer-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div id="rail"><div id="rail-fill"></div></div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="shell">
+    <div class="eyebrow">Strategy West Planning</div>
+    <div class="diamond"><span></span><i></i><span></span></div>
+    <h1>Starting the <em>Process</em></h1>
+    <p>This pre-application collects the information your carrier application asks for, so we can prepare it on your behalf. You'll review everything we've filled in before a single page is submitted.</p>
+    <p>It takes about ten minutes. Your application specialist handles the rest.</p>
+    <div class="eyebrow legacy">Your legacy starts with you</div>
+  </div>
+</header>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how">
+  <div class="shell">
+    <div class="eyebrow">How this works</div>
+    <div class="steps">
+      <div class="step">
+        <h3>You fill this out</h3>
+        <p>Answer what you can. Anything you'd rather not type, we can gather by phone.</p>
+      </div>
+      <div class="step">
+        <h3>We prepare the application</h3>
+        <p>Your specialist pre-fills the carrier application using what you've given us.</p>
+      </div>
+      <div class="step">
+        <h3>You review it</h3>
+        <p>We walk you through the completed application line by line.</p>
+      </div>
+      <div class="step">
+        <h3>You give the go-ahead</h3>
+        <p>Nothing is submitted to the carrier until you approve it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORM ══ -->
+<main class="formwrap" id="formwrap">
+  <div class="shell">
+    <form id="preapp" novalidate autocomplete="on">
+
+      <!-- honeypot -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="startedAt" id="startedAt">
+
+      <!-- 01 ─ YOUR INFORMATION -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">01</div>
+          <h2 class="sec-title">Your information</h2>
+          <div class="sec-note eyebrow">As it appears on your ID</div>
+        </div>
+        <div class="grid">
+          <div class="f c3">
+            <label for="firstName">First name<span class="req">*</span></label>
+            <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c4">
+            <label for="middleInitial">Middle initial</label>
+            <input type="text" id="middleInitial" name="middleInitial" maxlength="2" autocomplete="additional-name">
+          </div>
+          <div class="f c3" style="grid-column:span 5">
+            <label for="lastName">Last name<span class="req">*</span></label>
+            <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
+            <p class="err" data-err></p>
+          </div>
+
+          <div class="f c2">
+            <label for="dob">Date of birth<span class="req">*</span></label>
+            <input type="date" id="dob" name="dob" required autocomplete="bday">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c2">
+            <label for="placeOfBirth">Place of birth<span class="req">*</span></label>
+            <input type="text" id="placeOfBirth" name="placeOfBirth" required placeholder="City, State or Country">
+            <p class="err" data-err></p>
+          </div>
+
+          <div class="f c2">
+            <label for="email">Email address<span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c2">
+            <label for="phone">Phone number<span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            <p class="err" data-err></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 ─ RESIDENTIAL ADDRESS -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">02</div>
+          <h2 class="sec-title">Residential address</h2>
+          <div class="sec-note eyebrow">Where you currently live</div>
+        </div>
+        <div class="grid">
+          <div class="f c9">
+            <label for="street">Street address<span class="req">*</span></label>
+            <input type="text" id="street" name="street" required autocomplete="address-line1">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c4">
+            <label for="apt">Apt / suite #</label>
+            <input type="text" id="apt" name="apt" autocomplete="address-line2">
+          </div>
+          <div class="f c3">
+            <label for="city">City<span class="req">*</span></label>
+            <input type="text" id="city" name="city" required autocomplete="address-level2">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c3">
+            <label for="state">State / province<span class="req">*</span></label>
+            <input type="text" id="state" name="state" required autocomplete="address-level1">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c3">
+            <label for="zip">Zip / postal code<span class="req">*</span></label>
+            <input type="text" id="zip" name="zip" required autocomplete="postal-code">
+            <p class="err" data-err></p>
+          </div>
+          <div class="f c2">
+            <label for="country">Country<span class="req">*</span></label>
+            <input type="text" id="country" name="country" required value="United States" autocomplete="country-name">
+            <p class="err" data-err></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 ─ IDENTIFICATION & CITIZENSHIP -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">03</div>
+          <h2 class="sec-title">Identification &amp; citizenship</h2>
+        </div>
+        <div class="grid">
+          <div class="f c2">
+            <label for="ssn">Social Security number / ITIN</label>
+            <input type="text" id="ssn" name="ssn" autocomplete="off" inputmode="numeric" placeholder="000-00-0000">
+            <p class="hint">Optional here. If you'd rather not type it, leave it blank and your specialist will collect it by phone.</p>
+          </div>
+          <div class="f c2">
+            <label for="hasDL">Do you have a valid U.S. driver's license?<span class="req">*</span></label>
+            <select id="hasDL" name="hasDL" required>
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="err" data-err></p>
+          </div>
+
+          <div class="cond" id="dlBlock">
+            <div class="cond-inner">
+              <div class="grid">
+                <div class="f c2">
+                  <label for="dlNumber">Driver's license number<span class="req">*</span></label>
+                  <input type="text" id="dlNumber" name="dlNumber" data-cond-req>
+                  <p class="err" data-err></p>
+                </div>
+                <div class="f c2">
+                  <label for="dlIssuer">State or country of issue<span class="req">*</span></label>
+                  <input type="text" id="dlIssuer" name="dlIssuer" data-cond-req>
+                  <p class="err" data-err></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="f c2">
+            <label for="citizenship">Type of citizenship<span class="req">*</span></label>
+            <select id="citizenship" name="citizenship" required>
+              <option value="">Select…</option>
+              <option>Resident U.S. Citizen</option>
+              <option>Non-Resident U.S. Citizen</option>
+              <option>Resident Alien</option>
+              <option>Non-Resident Alien</option>
+            </select>
+            <p class="err" data-err></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 ─ FINANCIAL PICTURE -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">04</div>
+          <h2 class="sec-title">Financial picture</h2>
+          <div class="sec-note eyebrow">Estimates are fine</div>
+        </div>
+        <div class="grid">
+          <div class="f c2">
+            <label for="netWorth">Net worth</label>
+            <input type="text" id="netWorth" name="netWorth" inputmode="numeric" placeholder="$">
+          </div>
+          <div class="f c2">
+            <label for="annualIncome">Estimated annual income</label>
+            <input type="text" id="annualIncome" name="annualIncome" inputmode="numeric" placeholder="$">
+          </div>
+
+          <div class="f">
+            <label for="hasCoverage">Do you have existing life insurance coverage outside of your job?<span class="req">*</span></label>
+            <select id="hasCoverage" name="hasCoverage" required style="max-width:260px">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="err" data-err></p>
+          </div>
+
+          <div class="cond" id="covBlock">
+            <div class="cond-inner">
+              <div id="policies"></div>
+              <button type="button" id="addPolicy">
+                <span class="plus">+</span><u>Add another policy</u>
+              </button>
+              <p id="capMsg">You can list up to five policies here. If you have more, mention them to your specialist and we'll capture the rest.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 ─ EMPLOYMENT -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">05</div>
+          <h2 class="sec-title">Employment</h2>
+        </div>
+        <div class="grid">
+          <div class="f c2">
+            <label for="occupation">Current occupation</label>
+            <input type="text" id="occupation" name="occupation" autocomplete="organization-title">
+          </div>
+          <div class="f c2">
+            <label for="employer">Who is your employer?</label>
+            <input type="text" id="employer" name="employer" autocomplete="organization">
+          </div>
+          <div class="f">
+            <label for="employerAddress">Full employer's address</label>
+            <input type="text" id="employerAddress" name="employerAddress" placeholder="Street, City, State, Zip">
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 ─ PRIMARY PHYSICIAN -->
+      <section class="sec" data-sec>
+        <div class="sec-head">
+          <div class="sec-num">06</div>
+          <h2 class="sec-title">Your primary doctor</h2>
+        </div>
+        <div class="grid">
+          <div class="f c2">
+            <label for="doctorName">Doctor's full name</label>
+            <input type="text" id="doctorName" name="doctorName">
+          </div>
+          <div class="f c2">
+            <label for="doctorPhone">Doctor's office phone number</label>
+            <input type="tel" id="doctorPhone" name="doctorPhone">
+          </div>
+          <div class="f c2">
+            <label for="doctorEmail">Doctor's email</label>
+            <input type="email" id="doctorEmail" name="doctorEmail">
+          </div>
+          <div class="f c2">
+            <label for="doctorAddress">Doctor's full office address</label>
+            <input type="text" id="doctorAddress" name="doctorAddress" placeholder="Street, City, State, Zip">
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBMIT -->
+      <div class="submitbar">
+        <button type="submit" class="btn" id="submitBtn">Send to my specialist</button>
+        <p class="privacy">Your answers go directly to your Strategy West Planning team and are used only to prepare your application. Nothing is submitted to a carrier without your review and approval.</p>
+        <div class="formerr" id="formErr" role="alert"></div>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS -->
+    <div class="done" id="done" role="status">
+      <div class="mark"></div>
+      <h2>Thank you, we've got it</h2>
+      <p>Your pre-application is with your specialist now. They'll prepare your carrier application and reach out to walk you through it before anything is submitted. In the meantime, the guides below are yours to keep.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ══ RESOURCES ══ -->
+<section class="res" id="resources">
+  <div class="shell">
+    <div class="res-head">
+      <div class="eyebrow">Yours to keep</div>
+      <h2>Resources for <em>the road ahead</em></h2>
+      <p>Three guides covering the strategies we build with clients. Read them at your own pace, during the process and long after it.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="kind">Guide · Cash flow banking</div>
+        <h3>Beyond <em>the Policy</em></h3>
+        <p>A policy is a financial product. A system around the policy is a financial legacy. This guide walks the full lifecycle, from the foundation years through the legacy years, and how a family bank is actually built and governed.</p>
+        <a href="guides/beyond-the-policy.pdf" download>
+          Download PDF
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1v8M3 6.5L6 9.5l3-3M1.5 11h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="kind">Guide · Overfunded whole life</div>
+        <h3>Making Capital <em>Work Twice</em></h3>
+        <p>How overfunding a properly structured whole life policy builds accessible capital while it grows: the tax treatment, the loan mechanics, non-direct recognition, and how to tell whether the strategy fits you.</p>
+        <a href="guides/making-capital-work-twice.pdf" download>
+          Download PDF
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1v8M3 6.5L6 9.5l3-3M1.5 11h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="kind">Guide · Retirement income</div>
+        <h3>Your Self-Funded <em>Pension Plan</em></h3>
+        <p>For adults 50 to 65 approaching retirement: how to find your income gap, understand the different annuity types, and turn what you've built into income you can depend on for life.</p>
+        <a href="guides/retirement-planning-guide.pdf" download>
+          Download PDF
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1v8M3 6.5L6 9.5l3-3M1.5 11h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <div class="res-foot">
+      <p>Questions at any point in the process?</p>
+      <p><a href="mailto:info@strategywestplanning.com">info@strategywestplanning.com</a></p>
+      <div class="eyebrow legacy">Your legacy starts with you</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/Strategy_West_Planning_Logo__Transparent.png" alt="Strategy West Planning" />
+    </div>
+
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h6>Services</h6>
+        <a href="cash-flow-banking.html">Cash Flow Banking</a>
+        <a href="college-planning.html">College Planning</a>
+        <a href="disability-planning.html">Disability Planning</a>
+        <a href="retirement-estate.html">Retirement &amp; Estate</a>
+      </div>
+
+      <div class="footer-col">
+        <h6>Resources</h6>
+        <a href="insights.html">Insights</a>
+        <a href="calculators.html">Financial Calculators</a>
+        <a href="guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+
+      <div class="footer-col">
+        <h6>Consultations</h6>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-cash-flow-banking" target="_blank" rel="noopener noreferrer">Cash Flow Banking</a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-site-college-planning" target="_blank" rel="noopener noreferrer">College Planning</a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/disability-planning" target="_blank" rel="noopener noreferrer">Disability Planning</a>
+        <a href="https://meetings-na2.hubspot.com/will-smethurst/strategy-west-planning-retirement-estate-planning" target="_blank" rel="noopener noreferrer">Retirement &amp; Estate</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <p>&copy; 2026 Strategy West Planning. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <p>Designed for those who plan with purpose.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var form = document.getElementById('preapp');
+  var railFill = document.getElementById('rail-fill');
+  var formErr = document.getElementById('formErr');
+  var submitBtn = document.getElementById('submitBtn');
+
+  document.getElementById('startedAt').value = String(Date.now());
+
+  /* ── progress rail ───────────────────────── */
+  var wrap = document.getElementById('formwrap');
+  function rail(){
+    var r = wrap.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    var done = Math.min(Math.max(-r.top, 0), Math.max(total, 1));
+    railFill.style.width = (total <= 0 ? 0 : (done/total)*100) + '%';
+  }
+  window.addEventListener('scroll', rail, {passive:true});
+  window.addEventListener('resize', rail);
+  rail();
+
+  /* ── conditional reveal ──────────────────── */
+  function wire(selectId, blockId, showOn){
+    var sel = document.getElementById(selectId);
+    var block = document.getElementById(blockId);
+    sel.addEventListener('change', function(){
+      var on = sel.value === showOn;
+      block.classList.toggle('on', on);
+      if(!on) clearBlock(block);
+      if(blockId === 'covBlock' && on && !document.querySelector('.policy')) addPolicy();
+      rail();
+    });
+  }
+  function clearBlock(block){
+    block.querySelectorAll('input,select').forEach(function(el){
+      el.value = '';
+      el.setAttribute('aria-invalid','false');
+    });
+    block.querySelectorAll('.err').forEach(function(e){ e.classList.remove('on'); });
+    if(block.id === 'covBlock'){
+      document.getElementById('policies').innerHTML = '';
+      syncPolicies();
+    }
+  }
+  wire('hasDL','dlBlock','Yes');
+  wire('hasCoverage','covBlock','Yes');
+
+  /* ── policy repeater (cap 5) ─────────────── */
+  var MAX = 5;
+  var TYPES = ['Term','Whole Life','IUL','VUL','GUL','Not sure'];
+  var box = document.getElementById('policies');
+  var addBtn = document.getElementById('addPolicy');
+  var capMsg = document.getElementById('capMsg');
+
+  function addPolicy(){
+    var n = box.children.length + 1;
+    if(n > MAX) return;
+    var d = document.createElement('div');
+    d.className = 'policy';
+    d.innerHTML =
+      '<div class="policy-head">' +
+        '<span class="policy-lab">Policy ' + n + '</span>' +
+        (n > 1 ? '<button type="button" class="drop">Remove</button>' : '') +
+      '</div>' +
+      '<div class="grid">' +
+        '<div class="f c2">' +
+          '<label>Amount of coverage</label>' +
+          '<input type="text" class="pAmt" inputmode="numeric" placeholder="$">' +
+        '</div>' +
+        '<div class="f c2">' +
+          '<label>Type of coverage</label>' +
+          '<select class="pType">' +
+            '<option value="">Select…</option>' +
+            TYPES.map(function(t){ return '<option>' + t + '</option>'; }).join('') +
+          '</select>' +
+        '</div>' +
+      '</div>';
+    box.appendChild(d);
+    var rm = d.querySelector('.drop');
+    if(rm) rm.addEventListener('click', function(){ d.remove(); syncPolicies(); rail(); });
+    syncPolicies();
+    var first = d.querySelector('.pAmt');
+    if(first && box.children.length > 1) first.focus();
+  }
+  function syncPolicies(){
+    Array.prototype.forEach.call(box.children, function(el, i){
+      el.querySelector('.policy-lab').textContent = 'Policy ' + (i+1);
+    });
+    var full = box.children.length >= MAX;
+    addBtn.hidden = full;
+    capMsg.classList.toggle('on', full);
+  }
+  addBtn.addEventListener('click', function(){ addPolicy(); rail(); });
+
+  /* ── validation ──────────────────────────── */
+  function fieldErr(el, msg){
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    var f = el.closest('.f');
+    var p = f && f.querySelector('[data-err]');
+    if(p){ p.textContent = msg || ''; p.classList.toggle('on', !!msg); }
+  }
+  function labelOf(el){
+    var f = el.closest('.f');
+    var l = f && f.querySelector('label');
+    return l ? l.textContent.replace('*','').trim() : 'This field';
+  }
+  function check(el){
+    var v = (el.value || '').trim();
+    if(!v){ fieldErr(el, labelOf(el) + ' is required.'); return false; }
+    if(el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+      fieldErr(el, 'Enter a valid email address.'); return false;
+    }
+    if(el.type === 'tel' && v.replace(/\D/g,'').length < 10){
+      fieldErr(el, 'Enter a valid phone number.'); return false;
+    }
+    fieldErr(el, '');
+    return true;
+  }
+  function activeRequired(){
+    var out = [];
+    form.querySelectorAll('[required]').forEach(function(el){ out.push(el); });
+    form.querySelectorAll('.cond.on [data-cond-req]').forEach(function(el){ out.push(el); });
+    return out;
+  }
+  form.addEventListener('blur', function(e){
+    var t = e.target;
+    if(t.matches('[required],[data-cond-req]') && (t.value||'').trim()) check(t);
+  }, true);
+
+  /* ── submit ──────────────────────────────── */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    formErr.classList.remove('on');
+
+    var bad = [];
+    activeRequired().forEach(function(el){ if(!check(el)) bad.push(el); });
+    if(bad.length){
+      formErr.textContent = bad.length === 1
+        ? 'One question still needs an answer. It\u2019s marked above.'
+        : bad.length + ' questions still need answers. They\u2019re marked above.';
+      formErr.classList.add('on');
+      bad[0].scrollIntoView({block:'center', behavior:'smooth'});
+      bad[0].focus({preventScroll:true});
+      return;
+    }
+
+    var data = {};
+    ['firstName','middleInitial','lastName','dob','placeOfBirth','email','phone',
+     'street','apt','city','state','zip','country','ssn','hasDL','dlNumber','dlIssuer',
+     'citizenship','netWorth','annualIncome','hasCoverage','occupation','employer',
+     'employerAddress','doctorName','doctorPhone','doctorEmail','doctorAddress',
+     'website','startedAt'
+    ].forEach(function(k){
+      var el = form.elements[k];
+      data[k] = el ? (el.value || '').trim() : '';
+    });
+
+    data.policies = [];
+    Array.prototype.forEach.call(box.children, function(el){
+      var amt = el.querySelector('.pAmt').value.trim();
+      var typ = el.querySelector('.pType').value.trim();
+      if(amt || typ) data.policies.push({amount:amt, type:typ});
+    });
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('/.netlify/functions/pre-application', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    })
+    .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, body:j}; }); })
+    .then(function(res){
+      if(!res.ok) throw new Error(res.body && res.body.message ? res.body.message : 'submit_failed');
+      form.style.display = 'none';
+      document.getElementById('done').classList.add('on');
+      window.scrollTo({top:0, behavior:'smooth'});
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send to my specialist';
+      formErr.textContent = 'We couldn\u2019t send that through. Please try once more. If it still won\u2019t go, email info@strategywestplanning.com and we\u2019ll take it from there.';
+      formErr.classList.add('on');
+    });
+  });
+})();
+</script>
+</body>
+</html>
