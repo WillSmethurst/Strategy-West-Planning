@@ -3,4 +3,4 @@
 /sitemap.xml    /.netlify/functions/sitemap    200
 # Block public reads of function and edge-function source files.
 # The functions themselves run from /.netlify/* and are unaffected by this rule.
-/netlify/*  /404.html  404
+/netlify/*  /404.html  404!
