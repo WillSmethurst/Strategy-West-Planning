@@ -817,6 +817,28 @@
     </div>
   </section>
 
+  <!-- ─── GUIDE 3: COLLEGE PLANNING ─── -->
+  <section class="guide-section is-cream" id="college-planning-guide">
+    <div class="guide-inner">
+      <div class="guide-grid">
+        <div class="guide-cover-wrap">
+          <img class="guide-cover-img" src="images/guide-cover-college-planning.png" alt="The Complete College Planning Guide cover">
+        </div>
+        <div class="guide-text">
+          <span class="guide-eyebrow">College Planning</span>
+          <h2 class="guide-title">The Complete College Planning Guide</h2>
+          <p class="guide-desc">A parent's roadmap from eighth grade through enrollment day, written for families who want to see the whole sequence in advance rather than discover it in April of senior year. The guide treats academic strategy, social strategy, and paying for college as one plan rather than three separate projects, and it closes with a year-by-year roadmap and printable worksheets.</p>
+          <ul class="guide-bullets">
+            <li>Why the decisions that matter most get made years before they feel urgent, and what is still available to you at each grade level</li>
+            <li>The three pillars of academic, social, and financial strategy, and how each one moves the other two</li>
+            <li>How college money actually works, from the Student Aid Index and the FAFSA through reading and comparing award letters side by side</li>
+          </ul>
+          <a class="btn-gold js-cpg-guide-trigger" href="https://api.leadconnectorhq.com/widget/form/PapRYezv0Y9WsheVMhZP">Download the Guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── CLOSING CTA ─── -->
   <section class="cta">
     <div class="cta-inner">
@@ -1074,6 +1096,35 @@
       function openModal(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
       function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
       document.querySelectorAll('.js-guide-form-trigger').forEach(function (t) { t.addEventListener('click', openModal); });
+      modal.querySelectorAll('[data-guide-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+    })();
+  </script>
+
+  <!-- ─── GUIDE FORM MODAL: The Complete College Planning Guide ─── -->
+  <div class="guide-modal" id="collegePlanningGuideModal" role="dialog" aria-modal="true" aria-label="The Complete College Planning Guide signup">
+    <div class="guide-modal-overlay" data-guide-close></div>
+    <div class="guide-modal-panel">
+      <button class="guide-modal-close" type="button" aria-label="Close" data-guide-close>&times;</button>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/PapRYezv0Y9WsheVMhZP"
+        id="inline-PapRYezv0Y9WsheVMhZP"
+        data-layout="{'id':'INLINE'}"
+        data-form-id="PapRYezv0Y9WsheVMhZP"
+        data-form-name="The Complete College Planning Guide"
+        title="The Complete College Planning Guide"
+        class="guide-modal-iframe">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('collegePlanningGuideModal');
+      if (!modal) return;
+      function openModal(e) { if (e) e.preventDefault(); modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('.js-cpg-guide-trigger').forEach(function (t) { t.addEventListener('click', openModal); });
       modal.querySelectorAll('[data-guide-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
     })();
