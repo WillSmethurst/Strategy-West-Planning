@@ -473,6 +473,9 @@
       color: #4a4540;
       margin: 0;
     }
+    .ltp-hero-cta { margin-top: 40px; }
+    /* Offset anchor scrolling so the fixed 112px nav does not cover the form card */
+    .ltp-getguides { scroll-margin-top: 112px; }
     /* Right column: framed image with a heavy bottom-right corner sweep + subtle warm mat */
     .ltp-hero-frame {
       position: relative;
@@ -1089,6 +1092,9 @@
         <p class="ltp-hero-sub">
           These three guides walk you through a coordinated approach to building capital, protecting your income, and creating wealth your family can keep for generations.
         </p>
+        <div class="ltp-hero-cta">
+          <a class="btn-primary" href="#get-the-guides">Get The Guides</a>
+        </div>
       </div>
 
       <!-- Right column: framed family image with SW watermark -->
@@ -1099,7 +1105,7 @@
   </section>
 
   <!-- ─── GET YOUR GUIDES (form card + benefit points) ─── -->
-  <section class="ltp-getguides">
+  <section class="ltp-getguides" id="get-the-guides">
     <div class="ltp-getguides-inner">
       <!-- Left: GHL form card -->
       <div class="ltp-getguides-form">
